@@ -1,0 +1,112 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="libraryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E3A8A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bookGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="url(#libraryGrad)" opacity="0.1"/>
+  
+  <!-- Library books/modules -->
+  <!-- Math library -->
+  <g transform="translate(8, 12)">
+    <rect x="0" y="0" width="12" height="16" rx="2" fill="#10B981" stroke="#059669" stroke-width="1"/>
+    <rect x="1" y="1" width="10" height="2" fill="#34D399"/>
+    <text x="6" y="10" text-anchor="middle" font-family="monospace" font-size="6" fill="white">Math</text>
+    <text x="6" y="14" text-anchor="middle" font-family="monospace" font-size="3" fill="#D1FAE5">.js</text>
+  </g>
+  
+  <!-- Utils library -->
+  <g transform="translate(26, 12)">
+    <rect x="0" y="0" width="12" height="16" rx="2" fill="#8B5CF6" stroke="#7C3AED" stroke-width="1"/>
+    <rect x="1" y="1" width="10" height="2" fill="#A78BFA"/>
+    <text x="6" y="10" text-anchor="middle" font-family="monospace" font-size="6" fill="white">Utils</text>
+    <text x="6" y="14" text-anchor="middle" font-family="monospace" font-size="3" fill="#E9D5FF">.js</text>
+  </g>
+  
+  <!-- HTTP library -->
+  <g transform="translate(44, 12)">
+    <rect x="0" y="0" width="12" height="16" rx="2" fill="#F59E0B" stroke="#D97706" stroke-width="1"/>
+    <rect x="1" y="1" width="10" height="2" fill="#FBBF24"/>
+    <text x="6" y="10" text-anchor="middle" font-family="monospace" font-size="6" fill="white">HTTP</text>
+    <text x="6" y="14" text-anchor="middle" font-family="monospace" font-size="3" fill="#FEF3C7">.js</text>
+  </g>
+  
+  <!-- Import statements -->
+  <g transform="translate(4, 34)" font-family="monospace" font-size="4">
+    <rect x="0" y="0" width="56" height="24" rx="3" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    
+    <!-- Import lines -->
+    <text x="2" y="6" fill="#C084FC">import</text>
+    <text x="16" y="6" fill="#FFFFFF">{</text>
+    <text x="18" y="6" fill="#60A5FA">sqrt</text>
+    <text x="26" y="6" fill="#FFFFFF">,</text>
+    <text x="28" y="6" fill="#60A5FA">pow</text>
+    <text x="34" y="6" fill="#FFFFFF">}</text>
+    <text x="38" y="6" fill="#C084FC">from</text>
+    <text x="46" y="6" fill="#34D399">'math'</text>
+    
+    <text x="2" y="12" fill="#C084FC">import</text>
+    <text x="16" y="12" fill="#60A5FA">formatDate</text>
+    <text x="32" y="12" fill="#C084FC">from</text>
+    <text x="40" y="12" fill="#34D399">'utils'</text>
+    
+    <text x="2" y="18" fill="#C084FC">import</text>
+    <text x="16" y="18" fill="#60A5FA">axios</text>
+    <text x="26" y="18" fill="#C084FC">from</text>
+    <text x="34" y="18" fill="#34D399">'http'</text>
+  </g>
+  
+  <!-- Connection lines from libraries to imports -->
+  <g stroke="#60A5FA" stroke-width="1" opacity="0.6" stroke-dasharray="2,1">
+    <line x1="14" y1="28" x2="14" y2="34"/>
+    <line x1="32" y1="28" x2="32" y2="34"/>
+    <line x1="50" y1="28" x2="50" y2="34"/>
+  </g>
+  
+  <!-- Usage example -->
+  <g transform="translate(8, 60)" font-family="monospace" font-size="3" opacity="0.8">
+    <text x="0" y="0" fill="#60A5FA">result = sqrt(16) + pow(2, 3)</text>
+  </g>
+  
+  <!-- Library shelf -->
+  <rect x="6" y="10" width="52" height="20" rx="2" fill="none" stroke="#60A5FA" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Package manager indicator -->
+  <g transform="translate(2, 2)" opacity="0.6">
+    <rect x="0" y="0" width="12" height="6" rx="1" fill="#1E3A8A"/>
+    <text x="6" y="4" text-anchor="middle" font-family="monospace" font-size="3" fill="#60A5FA">npm</text>
+  </g>
+  
+  <!-- Animated data flow -->
+  <g opacity="0.7">
+    <circle r="1" fill="#10B981">
+      <animateMotion dur="2s" repeatCount="indefinite">
+        <path d="M 14 28 L 14 34 L 20 40"/>
+      </animateMotion>
+    </circle>
+    <circle r="1" fill="#8B5CF6">
+      <animateMotion dur="2.5s" repeatCount="indefinite">
+        <path d="M 32 28 L 32 34 L 32 46"/>
+      </animateMotion>
+    </circle>
+    <circle r="1" fill="#F59E0B">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <path d="M 50 28 L 50 34 L 42 52"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <!-- Function symbols -->
+  <g opacity="0.4">
+    <text x="58" y="8" font-family="monospace" font-size="6" fill="#60A5FA">f()</text>
+    <text x="2" y="62" font-family="monospace" font-size="4" fill="#60A5FA">lib</text>
+  </g>
+</svg>

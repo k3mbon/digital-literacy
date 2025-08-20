@@ -1,0 +1,128 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="modelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="entityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34D399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="url(#modelGrad)" opacity="0.1"/>
+  
+  <!-- Entity 1: User -->
+  <g transform="translate(12, 12)">
+    <rect x="0" y="0" width="16" height="12" rx="2" fill="url(#entityGrad)" stroke="#059669" stroke-width="2"/>
+    <text x="8" y="4" text-anchor="middle" font-family="monospace" font-size="5" fill="white" font-weight="bold">User</text>
+    <line x1="2" y1="6" x2="14" y2="6" stroke="white" stroke-width="0.5"/>
+    <text x="2" y="9" font-family="monospace" font-size="3" fill="#D1FAE5">id: int</text>
+    <text x="2" y="11" font-family="monospace" font-size="3" fill="#D1FAE5">name: str</text>
+  </g>
+  
+  <!-- Entity 2: Order -->
+  <g transform="translate(36, 12)">
+    <rect x="0" y="0" width="16" height="12" rx="2" fill="url(#entityGrad)" stroke="#059669" stroke-width="2"/>
+    <text x="8" y="4" text-anchor="middle" font-family="monospace" font-size="5" fill="white" font-weight="bold">Order</text>
+    <line x1="2" y1="6" x2="14" y2="6" stroke="white" stroke-width="0.5"/>
+    <text x="2" y="9" font-family="monospace" font-size="3" fill="#D1FAE5">id: int</text>
+    <text x="2" y="11" font-family="monospace" font-size="3" fill="#D1FAE5">date: date</text>
+  </g>
+  
+  <!-- Entity 3: Product -->
+  <g transform="translate(12, 40)">
+    <rect x="0" y="0" width="16" height="12" rx="2" fill="url(#entityGrad)" stroke="#059669" stroke-width="2"/>
+    <text x="8" y="4" text-anchor="middle" font-family="monospace" font-size="5" fill="white" font-weight="bold">Product</text>
+    <line x1="2" y1="6" x2="14" y2="6" stroke="white" stroke-width="0.5"/>
+    <text x="2" y="9" font-family="monospace" font-size="3" fill="#D1FAE5">id: int</text>
+    <text x="2" y="11" font-family="monospace" font-size="3" fill="#D1FAE5">price: float</text>
+  </g>
+  
+  <!-- Entity 4: Category -->
+  <g transform="translate(36, 40)">
+    <rect x="0" y="0" width="16" height="12" rx="2" fill="url(#entityGrad)" stroke="#059669" stroke-width="2"/>
+    <text x="8" y="4" text-anchor="middle" font-family="monospace" font-size="5" fill="white" font-weight="bold">Category</text>
+    <line x1="2" y1="6" x2="14" y2="6" stroke="white" stroke-width="0.5"/>
+    <text x="2" y="9" font-family="monospace" font-size="3" fill="#D1FAE5">id: int</text>
+    <text x="2" y="11" font-family="monospace" font-size="3" fill="#D1FAE5">name: str</text>
+  </g>
+  
+  <!-- Relationships -->
+  <g stroke="#059669" stroke-width="2" fill="#10B981">
+    <!-- User to Order (1:N) -->
+    <line x1="28" y1="18" x2="36" y2="18"/>
+    <polygon points="36,18 34,16 34,20"/>
+    <text x="32" y="16" text-anchor="middle" font-family="monospace" font-size="3" fill="#059669">1:N</text>
+    
+    <!-- Order to Product (M:N) -->
+    <line x1="44" y1="24" x2="20" y2="40"/>
+    <polygon points="20,40 22,38 18,38"/>
+    <text x="32" y="32" text-anchor="middle" font-family="monospace" font-size="3" fill="#059669">M:N</text>
+    
+    <!-- Product to Category (N:1) -->
+    <line x1="28" y1="46" x2="36" y2="46"/>
+    <polygon points="36,46 34,44 34,48"/>
+    <text x="32" y="44" text-anchor="middle" font-family="monospace" font-size="3" fill="#059669">N:1</text>
+  </g>
+  
+  <!-- Relationship diamonds -->
+  <g fill="#F59E0B" stroke="#D97706" stroke-width="1">
+    <!-- Places relationship -->
+    <g transform="translate(32, 18)">
+      <path d="M -3 0 L 0 -2 L 3 0 L 0 2 Z"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="2" fill="#F59E0B">places</text>
+    </g>
+    
+    <!-- Contains relationship -->
+    <g transform="translate(32, 32)">
+      <path d="M -3 0 L 0 -2 L 3 0 L 0 2 Z"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="2" fill="#F59E0B">contains</text>
+    </g>
+    
+    <!-- Belongs to relationship -->
+    <g transform="translate(32, 46)">
+      <path d="M -3 0 L 0 -2 L 3 0 L 0 2 Z"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="2" fill="#F59E0B">belongs</text>
+    </g>
+  </g>
+  
+  <!-- Model type indicator -->
+  <g transform="translate(4, 4)" opacity="0.8">
+    <rect x="0" y="0" width="20" height="6" rx="1" fill="#047857"/>
+    <text x="10" y="4" text-anchor="middle" font-family="monospace" font-size="3" fill="#D1FAE5">ER Model</text>
+  </g>
+  
+  <!-- Data flow animation -->
+  <g opacity="0.6">
+    <circle r="1" fill="#34D399">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <path d="M 20 18 L 44 18 L 44 24 L 20 40 L 20 46 L 44 46"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <!-- Conceptual modeling indicators -->
+  <g transform="translate(2, 56)" opacity="0.6">
+    <text font-family="monospace" font-size="4" fill="#10B981">Conceptual</text>
+  </g>
+  
+  <g transform="translate(48, 56)" opacity="0.6">
+    <text font-family="monospace" font-size="4" fill="#10B981">Logical</text>
+  </g>
+  
+  <!-- Primary key indicators -->
+  <g fill="#FBBF24" opacity="0.8">
+    <circle cx="14" cy="21" r="1"/>
+    <circle cx="38" cy="21" r="1"/>
+    <circle cx="14" cy="49" r="1"/>
+    <circle cx="38" cy="49" r="1"/>
+  </g>
+  
+  <!-- Normalization indicator -->
+  <g transform="translate(54, 2)" opacity="0.5">
+    <text font-family="monospace" font-size="3" fill="#10B981">3NF</text>
+  </g>
+</svg>

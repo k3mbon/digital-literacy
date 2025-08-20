@@ -1,0 +1,54 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="ctGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#0099ff;stop-opacity:0.4" />
+    </linearGradient>
+    <linearGradient id="ctIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff" />
+      <stop offset="100%" style="stop-color:#0099ff" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <circle cx="32" cy="32" r="30" fill="url(#ctGradient)" stroke="url(#ctIconGradient)" stroke-width="2"/>
+  
+  <!-- Brain/thinking icon -->
+  <g transform="translate(16, 16)">
+    <!-- Main brain shape -->
+    <path d="M8 4C6 4 4 6 4 8C4 9 4.5 9.8 5.2 10.3C4.5 11.1 4 12.2 4 13.5C4 16.5 6.5 19 9.5 19H22.5C25.5 19 28 16.5 28 13.5C28 12.2 27.5 11.1 26.8 10.3C27.5 9.8 28 9 28 8C28 6 26 4 24 4C23 4 22.1 4.4 21.5 5C20.7 4.4 19.7 4 18.5 4H13.5C12.3 4 11.3 4.4 10.5 5C9.9 4.4 9 4 8 4Z" fill="url(#ctIconGradient)" opacity="0.8"/>
+    
+    <!-- Circuit patterns inside brain -->
+    <g stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.6">
+      <!-- Horizontal lines -->
+      <line x1="8" y1="8" x2="14" y2="8"/>
+      <line x1="18" y1="8" x2="24" y2="8"/>
+      <line x1="10" y1="12" x2="16" y2="12"/>
+      <line x1="20" y1="12" x2="22" y2="12"/>
+      
+      <!-- Vertical connections -->
+      <line x1="12" y1="8" x2="12" y2="12"/>
+      <line x1="20" y1="8" x2="20" y2="12"/>
+      
+      <!-- Connection nodes -->
+      <circle cx="12" cy="8" r="1" fill="#ffffff"/>
+      <circle cx="20" cy="8" r="1" fill="#ffffff"/>
+      <circle cx="12" cy="12" r="1" fill="#ffffff"/>
+      <circle cx="20" cy="12" r="1" fill="#ffffff"/>
+    </g>
+    
+    <!-- Thinking bubbles -->
+    <g fill="url(#ctIconGradient)" opacity="0.7">
+      <circle cx="26" cy="6" r="2"/>
+      <circle cx="29" cy="4" r="1.5"/>
+      <circle cx="31" cy="2" r="1"/>
+    </g>
+  </g>
+  
+  <!-- Animated pulse effect -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="url(#ctIconGradient)" stroke-width="1" opacity="0.3">
+    <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.1;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

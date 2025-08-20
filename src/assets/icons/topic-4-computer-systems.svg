@@ -1,0 +1,134 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="cpuGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="ramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="storageGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <linearGradient id="motherboardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F2937"/>
+      <stop offset="100%" stop-color="#374151"/>
+    </linearGradient>
+    <linearGradient id="ioGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    
+    <!-- Animations -->
+    <animateTransform id="cpuPulse" attributeName="transform" type="scale" values="1;1.1;1" dur="2s" repeatCount="indefinite"/>
+    <animate id="dataFlow" attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#motherboardGradient)" stroke="#6B7280" stroke-width="2"/>
+  
+  <!-- Motherboard Circuit Traces -->
+  <g stroke="#9CA3AF" stroke-width="1" fill="none" opacity="0.6">
+    <path d="M8 32 L56 32"/>
+    <path d="M32 8 L32 56"/>
+    <path d="M16 16 L48 48"/>
+    <path d="M48 16 L16 48"/>
+    <circle cx="20" cy="20" r="2" fill="#9CA3AF"/>
+    <circle cx="44" cy="20" r="2" fill="#9CA3AF"/>
+    <circle cx="20" cy="44" r="2" fill="#9CA3AF"/>
+    <circle cx="44" cy="44" r="2" fill="#9CA3AF"/>
+  </g>
+  
+  <!-- CPU (Central Processing Unit) -->
+  <g transform="translate(24, 24)">
+    <rect x="0" y="0" width="16" height="16" rx="2" fill="url(#cpuGradient)" stroke="#3730A3" stroke-width="1">
+      <animateTransform attributeName="transform" type="scale" values="1;1.05;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="8" y="10" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="white" font-weight="bold">CPU</text>
+    <!-- CPU Pins -->
+    <g stroke="#3730A3" stroke-width="0.5">
+      <line x1="-1" y1="4" x2="0" y2="4"/>
+      <line x1="-1" y1="8" x2="0" y2="8"/>
+      <line x1="-1" y1="12" x2="0" y2="12"/>
+      <line x1="16" y1="4" x2="17" y2="4"/>
+      <line x1="16" y1="8" x2="17" y2="8"/>
+      <line x1="16" y1="12" x2="17" y2="12"/>
+    </g>
+  </g>
+  
+  <!-- RAM Memory Modules -->
+  <g transform="translate(10, 12)">
+    <rect x="0" y="0" width="8" height="3" rx="1" fill="url(#ramGradient)" stroke="#047857" stroke-width="0.5"/>
+    <rect x="0" y="4" width="8" height="3" rx="1" fill="url(#ramGradient)" stroke="#047857" stroke-width="0.5"/>
+    <text x="4" y="2" text-anchor="middle" font-family="Arial, sans-serif" font-size="2" fill="white">RAM</text>
+    <!-- Memory Chips -->
+    <rect x="1" y="0.5" width="1.5" height="2" fill="#065F46"/>
+    <rect x="3" y="0.5" width="1.5" height="2" fill="#065F46"/>
+    <rect x="5.5" y="0.5" width="1.5" height="2" fill="#065F46"/>
+  </g>
+  
+  <!-- Storage Device (HDD/SSD) -->
+  <g transform="translate(46, 12)">
+    <rect x="0" y="0" width="8" height="6" rx="1" fill="url(#storageGradient)" stroke="#B91C1C" stroke-width="0.5"/>
+    <text x="4" y="4" text-anchor="middle" font-family="Arial, sans-serif" font-size="2" fill="white">SSD</text>
+    <!-- Storage Indicator -->
+    <circle cx="2" cy="2" r="0.5" fill="#FEE2E2">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- I/O Ports -->
+  <g transform="translate(10, 46)">
+    <!-- USB Ports -->
+    <rect x="0" y="0" width="3" height="2" rx="0.5" fill="url(#ioGradient)" stroke="#D97706" stroke-width="0.5"/>
+    <rect x="4" y="0" width="3" height="2" rx="0.5" fill="url(#ioGradient)" stroke="#D97706" stroke-width="0.5"/>
+    <text x="3.5" y="4" text-anchor="middle" font-family="Arial, sans-serif" font-size="2" fill="#F59E0B">USB</text>
+  </g>
+  
+  <!-- Network Port -->
+  <g transform="translate(46, 46)">
+    <rect x="0" y="0" width="4" height="3" rx="0.5" fill="#1F2937" stroke="#6B7280" stroke-width="0.5"/>
+    <text x="2" y="5" text-anchor="middle" font-family="Arial, sans-serif" font-size="2" fill="#9CA3AF">NET</text>
+    <!-- Network Activity -->
+    <circle cx="1" cy="1.5" r="0.3" fill="#10B981">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="3" cy="1.5" r="0.3" fill="#EF4444">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Power Supply Indicator -->
+  <g transform="translate(54, 30)">
+    <circle cx="0" cy="0" r="3" fill="#065F46" stroke="#10B981" stroke-width="1">
+      <animate attributeName="fill" values="#065F46;#10B981;#065F46" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="1" text-anchor="middle" font-family="Arial, sans-serif" font-size="2" fill="white">PWR</text>
+  </g>
+  
+  <!-- Data Flow Lines -->
+  <g stroke="#60A5FA" stroke-width="1" fill="none">
+    <path d="M32 24 L32 18" opacity="0.7">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M24 32 L18 32" opacity="0.7">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M40 32 L46 32" opacity="0.7">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- System Status Indicators -->
+  <g transform="translate(4, 4)">
+    <circle cx="0" cy="0" r="1.5" fill="#10B981">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="4" r="1.5" fill="#F59E0B">
+      <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

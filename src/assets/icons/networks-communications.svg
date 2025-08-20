@@ -1,0 +1,105 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="ncGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#ee5a24;stop-opacity:0.4" />
+    </linearGradient>
+    <linearGradient id="ncIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b" />
+      <stop offset="100%" style="stop-color:#ee5a24" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <circle cx="32" cy="32" r="30" fill="url(#ncGradient)" stroke="url(#ncIconGradient)" stroke-width="2"/>
+  
+  <!-- Network nodes and connections -->
+  <g transform="translate(8, 8)">
+    <!-- Connection lines -->
+    <g stroke="url(#ncIconGradient)" stroke-width="2" fill="none" opacity="0.6">
+      <!-- Central hub connections -->
+      <line x1="24" y1="24" x2="12" y2="12"/>
+      <line x1="24" y1="24" x2="36" y2="12"/>
+      <line x1="24" y1="24" x2="12" y2="36"/>
+      <line x1="24" y1="24" x2="36" y2="36"/>
+      <line x1="24" y1="24" x2="6" y2="24"/>
+      <line x1="24" y1="24" x2="42" y2="24"/>
+      
+      <!-- Peripheral connections -->
+      <line x1="12" y1="12" x2="6" y2="6"/>
+      <line x1="36" y1="12" x2="42" y2="6"/>
+      <line x1="12" y1="36" x2="6" y2="42"/>
+      <line x1="36" y1="36" x2="42" y2="42"/>
+    </g>
+    
+    <!-- Network nodes -->
+    <g fill="url(#ncIconGradient)">
+      <!-- Central hub (larger) -->
+      <circle cx="24" cy="24" r="4" opacity="0.9"/>
+      
+      <!-- Primary nodes -->
+      <circle cx="12" cy="12" r="3" opacity="0.8"/>
+      <circle cx="36" cy="12" r="3" opacity="0.8"/>
+      <circle cx="12" cy="36" r="3" opacity="0.8"/>
+      <circle cx="36" cy="36" r="3" opacity="0.8"/>
+      <circle cx="6" cy="24" r="3" opacity="0.8"/>
+      <circle cx="42" cy="24" r="3" opacity="0.8"/>
+      
+      <!-- Edge nodes -->
+      <circle cx="6" cy="6" r="2" opacity="0.7"/>
+      <circle cx="42" cy="6" r="2" opacity="0.7"/>
+      <circle cx="6" cy="42" r="2" opacity="0.7"/>
+      <circle cx="42" cy="42" r="2" opacity="0.7"/>
+    </g>
+    
+    <!-- Data packets (animated) -->
+    <g fill="#ffffff" opacity="0.8">
+      <!-- Packet 1 -->
+      <rect x="18" y="18" width="2" height="2" rx="1">
+        <animateTransform attributeName="transform" type="translate" 
+          values="0,0; 6,-6; 12,-12; 6,-6; 0,0" dur="3s" repeatCount="indefinite"/>
+      </rect>
+      
+      <!-- Packet 2 -->
+      <rect x="26" y="26" width="2" height="2" rx="1">
+        <animateTransform attributeName="transform" type="translate" 
+          values="0,0; 10,10; 0,0; -10,10; 0,0" dur="4s" repeatCount="indefinite"/>
+      </rect>
+      
+      <!-- Packet 3 -->
+      <rect x="22" y="22" width="2" height="2" rx="1">
+        <animateTransform attributeName="transform" type="translate" 
+          values="0,0; -16,0; 0,0; 16,0; 0,0" dur="3.5s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    
+    <!-- Signal waves -->
+    <g stroke="#ffffff" stroke-width="1" fill="none" opacity="0.4">
+      <!-- Wave 1 -->
+      <circle cx="24" cy="24" r="8">
+        <animate attributeName="r" values="8;16;8" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      
+      <!-- Wave 2 -->
+      <circle cx="24" cy="24" r="12">
+        <animate attributeName="r" values="12;20;12" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.3;0.05;0.3" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- WiFi symbol in center -->
+    <g transform="translate(20, 20)" fill="#ffffff" opacity="0.6">
+      <path d="M4 8 C4 6, 6 4, 8 4 C10 4, 12 6, 12 8" stroke="#ffffff" stroke-width="1" fill="none"/>
+      <path d="M2 8 C2 4, 6 0, 8 0 C10 0, 14 4, 14 8" stroke="#ffffff" stroke-width="1" fill="none"/>
+      <circle cx="8" cy="8" r="1" fill="#ffffff"/>
+    </g>
+  </g>
+  
+  <!-- Animated pulse effect -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="url(#ncIconGradient)" stroke-width="1" opacity="0.3">
+    <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.1;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

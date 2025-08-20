@@ -1,0 +1,299 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="perfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#D97706;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B45309;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FBBF24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EF4444;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="cpuGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="url(#perfGrad)" opacity="0.1"/>
+  
+  <!-- Performance Dashboard -->
+  
+  <!-- CPU Usage Gauge -->
+  <g transform="translate(8, 8)">
+    <!-- Gauge background -->
+    <circle cx="8" cy="8" r="7" fill="none" stroke="#374151" stroke-width="2"/>
+    
+    <!-- Gauge arc (performance level) -->
+    <circle cx="8" cy="8" r="7" fill="none" stroke="url(#gaugeGrad)" stroke-width="2" 
+            stroke-dasharray="31.4" stroke-dashoffset="7.85" 
+            transform="rotate(-90 8 8)">
+      <animate attributeName="stroke-dashoffset" values="31.4;15.7;7.85;15.7;31.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- CPU icon -->
+    <rect x="5" y="5" width="6" height="6" rx="1" fill="url(#cpuGrad)" stroke="#1D4ED8" stroke-width="0.5"/>
+    <rect x="6" y="6" width="4" height="4" fill="#1F2937"/>
+    <rect x="6.5" y="6.5" width="1.5" height="1.5" fill="#60A5FA"/>
+    <rect x="8.5" y="6.5" width="1.5" height="1.5" fill="#60A5FA"/>
+    <rect x="6.5" y="8.5" width="1.5" height="1.5" fill="#60A5FA"/>
+    <rect x="8.5" y="8.5" width="1.5" height="1.5" fill="#60A5FA"/>
+    
+    <text x="8" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#F59E0B">CPU</text>
+    <text x="8" y="20" text-anchor="middle" font-family="monospace" font-size="1.5" fill="#D97706">75%</text>
+  </g>
+  
+  <!-- Memory Usage Bar -->
+  <g transform="translate(24, 8)">
+    <rect x="0" y="0" width="16" height="4" rx="2" fill="#374151" stroke="#4B5563" stroke-width="1"/>
+    
+    <!-- Memory usage fill -->
+    <rect x="1" y="1" width="10" height="2" rx="1" fill="#10B981">
+      <animate attributeName="width" values="2;10;14;8;10" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Memory segments -->
+    <g stroke="#6B7280" stroke-width="0.5">
+      <line x1="4" y1="0" x2="4" y2="4"/>
+      <line x1="8" y1="0" x2="8" y2="4"/>
+      <line x1="12" y1="0" x2="12" y2="4"/>
+    </g>
+    
+    <text x="8" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#F59E0B">RAM</text>
+    <text x="8" y="7" text-anchor="middle" font-family="monospace" font-size="1.5" fill="#10B981">8/16 GB</text>
+  </g>
+  
+  <!-- Disk I/O Activity -->
+  <g transform="translate(44, 8)">
+    <rect x="0" y="0" width="12" height="8" rx="1" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    
+    <!-- Disk -->
+    <circle cx="6" cy="4" r="3" fill="#4B5563" stroke="#6B7280" stroke-width="0.5"/>
+    <circle cx="6" cy="4" r="1" fill="#1F2937">
+      <animateTransform attributeName="transform" type="rotate" values="0 6 4;360 6 4" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Read/Write indicators -->
+    <circle cx="3" cy="2" r="0.5" fill="#10B981">
+      <animate attributeName="opacity" values="1;0.3;1" dur="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="9" cy="6" r="0.5" fill="#EF4444">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <text x="6" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#F59E0B">DISK</text>
+    <text x="6" y="12" text-anchor="middle" font-family="monospace" font-size="1.5" fill="#06B6D4">R/W</text>
+  </g>
+  
+  <!-- Performance Graph -->
+  <g transform="translate(8, 24)">
+    <rect x="0" y="0" width="32" height="16" rx="1" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    
+    <!-- Graph grid -->
+    <g stroke="#374151" stroke-width="0.3" opacity="0.5">
+      <line x1="0" y1="4" x2="32" y2="4"/>
+      <line x1="0" y1="8" x2="32" y2="8"/>
+      <line x1="0" y1="12" x2="32" y2="12"/>
+      <line x1="8" y1="0" x2="8" y2="16"/>
+      <line x1="16" y1="0" x2="16" y2="16"/>
+      <line x1="24" y1="0" x2="24" y2="16"/>
+    </g>
+    
+    <!-- Performance curves -->
+    <!-- CPU usage curve -->
+    <polyline points="2,12 6,10 10,8 14,6 18,8 22,10 26,7 30,9" 
+              fill="none" stroke="#3B82F6" stroke-width="1.5">
+      <animate attributeName="points" 
+               values="2,12 6,10 10,8 14,6 18,8 22,10 26,7 30,9;
+                       2,10 6,8 10,6 14,4 18,6 22,8 26,5 30,7;
+                       2,12 6,10 10,8 14,6 18,8 22,10 26,7 30,9" 
+               dur="3s" repeatCount="indefinite"/>
+    </polyline>
+    
+    <!-- Memory usage curve -->
+    <polyline points="2,14 6,13 10,11 14,9 18,10 22,12 26,10 30,11" 
+              fill="none" stroke="#10B981" stroke-width="1.5">
+      <animate attributeName="points" 
+               values="2,14 6,13 10,11 14,9 18,10 22,12 26,10 30,11;
+                       2,13 6,12 10,10 14,8 18,9 22,11 26,9 30,10;
+                       2,14 6,13 10,11 14,9 18,10 22,12 26,10 30,11" 
+               dur="3.5s" repeatCount="indefinite"/>
+    </polyline>
+    
+    <!-- Network usage curve -->
+    <polyline points="2,15 6,14 10,13 14,12 18,13 22,14 26,12 30,13" 
+              fill="none" stroke="#FBBF24" stroke-width="1.5">
+      <animate attributeName="points" 
+               values="2,15 6,14 10,13 14,12 18,13 22,14 26,12 30,13;
+                       2,14 6,13 10,12 14,11 18,12 22,13 26,11 30,12;
+                       2,15 6,14 10,13 14,12 18,13 22,14 26,12 30,13" 
+               dur="4s" repeatCount="indefinite"/>
+    </polyline>
+    
+    <text x="16" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#F59E0B">Performance Monitor</text>
+  </g>
+  
+  <!-- Network Performance -->
+  <g transform="translate(44, 24)">
+    <rect x="0" y="0" width="12" height="16" rx="1" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    
+    <!-- Network icon -->
+    <g transform="translate(2, 2)">
+      <!-- Router/Switch -->
+      <rect x="0" y="4" width="8" height="3" rx="0.5" fill="#06B6D4" stroke="#0891B2" stroke-width="0.5"/>
+      
+      <!-- Ports -->
+      <g fill="#FBBF24">
+        <rect x="1" y="5" width="1" height="1"/>
+        <rect x="3" y="5" width="1" height="1"/>
+        <rect x="5" y="5" width="1" height="1"/>
+        <rect x="7" y="5" width="1" height="1"/>
+      </g>
+      
+      <!-- Connected devices -->
+      <circle cx="2" cy="1" r="1" fill="#10B981" stroke="#059669" stroke-width="0.5"/>
+      <circle cx="6" cy="1" r="1" fill="#10B981" stroke="#059669" stroke-width="0.5"/>
+      <circle cx="2" cy="9" r="1" fill="#10B981" stroke="#059669" stroke-width="0.5"/>
+      <circle cx="6" cy="9" r="1" fill="#10B981" stroke="#059669" stroke-width="0.5"/>
+      
+      <!-- Connection lines -->
+      <g stroke="#06B6D4" stroke-width="0.5">
+        <line x1="2" y1="2" x2="2" y2="4"/>
+        <line x1="6" y1="2" x2="6" y2="4"/>
+        <line x1="2" y1="7" x2="2" y2="8"/>
+        <line x1="6" y1="7" x2="6" y2="8"/>
+      </g>
+      
+      <!-- Data flow animation -->
+      <g opacity="0.7">
+        <circle r="0.3" fill="#FBBF24">
+          <animateMotion dur="2s" repeatCount="indefinite">
+            <path d="M 2 2 L 2 4 L 4 5.5 L 6 4 L 6 2"/>
+          </animateMotion>
+        </circle>
+      </g>
+    </g>
+    
+    <text x="6" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#F59E0B">NET</text>
+    <text x="6" y="19" text-anchor="middle" font-family="monospace" font-size="1.5" fill="#06B6D4">100Mbps</text>
+  </g>
+  
+  <!-- System Temperature -->
+  <g transform="translate(8, 44)">
+    <!-- Thermometer -->
+    <rect x="6" y="2" width="2" height="12" rx="1" fill="#374151" stroke="#4B5563" stroke-width="0.5"/>
+    <circle cx="7" cy="15" r="2" fill="#EF4444" stroke="#DC2626" stroke-width="0.5"/>
+    
+    <!-- Temperature level -->
+    <rect x="6.3" y="6" width="1.4" height="8" fill="#EF4444">
+      <animate attributeName="height" values="4;8;6;8" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="10;6;8;6" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Temperature scale -->
+    <g stroke="#9CA3AF" stroke-width="0.3">
+      <line x1="8" y1="4" x2="9" y2="4"/>
+      <line x1="8" y1="7" x2="9" y2="7"/>
+      <line x1="8" y1="10" x2="9" y2="10"/>
+      <line x1="8" y1="13" x2="9" y2="13"/>
+    </g>
+    
+    <text x="7" y="-1" text-anchor="middle" font-family="monospace" font-size="2" fill="#F59E0B">TEMP</text>
+    <text x="7" y="20" text-anchor="middle" font-family="monospace" font-size="1.5" fill="#EF4444">65°C</text>
+  </g>
+  
+  <!-- Process List -->
+  <g transform="translate(20, 44)">
+    <rect x="0" y="0" width="20" height="16" rx="1" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    
+    <!-- Process entries -->
+    <g font-family="monospace" font-size="1.5">
+      <!-- Header -->
+      <text x="1" y="2" fill="#9CA3AF">PID  NAME     CPU%</text>
+      
+      <!-- Process 1 -->
+      <text x="1" y="4" fill="#60A5FA">1234 chrome   25.3</text>
+      <rect x="16" y="3.2" width="3" height="0.6" fill="#3B82F6" opacity="0.7"/>
+      
+      <!-- Process 2 -->
+      <text x="1" y="6" fill="#10B981">5678 vscode   18.7</text>
+      <rect x="16" y="5.2" width="2.2" height="0.6" fill="#059669" opacity="0.7"/>
+      
+      <!-- Process 3 -->
+      <text x="1" y="8" fill="#FBBF24">9012 firefox  12.1</text>
+      <rect x="16" y="7.2" width="1.5" height="0.6" fill="#D97706" opacity="0.7"/>
+      
+      <!-- Process 4 -->
+      <text x="1" y="10" fill="#8B5CF6">3456 node     8.9</text>
+      <rect x="16" y="9.2" width="1.1" height="0.6" fill="#7C3AED" opacity="0.7"/>
+      
+      <!-- Process 5 -->
+      <text x="1" y="12" fill="#EF4444">7890 system   5.2</text>
+      <rect x="16" y="11.2" width="0.6" height="0.6" fill="#DC2626" opacity="0.7"/>
+    </g>
+    
+    <text x="10" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#F59E0B">Task Manager</text>
+  </g>
+  
+  <!-- Performance Optimization Indicators -->
+  <g transform="translate(44, 44)">
+    <!-- Optimization gauge -->
+    <circle cx="6" cy="8" r="5" fill="none" stroke="#374151" stroke-width="1.5"/>
+    <circle cx="6" cy="8" r="5" fill="none" stroke="#10B981" stroke-width="1.5" 
+            stroke-dasharray="15.7" stroke-dashoffset="3.925" 
+            transform="rotate(-90 6 8)">
+      <animate attributeName="stroke" values="#EF4444;#FBBF24;#10B981;#FBBF24;#EF4444" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Optimization level -->
+    <text x="6" y="9" text-anchor="middle" font-family="monospace" font-size="2" fill="#10B981">85%</text>
+    
+    <!-- Optimization arrows -->
+    <g stroke="#10B981" stroke-width="1" fill="#10B981">
+      <line x1="6" y1="2" x2="6" y2="4"/>
+      <polygon points="5,3 6,1 7,3"/>
+      
+      <line x1="10" y1="8" x2="8" y2="8"/>
+      <polygon points="9,7 11,8 9,9"/>
+    </g>
+    
+    <text x="6" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#F59E0B">OPT</text>
+    <text x="6" y="18" text-anchor="middle" font-family="monospace" font-size="1.5" fill="#10B981">Optimized</text>
+  </g>
+  
+  <!-- Performance Metrics Labels -->
+  <g transform="translate(2, 60)" opacity="0.6">
+    <text font-family="monospace" font-size="1.5" fill="#3B82F6">CPU</text>
+  </g>
+  
+  <g transform="translate(12, 60)" opacity="0.6">
+    <text font-family="monospace" font-size="1.5" fill="#10B981">RAM</text>
+  </g>
+  
+  <g transform="translate(22, 60)" opacity="0.6">
+    <text font-family="monospace" font-size="1.5" fill="#FBBF24">NET</text>
+  </g>
+  
+  <g transform="translate(32, 60)" opacity="0.6">
+    <text font-family="monospace" font-size="1.5" fill="#06B6D4">I/O</text>
+  </g>
+  
+  <g transform="translate(42, 60)" opacity="0.6">
+    <text font-family="monospace" font-size="1.5" fill="#EF4444">TEMP</text>
+  </g>
+  
+  <g transform="translate(52, 60)" opacity="0.6">
+    <text font-family="monospace" font-size="1.5" fill="#8B5CF6">PROC</text>
+  </g>
+  
+  <!-- System Status Indicator -->
+  <g transform="translate(32, 2)">
+    <circle cx="0" cy="0" r="2" fill="#10B981" stroke="#059669" stroke-width="1">
+      <animate attributeName="r" values="2;3;2" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="1" text-anchor="middle" font-family="monospace" font-size="1" fill="#FFFFFF">OK</text>
+  </g>
+</svg>

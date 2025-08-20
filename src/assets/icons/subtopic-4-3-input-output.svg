@@ -1,0 +1,237 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ioGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6D28D9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="url(#ioGrad)" opacity="0.1"/>
+  
+  <!-- Central Computer/Hub -->
+  <g transform="translate(26, 26)">
+    <rect x="0" y="0" width="12" height="12" rx="2" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    <rect x="2" y="2" width="8" height="8" rx="1" fill="#4B5563"/>
+    <circle cx="6" cy="6" r="2" fill="#10B981">
+      <animate attributeName="r" values="2;3;2" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="6" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#9CA3AF">CPU</text>
+  </g>
+  
+  <!-- Input Devices -->
+  
+  <!-- Keyboard -->
+  <g transform="translate(4, 48)">
+    <rect x="0" y="0" width="16" height="6" rx="1" fill="#374151" stroke="#4B5563" stroke-width="1"/>
+    <!-- Keys -->
+    <g fill="#6B7280">
+      <rect x="1" y="1" width="2" height="1.5" rx="0.2"/>
+      <rect x="4" y="1" width="2" height="1.5" rx="0.2"/>
+      <rect x="7" y="1" width="2" height="1.5" rx="0.2"/>
+      <rect x="10" y="1" width="2" height="1.5" rx="0.2"/>
+      <rect x="13" y="1" width="2" height="1.5" rx="0.2"/>
+      
+      <rect x="1" y="3" width="2" height="1.5" rx="0.2"/>
+      <rect x="4" y="3" width="2" height="1.5" rx="0.2"/>
+      <rect x="7" y="3" width="2" height="1.5" rx="0.2"/>
+      <rect x="10" y="3" width="2" height="1.5" rx="0.2"/>
+      <rect x="13" y="3" width="2" height="1.5" rx="0.2"/>
+    </g>
+    <text x="8" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#8B5CF6">Keyboard</text>
+  </g>
+  
+  <!-- Mouse -->
+  <g transform="translate(4, 32)">
+    <ellipse cx="4" cy="3" rx="3" ry="4" fill="#374151" stroke="#4B5563" stroke-width="1"/>
+    <rect x="3" y="1" width="2" height="2" rx="0.5" fill="#6B7280"/>
+    <circle cx="4" cy="5" r="0.5" fill="#EF4444">
+      <animate attributeName="fill" values="#EF4444;#F87171;#EF4444" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="4" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#8B5CF6">Mouse</text>
+  </g>
+  
+  <!-- Microphone -->
+  <g transform="translate(4, 16)">
+    <rect x="2" y="0" width="4" height="6" rx="2" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    <rect x="3" y="1" width="2" height="4" fill="#10B981"/>
+    <rect x="1" y="6" width="6" height="1" rx="0.5" fill="#374151"/>
+    <line x1="4" y1="7" x2="4" y2="9" stroke="#374151" stroke-width="1"/>
+    <!-- Sound waves -->
+    <g stroke="#10B981" stroke-width="0.5" fill="none" opacity="0.7">
+      <circle cx="4" cy="3" r="6">
+        <animate attributeName="r" values="6;8;6" dur="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="4" cy="3" r="8">
+        <animate attributeName="r" values="8;10;8" dur="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.5;0.1;0.5" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <text x="4" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#8B5CF6">Mic</text>
+  </g>
+  
+  <!-- Camera -->
+  <g transform="translate(4, 4)">
+    <rect x="0" y="2" width="8" height="6" rx="1" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    <circle cx="4" cy="5" r="2" fill="#374151" stroke="#4B5563" stroke-width="1"/>
+    <circle cx="4" cy="5" r="1" fill="#60A5FA"/>
+    <rect x="1" y="0" width="2" height="2" rx="0.5" fill="#374151"/>
+    <circle cx="6" cy="3" r="0.5" fill="#EF4444">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="4" y="-1" text-anchor="middle" font-family="monospace" font-size="2" fill="#8B5CF6">Camera</text>
+  </g>
+  
+  <!-- Touch Screen -->
+  <g transform="translate(48, 4)">
+    <rect x="0" y="0" width="12" height="16" rx="2" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    <rect x="1" y="2" width="10" height="12" rx="1" fill="url(#screenGrad)"/>
+    <!-- Touch points -->
+    <circle cx="4" cy="6" r="1" fill="#FBBF24" opacity="0.8">
+      <animate attributeName="r" values="1;2;1" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="8" cy="10" r="1" fill="#FBBF24" opacity="0.8">
+      <animate attributeName="r" values="1;2;1" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="6" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#8B5CF6">Touch</text>
+  </g>
+  
+  <!-- Output Devices -->
+  
+  <!-- Monitor -->
+  <g transform="translate(48, 24)">
+    <rect x="0" y="0" width="12" height="10" rx="1" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    <rect x="1" y="1" width="10" height="7" rx="0.5" fill="url(#screenGrad)"/>
+    <!-- Screen content -->
+    <rect x="2" y="2" width="8" height="1" fill="#FBBF24" opacity="0.8"/>
+    <rect x="2" y="4" width="6" height="1" fill="#10B981" opacity="0.8"/>
+    <rect x="2" y="6" width="4" height="1" fill="#EF4444" opacity="0.8"/>
+    <!-- Stand -->
+    <rect x="5" y="10" width="2" height="2" fill="#374151"/>
+    <rect x="3" y="12" width="6" height="1" fill="#374151"/>
+    <text x="6" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#8B5CF6">Monitor</text>
+  </g>
+  
+  <!-- Speakers -->
+  <g transform="translate(48, 40)">
+    <!-- Left speaker -->
+    <rect x="0" y="0" width="4" height="6" rx="1" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    <circle cx="2" cy="3" r="1.5" fill="#4B5563"/>
+    <circle cx="2" cy="3" r="0.8" fill="#6B7280"/>
+    
+    <!-- Right speaker -->
+    <rect x="6" y="0" width="4" height="6" rx="1" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    <circle cx="8" cy="3" r="1.5" fill="#4B5563"/>
+    <circle cx="8" cy="3" r="0.8" fill="#6B7280"/>
+    
+    <!-- Sound waves -->
+    <g stroke="#10B981" stroke-width="0.5" fill="none" opacity="0.6">
+      <path d="M 11 3 Q 13 1 15 3 Q 13 5 11 3">
+        <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1s" repeatCount="indefinite"/>
+      </path>
+      <path d="M 12 3 Q 15 0 18 3 Q 15 6 12 3">
+        <animate attributeName="opacity" values="0.4;0.1;0.4" dur="1.2s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    
+    <text x="5" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#8B5CF6">Speakers</text>
+  </g>
+  
+  <!-- Printer -->
+  <g transform="translate(48, 52)">
+    <rect x="0" y="0" width="12" height="8" rx="1" fill="#374151" stroke="#4B5563" stroke-width="1"/>
+    <rect x="1" y="1" width="10" height="2" fill="#6B7280"/>
+    <!-- Paper tray -->
+    <rect x="2" y="4" width="8" height="3" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="0.5"/>
+    <!-- Paper -->
+    <rect x="3" y="5" width="6" height="1" fill="#FFFFFF"/>
+    <!-- Print head movement -->
+    <rect x="4" y="2" width="2" height="1" fill="#EF4444">
+      <animateTransform attributeName="transform" type="translate" values="0 0;4 0;0 0" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="6" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#8B5CF6">Printer</text>
+  </g>
+  
+  <!-- Connection Lines -->
+  <g stroke="#8B5CF6" stroke-width="1.5" opacity="0.6" fill="none">
+    <!-- Input connections to CPU -->
+    <line x1="20" y1="52" x2="26" y2="38"/> <!-- Keyboard -->
+    <line x1="8" y1="36" x2="26" y2="32"/> <!-- Mouse -->
+    <line x1="8" y1="20" x2="26" y2="28"/> <!-- Microphone -->
+    <line x1="8" y1="8" x2="26" y2="26"/> <!-- Camera -->
+    <line x1="48" y1="12" x2="38" y2="26"/> <!-- Touch Screen -->
+    
+    <!-- Output connections from CPU -->
+    <line x1="38" y1="30" x2="48" y2="30"/> <!-- Monitor -->
+    <line x1="38" y1="34" x2="48" y2="44"/> <!-- Speakers -->
+    <line x1="38" y1="36" x2="48" y2="56"/> <!-- Printer -->
+  </g>
+  
+  <!-- Data Flow Animation -->
+  <g opacity="0.8">
+    <!-- Input data flow -->
+    <circle r="1" fill="#10B981">
+      <animateMotion dur="2s" repeatCount="indefinite">
+        <path d="M 20 52 L 26 38"/>
+      </animateMotion>
+    </circle>
+    
+    <circle r="1" fill="#FBBF24">
+      <animateMotion dur="2.5s" repeatCount="indefinite">
+        <path d="M 8 36 L 26 32"/>
+      </animateMotion>
+    </circle>
+    
+    <!-- Output data flow -->
+    <circle r="1" fill="#EF4444">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <path d="M 38 30 L 48 30"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <!-- I/O Port Labels -->
+  <g transform="translate(20, 32)" opacity="0.7">
+    <text font-family="monospace" font-size="2" fill="#8B5CF6">USB</text>
+  </g>
+  
+  <g transform="translate(36, 32)" opacity="0.7">
+    <text font-family="monospace" font-size="2" fill="#8B5CF6">HDMI</text>
+  </g>
+  
+  <!-- Device Type Indicators -->
+  <g transform="translate(2, 60)" opacity="0.5">
+    <text font-family="monospace" font-size="2" fill="#10B981">INPUT</text>
+  </g>
+  
+  <g transform="translate(48, 60)" opacity="0.5">
+    <text font-family="monospace" font-size="2" fill="#EF4444">OUTPUT</text>
+  </g>
+  
+  <!-- Interface Standards -->
+  <g transform="translate(26, 60)" opacity="0.5">
+    <text font-family="monospace" font-size="1.5" fill="#8B5CF6">USB 3.0</text>
+  </g>
+  
+  <g transform="translate(26, 58)" opacity="0.5">
+    <text font-family="monospace" font-size="1.5" fill="#8B5CF6">Bluetooth</text>
+  </g>
+  
+  <!-- Signal Processing Indicator -->
+  <g transform="translate(32, 20)" opacity="0.6">
+    <circle cx="0" cy="0" r="2" fill="none" stroke="#FBBF24" stroke-width="1"/>
+    <text x="0" y="1" text-anchor="middle" font-family="monospace" font-size="1" fill="#FBBF24">ADC</text>
+  </g>
+  
+  <g transform="translate(32, 40)" opacity="0.6">
+    <circle cx="0" cy="0" r="2" fill="none" stroke="#FBBF24" stroke-width="1"/>
+    <text x="0" y="1" text-anchor="middle" font-family="monospace" font-size="1" fill="#FBBF24">DAC</text>
+  </g>
+</svg>

@@ -1,0 +1,84 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffc107;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8f00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc6a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#bgGradient)" stroke="url(#codeGradient)" stroke-width="2" opacity="0.9"/>
+  
+  <!-- Code editor window -->
+  <g transform="translate(8, 12)">
+    <!-- Window frame -->
+    <rect x="0" y="0" width="48" height="36" rx="4" fill="rgba(0,0,0,0.8)" stroke="url(#codeGradient)" stroke-width="1.5"/>
+    
+    <!-- Title bar -->
+    <rect x="0" y="0" width="48" height="8" rx="4" fill="url(#codeGradient)" opacity="0.3"/>
+    
+    <!-- Window controls -->
+    <circle cx="4" cy="4" r="1.5" fill="#ff5f56"/>
+    <circle cx="8" cy="4" r="1.5" fill="#ffbd2e"/>
+    <circle cx="12" cy="4" r="1.5" fill="#27ca3f"/>
+    
+    <!-- Code content -->
+    <g transform="translate(2, 10)">
+      <!-- Line numbers -->
+      <text x="1" y="4" font-family="monospace" font-size="3" fill="#666">1</text>
+      <text x="1" y="8" font-family="monospace" font-size="3" fill="#666">2</text>
+      <text x="1" y="12" font-family="monospace" font-size="3" fill="#666">3</text>
+      <text x="1" y="16" font-family="monospace" font-size="3" fill="#666">4</text>
+      <text x="1" y="20" font-family="monospace" font-size="3" fill="#666">5</text>
+      
+      <!-- Code lines -->
+      <text x="6" y="4" font-family="monospace" font-size="3" fill="url(#accentGradient)">function</text>
+      <text x="18" y="4" font-family="monospace" font-size="3" fill="#fff">solve() {</text>
+      
+      <text x="8" y="8" font-family="monospace" font-size="3" fill="url(#greenGradient)">if</text>
+      <text x="14" y="8" font-family="monospace" font-size="3" fill="#fff">(condition) {</text>
+      
+      <text x="10" y="12" font-family="monospace" font-size="3" fill="url(#codeGradient)">return</text>
+      <text x="22" y="12" font-family="monospace" font-size="3" fill="#fff">result;</text>
+      
+      <text x="8" y="16" font-family="monospace" font-size="3" fill="#fff">}</text>
+      
+      <text x="6" y="20" font-family="monospace" font-size="3" fill="#fff">}</text>
+      
+      <!-- Cursor -->
+      <rect x="14" y="18" width="0.5" height="3" fill="url(#accentGradient)">
+        <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+  
+  <!-- Programming symbols around the window -->
+  <g opacity="0.6">
+    <!-- Brackets -->
+    <text x="4" y="20" font-family="monospace" font-size="8" fill="url(#codeGradient)">{</text>
+    <text x="56" y="44" font-family="monospace" font-size="8" fill="url(#codeGradient)">}</text>
+    
+    <!-- Semicolons -->
+    <text x="52" y="20" font-family="monospace" font-size="6" fill="url(#accentGradient)">;</text>
+    <text x="8" y="52" font-family="monospace" font-size="6" fill="url(#accentGradient)">;</text>
+    
+    <!-- Logic symbols -->
+    <text x="48" y="32" font-family="monospace" font-size="6" fill="url(#greenGradient)">&&</text>
+    <text x="8" y="32" font-family="monospace" font-size="6" fill="url(#greenGradient)">||</text>
+  </g>
+  
+  <!-- Glow effect -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="url(#accentGradient)" stroke-width="1" opacity="0.3"/>
+</svg>

@@ -1,0 +1,166 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="networkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6D28D9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="url(#networkGrad)" opacity="0.1"/>
+  
+  <!-- Star Topology (Top Left) -->
+  <g transform="translate(16, 16)">
+    <!-- Central hub -->
+    <circle cx="0" cy="0" r="3" fill="url(#nodeGrad)" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="0" y="1" text-anchor="middle" font-family="monospace" font-size="2" fill="white">HUB</text>
+    
+    <!-- Connected nodes -->
+    <circle cx="-8" cy="-8" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="8" cy="-8" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="-8" cy="8" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="8" cy="8" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    
+    <!-- Connections -->
+    <g stroke="#8B5CF6" stroke-width="1.5">
+      <line x1="0" y1="0" x2="-8" y2="-8"/>
+      <line x1="0" y1="0" x2="8" y2="-8"/>
+      <line x1="0" y1="0" x2="-8" y2="8"/>
+      <line x1="0" y1="0" x2="8" y2="8"/>
+    </g>
+    
+    <text x="0" y="-14" text-anchor="middle" font-family="monospace" font-size="3" fill="#8B5CF6">Star</text>
+  </g>
+  
+  <!-- Ring Topology (Top Right) -->
+  <g transform="translate(48, 16)">
+    <!-- Ring nodes -->
+    <circle cx="-6" cy="-6" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="6" cy="-6" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="6" cy="6" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="-6" cy="6" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    
+    <!-- Ring connections -->
+    <g stroke="#8B5CF6" stroke-width="1.5" fill="none">
+      <path d="M -6 -4 Q 0 -8 6 -4"/>
+      <path d="M 4 -6 Q 8 0 4 6"/>
+      <path d="M 6 4 Q 0 8 -6 4"/>
+      <path d="M -4 6 Q -8 0 -4 -6"/>
+    </g>
+    
+    <text x="0" y="-14" text-anchor="middle" font-family="monospace" font-size="3" fill="#8B5CF6">Ring</text>
+  </g>
+  
+  <!-- Bus Topology (Bottom Left) -->
+  <g transform="translate(16, 48)">
+    <!-- Main bus line -->
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="#8B5CF6" stroke-width="2"/>
+    
+    <!-- Connected nodes -->
+    <circle cx="-8" cy="0" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="-3" cy="0" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="3" cy="0" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="8" cy="0" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    
+    <!-- Terminators -->
+    <rect x="-12" y="-1" width="2" height="2" fill="#7C3AED"/>
+    <rect x="10" y="-1" width="2" height="2" fill="#7C3AED"/>
+    
+    <text x="0" y="-8" text-anchor="middle" font-family="monospace" font-size="3" fill="#8B5CF6">Bus</text>
+  </g>
+  
+  <!-- Mesh Topology (Bottom Right) -->
+  <g transform="translate(48, 48)">
+    <!-- Mesh nodes -->
+    <circle cx="-6" cy="-6" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="6" cy="-6" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="0" cy="0" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="-6" cy="6" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <circle cx="6" cy="6" r="2" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    
+    <!-- Mesh connections -->
+    <g stroke="#8B5CF6" stroke-width="1" opacity="0.8">
+      <line x1="-6" y1="-6" x2="6" y2="-6"/>
+      <line x1="-6" y1="-6" x2="0" y2="0"/>
+      <line x1="6" y1="-6" x2="0" y2="0"/>
+      <line x1="0" y1="0" x2="-6" y2="6"/>
+      <line x1="0" y1="0" x2="6" y2="6"/>
+      <line x1="-6" y1="6" x2="6" y2="6"/>
+      <line x1="-6" y1="-6" x2="-6" y2="6"/>
+      <line x1="6" y1="-6" x2="6" y2="6"/>
+      <line x1="-6" y1="-6" x2="6" y2="6"/>
+      <line x1="6" y1="-6" x2="-6" y2="6"/>
+    </g>
+    
+    <text x="0" y="-14" text-anchor="middle" font-family="monospace" font-size="3" fill="#8B5CF6">Mesh</text>
+  </g>
+  
+  <!-- Network types labels -->
+  <g transform="translate(4, 4)" opacity="0.8">
+    <rect x="0" y="0" width="24" height="8" rx="1" fill="#6D28D9"/>
+    <text x="2" y="3" font-family="monospace" font-size="2" fill="#E9D5FF">LAN - Local Area</text>
+    <text x="2" y="6" font-family="monospace" font-size="2" fill="#E9D5FF">WAN - Wide Area</text>
+  </g>
+  
+  <!-- Network scale indicators -->
+  <g transform="translate(36, 4)" opacity="0.6">
+    <text font-family="monospace" font-size="3" fill="#8B5CF6">PAN</text>
+  </g>
+  
+  <g transform="translate(48, 4)" opacity="0.6">
+    <text font-family="monospace" font-size="3" fill="#8B5CF6">MAN</text>
+  </g>
+  
+  <!-- Data flow animation -->
+  <g opacity="0.7">
+    <!-- Star topology data flow -->
+    <circle r="1" fill="#A78BFA">
+      <animateMotion dur="2s" repeatCount="indefinite">
+        <path d="M 8 8 L 16 16 L 24 8"/>
+      </animateMotion>
+    </circle>
+    
+    <!-- Ring topology data flow -->
+    <circle r="1" fill="#A78BFA">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <path d="M 42 10 Q 48 6 54 10 Q 58 16 54 22 Q 48 26 42 22 Q 38 16 42 10"/>
+      </animateMotion>
+    </circle>
+    
+    <!-- Bus topology data flow -->
+    <circle r="1" fill="#A78BFA">
+      <animateMotion dur="2.5s" repeatCount="indefinite">
+        <path d="M 6 48 L 26 48"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <!-- Protocol indicators -->
+  <g transform="translate(2, 58)" opacity="0.6">
+    <text font-family="monospace" font-size="3" fill="#8B5CF6">Ethernet</text>
+  </g>
+  
+  <g transform="translate(32, 58)" opacity="0.6">
+    <text font-family="monospace" font-size="3" fill="#8B5CF6">WiFi</text>
+  </g>
+  
+  <g transform="translate(48, 58)" opacity="0.6">
+    <text font-family="monospace" font-size="3" fill="#8B5CF6">Fiber</text>
+  </g>
+  
+  <!-- Network performance indicators -->
+  <g transform="translate(58, 32)" opacity="0.5">
+    <text font-family="monospace" font-size="2" fill="#8B5CF6" transform="rotate(90)">Mbps</text>
+  </g>
+  
+  <!-- Topology comparison -->
+  <g transform="translate(32, 32)" opacity="0.4">
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#8B5CF6" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <text x="0" y="1" text-anchor="middle" font-family="monospace" font-size="2" fill="#8B5CF6">TOPOLOGY</text>
+  </g>
+</svg>

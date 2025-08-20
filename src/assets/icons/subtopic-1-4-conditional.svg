@@ -1,0 +1,121 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="codeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E3A8A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="terminalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1F2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="url(#codeGrad)" opacity="0.1"/>
+  
+  <!-- Code editor window -->
+  <rect x="6" y="8" width="52" height="48" rx="4" fill="url(#terminalGrad)" stroke="#374151" stroke-width="1"/>
+  
+  <!-- Window header -->
+  <rect x="6" y="8" width="52" height="8" rx="4" fill="#374151"/>
+  <circle cx="12" cy="12" r="1.5" fill="#EF4444"/>
+  <circle cx="16" cy="12" r="1.5" fill="#F59E0B"/>
+  <circle cx="20" cy="12" r="1.5" fill="#10B981"/>
+  
+  <!-- Code content -->
+  <g font-family="monospace" font-size="5">
+    <!-- Line numbers -->
+    <g fill="#6B7280">
+      <text x="9" y="22">1</text>
+      <text x="9" y="27">2</text>
+      <text x="9" y="32">3</text>
+      <text x="9" y="37">4</text>
+      <text x="9" y="42">5</text>
+      <text x="9" y="47">6</text>
+      <text x="9" y="52">7</text>
+    </g>
+    
+    <!-- Code lines -->
+    <g>
+      <!-- if statement -->
+      <text x="13" y="22" fill="#C084FC">if</text>
+      <text x="19" y="22" fill="#FFFFFF">(</text>
+      <text x="21" y="22" fill="#60A5FA">age</text>
+      <text x="27" y="22" fill="#FFFFFF"> >= </text>
+      <text x="33" y="22" fill="#34D399">18</text>
+      <text x="37" y="22" fill="#FFFFFF">) {</text>
+      
+      <!-- if body -->
+      <text x="15" y="27" fill="#F472B6">console</text>
+      <text x="27" y="27" fill="#FFFFFF">.</text>
+      <text x="29" y="27" fill="#FBBF24">log</text>
+      <text x="34" y="27" fill="#FFFFFF">(</text>
+      <text x="36" y="27" fill="#34D399">"Adult"</text>
+      <text x="47" y="27" fill="#FFFFFF">);</text>
+      
+      <!-- else statement -->
+      <text x="13" y="32" fill="#FFFFFF">}</text>
+      <text x="15" y="32" fill="#C084FC">else</text>
+      <text x="25" y="32" fill="#C084FC">if</text>
+      <text x="31" y="32" fill="#FFFFFF">(</text>
+      <text x="33" y="32" fill="#60A5FA">age</text>
+      <text x="39" y="32" fill="#FFFFFF"> >= </text>
+      <text x="45" y="32" fill="#34D399">13</text>
+      <text x="49" y="32" fill="#FFFFFF">) {</text>
+      
+      <!-- else if body -->
+      <text x="15" y="37" fill="#F472B6">console</text>
+      <text x="27" y="37" fill="#FFFFFF">.</text>
+      <text x="29" y="37" fill="#FBBF24">log</text>
+      <text x="34" y="37" fill="#FFFFFF">(</text>
+      <text x="36" y="37" fill="#34D399">"Teen"</text>
+      <text x="45" y="37" fill="#FFFFFF">);</text>
+      
+      <!-- else -->
+      <text x="13" y="42" fill="#FFFFFF">}</text>
+      <text x="15" y="42" fill="#C084FC">else</text>
+      <text x="25" y="42" fill="#FFFFFF">{</text>
+      
+      <!-- else body -->
+      <text x="15" y="47" fill="#F472B6">console</text>
+      <text x="27" y="47" fill="#FFFFFF">.</text>
+      <text x="29" y="47" fill="#FBBF24">log</text>
+      <text x="34" y="47" fill="#FFFFFF">(</text>
+      <text x="36" y="47" fill="#34D399">"Child"</text>
+      <text x="46" y="47" fill="#FFFFFF">);</text>
+      
+      <!-- closing brace -->
+      <text x="13" y="52" fill="#FFFFFF">}</text>
+    </g>
+  </g>
+  
+  <!-- Syntax highlighting indicators -->
+  <g opacity="0.6">
+    <!-- Keywords highlight -->
+    <rect x="13" y="19" width="6" height="3" fill="#C084FC" opacity="0.2" rx="1"/>
+    <rect x="15" y="29" width="10" height="3" fill="#C084FC" opacity="0.2" rx="1"/>
+    <rect x="15" y="39" width="4" height="3" fill="#C084FC" opacity="0.2" rx="1"/>
+  </g>
+  
+  <!-- Cursor blink -->
+  <rect x="17" y="49" width="1" height="3" fill="#60A5FA">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Execution flow arrows -->
+  <g stroke="#10B981" stroke-width="1" fill="#10B981" opacity="0.7">
+    <path d="M 60 22 L 64 22" stroke-dasharray="2,1"/>
+    <path d="M 60 32 L 64 32" stroke-dasharray="2,1"/>
+    <path d="M 60 42 L 64 42" stroke-dasharray="2,1"/>
+  </g>
+  
+  <!-- Logic symbols -->
+  <g transform="translate(2, 2)" opacity="0.4">
+    <text font-family="monospace" font-size="8" fill="#60A5FA">{ }</text>
+  </g>
+  
+  <g transform="translate(54, 58)" opacity="0.4">
+    <text font-family="monospace" font-size="6" fill="#60A5FA">if/else</text>
+  </g>
+</svg>

@@ -1,0 +1,136 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="csGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c88ff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#8c7ae6;stop-opacity:0.4" />
+    </linearGradient>
+    <linearGradient id="csIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c88ff" />
+      <stop offset="100%" style="stop-color:#8c7ae6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <circle cx="32" cy="32" r="30" fill="url(#csGradient)" stroke="url(#csIconGradient)" stroke-width="2"/>
+  
+  <!-- Computer/CPU icon -->
+  <g transform="translate(12, 12)">
+    <!-- Main CPU/Motherboard -->
+    <rect x="8" y="8" width="24" height="24" rx="2" fill="url(#csIconGradient)" opacity="0.8"/>
+    
+    <!-- CPU socket in center -->
+    <rect x="14" y="14" width="12" height="12" rx="1" fill="#000000" opacity="0.3"/>
+    <rect x="16" y="16" width="8" height="8" rx="1" fill="url(#csIconGradient)" opacity="0.9"/>
+    
+    <!-- Circuit traces -->
+    <g stroke="#ffffff" stroke-width="1" fill="none" opacity="0.6">
+      <!-- Horizontal traces -->
+      <line x1="8" y1="12" x2="32" y2="12"/>
+      <line x1="8" y1="16" x2="14" y2="16"/>
+      <line x1="26" y1="16" x2="32" y2="16"/>
+      <line x1="8" y1="20" x2="14" y2="20"/>
+      <line x1="26" y1="20" x2="32" y2="20"/>
+      <line x1="8" y1="24" x2="14" y2="24"/>
+      <line x1="26" y1="24" x2="32" y2="24"/>
+      <line x1="8" y1="28" x2="32" y2="28"/>
+      
+      <!-- Vertical traces -->
+      <line x1="12" y1="8" x2="12" y2="32"/>
+      <line x1="16" y1="8" x2="16" y2="14"/>
+      <line x1="16" y1="26" x2="16" y2="32"/>
+      <line x1="20" y1="8" x2="20" y2="14"/>
+      <line x1="20" y1="26" x2="20" y2="32"/>
+      <line x1="24" y1="8" x2="24" y2="14"/>
+      <line x1="24" y1="26" x2="24" y2="32"/>
+      <line x1="28" y1="8" x2="28" y2="32"/>
+    </g>
+    
+    <!-- Connection pins/pads -->
+    <g fill="#ffffff" opacity="0.7">
+      <!-- Top pins -->
+      <rect x="11" y="6" width="2" height="2" rx="1"/>
+      <rect x="15" y="6" width="2" height="2" rx="1"/>
+      <rect x="19" y="6" width="2" height="2" rx="1"/>
+      <rect x="23" y="6" width="2" height="2" rx="1"/>
+      <rect x="27" y="6" width="2" height="2" rx="1"/>
+      
+      <!-- Bottom pins -->
+      <rect x="11" y="32" width="2" height="2" rx="1"/>
+      <rect x="15" y="32" width="2" height="2" rx="1"/>
+      <rect x="19" y="32" width="2" height="2" rx="1"/>
+      <rect x="23" y="32" width="2" height="2" rx="1"/>
+      <rect x="27" y="32" width="2" height="2" rx="1"/>
+      
+      <!-- Left pins -->
+      <rect x="6" y="11" width="2" height="2" rx="1"/>
+      <rect x="6" y="15" width="2" height="2" rx="1"/>
+      <rect x="6" y="19" width="2" height="2" rx="1"/>
+      <rect x="6" y="23" width="2" height="2" rx="1"/>
+      <rect x="6" y="27" width="2" height="2" rx="1"/>
+      
+      <!-- Right pins -->
+      <rect x="32" y="11" width="2" height="2" rx="1"/>
+      <rect x="32" y="15" width="2" height="2" rx="1"/>
+      <rect x="32" y="19" width="2" height="2" rx="1"/>
+      <rect x="32" y="23" width="2" height="2" rx="1"/>
+      <rect x="32" y="27" width="2" height="2" rx="1"/>
+    </g>
+    
+    <!-- CPU core details -->
+    <g fill="#ffffff" opacity="0.5">
+      <!-- Core grid -->
+      <rect x="17" y="17" width="2" height="2" rx="0.5"/>
+      <rect x="21" y="17" width="2" height="2" rx="0.5"/>
+      <rect x="17" y="21" width="2" height="2" rx="0.5"/>
+      <rect x="21" y="21" width="2" height="2" rx="0.5"/>
+      
+      <!-- Cache lines -->
+      <line x1="18" y1="19" x2="22" y2="19" stroke="#ffffff" stroke-width="0.5"/>
+      <line x1="20" y1="17" x2="20" y2="23" stroke="#ffffff" stroke-width="0.5"/>
+    </g>
+    
+    <!-- Processing animation -->
+    <g fill="url(#csIconGradient)" opacity="0.6">
+      <rect x="18" y="18" width="1" height="1" rx="0.5">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="1s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="21" y="18" width="1" height="1" rx="0.5">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.2s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="18" y="21" width="1" height="1" rx="0.5">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.4s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="21" y="21" width="1" height="1" rx="0.5">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    
+    <!-- Heat sink fins (top) -->
+    <g fill="url(#csIconGradient)" opacity="0.4">
+      <rect x="10" y="2" width="1" height="4" rx="0.5"/>
+      <rect x="13" y="2" width="1" height="4" rx="0.5"/>
+      <rect x="16" y="2" width="1" height="4" rx="0.5"/>
+      <rect x="19" y="2" width="1" height="4" rx="0.5"/>
+      <rect x="22" y="2" width="1" height="4" rx="0.5"/>
+      <rect x="25" y="2" width="1" height="4" rx="0.5"/>
+      <rect x="28" y="2" width="1" height="4" rx="0.5"/>
+    </g>
+  </g>
+  
+  <!-- Data flow animation -->
+  <g stroke="url(#csIconGradient)" stroke-width="1" fill="none" opacity="0.4">
+    <path d="M 8 32 L 56 32">
+      <animate attributeName="stroke-dasharray" values="0,48;24,24;48,0" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 32 8 L 32 56">
+      <animate attributeName="stroke-dasharray" values="0,48;24,24;48,0" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Animated pulse effect -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="url(#csIconGradient)" stroke-width="1" opacity="0.3">
+    <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.1;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

@@ -1,0 +1,167 @@
+<svg width="400" height="320" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tableGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3F51B5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#303F9F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196F3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1976D2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dataGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E3F2FD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BBDEFB;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Database Structure</text>
+  <text x="200" y="45" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="12">Organized data in tables with relationships</text>
+  
+  <!-- Students Table -->
+  <g transform="translate(30, 70)">
+    <!-- Table Border -->
+    <rect x="0" y="0" width="150" height="120" rx="5" fill="url(#tableGrad)" filter="url(#shadow)"/>
+    
+    <!-- Table Header -->
+    <rect x="5" y="5" width="140" height="25" rx="3" fill="url(#headerGrad)"/>
+    <text x="75" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STUDENTS</text>
+    
+    <!-- Column Headers -->
+    <rect x="5" y="30" width="35" height="20" fill="#1976D2"/>
+    <text x="22" y="43" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">ID</text>
+    
+    <rect x="40" y="30" width="60" height="20" fill="#1976D2"/>
+    <text x="70" y="43" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">NAME</text>
+    
+    <rect x="100" y="30" width="45" height="20" fill="#1976D2"/>
+    <text x="122" y="43" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">GRADE</text>
+    
+    <!-- Data Rows -->
+    <!-- Row 1 -->
+    <rect x="5" y="50" width="35" height="20" fill="url(#dataGrad)"/>
+    <text x="22" y="63" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">001</text>
+    
+    <rect x="40" y="50" width="60" height="20" fill="url(#dataGrad)"/>
+    <text x="70" y="63" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">Alice Smith</text>
+    
+    <rect x="100" y="50" width="45" height="20" fill="url(#dataGrad)"/>
+    <text x="122" y="63" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">9</text>
+    
+    <!-- Row 2 -->
+    <rect x="5" y="70" width="35" height="20" fill="#F5F5F5"/>
+    <text x="22" y="83" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">002</text>
+    
+    <rect x="40" y="70" width="60" height="20" fill="#F5F5F5"/>
+    <text x="70" y="83" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">Bob Johnson</text>
+    
+    <rect x="100" y="70" width="45" height="20" fill="#F5F5F5"/>
+    <text x="122" y="83" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">8</text>
+    
+    <!-- Row 3 -->
+    <rect x="5" y="90" width="35" height="20" fill="url(#dataGrad)"/>
+    <text x="22" y="103" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">003</text>
+    
+    <rect x="40" y="90" width="60" height="20" fill="url(#dataGrad)"/>
+    <text x="70" y="103" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">Carol Davis</text>
+    
+    <rect x="100" y="90" width="45" height="20" fill="url(#dataGrad)"/>
+    <text x="122" y="103" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">7</text>
+  </g>
+  
+  <!-- Courses Table -->
+  <g transform="translate(220, 70)">
+    <!-- Table Border -->
+    <rect x="0" y="0" width="150" height="120" rx="5" fill="url(#tableGrad)" filter="url(#shadow)"/>
+    
+    <!-- Table Header -->
+    <rect x="5" y="5" width="140" height="25" rx="3" fill="url(#headerGrad)"/>
+    <text x="75" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">COURSES</text>
+    
+    <!-- Column Headers -->
+    <rect x="5" y="30" width="35" height="20" fill="#1976D2"/>
+    <text x="22" y="43" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">ID</text>
+    
+    <rect x="40" y="30" width="70" height="20" fill="#1976D2"/>
+    <text x="75" y="43" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">COURSE NAME</text>
+    
+    <rect x="110" y="30" width="35" height="20" fill="#1976D2"/>
+    <text x="127" y="43" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">CREDITS</text>
+    
+    <!-- Data Rows -->
+    <!-- Row 1 -->
+    <rect x="5" y="50" width="35" height="20" fill="url(#dataGrad)"/>
+    <text x="22" y="63" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">CS101</text>
+    
+    <rect x="40" y="50" width="70" height="20" fill="url(#dataGrad)"/>
+    <text x="75" y="63" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">Programming</text>
+    
+    <rect x="110" y="50" width="35" height="20" fill="url(#dataGrad)"/>
+    <text x="127" y="63" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">3</text>
+    
+    <!-- Row 2 -->
+    <rect x="5" y="70" width="35" height="20" fill="#F5F5F5"/>
+    <text x="22" y="83" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">CS102</text>
+    
+    <rect x="40" y="70" width="70" height="20" fill="#F5F5F5"/>
+    <text x="75" y="83" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">Data Structures</text>
+    
+    <rect x="110" y="70" width="35" height="20" fill="#F5F5F5"/>
+    <text x="127" y="83" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">4</text>
+    
+    <!-- Row 3 -->
+    <rect x="5" y="90" width="35" height="20" fill="url(#dataGrad)"/>
+    <text x="22" y="103" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">CS103</text>
+    
+    <rect x="40" y="90" width="70" height="20" fill="url(#dataGrad)"/>
+    <text x="75" y="103" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">Networks</text>
+    
+    <rect x="110" y="90" width="35" height="20" fill="url(#dataGrad)"/>
+    <text x="127" y="103" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="8">3</text>
+  </g>
+  
+  <!-- Relationship Arrow -->
+  <line x1="180" y1="130" x2="220" y2="130" stroke="#FF5722" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="200" y="125" text-anchor="middle" fill="#FF5722" font-family="Arial, sans-serif" font-size="10" font-weight="bold">RELATIONSHIP</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FF5722" />
+    </marker>
+  </defs>
+  
+  <!-- Database Cylinder Icon -->
+  <g transform="translate(170, 210)">
+    <ellipse cx="30" cy="10" rx="25" ry="8" fill="url(#tableGrad)" filter="url(#shadow)"/>
+    <rect x="5" y="10" width="50" height="30" fill="url(#tableGrad)"/>
+    <ellipse cx="30" cy="40" rx="25" ry="8" fill="url(#headerGrad)"/>
+    <ellipse cx="30" cy="10" rx="25" ry="8" fill="url(#headerGrad)"/>
+    
+    <!-- Database Lines -->
+    <ellipse cx="30" cy="18" rx="20" ry="6" fill="none" stroke="white" stroke-width="1" opacity="0.7"/>
+    <ellipse cx="30" cy="26" rx="20" ry="6" fill="none" stroke="white" stroke-width="1" opacity="0.7"/>
+    <ellipse cx="30" cy="34" rx="20" ry="6" fill="none" stroke="white" stroke-width="1" opacity="0.7"/>
+  </g>
+  
+  <!-- Key Concepts -->
+  <text x="200" y="270" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Key Database Concepts</text>
+  
+  <g transform="translate(50, 280)">
+    <circle cx="0" cy="0" r="3" fill="#2196F3"/>
+    <text x="10" y="5" fill="#666" font-family="Arial, sans-serif" font-size="10">Tables store data in rows and columns</text>
+  </g>
+  
+  <g transform="translate(50, 295)">
+    <circle cx="0" cy="0" r="3" fill="#FF5722"/>
+    <text x="10" y="5" fill="#666" font-family="Arial, sans-serif" font-size="10">Relationships connect related data between tables</text>
+  </g>
+  
+  <g transform="translate(50, 310)">
+    <circle cx="0" cy="0" r="3" fill="#4CAF50"/>
+    <text x="10" y="5" fill="#666" font-family="Arial, sans-serif" font-size="10">Primary keys uniquely identify each record</text>
+  </g>
+</svg>

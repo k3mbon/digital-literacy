@@ -1,0 +1,156 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="securityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6D28D9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lockGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="url(#securityGrad)" opacity="0.1"/>
+  
+  <!-- Data transmission path -->
+  <g stroke="#8B5CF6" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M 8 32 Q 32 16 56 32" stroke-dasharray="4,2"/>
+  </g>
+  
+  <!-- Source device -->
+  <g transform="translate(8, 28)">
+    <rect x="0" y="0" width="8" height="6" rx="1" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <rect x="1" y="1" width="6" height="2" fill="#1F2937"/>
+    <circle cx="4" cy="4.5" r="0.5" fill="#10B981"/>
+    <text x="4" y="-2" text-anchor="middle" font-family="monospace" font-size="3" fill="#8B5CF6">Sender</text>
+  </g>
+  
+  <!-- Destination device -->
+  <g transform="translate(48, 28)">
+    <rect x="0" y="0" width="8" height="6" rx="1" fill="#A78BFA" stroke="#8B5CF6" stroke-width="1"/>
+    <rect x="1" y="1" width="6" height="2" fill="#1F2937"/>
+    <circle cx="4" cy="4.5" r="0.5" fill="#10B981"/>
+    <text x="4" y="-2" text-anchor="middle" font-family="monospace" font-size="3" fill="#8B5CF6">Receiver</text>
+  </g>
+  
+  <!-- Data packets -->
+  <g transform="translate(20, 24)">
+    <!-- Packet 1 -->
+    <rect x="0" y="0" width="6" height="4" rx="1" fill="#3B82F6" stroke="#1E40AF" stroke-width="1"/>
+    <text x="3" y="2.5" text-anchor="middle" font-family="monospace" font-size="2" fill="white">01</text>
+    
+    <!-- Packet 2 -->
+    <rect x="8" y="0" width="6" height="4" rx="1" fill="#3B82F6" stroke="#1E40AF" stroke-width="1"/>
+    <text x="11" y="2.5" text-anchor="middle" font-family="monospace" font-size="2" fill="white">10</text>
+    
+    <!-- Packet 3 -->
+    <rect x="16" y="0" width="6" height="4" rx="1" fill="#3B82F6" stroke="#1E40AF" stroke-width="1"/>
+    <text x="19" y="2.5" text-anchor="middle" font-family="monospace" font-size="2" fill="white">11</text>
+  </g>
+  
+  <!-- Encryption shield -->
+  <g transform="translate(32, 8)">
+    <path d="M 0 8 Q 0 4 4 2 Q 8 4 8 8 Q 8 12 4 14 Q 0 12 0 8 Z" fill="url(#shieldGrad)" stroke="#047857" stroke-width="1"/>
+    <path d="M 2 8 Q 2 6 4 5 Q 6 6 6 8 Q 6 10 4 11 Q 2 10 2 8 Z" fill="#34D399"/>
+    <text x="4" y="-2" text-anchor="middle" font-family="monospace" font-size="3" fill="#10B981">SSL/TLS</text>
+  </g>
+  
+  <!-- Encryption lock -->
+  <g transform="translate(28, 40)">
+    <rect x="0" y="2" width="8" height="6" rx="1" fill="url(#lockGrad)" stroke="#B45309" stroke-width="1"/>
+    <path d="M 2 2 Q 2 0 4 0 Q 6 0 6 2" fill="none" stroke="#D97706" stroke-width="1.5"/>
+    <circle cx="4" cy="5" r="1" fill="#FEF3C7"/>
+    <text x="4" y="-2" text-anchor="middle" font-family="monospace" font-size="3" fill="#F59E0B">AES-256</text>
+  </g>
+  
+  <!-- Firewall -->
+  <g transform="translate(14, 12)">
+    <rect x="0" y="0" width="2" height="12" fill="#EF4444" opacity="0.8"/>
+    <rect x="0" y="2" width="2" height="2" fill="#DC2626"/>
+    <rect x="0" y="6" width="2" height="2" fill="#DC2626"/>
+    <rect x="0" y="10" width="2" height="2" fill="#DC2626"/>
+    <text x="1" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#EF4444">FW</text>
+  </g>
+  
+  <!-- VPN tunnel -->
+  <g transform="translate(8, 48)">
+    <rect x="0" y="0" width="48" height="4" rx="2" fill="none" stroke="#06B6D4" stroke-width="2" stroke-dasharray="3,1"/>
+    <text x="24" y="-2" text-anchor="middle" font-family="monospace" font-size="3" fill="#06B6D4">VPN Tunnel</text>
+  </g>
+  
+  <!-- Security protocols -->
+  <g transform="translate(4, 4)" opacity="0.8">
+    <rect x="0" y="0" width="20" height="6" rx="1" fill="#6D28D9"/>
+    <text x="2" y="3" font-family="monospace" font-size="2" fill="#E9D5FF">HTTPS</text>
+    <text x="2" y="5" font-family="monospace" font-size="2" fill="#E9D5FF">SSH</text>
+  </g>
+  
+  <!-- Authentication -->
+  <g transform="translate(44, 4)" opacity="0.6">
+    <circle cx="4" cy="4" r="3" fill="none" stroke="#10B981" stroke-width="1"/>
+    <path d="M 2 4 L 3.5 5.5 L 6 2.5" stroke="#10B981" stroke-width="1.5" fill="none"/>
+    <text x="4" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#10B981">AUTH</text>
+  </g>
+  
+  <!-- Data integrity hash -->
+  <g transform="translate(20, 36)">
+    <rect x="0" y="0" width="24" height="4" rx="1" fill="#1F2937" stroke="#374151" stroke-width="1"/>
+    <text x="2" y="2.5" font-family="monospace" font-size="2" fill="#60A5FA">SHA-256: a1b2c3d4...</text>
+  </g>
+  
+  <!-- Animated data flow -->
+  <g opacity="0.8">
+    <!-- Encrypted data packets -->
+    <circle r="1.5" fill="#10B981">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <path d="M 16 32 Q 32 16 48 32"/>
+      </animateMotion>
+    </circle>
+    
+    <!-- Security scan -->
+    <circle r="1" fill="#EF4444">
+      <animateMotion dur="2s" repeatCount="indefinite">
+        <path d="M 14 12 L 14 24"/>
+      </animateMotion>
+    </circle>
+  </g>
+  
+  <!-- Threat indicators -->
+  <g transform="translate(2, 58)" opacity="0.6">
+    <text font-family="monospace" font-size="3" fill="#EF4444">Malware</text>
+  </g>
+  
+  <g transform="translate(24, 58)" opacity="0.6">
+    <text font-family="monospace" font-size="3" fill="#EF4444">Phishing</text>
+  </g>
+  
+  <g transform="translate(48, 58)" opacity="0.6">
+    <text font-family="monospace" font-size="3" fill="#EF4444">MITM</text>
+  </g>
+  
+  <!-- Network layers -->
+  <g transform="translate(58, 12)" opacity="0.5">
+    <text font-family="monospace" font-size="2" fill="#8B5CF6" transform="rotate(90)">OSI</text>
+  </g>
+  
+  <!-- Encryption strength indicator -->
+  <g transform="translate(54, 40)" opacity="0.7">
+    <rect x="0" y="0" width="2" height="8" fill="#10B981"/>
+    <rect x="0" y="2" width="2" height="6" fill="#059669"/>
+    <rect x="0" y="4" width="2" height="4" fill="#047857"/>
+    <rect x="0" y="6" width="2" height="2" fill="#065F46"/>
+    <text x="1" y="-2" text-anchor="middle" font-family="monospace" font-size="2" fill="#10B981">256</text>
+  </g>
+  
+  <!-- Digital signature -->
+  <g transform="translate(36, 52)" opacity="0.6">
+    <path d="M 0 0 Q 2 -1 4 0 Q 6 1 8 0" stroke="#8B5CF6" stroke-width="1" fill="none"/>
+    <text x="4" y="3" text-anchor="middle" font-family="monospace" font-size="2" fill="#8B5CF6">Sign</text>
+  </g>
+</svg>

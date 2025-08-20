@@ -1,0 +1,74 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="breadGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D2691E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#DEB887;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CD853F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="jamGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#DC143C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B0000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="#F5F5DC"/>
+  
+  <!-- Plate -->
+  <ellipse cx="200" cy="250" rx="180" ry="30" fill="#E6E6FA" stroke="#D3D3D3" stroke-width="2"/>
+  
+  <!-- Bottom bread slice -->
+  <ellipse cx="200" cy="200" rx="120" ry="15" fill="url(#breadGradient)" stroke="#8B4513" stroke-width="1"/>
+  
+  <!-- Peanut butter layer -->
+  <ellipse cx="200" cy="185" rx="115" ry="12" fill="url(#pbGradient)"/>
+  
+  <!-- Jam layer -->
+  <ellipse cx="200" cy="170" rx="110" ry="10" fill="url(#jamGradient)"/>
+  
+  <!-- Top bread slice -->
+  <ellipse cx="200" cy="155" rx="120" ry="15" fill="url(#breadGradient)" stroke="#8B4513" stroke-width="1"/>
+  
+  <!-- Recipe steps floating around -->
+  <g id="step1" transform="translate(50, 50)">
+    <rect x="0" y="0" width="100" height="40" rx="5" fill="#FFE4B5" stroke="#DEB887" stroke-width="2"/>
+    <text x="50" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8B4513">STEP 1:</text>
+    <text x="50" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#8B4513">Get bread slices</text>
+  </g>
+  
+  <g id="step2" transform="translate(250, 40)">
+    <rect x="0" y="0" width="100" height="40" rx="5" fill="#FFE4B5" stroke="#DEB887" stroke-width="2"/>
+    <text x="50" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8B4513">STEP 2:</text>
+    <text x="50" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#8B4513">Spread peanut butter</text>
+  </g>
+  
+  <g id="step3" transform="translate(300, 120)">
+    <rect x="0" y="0" width="80" height="40" rx="5" fill="#FFE4B5" stroke="#DEB887" stroke-width="2"/>
+    <text x="40" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8B4513">STEP 3:</text>
+    <text x="40" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#8B4513">Add jam</text>
+  </g>
+  
+  <g id="step4" transform="translate(20, 120)">
+    <rect x="0" y="0" width="80" height="40" rx="5" fill="#FFE4B5" stroke="#DEB887" stroke-width="2"/>
+    <text x="40" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8B4513">STEP 4:</text>
+    <text x="40" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#8B4513">Close sandwich</text>
+  </g>
+  
+  <!-- Arrows connecting steps -->
+  <path d="M 150 70 Q 180 60 250 60" stroke="#8B4513" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 350 80 Q 360 100 340 120" stroke="#8B4513" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 300 140 Q 200 180 100 140" stroke="#8B4513" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8B4513"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#8B4513">🥪 Pseudocode = Recipe Instructions</text>
+</svg>

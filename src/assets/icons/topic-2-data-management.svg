@@ -1,0 +1,103 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dataGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffc107;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8f00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#673ab7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#bgGradient)" stroke="url(#dataGradient)" stroke-width="2" opacity="0.9"/>
+  
+  <!-- Database cylinders -->
+  <g transform="translate(12, 8)">
+    <!-- Database 1 -->
+    <g>
+      <ellipse cx="10" cy="6" rx="8" ry="3" fill="url(#dataGradient)" opacity="0.3"/>
+      <rect x="2" y="6" width="16" height="20" fill="url(#dataGradient)" opacity="0.2"/>
+      <ellipse cx="10" cy="6" rx="8" ry="3" fill="none" stroke="url(#dataGradient)" stroke-width="1.5"/>
+      <ellipse cx="10" cy="26" rx="8" ry="3" fill="url(#dataGradient)" opacity="0.3"/>
+      <ellipse cx="10" cy="26" rx="8" ry="3" fill="none" stroke="url(#dataGradient)" stroke-width="1.5"/>
+      <line x1="2" y1="6" x2="2" y2="26" stroke="url(#dataGradient)" stroke-width="1.5"/>
+      <line x1="18" y1="6" x2="18" y2="26" stroke="url(#dataGradient)" stroke-width="1.5"/>
+      
+      <!-- Data layers -->
+      <ellipse cx="10" cy="12" rx="8" ry="3" fill="none" stroke="url(#dataGradient)" stroke-width="1" opacity="0.6"/>
+      <ellipse cx="10" cy="18" rx="8" ry="3" fill="none" stroke="url(#dataGradient)" stroke-width="1" opacity="0.6"/>
+    </g>
+    
+    <!-- Database 2 (smaller, offset) -->
+    <g transform="translate(20, 8)">
+      <ellipse cx="10" cy="4" rx="6" ry="2" fill="url(#purpleGradient)" opacity="0.3"/>
+      <rect x="4" y="4" width="12" height="16" fill="url(#purpleGradient)" opacity="0.2"/>
+      <ellipse cx="10" cy="4" rx="6" ry="2" fill="none" stroke="url(#purpleGradient)" stroke-width="1.5"/>
+      <ellipse cx="10" cy="20" rx="6" ry="2" fill="url(#purpleGradient)" opacity="0.3"/>
+      <ellipse cx="10" cy="20" rx="6" ry="2" fill="none" stroke="url(#purpleGradient)" stroke-width="1.5"/>
+      <line x1="4" y1="4" x2="4" y2="20" stroke="url(#purpleGradient)" stroke-width="1.5"/>
+      <line x1="16" y1="4" x2="16" y2="20" stroke="url(#purpleGradient)" stroke-width="1.5"/>
+      
+      <!-- Data layers -->
+      <ellipse cx="10" cy="8" rx="6" ry="2" fill="none" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.6"/>
+      <ellipse cx="10" cy="12" rx="6" ry="2" fill="none" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.6"/>
+      <ellipse cx="10" cy="16" rx="6" ry="2" fill="none" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.6"/>
+    </g>
+  </g>
+  
+  <!-- Data flow connections -->
+  <g opacity="0.7">
+    <!-- Connection lines -->
+    <path d="M22 20 Q32 16 42 20" fill="none" stroke="url(#accentGradient)" stroke-width="2" opacity="0.8">
+      <animate attributeName="stroke-dasharray" values="0,100;10,90;0,100" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M22 30 Q32 34 42 30" fill="none" stroke="url(#accentGradient)" stroke-width="2" opacity="0.8">
+      <animate attributeName="stroke-dasharray" values="0,100;10,90;0,100" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Data packets -->
+    <circle cx="27" cy="18" r="2" fill="url(#accentGradient)" opacity="0.8">
+      <animateMotion dur="2s" repeatCount="indefinite">
+        <mpath href="#dataPath1"/>
+      </animateMotion>
+    </circle>
+    <path id="dataPath1" d="M22 20 Q32 16 42 20" opacity="0"/>
+  </g>
+  
+  <!-- Data symbols -->
+  <g opacity="0.6">
+    <!-- Binary data -->
+    <text x="6" y="52" font-family="monospace" font-size="6" fill="url(#dataGradient)">101</text>
+    <text x="52" y="12" font-family="monospace" font-size="6" fill="url(#dataGradient)">010</text>
+    
+    <!-- SQL symbols -->
+    <text x="48" y="52" font-family="monospace" font-size="5" fill="url(#accentGradient)">SQL</text>
+    <text x="6" y="12" font-family="monospace" font-size="5" fill="url(#accentGradient)">DB</text>
+  </g>
+  
+  <!-- Table representation -->
+  <g transform="translate(16, 42)" opacity="0.8">
+    <rect x="0" y="0" width="32" height="12" rx="2" fill="rgba(0,0,0,0.6)" stroke="url(#dataGradient)" stroke-width="1"/>
+    <!-- Table header -->
+    <rect x="0" y="0" width="32" height="3" rx="2" fill="url(#dataGradient)" opacity="0.3"/>
+    <!-- Table columns -->
+    <line x1="10" y1="0" x2="10" y2="12" stroke="url(#dataGradient)" stroke-width="0.5" opacity="0.5"/>
+    <line x1="22" y1="0" x2="22" y2="12" stroke="url(#dataGradient)" stroke-width="0.5" opacity="0.5"/>
+    <!-- Table rows -->
+    <line x1="0" y1="6" x2="32" y2="6" stroke="url(#dataGradient)" stroke-width="0.5" opacity="0.5"/>
+    <line x1="0" y1="9" x2="32" y2="9" stroke="url(#dataGradient)" stroke-width="0.5" opacity="0.5"/>
+  </g>
+  
+  <!-- Glow effect -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="url(#accentGradient)" stroke-width="1" opacity="0.3"/>
+</svg>
