@@ -654,6 +654,9 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.9rem;
+  min-height: 60px;
+  height: 60px;
+  justify-content: center;
 }
 
 .action-btn.retry {

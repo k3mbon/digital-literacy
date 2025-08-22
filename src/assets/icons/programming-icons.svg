@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <!-- Binary Search Icon -->
+  <g id="binary-search">
+    <rect x="10" y="10" width="120" height="60" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="6"/>
+    <text x="70" y="45" text-anchor="middle" fill="white" font-size="12" font-family="Arial" font-weight="bold">BINARY SEARCH</text>
+    
+    <!-- Array visualization -->
+    <g transform="translate(15, 80)">
+      <rect x="0" y="0" width="20" height="20" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+      <text x="10" y="14" text-anchor="middle" fill="#2c3e50" font-size="10">1</text>
+      
+      <rect x="25" y="0" width="20" height="20" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+      <text x="35" y="14" text-anchor="middle" fill="#2c3e50" font-size="10">3</text>
+      
+      <rect x="50" y="0" width="20" height="20" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+      <text x="60" y="14" text-anchor="middle" fill="white" font-size="10" font-weight="bold">5</text>
+      
+      <rect x="75" y="0" width="20" height="20" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+      <text x="85" y="14" text-anchor="middle" fill="#2c3e50" font-size="10">7</text>
+      
+      <rect x="100" y="0" width="20" height="20" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+      <text x="110" y="14" text-anchor="middle" fill="#2c3e50" font-size="10">9</text>
+    </g>
+    
+    <!-- Search arrows -->
+    <path d="M 25 105 L 60 105" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 95 105 L 60 105" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Linear Search Icon -->
+  <g id="linear-search">
+    <rect x="150" y="10" width="120" height="60" fill="#27ae60" stroke="#229954" stroke-width="2" rx="6"/>
+    <text x="210" y="45" text-anchor="middle" fill="white" font-size="12" font-family="Arial" font-weight="bold">LINEAR SEARCH</text>
+    
+    <!-- Array visualization -->
+    <g transform="translate(155, 80)">
+      <rect x="0" y="0" width="20" height="20" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+      <text x="10" y="14" text-anchor="middle" fill="white" font-size="10" font-weight="bold">2</text>
+      
+      <rect x="25" y="0" width="20" height="20" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+      <text x="35" y="14" text-anchor="middle" fill="#2c3e50" font-size="10">4</text>
+      
+      <rect x="50" y="0" width="20" height="20" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+      <text x="60" y="14" text-anchor="middle" fill="#2c3e50" font-size="10">6</text>
+      
+      <rect x="75" y="0" width="20" height="20" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+      <text x="85" y="14" text-anchor="middle" fill="#2c3e50" font-size="10">8</text>
+      
+      <rect x="100" y="0" width="20" height="20" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+      <text x="110" y="14" text-anchor="middle" fill="#2c3e50" font-size="10">10</text>
+    </g>
+    
+    <!-- Sequential arrow -->
+    <path d="M 155 105 L 265 105" stroke="#f39c12" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Algorithm Complexity -->
+  <g id="complexity">
+    <rect x="290" y="10" width="100" height="60" fill="#9b59b6" stroke="#8e44ad" stroke-width="2" rx="6"/>
+    <text x="340" y="30" text-anchor="middle" fill="white" font-size="10" font-family="Arial" font-weight="bold">BIG O</text>
+    <text x="340" y="45" text-anchor="middle" fill="white" font-size="10" font-family="Arial" font-weight="bold">NOTATION</text>
+    <text x="340" y="60" text-anchor="middle" fill="white" font-size="12" font-family="Arial" font-weight="bold">O(log n)</text>
+  </g>
+  
+  <!-- Code Editor Icon -->
+  <g id="code-editor">
+    <rect x="410" y="10" width="120" height="80" fill="#2c3e50" stroke="#34495e" stroke-width="2" rx="6"/>
+    <rect x="415" y="15" width="110" height="70" fill="#34495e" rx="4"/>
+    
+    <!-- Code lines -->
+    <rect x="420" y="25" width="60" height="3" fill="#e74c3c" rx="1"/>
+    <rect x="485" y="25" width="30" height="3" fill="#f39c12" rx="1"/>
+    
+    <rect x="420" y="35" width="40" height="3" fill="#3498db" rx="1"/>
+    <rect x="465" y="35" width="50" height="3" fill="#27ae60" rx="1"/>
+    
+    <rect x="430" y="45" width="70" height="3" fill="#9b59b6" rx="1"/>
+    
+    <rect x="430" y="55" width="45" height="3" fill="#e67e22" rx="1"/>
+    <rect x="480" y="55" width="25" height="3" fill="#1abc9c" rx="1"/>
+    
+    <rect x="420" y="65" width="80" height="3" fill="#95a5a6" rx="1"/>
+    
+    <!-- Cursor -->
+    <rect x="500" y="45" width="2" height="8" fill="#ecf0f1"/>
+    
+    <text x="470" y="105" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">CODE EDITOR</text>
+  </g>
+  
+  <!-- Data Structure - Array -->
+  <g id="array-structure">
+    <text x="70" y="140" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">ARRAY</text>
+    
+    <g transform="translate(10, 150)">
+      <rect x="0" y="0" width="30" height="25" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="2"/>
+      <text x="15" y="16" text-anchor="middle" fill="white" font-size="10" font-weight="bold">[0]</text>
+      
+      <rect x="30" y="0" width="30" height="25" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="2"/>
+      <text x="45" y="16" text-anchor="middle" fill="white" font-size="10" font-weight="bold">[1]</text>
+      
+      <rect x="60" y="0" width="30" height="25" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="2"/>
+      <text x="75" y="16" text-anchor="middle" fill="white" font-size="10" font-weight="bold">[2]</text>
+      
+      <rect x="90" y="0" width="30" height="25" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="2"/>
+      <text x="105" y="16" text-anchor="middle" fill="white" font-size="10" font-weight="bold">[3]</text>
+    </g>
+  </g>
+  
+  <!-- Data Structure - Stack -->
+  <g id="stack-structure">
+    <text x="210" y="140" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">STACK</text>
+    
+    <g transform="translate(180, 150)">
+      <rect x="0" y="40" width="60" height="15" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="2"/>
+      <text x="30" y="51" text-anchor="middle" fill="white" font-size="9" font-weight="bold">PUSH</text>
+      
+      <rect x="0" y="25" width="60" height="15" fill="#f39c12" stroke="#e67e22" stroke-width="2" rx="2"/>
+      <text x="30" y="36" text-anchor="middle" fill="white" font-size="9" font-weight="bold">DATA</text>
+      
+      <rect x="0" y="10" width="60" height="15" fill="#27ae60" stroke="#229954" stroke-width="2" rx="2"/>
+      <text x="30" y="21" text-anchor="middle" fill="white" font-size="9" font-weight="bold">POP</text>
+      
+      <!-- Arrow -->
+      <path d="M 70 17 L 85 17" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+    </g>
+  </g>
+  
+  <!-- Data Structure - Queue -->
+  <g id="queue-structure">
+    <text x="350" y="140" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">QUEUE</text>
+    
+    <g transform="translate(300, 150)">
+      <rect x="0" y="20" width="20" height="20" fill="#9b59b6" stroke="#8e44ad" stroke-width="2" rx="2"/>
+      <text x="10" y="33" text-anchor="middle" fill="white" font-size="8" font-weight="bold">IN</text>
+      
+      <rect x="25" y="20" width="20" height="20" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="2"/>
+      <rect x="50" y="20" width="20" height="20" fill="#27ae60" stroke="#229954" stroke-width="2" rx="2"/>
+      <rect x="75" y="20" width="20" height="20" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="2"/>
+      
+      <text x="105" y="33" text-anchor="middle" fill="#2c3e50" font-size="8" font-weight="bold">OUT</text>
+      
+      <!-- Arrows -->
+      <path d="M -10 30 L 0 30" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <path d="M 95 30 L 110 30" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowhead)"/>
+    </g>
+  </g>
+  
+  <!-- Sorting Algorithm -->
+  <g id="sorting">
+    <text x="490" y="140" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">BUBBLE SORT</text>
+    
+    <g transform="translate(440, 150)">
+      <!-- Before sorting -->
+      <rect x="0" y="0" width="15" height="30" fill="#e74c3c" stroke="#c0392b" stroke-width="1"/>
+      <text x="7" y="45" text-anchor="middle" fill="#2c3e50" font-size="8">5</text>
+      
+      <rect x="20" y="10" width="15" height="20" fill="#f39c12" stroke="#e67e22" stroke-width="1"/>
+      <text x="27" y="45" text-anchor="middle" fill="#2c3e50" font-size="8">3</text>
+      
+      <rect x="40" y="5" width="15" height="25" fill="#27ae60" stroke="#229954" stroke-width="1"/>
+      <text x="47" y="45" text-anchor="middle" fill="#2c3e50" font-size="8">4</text>
+      
+      <rect x="60" y="15" width="15" height="15" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+      <text x="67" y="45" text-anchor="middle" fill="#2c3e50" font-size="8">2</text>
+      
+      <rect x="80" y="20" width="15" height="10" fill="#9b59b6" stroke="#8e44ad" stroke-width="1"/>
+      <text x="87" y="45" text-anchor="middle" fill="#2c3e50" font-size="8">1</text>
+    </g>
+  </g>
+  
+  <!-- Programming Language Icons -->
+  <g id="languages">
+    <!-- Python -->
+    <g transform="translate(10, 220)">
+      <circle cx="25" cy="25" r="20" fill="#3776ab" stroke="#2d5aa0" stroke-width="2"/>
+      <text x="25" y="31" text-anchor="middle" fill="white" font-size="12" font-family="Arial" font-weight="bold">Py</text>
+      <text x="25" y="55" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">Python</text>
+    </g>
+    
+    <!-- JavaScript -->
+    <g transform="translate(80, 220)">
+      <rect x="5" y="5" width="40" height="40" fill="#f7df1e" stroke="#d4c441" stroke-width="2" rx="4"/>
+      <text x="25" y="31" text-anchor="middle" fill="#2c3e50" font-size="14" font-family="Arial" font-weight="bold">JS</text>
+      <text x="25" y="55" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">JavaScript</text>
+    </g>
+    
+    <!-- Java -->
+    <g transform="translate(150, 220)">
+      <circle cx="25" cy="25" r="20" fill="#ed8b00" stroke="#d4790a" stroke-width="2"/>
+      <text x="25" y="31" text-anchor="middle" fill="white" font-size="12" font-family="Arial" font-weight="bold">J</text>
+      <text x="25" y="55" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">Java</text>
+    </g>
+    
+    <!-- C++ -->
+    <g transform="translate(220, 220)">
+      <rect x="5" y="5" width="40" height="40" fill="#00599c" stroke="#004d87" stroke-width="2" rx="4"/>
+      <text x="25" y="31" text-anchor="middle" fill="white" font-size="11" font-family="Arial" font-weight="bold">C++</text>
+      <text x="25" y="55" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">C++</text>
+    </g>
+  </g>
+  
+  <!-- Development Tools -->
+  <g id="dev-tools">
+    <!-- Git -->
+    <g transform="translate(320, 220)">
+      <circle cx="25" cy="25" r="20" fill="#f05032" stroke="#e8471c" stroke-width="2"/>
+      <text x="25" y="31" text-anchor="middle" fill="white" font-size="10" font-family="Arial" font-weight="bold">Git</text>
+      <text x="25" y="55" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">Version Control</text>
+    </g>
+    
+    <!-- Database -->
+    <g transform="translate(390, 220)">
+      <ellipse cx="25" cy="20" rx="18" ry="8" fill="#336791" stroke="#2d5a82" stroke-width="2"/>
+      <rect x="7" y="20" width="36" height="16" fill="#336791"/>
+      <ellipse cx="25" cy="36" rx="18" ry="8" fill="#336791" stroke="#2d5a82" stroke-width="2"/>
+      <text x="25" y="55" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">Database</text>
+    </g>
+    
+    <!-- API -->
+    <g transform="translate(460, 220)">
+      <rect x="5" y="10" width="40" height="30" fill="#61dafb" stroke="#4fa8c5" stroke-width="2" rx="4"/>
+      <text x="25" y="28" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial" font-weight="bold">API</text>
+      <text x="25" y="55" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">Interface</text>
+    </g>
+  </g>
+  
+  <!-- Flowchart Elements -->
+  <g id="flowchart">
+    <!-- Start/End -->
+    <ellipse cx="70" cy="320" rx="30" ry="15" fill="#27ae60" stroke="#229954" stroke-width="2"/>
+    <text x="70" y="325" text-anchor="middle" fill="white" font-size="10" font-family="Arial" font-weight="bold">START</text>
+    
+    <!-- Process -->
+    <rect x="130" y="305" width="60" height="30" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="4"/>
+    <text x="160" y="325" text-anchor="middle" fill="white" font-size="10" font-family="Arial" font-weight="bold">PROCESS</text>
+    
+    <!-- Decision -->
+    <path d="M 230 320 L 250 305 L 290 320 L 250 335 Z" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+    <text x="250" y="325" text-anchor="middle" fill="white" font-size="9" font-family="Arial" font-weight="bold">DECISION</text>
+    
+    <!-- Input/Output -->
+    <path d="M 320 305 L 380 305 L 370 335 L 310 335 Z" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+    <text x="345" y="325" text-anchor="middle" fill="white" font-size="10" font-family="Arial" font-weight="bold">I/O</text>
+    
+    <!-- Connector arrows -->
+    <path d="M 100 320 L 130 320" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 190 320 L 230 320" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 290 320 L 320 320" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+    </marker>
+  </defs>
+</svg>

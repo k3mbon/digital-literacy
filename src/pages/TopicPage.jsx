@@ -1,10 +1,9 @@
-import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Play, TestTube, Clock, Award, ChevronRight } from 'lucide-react';
+import { ArrowLeft, BookOpen, Play, TestTube, Clock, Award, ChevronRight, FileText } from 'lucide-react';
 import { grades, topics, getDifficultyColor } from '../data/topics';
+import { getLessonContent, getLessonMetadata } from '../data/lessonLoader';
 import '../styles/TopicPage.css';
 
-const TopicPage = () => {
-  const { gradeLevel, topicId } = useParams();
+const TopicPage = ({ onNavigate, gradeLevel, topicId }) => {
   const grade = grades[gradeLevel];
   const topic = topics[topicId];
   
@@ -21,6 +20,48 @@ const TopicPage = () => {
     }
   };
 
+  const getTopicIcon = (topicId) => {
+    const iconMap = {
+      '1': new URL('../assets/icons/computational-thinking.svg', import.meta.url).href,
+      '2': new URL('../assets/icons/managing-data.svg', import.meta.url).href,
+      '3': new URL('../assets/icons/networks-communications.svg', import.meta.url).href,
+      '4': new URL('../assets/icons/computer-systems.svg', import.meta.url).href,
+      '5': new URL('../assets/icons/computer-systems.svg', import.meta.url).href
+    };
+    return iconMap[topicId] || new URL('../assets/icons/computational-thinking.svg', import.meta.url).href;
+  };
+
+  const getSubtopicIcon = (topicId, subtopicId) => {
+    const iconMap = {
+      '1': {
+        '1.1': new URL('../assets/icons/subtopic-1-1-pseudocode.svg', import.meta.url).href,
+        '1.2': new URL('../assets/icons/subtopic-1-2-selection.svg', import.meta.url).href,
+        '1.3': new URL('../assets/icons/subtopic-1-3-searching.svg', import.meta.url).href,
+        '1.4': new URL('../assets/icons/subtopic-1-4-conditional.svg', import.meta.url).href,
+        '1.5': new URL('../assets/icons/subtopic-1-5-data.svg', import.meta.url).href,
+        '1.6': new URL('../assets/icons/subtopic-1-6-library.svg', import.meta.url).href,
+        '1.7': new URL('../assets/icons/subtopic-1-7-software-dev.svg', import.meta.url).href,
+        '1.8': new URL('../assets/icons/subtopic-1-8-physical-computing.svg', import.meta.url).href
+      },
+      '2': {
+        '2.1': new URL('../assets/icons/subtopic-2-1-modelling.svg', import.meta.url).href,
+        '2.2': new URL('../assets/icons/subtopic-2-2-databases.svg', import.meta.url).href
+      },
+      '3': {
+        '3.1': new URL('../assets/icons/subtopic-3-1-network-types.svg', import.meta.url).href,
+        '3.2': new URL('../assets/icons/subtopic-3-2-data-security.svg', import.meta.url).href
+      },
+      '5': {
+        '5.1': new URL('../assets/icons/subtopic-4-1-architecture.svg', import.meta.url).href,
+        '5.2': new URL('../assets/icons/subtopic-4-2-operating-systems.svg', import.meta.url).href,
+        '5.3': new URL('../assets/icons/subtopic-4-3-input-output.svg', import.meta.url).href,
+        '5.4': new URL('../assets/icons/subtopic-4-4-storage.svg', import.meta.url).href,
+        '5.5': new URL('../assets/icons/subtopic-4-5-performance.svg', import.meta.url).href
+      }
+    };
+    return iconMap[topicId]?.[subtopicId] || new URL('../assets/icons/computational-thinking.svg', import.meta.url).href;
+  };
+
   return (
     <div className="topic-page">
       {/* Header */}
@@ -35,17 +76,14 @@ const TopicPage = () => {
         </div>
         
         <div className="header-content">
-          <Link to={`/grade/${gradeLevel}`} className="back-button">
+          <button onClick={() => onNavigate('grade', { gradeLevel })} className="back-button">
             <ArrowLeft size={20} />
             <span>Back to {grade.title}</span>
-          </Link>
+          </button>
           
           <div className="topic-info">
-            <div className="topic-icon" style={{ backgroundColor: topic.color }}>
-              {topic.icon === 'cpu' && '💻'}
-              {topic.icon === 'database' && '🗄️'}
-              {topic.icon === 'network' && '🌐'}
-              {topic.icon === 'monitor' && '🖥️'}
+            <div className="topic-icon">
+              <img src={getTopicIcon(topicId)} alt={topic.title} className="topic-icon-svg" />
             </div>
             <div className="topic-details">
               <h1>{topic.title}</h1>
@@ -77,48 +115,61 @@ const TopicPage = () => {
         </div>
         
         <div className="subtopics-grid">
-          {Object.values(topic.subtopics).map((subtopic, index) => (
-            <div key={subtopic.id} className="subtopic-card">
-              <div className="card-header">
-                <div className="subtopic-number">
-                  {index + 1}
+          {Object.values(topic.subtopics).map((subtopic, index) => {
+            return (
+              <div key={subtopic.id} className="subtopic-card">
+                <div className="card-header">
+                  <div className="subtopic-icon-container">
+                    <img src={getSubtopicIcon(topicId, subtopic.id)} alt={subtopic.title} className="subtopic-icon" />
+                    <div className="subtopic-number">
+                      {index + 1}
+                    </div>
+                  </div>
+                  <div className="difficulty-badge" style={{ backgroundColor: getDifficultyColor(subtopic.difficulty) }}>
+                    {getDifficultyIcon(subtopic.difficulty)}
+                    <span>{subtopic.difficulty}</span>
+                  </div>
                 </div>
-                <div className="difficulty-badge" style={{ backgroundColor: getDifficultyColor(subtopic.difficulty) }}>
-                  {getDifficultyIcon(subtopic.difficulty)}
-                  <span>{subtopic.difficulty}</span>
+                
+                <div className="card-content">
+                  <h3>{subtopic.title}</h3>
+                  <p>{subtopic.description}</p>
                 </div>
-              </div>
-              
-              <div className="card-content">
-                <h3>{subtopic.title}</h3>
-                <p>{subtopic.description}</p>
-              </div>
-              
-              <div className="card-actions">
-                <Link 
-                  to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${subtopic.id}/notes`}
-                  className="action-btn notes"
-                >
-                  <BookOpen size={16} />
-                  <span>Notes</span>
-                </Link>
                 
-                <Link 
-                  to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${subtopic.id}/playground`}
-                  className="action-btn playground"
-                >
-                  <Play size={16} />
-                  <span>Playground</span>
-                </Link>
-                
-                <Link 
-                  to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${subtopic.id}/assessment`}
-                  className="action-btn assessment"
-                >
-                  <TestTube size={16} />
-                  <span>Test</span>
-                </Link>
-              </div>
+                <div className="card-actions">
+                  {getLessonContent(subtopic.id) && (
+                    <button 
+                      onClick={() => onNavigate('lesson', { gradeLevel, topicId, subtopicId: subtopic.id })}
+                      className="action-btn lesson"
+                    >
+                      <FileText size={14} />
+                      <span>Lesson</span>
+                    </button>
+                  )}
+                  <button 
+                    onClick={() => onNavigate('notes', { gradeLevel, topicId, subtopicId: subtopic.id })}
+                    className="action-btn notes"
+                  >
+                    <BookOpen size={14} />
+                    <span>Notes</span>
+                  </button>
+                  
+                  <button 
+                    onClick={() => onNavigate('playground', { gradeLevel, topicId, subtopicId: subtopic.id })}
+                    className="action-btn playground"
+                  >
+                    <Play size={14} />
+                    <span>Playground</span>
+                  </button>
+                  
+                  <button 
+                    onClick={() => onNavigate('assessment', { gradeLevel, topicId, subtopicId: subtopic.id })}
+                    className="action-btn assessment"
+                  >
+                    <TestTube size={14} />
+                    <span>Test</span>
+                  </button>
+                </div>
               
               <div className="progress-bar">
                 <div className="progress-fill" style={{ width: '0%' }}></div>
@@ -126,7 +177,8 @@ const TopicPage = () => {
               
               <div className="card-glow" style={{ '--glow-color': topic.color }}></div>
             </div>
-          ))}
+          );
+        })}
         </div>
       </div>
 
@@ -147,30 +199,30 @@ const TopicPage = () => {
               <div className="node-content">
                 <h4>{subtopic.title}</h4>
                 <div className="node-actions">
-                  <Link 
-                    to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${subtopic.id}/notes`}
+                  <button 
+                    onClick={() => onNavigate('notes', { gradeLevel, topicId, subtopicId: subtopic.id })}
                     className="node-action"
                   >
                     <BookOpen size={14} />
                     <span>Study</span>
                     <ChevronRight size={14} />
-                  </Link>
-                  <Link 
-                    to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${subtopic.id}/playground`}
+                  </button>
+                  <button 
+                    onClick={() => onNavigate('playground', { gradeLevel, topicId, subtopicId: subtopic.id })}
                     className="node-action"
                   >
                     <Play size={14} />
                     <span>Practice</span>
                     <ChevronRight size={14} />
-                  </Link>
-                  <Link 
-                    to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${subtopic.id}/assessment`}
+                  </button>
+                  <button 
+                    onClick={() => onNavigate('assessment', { gradeLevel, topicId, subtopicId: subtopic.id })}
                     className="node-action"
                   >
                     <TestTube size={14} />
                     <span>Test</span>
                     <ChevronRight size={14} />
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -184,15 +236,15 @@ const TopicPage = () => {
           <div className="quick-start-content">
             <h3>Ready to Begin?</h3>
             <p>Start with the first subtopic and work your way through each module systematically.</p>
-            <Link 
-              to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${Object.values(topic.subtopics)[0].id}/notes`}
+            <button 
+              onClick={() => onNavigate('notes', { gradeLevel, topicId, subtopicId: Object.values(topic.subtopics)[0].id })}
               className="start-button"
               style={{ backgroundColor: topic.color }}
             >
               <Play size={20} />
               <span>Start Learning</span>
               <ChevronRight size={20} />
-            </Link>
+            </button>
           </div>
           <div className="quick-start-visual">
             <div className="visual-element" style={{ backgroundColor: topic.color }}></div>

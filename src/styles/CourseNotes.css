@@ -353,6 +353,8 @@
   font-size: 0.875rem;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 60px;
+  height: 60px;
 }
 
 .action-link.playground {

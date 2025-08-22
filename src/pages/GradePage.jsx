@@ -1,10 +1,8 @@
-import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, BookOpen, Play, TestTube } from 'lucide-react';
 import { grades, topics } from '../data/topics';
 import '../styles/GradePage.css';
 
-const GradePage = () => {
-  const { gradeLevel } = useParams();
+const GradePage = ({ onNavigate, gradeLevel }) => {
   const grade = grades[gradeLevel];
   
   if (!grade) {
@@ -20,10 +18,10 @@ const GradePage = () => {
         </div>
         
         <div className="header-content">
-          <Link to="/" className="back-button">
+          <button onClick={() => onNavigate('landing')} className="back-button">
             <ArrowLeft size={20} />
             <span>Back to Home</span>
-          </Link>
+          </button>
           
           <div className="grade-info">
             <div className="grade-badge" style={{ backgroundColor: grade.color }}>
@@ -62,12 +60,7 @@ const GradePage = () => {
             <div key={topic.id} className="topic-card" style={{ '--topic-color': topic.color }}>
               <div className="topic-header">
                 <div className="topic-icon">
-                  <div className="icon-placeholder" style={{ backgroundColor: topic.color }}>
-                    {topic.icon === 'cpu' && '💻'}
-                    {topic.icon === 'database' && '🗄️'}
-                    {topic.icon === 'network' && '🌐'}
-                    {topic.icon === 'monitor' && '🖥️'}
-                  </div>
+                  <img src={topic.icon} alt={topic.title} className="topic-icon-svg" />
                 </div>
                 <div className="topic-info">
                   <h3>{topic.title}</h3>
@@ -93,14 +86,14 @@ const GradePage = () => {
               </div>
               
               <div className="topic-actions">
-                <Link 
-                  to={`/grade/${gradeLevel}/topic/${topic.id}`}
+                <button 
+                  onClick={() => onNavigate('topic', { gradeLevel, topicId: topic.id })}
                   className="action-button primary"
                 >
                   <BookOpen size={16} />
                   <span>Start Learning</span>
                   <ChevronRight size={16} />
-                </Link>
+                </button>
               </div>
               
               <div className="topic-glow"></div>

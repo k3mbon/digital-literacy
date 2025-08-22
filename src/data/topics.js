@@ -2,7 +2,8 @@ export const topics = {
   1: {
     id: 1,
     title: "Computational Thinking and Programming",
-    icon: "/src/assets/icons/topic-1-programming.svg",
+    icon: "/src/assets/icons/computational-thinking.svg",
+
     color: "#3B82F6",
     subtopics: {
       "1.1": {

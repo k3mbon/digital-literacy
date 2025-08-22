@@ -1,24 +1,13 @@
-import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { ArrowLeft, Play, RotateCcw, BookOpen, TestTube, ChevronRight, Code, Zap, CheckCircle } from 'lucide-react';
 import { grades, topics } from '../data/topics';
 import '../styles/Playground.css';
 
-const Playground = () => {
-  const { gradeLevel, topicId, subtopicId } = useParams();
+const Playground = ({ onNavigate, gradeLevel, topicId, subtopicId }) => {
   const grade = grades[gradeLevel];
   const topic = topics[topicId];
   const subtopic = topic?.subtopics[subtopicId];
   
-  const [code, setCode] = useState('');
-  const [output, setOutput] = useState('');
-  const [isRunning, setIsRunning] = useState(false);
-  const [activeTab, setActiveTab] = useState('editor');
-  
-  if (!grade || !topic || !subtopic) {
-    return <div>Playground not found</div>;
-  }
-
   // Sample playground content based on subtopic
   const getPlaygroundContent = (subtopicId) => {
     const playgroundMap = {
@@ -85,12 +74,21 @@ const Playground = () => {
 
   const playgroundContent = getPlaygroundContent(subtopicId);
   
-  // Initialize code with playground content
-  useState(() => {
-    if (!code) {
+  const [code, setCode] = useState(() => playgroundContent.initialCode || '');
+  const [output, setOutput] = useState('');
+  const [isRunning, setIsRunning] = useState(false);
+  const [activeTab, setActiveTab] = useState('editor');
+  
+  // Update code when playground content changes
+  useEffect(() => {
+    if (playgroundContent.initialCode && !code) {
       setCode(playgroundContent.initialCode);
     }
-  }, []);
+  }, [playgroundContent.initialCode, code]);
+  
+  if (!grade || !topic || !subtopic) {
+    return <div>Playground not found</div>;
+  }
 
   const runCode = () => {
     setIsRunning(true);
@@ -135,10 +133,10 @@ const Playground = () => {
         </div>
         
         <div className="header-content">
-          <Link to={`/grade/${gradeLevel}/topic/${topicId}`} className="back-button">
+          <button onClick={() => onNavigate('topic', { gradeLevel, topicId })} className="back-button">
             <ArrowLeft size={20} />
             <span>Back to {topic.title}</span>
-          </Link>
+          </button>
           
           <div className="playground-info">
             <div className="playground-badge">
@@ -272,21 +270,21 @@ const Playground = () => {
             <div className="quick-actions">
               <h4>Continue Learning</h4>
               <div className="action-buttons">
-                <Link 
-                  to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${subtopicId}/notes`}
+                <button 
+                  onClick={() => onNavigate('notes', { gradeLevel, topicId, subtopicId })}
                   className="action-btn notes"
                 >
                   <BookOpen size={16} />
                   <span>Review Notes</span>
-                </Link>
+                </button>
                 
-                <Link 
-                  to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${subtopicId}/assessment`}
+                <button 
+                  onClick={() => onNavigate('assessment', { gradeLevel, topicId, subtopicId })}
                   className="action-btn assessment"
                 >
                   <TestTube size={16} />
                   <span>Take Test</span>
-                </Link>
+                </button>
               </div>
             </div>
           </div>

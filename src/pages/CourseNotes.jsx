@@ -1,12 +1,10 @@
-import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Play, TestTube, ChevronRight, Lightbulb, Code, FileText } from 'lucide-react';
 import { grades, topics } from '../data/topics';
-import { getLessonContent } from '../data/lessonContent';
+import { getLessonContent } from '../data/lessonLoader';
 import { InteractiveStory, InteractiveList, InteractiveCodeExample, InteractiveQuiz } from '../components/InteractiveLessonComponents';
 import '../styles/CourseNotes.css';
 
-const CourseNotes = () => {
-  const { gradeLevel, topicId, subtopicId } = useParams();
+const CourseNotes = ({ onNavigate, gradeLevel, topicId, subtopicId }) => {
   const grade = grades[gradeLevel];
   const topic = topics[topicId];
   const subtopic = topic?.subtopics[subtopicId];
@@ -16,7 +14,7 @@ const CourseNotes = () => {
   }
 
   // Get lesson content from the comprehensive lesson content file
-  const lessonData = getLessonContent(subtopicId, gradeLevel);
+  const lessonData = getLessonContent(subtopicId);
   
   // Fallback content for subtopics not yet implemented
   const getFallbackContent = () => ({
@@ -70,10 +68,10 @@ const CourseNotes = () => {
         </div>
         
         <div className="header-content">
-          <Link to={`/grade/${gradeLevel}/topic/${topicId}`} className="back-button">
+          <button onClick={() => onNavigate('topic', { gradeLevel, topicId })} className="back-button">
             <ArrowLeft size={20} />
             <span>Back to {topic.title}</span>
-          </Link>
+          </button>
           
           <div className="lesson-info">
             <div className="lesson-badge">
@@ -252,23 +250,23 @@ const CourseNotes = () => {
             <div className="sidebar-section">
               <h3>Next Steps</h3>
               <div className="next-actions">
-                <Link 
-                  to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${subtopicId}/playground`}
+                <button 
+                  onClick={() => onNavigate('playground', { gradeLevel, topicId, subtopicId })}
                   className="action-link playground"
                 >
                   <Play size={16} />
                   <span>Try Playground</span>
                   <ChevronRight size={16} />
-                </Link>
+                </button>
                 
-                <Link 
-                  to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${subtopicId}/assessment`}
+                <button 
+                  onClick={() => onNavigate('assessment', { gradeLevel, topicId, subtopicId })}
                   className="action-link assessment"
                 >
                   <TestTube size={16} />
                   <span>Take Assessment</span>
                   <ChevronRight size={16} />
-                </Link>
+                </button>
               </div>
             </div>
             
@@ -304,14 +302,14 @@ const CourseNotes = () => {
           </div>
           
           <div className="footer-actions">
-            <Link 
-              to={`/grade/${gradeLevel}/topic/${topicId}/subtopic/${subtopicId}/playground`}
+            <button 
+              onClick={() => onNavigate('playground', { gradeLevel, topicId, subtopicId })}
               className="footer-button primary"
             >
               <Play size={16} />
               <span>Continue to Playground</span>
               <ChevronRight size={16} />
-            </Link>
+            </button>
           </div>
         </div>
       </div>

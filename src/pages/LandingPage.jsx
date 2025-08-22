@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
+// Removed React Router dependency
 import { grades } from '../data/topics';
 import { ChevronRight, BookOpen, Code, Zap } from 'lucide-react';
 import '../styles/LandingPage.css';
 
-const LandingPage = () => {
+const LandingPage = ({ onNavigate }) => {
   return (
     <div className="landing-page">
       {/* Hero Section */}
@@ -25,7 +25,8 @@ const LandingPage = () => {
           
           <h1 className="hero-title">
             <span className="gradient-text">Super Cool Digital Literacy Lesson</span>
-            <br />Master Digital Skills for the Future
+            <br />
+            Master Digital Skills for the Future
           </h1>
           
           <p className="hero-description">
@@ -59,21 +60,21 @@ const LandingPage = () => {
         
         <div className="grade-cards">
           {Object.values(grades).map((grade) => (
-            <Link 
-              key={grade.level} 
-              to={`/grade/${grade.level}`}
-              className="grade-card"
-              style={{ '--grade-color': grade.color }}
-            >
-              <div className="grade-card-header">
-                <div className="grade-number">{grade.level}</div>
-                <ChevronRight className="grade-arrow" size={20} />
-              </div>
-              
-              <div className="grade-content">
-                <h3>{grade.title}</h3>
-                <p>{grade.description}</p>
-              </div>
+             <button 
+               key={grade.level}
+               onClick={() => onNavigate('grade', { gradeLevel: grade.level })}
+               className="grade-card"
+               style={{ '--grade-color': grade.color }}
+             >
+               <div className="grade-card-header">
+                 <div className="grade-number">{grade.level}</div>
+                 <ChevronRight className="grade-arrow" size={20} />
+               </div>
+               
+               <div className="grade-content">
+                 <h3>{grade.title}</h3>
+                 <p>{grade.description}</p>
+               </div>
               
               <div className="grade-features">
                 <div className="feature">
@@ -91,7 +92,7 @@ const LandingPage = () => {
               </div>
               
               <div className="grade-card-glow"></div>
-            </Link>
+            </button>
           ))}
         </div>
       </div>

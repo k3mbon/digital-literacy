@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
 import { Home, ArrowLeft, Search, BookOpen } from 'lucide-react';
 import '../styles/NotFound.css';
 
-const NotFound = () => {
+const NotFound = ({ onNavigate }) => {
   return (
     <div className="not-found-page">
       {/* Animated Background */}
@@ -87,10 +86,10 @@ const NotFound = () => {
 
         {/* Action Buttons */}
         <div className="error-actions">
-          <Link to="/" className="btn btn-primary">
+          <button onClick={() => onNavigate('landing')} className="btn btn-primary">
             <Home size={20} />
             <span>Back to Home</span>
-          </Link>
+          </button>
           
           <button 
             onClick={() => window.history.back()} 
@@ -105,18 +104,18 @@ const NotFound = () => {
         <div className="quick-links">
           <h3>Popular Learning Paths:</h3>
           <div className="links-grid">
-            <Link to="/grade/7" className="quick-link">
+            <button onClick={() => onNavigate('grade', { gradeLevel: '7' })} className="quick-link">
               <BookOpen size={16} />
               <span>Grade 7 - Digital Basics</span>
-            </Link>
-            <Link to="/grade/8" className="quick-link">
+            </button>
+            <button onClick={() => onNavigate('grade', { gradeLevel: '8' })} className="quick-link">
               <BookOpen size={16} />
               <span>Grade 8 - Intermediate Skills</span>
-            </Link>
-            <Link to="/grade/9" className="quick-link">
+            </button>
+            <button onClick={() => onNavigate('grade', { gradeLevel: '9' })} className="quick-link">
               <BookOpen size={16} />
               <span>Grade 9 - Advanced Concepts</span>
-            </Link>
+            </button>
           </div>
         </div>
 

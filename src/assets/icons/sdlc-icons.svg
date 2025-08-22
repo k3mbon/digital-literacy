@@ -1,0 +1,268 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500">
+  <!-- SDLC Phases -->
+  
+  <!-- Planning Phase -->
+  <g id="planning">
+    <circle cx="70" cy="50" r="35" fill="#3498db" stroke="#2980b9" stroke-width="3"/>
+    <path d="M 50 35 L 65 50 L 90 30" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="70" y="100" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">PLANNING</text>
+    
+    <!-- Planning icons -->
+    <g transform="translate(20, 120)">
+      <rect x="0" y="0" width="100" height="60" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="4"/>
+      <rect x="10" y="10" width="80" height="8" fill="#3498db" rx="2"/>
+      <rect x="10" y="25" width="60" height="8" fill="#27ae60" rx="2"/>
+      <rect x="10" y="40" width="70" height="8" fill="#f39c12" rx="2"/>
+      <text x="50" y="195" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">Requirements</text>
+    </g>
+  </g>
+  
+  <!-- Analysis Phase -->
+  <g id="analysis">
+    <circle cx="200" cy="50" r="35" fill="#27ae60" stroke="#229954" stroke-width="3"/>
+    <rect x="185" y="35" width="30" height="30" fill="none" stroke="white" stroke-width="3" rx="4"/>
+    <circle cx="200" cy="50" r="8" fill="white"/>
+    <text x="200" y="100" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">ANALYSIS</text>
+    
+    <!-- Analysis diagram -->
+    <g transform="translate(150, 120)">
+      <rect x="0" y="0" width="100" height="60" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="4"/>
+      <!-- Flowchart elements -->
+      <rect x="20" y="10" width="20" height="15" fill="#27ae60" rx="2"/>
+      <rect x="60" y="10" width="20" height="15" fill="#27ae60" rx="2"/>
+      <rect x="40" y="35" width="20" height="15" fill="#27ae60" rx="2"/>
+      <!-- Connecting lines -->
+      <line x1="30" y1="25" x2="30" y2="35" stroke="#2c3e50" stroke-width="1"/>
+      <line x1="30" y1="35" x2="50" y2="35" stroke="#2c3e50" stroke-width="1"/>
+      <line x1="70" y1="25" x2="70" y2="35" stroke="#2c3e50" stroke-width="1"/>
+      <line x1="50" y1="35" x2="70" y2="35" stroke="#2c3e50" stroke-width="1"/>
+      <text x="50" y="75" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">System Design</text>
+    </g>
+  </g>
+  
+  <!-- Design Phase -->
+  <g id="design">
+    <circle cx="330" cy="50" r="35" fill="#9b59b6" stroke="#8e44ad" stroke-width="3"/>
+    <rect x="315" y="35" width="30" height="30" fill="none" stroke="white" stroke-width="2" rx="2"/>
+    <rect x="320" y="40" width="20" height="20" fill="none" stroke="white" stroke-width="2" rx="2"/>
+    <rect x="325" y="45" width="10" height="10" fill="white" rx="1"/>
+    <text x="330" y="100" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">DESIGN</text>
+    
+    <!-- Design mockup -->
+    <g transform="translate(280, 120)">
+      <rect x="0" y="0" width="100" height="60" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="4"/>
+      <!-- UI mockup -->
+      <rect x="10" y="10" width="80" height="8" fill="#9b59b6" rx="2"/>
+      <rect x="10" y="25" width="35" height="25" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" rx="2"/>
+      <rect x="55" y="25" width="35" height="25" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" rx="2"/>
+      <text x="50" y="75" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">UI/UX Design</text>
+    </g>
+  </g>
+  
+  <!-- Implementation Phase -->
+  <g id="implementation">
+    <circle cx="460" cy="50" r="35" fill="#e74c3c" stroke="#c0392b" stroke-width="3"/>
+    <rect x="445" y="35" width="30" height="30" fill="none" stroke="white" stroke-width="2" rx="2"/>
+    <!-- Code brackets -->
+    <path d="M 450 40 L 445 45 L 445 55 L 450 60" stroke="white" stroke-width="2" fill="none"/>
+    <path d="M 470 40 L 475 45 L 475 55 L 470 60" stroke="white" stroke-width="2" fill="none"/>
+    <text x="460" y="100" text-anchor="middle" fill="#2c3e50" font-size="11" font-family="Arial" font-weight="bold">IMPLEMENTATION</text>
+    
+    <!-- Code editor -->
+    <g transform="translate(410, 120)">
+      <rect x="0" y="0" width="100" height="60" fill="#2c3e50" stroke="#34495e" stroke-width="2" rx="4"/>
+      <!-- Code lines -->
+      <rect x="10" y="10" width="60" height="3" fill="#e74c3c" rx="1"/>
+      <rect x="10" y="18" width="40" height="3" fill="#f39c12" rx="1"/>
+      <rect x="15" y="26" width="70" height="3" fill="#27ae60" rx="1"/>
+      <rect x="15" y="34" width="50" height="3" fill="#3498db" rx="1"/>
+      <rect x="10" y="42" width="65" height="3" fill="#9b59b6" rx="1"/>
+      <text x="50" y="75" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">Coding</text>
+    </g>
+  </g>
+  
+  <!-- Testing Phase -->
+  <g id="testing">
+    <circle cx="70" cy="200" r="35" fill="#f39c12" stroke="#e67e22" stroke-width="3"/>
+    <circle cx="70" cy="200" r="20" fill="none" stroke="white" stroke-width="3"/>
+    <circle cx="70" cy="200" r="10" fill="none" stroke="white" stroke-width="3"/>
+    <circle cx="70" cy="200" r="3" fill="white"/>
+    <text x="70" y="250" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">TESTING</text>
+    
+    <!-- Test results -->
+    <g transform="translate(20, 270)">
+      <rect x="0" y="0" width="100" height="60" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="4"/>
+      <!-- Test cases -->
+      <circle cx="20" cy="15" r="4" fill="#27ae60"/>
+      <text x="30" y="19" fill="#2c3e50" font-size="8" font-family="Arial">Test 1: PASS</text>
+      <circle cx="20" cy="30" r="4" fill="#27ae60"/>
+      <text x="30" y="34" fill="#2c3e50" font-size="8" font-family="Arial">Test 2: PASS</text>
+      <circle cx="20" cy="45" r="4" fill="#e74c3c"/>
+      <text x="30" y="49" fill="#2c3e50" font-size="8" font-family="Arial">Test 3: FAIL</text>
+      <text x="50" y="75" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">Test Cases</text>
+    </g>
+  </g>
+  
+  <!-- Deployment Phase -->
+  <g id="deployment">
+    <circle cx="200" cy="200" r="35" fill="#1abc9c" stroke="#16a085" stroke-width="3"/>
+    <rect x="185" y="185" width="30" height="30" fill="none" stroke="white" stroke-width="2" rx="4"/>
+    <path d="M 195 195 L 205 205 M 195 205 L 205 195" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    <text x="200" y="250" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">DEPLOYMENT</text>
+    
+    <!-- Server deployment -->
+    <g transform="translate(150, 270)">
+      <rect x="0" y="0" width="100" height="60" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="4"/>
+      <!-- Server racks -->
+      <rect x="15" y="10" width="70" height="8" fill="#1abc9c" rx="2"/>
+      <rect x="15" y="22" width="70" height="8" fill="#1abc9c" rx="2"/>
+      <rect x="15" y="34" width="70" height="8" fill="#1abc9c" rx="2"/>
+      <!-- Status lights -->
+      <circle cx="25" cy="14" r="2" fill="#27ae60"/>
+      <circle cx="25" cy="26" r="2" fill="#27ae60"/>
+      <circle cx="25" cy="38" r="2" fill="#f39c12"/>
+      <text x="50" y="75" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">Production</text>
+    </g>
+  </g>
+  
+  <!-- Maintenance Phase -->
+  <g id="maintenance">
+    <circle cx="330" cy="200" r="35" fill="#95a5a6" stroke="#7f8c8d" stroke-width="3"/>
+    <rect x="320" y="190" width="20" height="20" fill="none" stroke="white" stroke-width="2" rx="2"/>
+    <circle cx="330" cy="200" r="8" fill="none" stroke="white" stroke-width="2"/>
+    <path d="M 325 195 L 335 205 M 325 205 L 335 195" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <text x="330" y="250" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">MAINTENANCE</text>
+    
+    <!-- Maintenance tools -->
+    <g transform="translate(280, 270)">
+      <rect x="0" y="0" width="100" height="60" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="4"/>
+      <!-- Tools -->
+      <rect x="15" y="15" width="25" height="4" fill="#95a5a6" rx="1"/>
+      <circle cx="20" cy="17" r="3" fill="#7f8c8d"/>
+      <rect x="60" y="15" width="4" height="25" fill="#95a5a6" rx="1"/>
+      <rect x="58" y="35" width="8" height="8" fill="#7f8c8d" rx="1"/>
+      <text x="50" y="75" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">Bug Fixes</text>
+    </g>
+  </g>
+  
+  <!-- Development Methodologies -->
+  
+  <!-- Waterfall Model -->
+  <g id="waterfall">
+    <rect x="450" y="150" width="120" height="100" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="6"/>
+    <text x="510" y="170" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">WATERFALL</text>
+    
+    <!-- Waterfall steps -->
+    <rect x="460" y="180" width="100" height="8" fill="#3498db" rx="2"/>
+    <rect x="470" y="195" width="90" height="8" fill="#27ae60" rx="2"/>
+    <rect x="480" y="210" width="80" height="8" fill="#f39c12" rx="2"/>
+    <rect x="490" y="225" width="70" height="8" fill="#e74c3c" rx="2"/>
+    
+    <!-- Arrows -->
+    <path d="M 510 188 L 510 195" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 515 203 L 515 210" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 520 218 L 520 225" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Agile/Scrum -->
+  <g id="agile">
+    <rect x="450" y="270" width="120" height="100" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="6"/>
+    <text x="510" y="290" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">AGILE/SCRUM</text>
+    
+    <!-- Sprint cycle -->
+    <circle cx="510" cy="320" r="25" fill="none" stroke="#27ae60" stroke-width="3" stroke-dasharray="5,5"/>
+    <circle cx="495" cy="310" r="4" fill="#3498db"/>
+    <circle cx="525" cy="310" r="4" fill="#f39c12"/>
+    <circle cx="525" cy="330" r="4" fill="#e74c3c"/>
+    <circle cx="495" cy="330" r="4" fill="#9b59b6"/>
+    
+    <!-- Sprint arrow -->
+    <path d="M 535 320 Q 545 310 535 300" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowhead)" fill="none"/>
+    <text x="510" y="360" text-anchor="middle" fill="#2c3e50" font-size="10" font-family="Arial">Sprint Cycle</text>
+  </g>
+  
+  <!-- Version Control -->
+  <g id="version-control">
+    <rect x="20" y="380" width="150" height="80" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="6"/>
+    <text x="95" y="400" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">VERSION CONTROL</text>
+    
+    <!-- Git branches -->
+    <circle cx="40" cy="420" r="4" fill="#f39c12"/>
+    <circle cx="70" cy="420" r="4" fill="#f39c12"/>
+    <circle cx="100" cy="420" r="4" fill="#f39c12"/>
+    <circle cx="130" cy="420" r="4" fill="#f39c12"/>
+    
+    <circle cx="70" cy="440" r="4" fill="#3498db"/>
+    <circle cx="100" cy="440" r="4" fill="#3498db"/>
+    
+    <!-- Branch lines -->
+    <line x1="40" y1="420" x2="70" y2="420" stroke="#f39c12" stroke-width="2"/>
+    <line x1="70" y1="420" x2="100" y2="420" stroke="#f39c12" stroke-width="2"/>
+    <line x1="100" y1="420" x2="130" y2="420" stroke="#f39c12" stroke-width="2"/>
+    
+    <line x1="70" y1="420" x2="70" y2="440" stroke="#3498db" stroke-width="2"/>
+    <line x1="70" y1="440" x2="100" y2="440" stroke="#3498db" stroke-width="2"/>
+    <line x1="100" y1="440" x2="100" y2="420" stroke="#3498db" stroke-width="2"/>
+  </g>
+  
+  <!-- Documentation -->
+  <g id="documentation">
+    <rect x="200" y="380" width="120" height="80" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="6"/>
+    <text x="260" y="400" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">DOCUMENTATION</text>
+    
+    <!-- Document pages -->
+    <rect x="220" y="410" width="80" height="40" fill="white" stroke="#bdc3c7" stroke-width="1" rx="2"/>
+    <rect x="225" y="415" width="70" height="3" fill="#2c3e50" rx="1"/>
+    <rect x="225" y="422" width="50" height="3" fill="#2c3e50" rx="1"/>
+    <rect x="225" y="429" width="60" height="3" fill="#2c3e50" rx="1"/>
+    <rect x="225" y="436" width="45" height="3" fill="#2c3e50" rx="1"/>
+    <rect x="225" y="443" width="55" height="3" fill="#2c3e50" rx="1"/>
+  </g>
+  
+  <!-- Quality Assurance -->
+  <g id="quality-assurance">
+    <rect x="350" y="380" width="120" height="80" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="6"/>
+    <text x="410" y="400" text-anchor="middle" fill="#2c3e50" font-size="12" font-family="Arial" font-weight="bold">QUALITY ASSURANCE</text>
+    
+    <!-- QA checklist -->
+    <g transform="translate(360, 410)">
+      <rect x="0" y="0" width="100" height="40" fill="white" stroke="#bdc3c7" stroke-width="1" rx="2"/>
+      <!-- Checkboxes -->
+      <rect x="10" y="8" width="8" height="8" fill="#27ae60" stroke="#229954" stroke-width="1" rx="1"/>
+      <path d="M 12 10 L 14 12 L 16 10" stroke="white" stroke-width="1" fill="none"/>
+      <text x="25" y="15" fill="#2c3e50" font-size="8" font-family="Arial">Code Review</text>
+      
+      <rect x="10" y="20" width="8" height="8" fill="#27ae60" stroke="#229954" stroke-width="1" rx="1"/>
+      <path d="M 12 22 L 14 24 L 16 22" stroke="white" stroke-width="1" fill="none"/>
+      <text x="25" y="27" fill="#2c3e50" font-size="8" font-family="Arial">Unit Tests</text>
+      
+      <rect x="10" y="32" width="8" height="8" fill="#f39c12" stroke="#e67e22" stroke-width="1" rx="1"/>
+      <text x="25" y="39" fill="#2c3e50" font-size="8" font-family="Arial">Integration</text>
+    </g>
+  </g>
+  
+  <!-- SDLC Flow Arrows -->
+  <g stroke="#2c3e50" stroke-width="3" fill="none" marker-end="url(#arrowhead)">
+    <!-- Top row arrows -->
+    <path d="M 105 50 L 165 50"/>
+    <path d="M 235 50 L 295 50"/>
+    <path d="M 365 50 L 425 50"/>
+    
+    <!-- Down arrow -->
+    <path d="M 460 85 L 460 120 L 70 120 L 70 165"/>
+    
+    <!-- Bottom row arrows -->
+    <path d="M 105 200 L 165 200"/>
+    <path d="M 235 200 L 295 200"/>
+    
+    <!-- Maintenance loop -->
+    <path d="M 330 235 Q 380 280 330 325 Q 280 280 330 235" stroke-dasharray="5,5"/>
+  </g>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+    </marker>
+  </defs>
+</svg>

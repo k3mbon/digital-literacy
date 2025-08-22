@@ -1,0 +1,375 @@
+.code-editor-container {
+  background: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin: 20px 0;
+  border: 1px solid #333;
+}
+
+.editor-header {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.editor-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #e2e8f0;
+}
+
+.editor-title h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.editor-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.editor-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 36px;
+}
+
+.editor-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  background: #1e1e1e;
+  color: #e2e8f0;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.editor-error-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.editor-error-fallback .error-message {
+  text-align: center;
+  color: #e2e8f0;
+  max-width: 400px;
+}
+
+.editor-error-fallback .error-message h4 {
+  color: #f56565;
+  margin: 0 0 12px 0;
+  font-size: 18px;
+}
+
+.editor-error-fallback .error-message p {
+  margin: 0 0 20px 0;
+  color: #a0aec0;
+  line-height: 1.5;
+}
+
+.editor-error-fallback .editor-btn {
+  margin: 0 auto;
+}
+
+.editor-btn.primary {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+}
+
+.editor-btn.primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #3182ce 0%, #2c5aa0 100%);
+  transform: translateY(-1px);
+}
+
+.editor-btn.primary.running {
+  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+  animation: pulse 1.5s infinite;
+}
+
+.editor-btn.secondary {
+  background: #4a5568;
+  color: #e2e8f0;
+  border: 1px solid #718096;
+}
+
+.editor-btn.secondary:hover:not(:disabled) {
+  background: #718096;
+  transform: translateY(-1px);
+}
+
+.editor-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.editor-description {
+  background: #2d3748;
+  padding: 16px 20px;
+  border-bottom: 1px solid #333;
+  color: #cbd5e0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.editor-workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+}
+
+.editor-panel {
+  border-right: 1px solid #333;
+}
+
+.editor-wrapper {
+  height: 400px;
+  overflow: hidden;
+}
+
+.output-panel {
+  background: #1a202c;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-header {
+  background: #2d3748;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e2e8f0;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 1px solid #333;
+}
+
+.success-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #48bb78;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.output-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  max-height: 350px;
+}
+
+.output-text {
+  background: #000;
+  color: #00ff00;
+  padding: 12px;
+  border-radius: 6px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: 1px solid #333;
+}
+
+.test-results {
+  margin-top: 16px;
+}
+
+.test-results h4 {
+  color: #e2e8f0;
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.test-result {
+  background: #2d3748;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-left: 4px solid transparent;
+}
+
+.test-result.passed {
+  border-left-color: #48bb78;
+  background: rgba(72, 187, 120, 0.1);
+}
+
+.test-result.failed {
+  border-left-color: #f56565;
+  background: rgba(245, 101, 101, 0.1);
+}
+
+.test-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e2e8f0;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.test-result.passed .test-header {
+  color: #48bb78;
+}
+
+.test-result.failed .test-header {
+  color: #f56565;
+}
+
+.test-details {
+  font-size: 13px;
+  color: #cbd5e0;
+  line-height: 1.4;
+}
+
+.test-details > div {
+  margin-bottom: 4px;
+}
+
+.test-details strong {
+  color: #e2e8f0;
+}
+
+.error-message {
+  color: #f56565 !important;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.hints-panel {
+  background: #2d3748;
+  border-top: 1px solid #333;
+}
+
+.hints-header {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e2e8f0;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 1px solid #333;
+}
+
+.hints-navigation {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+}
+
+.hint-nav-btn {
+  background: #4a5568;
+  color: #e2e8f0;
+  border: none;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hint-nav-btn:hover:not(:disabled) {
+  background: #718096;
+}
+
+.hint-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.hint-content {
+  padding: 16px;
+  color: #cbd5e0;
+  line-height: 1.5;
+}
+
+.hint-content p {
+  margin: 0;
+  font-size: 14px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .editor-workspace {
+    grid-template-columns: 1fr;
+    grid-template-rows: 400px auto;
+  }
+  
+  .editor-panel {
+    border-right: none;
+    border-bottom: 1px solid #333;
+  }
+  
+  .editor-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .editor-controls {
+    justify-content: center;
+  }
+  
+  .output-content {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .editor-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .editor-btn {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+  }
+  
+  .editor-header {
+    padding: 12px 16px;
+  }
+  
+  .editor-title h3 {
+    font-size: 16px;
+  }
+}

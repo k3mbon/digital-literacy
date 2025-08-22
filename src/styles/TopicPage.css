@@ -114,10 +114,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
   color: white;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   position: relative;
+  padding: 1rem;
+}
+
+.topic-icon-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .topic-icon::before {
@@ -220,9 +226,21 @@
   margin-bottom: 1.5rem;
 }
 
+.subtopic-icon-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.subtopic-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
 .subtopic-number {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: linear-gradient(135deg, #3b82f6, #8b5cf6);
   display: flex;
@@ -230,7 +248,9 @@
   justify-content: center;
   font-weight: 700;
   color: white;
-  font-size: 1.125rem;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .difficulty-badge {
@@ -260,8 +280,8 @@
 
 .card-actions {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+  gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
@@ -269,14 +289,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  border-radius: 12px;
+  gap: 0.25rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 60px;
+  height: 60px;
+}
+
+.action-btn.lesson {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
 .action-btn.notes {
@@ -503,6 +531,17 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .subtopics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .subtopic-card {
+    padding: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .topic-header {
     padding: 1.5rem;
@@ -530,10 +569,19 @@
   
   .subtopics-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .card-actions {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .action-btn {
+    min-height: 44px;
+    height: 44px;
+    font-size: 0.8rem;
+    padding: 0.75rem 1rem;
   }
   
   .path-node {
@@ -566,6 +614,22 @@
 @media (max-width: 480px) {
   .topic-details h1 {
     font-size: 1.75rem;
+  }
+  
+  .card-actions {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .action-btn {
+    min-height: 48px;
+    height: 48px;
+    font-size: 0.85rem;
+    padding: 0.875rem 1rem;
+  }
+  
+  .subtopic-card {
+    padding: 1.25rem;
   }
   
   .node-actions {
