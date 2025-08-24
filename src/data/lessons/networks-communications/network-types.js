@@ -33,789 +33,1034 @@ export default {
     <h2>Network Types by Geographic Scope</h2>
     
     <h3>Personal Area Network (PAN)</h3>
-    <pre><code>BEGIN PAN_Network_Example
-    DISPLAY "=== PERSONAL AREA NETWORK (PAN) ==="
-    DISPLAY "Range: 1-10 meters (3-30 feet)"
-    DISPLAY "Purpose: Connect personal devices around an individual"
-    
-    // PAN Technologies and Examples
-    SET pan_technologies = [
-        {
-            name: "Bluetooth",
-            range: "10 meters",
-            speed: "1-3 Mbps",
-            examples: ["Wireless headphones", "Computer mouse", "Smartphone to laptop"]
-        },
-        {
-            name: "USB",
-            range: "5 meters (with cable)",
-            speed: "480 Mbps - 10 Gbps",
-            examples: ["External hard drive", "Printer connection", "Phone charging"]
-        },
-        {
-            name: "NFC (Near Field Communication)",
-            range: "4 centimeters",
-            speed: "424 kbps",
-            examples: ["Contactless payments", "File sharing", "Device pairing"]
-        },
-        {
-            name: "Infrared (IR)",
-            range: "1 meter",
-            speed: "115 kbps - 4 Mbps",
-            examples: ["TV remote control", "Old laptop file transfer", "Printer connection"]
-        }
-    ]
-    
-    DISPLAY "\nPAN Technologies:"
-    FOR each tech IN pan_technologies
-        DISPLAY "\n" + tech["name"] + ":"
-        DISPLAY "  Range: " + tech["range"]
-        DISPLAY "  Speed: " + tech["speed"]
-        DISPLAY "  Examples:"
-        FOR each example IN tech["examples"]
-            DISPLAY "    • " + example
-        ENDFOR
-    ENDFOR
-    
-    // PAN Scenario Example
-    DISPLAY "\n=== PAN SCENARIO ==="
-    DISPLAY "Sarah's Personal Workspace:"
-    
-    SET sarahs_pan = {
-        devices: [
-            {name: "Laptop", role: "Central device"},
-            {name: "Bluetooth Mouse", connection: "Bluetooth to laptop"},
-            {name: "Wireless Headphones", connection: "Bluetooth to laptop"},
-            {name: "Smartphone", connection: "USB cable for charging, Bluetooth for file sharing"},
-            {name: "Fitness Tracker", connection: "Bluetooth to smartphone"},
-            {name: "External SSD", connection: "USB-C to laptop"}
-        ]
-    }
-    
-    FOR each device IN sarahs_pan["devices"]
-        DISPLAY "  • " + device["name"]
-        IF has_key(device, "connection") THEN
-            DISPLAY "    Connection: " + device["connection"]
-        ENDIF
-        IF has_key(device, "role") THEN
-            DISPLAY "    Role: " + device["role"]
-        ENDIF
-    ENDFOR
-END</code></pre>
+    <div class="pan-overview">
+      <p><strong>Personal Area Network (PAN)</strong> is the smallest type of network, designed to connect personal devices within a very limited range around an individual person.</p>
+      
+      <div class="pan-characteristics">
+        <h4>PAN Characteristics</h4>
+        <ul>
+          <li><strong>Range:</strong> 1-10 meters (3-30 feet)</li>
+          <li><strong>Purpose:</strong> Connect personal devices around an individual</li>
+          <li><strong>Scope:</strong> Personal workspace or immediate vicinity</li>
+          <li><strong>Ownership:</strong> Typically owned and managed by one person</li>
+        </ul>
+      </div>
+
+      <div class="pan-technologies">
+        <h4>PAN Technologies</h4>
+        
+        <div class="technology-section">
+          <h5>Bluetooth</h5>
+          <ul>
+            <li><strong>Range:</strong> Up to 10 meters</li>
+            <li><strong>Speed:</strong> 1-3 Mbps</li>
+            <li><strong>Examples:</strong> Wireless headphones, computer mouse, smartphone to laptop connection</li>
+            <li><strong>Advantages:</strong> Low power consumption, automatic device pairing, widely supported</li>
+          </ul>
+        </div>
+
+        <div class="technology-section">
+          <h5>USB (Universal Serial Bus)</h5>
+          <ul>
+            <li><strong>Range:</strong> Up to 5 meters (with cable)</li>
+            <li><strong>Speed:</strong> 480 Mbps - 10 Gbps (depending on USB version)</li>
+            <li><strong>Examples:</strong> External hard drive, printer connection, phone charging</li>
+            <li><strong>Advantages:</strong> High speed, reliable connection, power delivery capability</li>
+          </ul>
+        </div>
+
+        <div class="technology-section">
+          <h5>NFC (Near Field Communication)</h5>
+          <ul>
+            <li><strong>Range:</strong> Up to 4 centimeters</li>
+            <li><strong>Speed:</strong> 424 kbps</li>
+            <li><strong>Examples:</strong> Contactless payments, file sharing, device pairing</li>
+            <li><strong>Advantages:</strong> Very secure due to short range, instant connection</li>
+          </ul>
+        </div>
+
+        <div class="technology-section">
+          <h5>Infrared (IR)</h5>
+          <ul>
+            <li><strong>Range:</strong> Up to 1 meter</li>
+            <li><strong>Speed:</strong> 115 kbps - 4 Mbps</li>
+            <li><strong>Examples:</strong> TV remote control, legacy laptop file transfer</li>
+            <li><strong>Limitations:</strong> Requires line of sight, largely obsolete for data transfer</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pan-scenario">
+        <h4>Real-World PAN Scenario: Sarah's Personal Workspace</h4>
+        <p>Here's how a typical PAN might look in a personal workspace:</p>
+        
+        <div class="device-connections">
+          <h5>Connected Devices</h5>
+          <ul>
+            <li><strong>Laptop</strong> - Central device and hub</li>
+            <li><strong>Bluetooth Mouse</strong> - Connected via Bluetooth to laptop</li>
+            <li><strong>Wireless Headphones</strong> - Connected via Bluetooth to laptop</li>
+            <li><strong>Smartphone</strong> - USB cable for charging, Bluetooth for file sharing</li>
+            <li><strong>Fitness Tracker</strong> - Connected via Bluetooth to smartphone</li>
+            <li><strong>External SSD</strong> - Connected via USB-C to laptop</li>
+          </ul>
+        </div>
+
+        <div class="pan-benefits">
+          <h5>Benefits of This PAN Setup</h5>
+          <ul>
+            <li><strong>Convenience:</strong> Seamless device interaction without cables</li>
+            <li><strong>Mobility:</strong> Move freely within the workspace</li>
+            <li><strong>Productivity:</strong> Quick file sharing and device synchronization</li>
+            <li><strong>Organization:</strong> Centralized control through the laptop</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     
     <h3>Local Area Network (LAN)</h3>
-    <pre><code>BEGIN LAN_Network_Example
-    DISPLAY "=== LOCAL AREA NETWORK (LAN) ==="
-    DISPLAY "Range: 100 meters - 1 kilometer"
-    DISPLAY "Purpose: Connect devices within a building or campus"
-    
-    // LAN Technologies
-    SET lan_technologies = [
-        {
-            name: "Ethernet (Wired)",
-            standard: "IEEE 802.3",
-            speeds: ["10 Mbps (10BASE-T)", "100 Mbps (100BASE-TX)", "1 Gbps (1000BASE-T)", "10 Gbps (10GBASE-T)"],
-            medium: "Twisted pair cables (Cat5e, Cat6, Cat6a)",
-            advantages: ["Reliable", "High speed", "Secure", "Low latency"],
-            disadvantages: ["Requires cables", "Limited mobility", "Installation complexity"]
-        },
-        {
-            name: "Wi-Fi (Wireless)",
-            standard: "IEEE 802.11",
-            speeds: ["11 Mbps (802.11b)", "54 Mbps (802.11g)", "600 Mbps (802.11n)", "1.3 Gbps (802.11ac)", "9.6 Gbps (802.11ax/Wi-Fi 6)"],
-            medium: "Radio waves (2.4 GHz, 5 GHz, 6 GHz)",
-            advantages: ["Mobility", "Easy setup", "No cables", "Multiple device support"],
-            disadvantages: ["Interference", "Security concerns", "Distance limitations", "Shared bandwidth"]
-        }
-    ]
-    
-    FOR each tech IN lan_technologies
-        DISPLAY "\n" + tech["name"] + " (" + tech["standard"] + "):"
-        DISPLAY "  Medium: " + tech["medium"]
-        DISPLAY "  Speeds:"
-        FOR each speed IN tech["speeds"]
-            DISPLAY "    • " + speed
-        ENDFOR
-        DISPLAY "  Advantages:"
-        FOR each adv IN tech["advantages"]
-            DISPLAY "    ✓ " + adv
-        ENDFOR
-        DISPLAY "  Disadvantages:"
-        FOR each dis IN tech["disadvantages"]
-            DISPLAY "    ✗ " + dis
-        ENDFOR
-    ENDFOR
-    
-    // LAN Example: Office Network
-    DISPLAY "\n=== LAN EXAMPLE: SMALL OFFICE ==="
-    
-    SET office_lan = {
-        infrastructure: [
-            {device: "Router/Modem", purpose: "Internet connection and DHCP", connections: "ISP fiber connection"},
-            {device: "Managed Switch (24-port)", purpose: "Connect wired devices", connections: "Ethernet cables to workstations"},
-            {device: "Wireless Access Point", purpose: "Wi-Fi for mobile devices", connections: "Connected to switch via Ethernet"},
-            {device: "Network Printer", purpose: "Shared printing", connections: "Ethernet to switch"},
-            {device: "Network Attached Storage (NAS)", purpose: "File server and backup", connections: "Ethernet to switch"}
-        ],
-        client_devices: [
-            {device: "Desktop Computers (8)", connection: "Wired Ethernet", usage: "Primary workstations"},
-            {device: "Laptops (5)", connection: "Wi-Fi", usage: "Mobile work and meetings"},
-            {device: "Smartphones (15)", connection: "Wi-Fi", usage: "Communication and apps"},
-            {device: "Tablets (3)", connection: "Wi-Fi", usage: "Presentations and mobile work"}
-        ]
-    }
-    
-    DISPLAY "Network Infrastructure:"
-    FOR each item IN office_lan["infrastructure"]
-        DISPLAY "  • " + item["device"]
-        DISPLAY "    Purpose: " + item["purpose"]
-        DISPLAY "    Connections: " + item["connections"]
-    ENDFOR
-    
-    DISPLAY "\nClient Devices:"
-    FOR each item IN office_lan["client_devices"]
-        DISPLAY "  • " + item["device"]
-        DISPLAY "    Connection: " + item["connection"]
-        DISPLAY "    Usage: " + item["usage"]
-    ENDFOR
-END</code></pre>
+    <div class="lan-overview">
+      <p><strong>Local Area Network (LAN)</strong> connects devices within a limited geographic area, typically within a single building or campus. LANs provide high-speed connectivity and resource sharing for organizations.</p>
+      
+      <div class="lan-characteristics">
+        <h4>LAN Characteristics</h4>
+        <ul>
+          <li><strong>Range:</strong> 100 meters - 1 kilometer</li>
+          <li><strong>Purpose:</strong> Connect devices within a building or campus</li>
+          <li><strong>Ownership:</strong> Typically owned and managed by a single organization</li>
+          <li><strong>Speed:</strong> High-speed connections (10 Mbps to 10+ Gbps)</li>
+        </ul>
+      </div>
+
+      <div class="lan-technologies">
+        <h4>LAN Technologies</h4>
+        
+        <div class="technology-comparison">
+          <h5>Ethernet (Wired) - IEEE 802.3</h5>
+          <div class="tech-details">
+            <p><strong>Medium:</strong> Twisted pair cables (Cat5e, Cat6, Cat6a)</p>
+            <h6>Speed Evolution:</h6>
+            <ul>
+              <li>10 Mbps (10BASE-T) - Legacy standard</li>
+              <li>100 Mbps (100BASE-TX) - Fast Ethernet</li>
+              <li>1 Gbps (1000BASE-T) - Gigabit Ethernet (most common)</li>
+              <li>10 Gbps (10GBASE-T) - 10 Gigabit Ethernet</li>
+            </ul>
+            <h6>Advantages:</h6>
+            <ul>
+              <li>✓ Highly reliable connection</li>
+              <li>✓ Consistent high speed</li>
+              <li>✓ More secure (physical access required)</li>
+              <li>✓ Low latency</li>
+            </ul>
+            <h6>Disadvantages:</h6>
+            <ul>
+              <li>✗ Requires physical cables</li>
+              <li>✗ Limited mobility</li>
+              <li>✗ Complex installation</li>
+            </ul>
+          </div>
+
+          <h5>Wi-Fi (Wireless) - IEEE 802.11</h5>
+          <div class="tech-details">
+            <p><strong>Medium:</strong> Radio waves (2.4 GHz, 5 GHz, 6 GHz bands)</p>
+            <h6>Wi-Fi Standards Evolution:</h6>
+            <ul>
+              <li>11 Mbps (802.11b) - 2.4 GHz, legacy</li>
+              <li>54 Mbps (802.11g) - 2.4 GHz, legacy</li>
+              <li>600 Mbps (802.11n) - 2.4/5 GHz, still common</li>
+              <li>1.3 Gbps (802.11ac) - 5 GHz, widely used</li>
+              <li>9.6 Gbps (802.11ax/Wi-Fi 6) - 2.4/5/6 GHz, latest</li>
+            </ul>
+            <h6>Advantages:</h6>
+            <ul>
+              <li>✓ Complete mobility within range</li>
+              <li>✓ Easy setup and configuration</li>
+              <li>✓ No physical cables needed</li>
+              <li>✓ Supports many devices simultaneously</li>
+            </ul>
+            <h6>Disadvantages:</h6>
+            <ul>
+              <li>✗ Susceptible to interference</li>
+              <li>✗ Security vulnerabilities if not properly configured</li>
+              <li>✗ Distance and obstacle limitations</li>
+              <li>✗ Bandwidth shared among all users</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="lan-example">
+        <h4>Real-World LAN Example: Small Office Network</h4>
+        <p>Here's how a typical small office LAN is structured:</p>
+        
+        <div class="network-infrastructure">
+          <h5>Network Infrastructure</h5>
+          <ul>
+            <li><strong>Router/Modem</strong>
+              <ul>
+                <li>Purpose: Internet connection and DHCP services</li>
+                <li>Connections: ISP fiber connection</li>
+              </ul>
+            </li>
+            <li><strong>Managed Switch (24-port)</strong>
+              <ul>
+                <li>Purpose: Connect multiple wired devices</li>
+                <li>Connections: Ethernet cables to workstations</li>
+              </ul>
+            </li>
+            <li><strong>Wireless Access Point</strong>
+              <ul>
+                <li>Purpose: Provide Wi-Fi for mobile devices</li>
+                <li>Connections: Connected to switch via Ethernet</li>
+              </ul>
+            </li>
+            <li><strong>Network Printer</strong>
+              <ul>
+                <li>Purpose: Shared printing for all users</li>
+                <li>Connections: Ethernet connection to switch</li>
+              </ul>
+            </li>
+            <li><strong>Network Attached Storage (NAS)</strong>
+              <ul>
+                <li>Purpose: File server and backup storage</li>
+                <li>Connections: Ethernet connection to switch</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="client-devices">
+          <h5>Client Devices</h5>
+          <ul>
+            <li><strong>Desktop Computers (8)</strong>
+              <ul>
+                <li>Connection: Wired Ethernet</li>
+                <li>Usage: Primary workstations for employees</li>
+              </ul>
+            </li>
+            <li><strong>Laptops (5)</strong>
+              <ul>
+                <li>Connection: Wi-Fi</li>
+                <li>Usage: Mobile work and meeting rooms</li>
+              </ul>
+            </li>
+            <li><strong>Smartphones (15)</strong>
+              <ul>
+                <li>Connection: Wi-Fi</li>
+                <li>Usage: Communication and business apps</li>
+              </ul>
+            </li>
+            <li><strong>Tablets (3)</strong>
+              <ul>
+                <li>Connection: Wi-Fi</li>
+                <li>Usage: Presentations and mobile work</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lan-benefits">
+          <h5>Benefits of This LAN Setup</h5>
+          <ul>
+            <li><strong>Resource Sharing:</strong> Shared printer, files, and internet connection</li>
+            <li><strong>Centralized Management:</strong> Easy to manage and secure all devices</li>
+            <li><strong>Cost Effective:</strong> Single internet connection for all users</li>
+            <li><strong>Scalability:</strong> Easy to add more devices as the business grows</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     
     <h3>Wide Area Network (WAN)</h3>
-    <pre><code>BEGIN WAN_Network_Example
-    DISPLAY "=== WIDE AREA NETWORK (WAN) ==="
-    DISPLAY "Range: Cities, countries, continents"
-    DISPLAY "Purpose: Connect LANs across large geographic distances"
-    
-    // WAN Technologies
-    SET wan_technologies = [
-        {
-            name: "Internet",
-            description: "Global network of interconnected networks",
-            protocols: ["TCP/IP", "HTTP/HTTPS", "FTP", "SMTP"],
-            access_methods: ["DSL", "Cable", "Fiber", "Satellite", "Cellular"]
-        },
-        {
-            name: "MPLS (Multiprotocol Label Switching)",
-            description: "Private network service for businesses",
-            protocols: ["MPLS", "BGP", "OSPF"],
-            access_methods: ["Dedicated lines", "Ethernet over MPLS"]
-        },
-        {
-            name: "VPN (Virtual Private Network)",
-            description: "Secure tunnel over public networks",
-            protocols: ["IPSec", "OpenVPN", "WireGuard", "PPTP"],
-            access_methods: ["Internet-based", "Site-to-site", "Remote access"]
-        },
-        {
-            name: "Satellite Networks",
-            description: "Communication via satellites",
-            protocols: ["DVB-S", "TCP/IP over satellite"],
-            access_methods: ["VSAT", "LEO satellites", "GEO satellites"]
-        }
-    ]
-    
-    FOR each tech IN wan_technologies
-        DISPLAY "\n" + tech["name"] + ":"
-        DISPLAY "  Description: " + tech["description"]
-        DISPLAY "  Protocols: " + join(tech["protocols"], ", ")
-        DISPLAY "  Access Methods: " + join(tech["access_methods"], ", ")
-    ENDFOR
-    
-    // WAN Example: Multi-location Company
-    DISPLAY "\n=== WAN EXAMPLE: MULTINATIONAL CORPORATION ==="
-    
-    SET corporate_wan = {
-        locations: [
-            {
-                site: "Headquarters (New York)",
-                lan_size: "500 users",
-                connection: "Fiber 1 Gbps dedicated line",
-                role: "Primary data center and internet gateway"
-            },
-            {
-                site: "Branch Office (London)",
-                lan_size: "150 users",
-                connection: "MPLS 100 Mbps + VPN backup",
-                role: "Regional office with local file server"
-            },
-            {
-                site: "Manufacturing Plant (Shanghai)",
-                lan_size: "80 users",
-                connection: "Fiber 200 Mbps + satellite backup",
-                role: "Production systems and inventory management"
-            },
-            {
-                site: "Remote Workers (Global)",
-                lan_size: "200 users",
-                connection: "VPN over home internet",
-                role: "Distributed workforce access"
-            }
-        ],
-        wan_services: [
-            "Centralized email and file servers",
-            "Video conferencing between offices",
-            "Shared ERP and CRM systems",
-            "Centralized backup and disaster recovery",
-            "Global internet access and security filtering"
-        ]
-    }
-    
-    DISPLAY "Corporate Locations:"
-    FOR each location IN corporate_wan["locations"]
-        DISPLAY "\n  " + location["site"] + ":"
-        DISPLAY "    Users: " + location["lan_size"]
-        DISPLAY "    Connection: " + location["connection"]
-        DISPLAY "    Role: " + location["role"]
-    ENDFOR
-    
-    DISPLAY "\nWAN Services:"
-    FOR each service IN corporate_wan["wan_services"]
-        DISPLAY "  • " + service
-    ENDFOR
-END</code></pre>
+    <div class="wan-overview">
+      <p><strong>Wide Area Network (WAN)</strong> connects LANs across large geographic distances, spanning cities, countries, or even continents. WANs enable organizations to connect multiple locations and provide global connectivity.</p>
+      
+      <div class="wan-characteristics">
+        <h4>WAN Characteristics</h4>
+        <ul>
+          <li><strong>Range:</strong> Cities, countries, continents (unlimited geographic scope)</li>
+          <li><strong>Purpose:</strong> Connect LANs across large geographic distances</li>
+          <li><strong>Ownership:</strong> Often involves third-party service providers</li>
+          <li><strong>Speed:</strong> Varies widely based on technology and cost</li>
+        </ul>
+      </div>
+
+      <div class="wan-technologies">
+        <h4>WAN Technologies</h4>
+        
+        <div class="technology-section">
+          <h5>Internet</h5>
+          <div class="tech-details">
+            <p><strong>Description:</strong> Global network of interconnected networks</p>
+            <p><strong>Protocols:</strong> TCP/IP, HTTP/HTTPS, FTP, SMTP</p>
+            <p><strong>Access Methods:</strong></p>
+            <ul>
+              <li>DSL (Digital Subscriber Line)</li>
+              <li>Cable broadband</li>
+              <li>Fiber optic connections</li>
+              <li>Satellite internet</li>
+              <li>Cellular networks (4G/5G)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="technology-section">
+          <h5>MPLS (Multiprotocol Label Switching)</h5>
+          <div class="tech-details">
+            <p><strong>Description:</strong> Private network service for businesses offering guaranteed performance</p>
+            <p><strong>Protocols:</strong> MPLS, BGP, OSPF</p>
+            <p><strong>Access Methods:</strong></p>
+            <ul>
+              <li>Dedicated lines</li>
+              <li>Ethernet over MPLS</li>
+            </ul>
+            <p><strong>Benefits:</strong> Guaranteed bandwidth, low latency, high reliability</p>
+          </div>
+        </div>
+
+        <div class="technology-section">
+          <h5>VPN (Virtual Private Network)</h5>
+          <div class="tech-details">
+            <p><strong>Description:</strong> Secure tunnel over public networks</p>
+            <p><strong>Protocols:</strong> IPSec, OpenVPN, WireGuard, PPTP</p>
+            <p><strong>Access Methods:</strong></p>
+            <ul>
+              <li>Internet-based VPN</li>
+              <li>Site-to-site connections</li>
+              <li>Remote access for individual users</li>
+            </ul>
+            <p><strong>Benefits:</strong> Cost-effective, secure, flexible</p>
+          </div>
+        </div>
+
+        <div class="technology-section">
+          <h5>Satellite Networks</h5>
+          <div class="tech-details">
+            <p><strong>Description:</strong> Communication via satellites for remote or global coverage</p>
+            <p><strong>Protocols:</strong> DVB-S, TCP/IP over satellite</p>
+            <p><strong>Access Methods:</strong></p>
+            <ul>
+              <li>VSAT (Very Small Aperture Terminal)</li>
+              <li>LEO satellites (Low Earth Orbit)</li>
+              <li>GEO satellites (Geostationary Earth Orbit)</li>
+            </ul>
+            <p><strong>Use Cases:</strong> Remote locations, maritime, aviation</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wan-example">
+        <h4>Real-World WAN Example: Multinational Corporation</h4>
+        <p>Here's how a large corporation might structure its global WAN:</p>
+        
+        <div class="corporate-locations">
+          <h5>Corporate Locations</h5>
+          
+          <div class="location-details">
+            <h6>Headquarters (New York)</h6>
+            <ul>
+              <li><strong>Users:</strong> 500 users</li>
+              <li><strong>Connection:</strong> Fiber 1 Gbps dedicated line</li>
+              <li><strong>Role:</strong> Primary data center and internet gateway</li>
+            </ul>
+          </div>
+
+          <div class="location-details">
+            <h6>Branch Office (London)</h6>
+            <ul>
+              <li><strong>Users:</strong> 150 users</li>
+              <li><strong>Connection:</strong> MPLS 100 Mbps + VPN backup</li>
+              <li><strong>Role:</strong> Regional office with local file server</li>
+            </ul>
+          </div>
+
+          <div class="location-details">
+            <h6>Manufacturing Plant (Shanghai)</h6>
+            <ul>
+              <li><strong>Users:</strong> 80 users</li>
+              <li><strong>Connection:</strong> Fiber 200 Mbps + satellite backup</li>
+              <li><strong>Role:</strong> Production systems and inventory management</li>
+            </ul>
+          </div>
+
+          <div class="location-details">
+            <h6>Remote Workers (Global)</h6>
+            <ul>
+              <li><strong>Users:</strong> 200 users</li>
+              <li><strong>Connection:</strong> VPN over home internet</li>
+              <li><strong>Role:</strong> Distributed workforce access</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="wan-services">
+          <h5>WAN Services Provided</h5>
+          <ul>
+            <li>Centralized email and file servers</li>
+            <li>Video conferencing between offices</li>
+            <li>Shared ERP and CRM systems</li>
+            <li>Centralized backup and disaster recovery</li>
+            <li>Global internet access and security filtering</li>
+          </ul>
+        </div>
+
+        <div class="wan-benefits">
+          <h5>Benefits of This WAN Setup</h5>
+          <ul>
+            <li><strong>Global Connectivity:</strong> All locations connected as one network</li>
+            <li><strong>Centralized Resources:</strong> Shared applications and data</li>
+            <li><strong>Redundancy:</strong> Multiple connection types for reliability</li>
+            <li><strong>Scalability:</strong> Easy to add new locations</li>
+            <li><strong>Security:</strong> Centralized security policies and monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     
     <h2>Network Topologies</h2>
     
     <h3>Physical vs Logical Topologies</h3>
-    <pre><code>BEGIN Network_Topologies
-    DISPLAY "=== NETWORK TOPOLOGIES ==="
-    DISPLAY "Physical Topology: How devices are physically connected"
-    DISPLAY "Logical Topology: How data flows through the network"
-    
-    // Bus Topology
-    DISPLAY "\n--- BUS TOPOLOGY ---"
-    SET bus_topology = {
-        description: "All devices connected to a single central cable (backbone)",
-        diagram: "Device1 --- Device2 --- Device3 --- Device4 --- Device5",
-        advantages: [
-            "Simple and inexpensive to implement",
-            "Requires less cable than other topologies",
-            "Easy to add new devices",
-            "Good for small networks"
-        ],
-        disadvantages: [
-            "Single point of failure (backbone cable)",
-            "Performance degrades with more devices",
-            "Difficult to troubleshoot problems",
-            "Limited cable length",
-            "Collisions can occur"
-        ],
-        use_cases: ["Early Ethernet networks", "Small office networks", "Temporary setups"]
-    }
-    
-    DISPLAY "Bus Topology:"
-    DISPLAY "  Description: " + bus_topology["description"]
-    DISPLAY "  Diagram: " + bus_topology["diagram"]
-    DISPLAY "  Advantages:"
-    FOR each adv IN bus_topology["advantages"]
-        DISPLAY "    ✓ " + adv
-    ENDFOR
-    DISPLAY "  Disadvantages:"
-    FOR each dis IN bus_topology["disadvantages"]
-        DISPLAY "    ✗ " + dis
-    ENDFOR
-    
-    // Star Topology
-    DISPLAY "\n--- STAR TOPOLOGY ---"
-    SET star_topology = {
-        description: "All devices connected to a central hub or switch",
-        diagram: "    Device2\n        |\nDevice1 - HUB - Device3\n        |\n    Device4",
-        advantages: [
-            "Easy to install and manage",
-            "Failure of one device doesn't affect others",
-            "Easy to detect and isolate faults",
-            "Good performance",
-            "Easy to add/remove devices"
-        ],
-        disadvantages: [
-            "Central hub is single point of failure",
-            "Requires more cable than bus topology",
-            "Hub/switch can be expensive",
-            "Limited by hub/switch capacity"
-        ],
-        use_cases: ["Modern Ethernet networks", "Home networks", "Office LANs"]
-    }
-    
-    DISPLAY "Star Topology:"
-    DISPLAY "  Description: " + star_topology["description"]
-    DISPLAY "  Advantages:"
-    FOR each adv IN star_topology["advantages"]
-        DISPLAY "    ✓ " + adv
-    ENDFOR
-    DISPLAY "  Disadvantages:"
-    FOR each dis IN star_topology["disadvantages"]
-        DISPLAY "    ✗ " + dis
-    ENDFOR
-    
-    // Ring Topology
-    DISPLAY "\n--- RING TOPOLOGY ---"
-    SET ring_topology = {
-        description: "Devices connected in a circular chain",
-        diagram: "Device1 → Device2 → Device3 → Device4 → Device1",
-        advantages: [
-            "Equal access for all devices",
-            "No collisions (token-based access)",
-            "Predictable performance",
-            "Can handle high traffic loads"
-        ],
-        disadvantages: [
-            "Single device failure can break entire network",
-            "Difficult to troubleshoot",
-            "Adding/removing devices disrupts network",
-            "More expensive than bus topology"
-        ],
-        use_cases: ["Token Ring networks (legacy)", "FDDI networks", "Some industrial networks"]
-    }
-    
-    DISPLAY "Ring Topology:"
-    DISPLAY "  Description: " + ring_topology["description"]
-    DISPLAY "  Diagram: " + ring_topology["diagram"]
-    DISPLAY "  Advantages:"
-    FOR each adv IN ring_topology["advantages"]
-        DISPLAY "    ✓ " + adv
-    ENDFOR
-    DISPLAY "  Disadvantages:"
-    FOR each dis IN ring_topology["disadvantages"]
-        DISPLAY "    ✗ " + dis
-    ENDFOR
-    
-    // Mesh Topology
-    DISPLAY "\n--- MESH TOPOLOGY ---"
-    SET mesh_topology = {
-        description: "Every device connected to every other device",
-        types: [
-            {name: "Full Mesh", desc: "Every device connected to every other device"},
-            {name: "Partial Mesh", desc: "Some devices have multiple connections, not all"}
-        ],
-        advantages: [
-            "Highly reliable (multiple paths)",
-            "Excellent fault tolerance",
-            "High performance",
-            "Secure (dedicated connections)",
-            "No single point of failure"
-        ],
-        disadvantages: [
-            "Very expensive (many connections required)",
-            "Complex to install and maintain",
-            "Requires many network interfaces",
-            "Difficult to troubleshoot"
-        ],
-        use_cases: ["Internet backbone", "Critical systems", "Wireless mesh networks"]
-    }
-    
-    DISPLAY "Mesh Topology:"
-    DISPLAY "  Description: " + mesh_topology["description"]
-    DISPLAY "  Types:"
-    FOR each type IN mesh_topology["types"]
-        DISPLAY "    • " + type["name"] + ": " + type["desc"]
-    ENDFOR
-    DISPLAY "  Advantages:"
-    FOR each adv IN mesh_topology["advantages"]
-        DISPLAY "    ✓ " + adv
-    ENDFOR
-    DISPLAY "  Disadvantages:"
-    FOR each dis IN mesh_topology["disadvantages"]
-        DISPLAY "    ✗ " + dis
-    ENDFOR
-END</code></pre>
+    <div className="topology-overview">
+      <p><strong>Physical Topology:</strong> How devices are physically connected in a network</p>
+      <p><strong>Logical Topology:</strong> How data flows through the network regardless of physical layout</p>
+    </div>
+
+    <div className="network-topologies">
+      <div className="topology-section">
+        <h4>Bus Topology</h4>
+        <p>All devices are connected to a single central cable called the backbone or bus.</p>
+        
+        <div className="topology-diagram">
+          <p><strong>Diagram:</strong> Device1 --- Device2 --- Device3 --- Device4 --- Device5</p>
+        </div>
+        
+        <div className="advantages-disadvantages">
+          <div className="advantages">
+            <h5>✓ Advantages:</h5>
+            <ul>
+              <li>Simple and inexpensive to implement</li>
+              <li>Requires less cable than other topologies</li>
+              <li>Easy to add new devices</li>
+              <li>Good for small networks</li>
+            </ul>
+          </div>
+          
+          <div className="disadvantages">
+            <h5>✗ Disadvantages:</h5>
+            <ul>
+              <li>Single point of failure (backbone cable)</li>
+              <li>Performance degrades with more devices</li>
+              <li>Difficult to troubleshoot problems</li>
+              <li>Limited cable length</li>
+              <li>Collisions can occur</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="use-cases">
+          <h5>Common Use Cases:</h5>
+          <ul>
+            <li>Early Ethernet networks</li>
+            <li>Small office networks</li>
+            <li>Temporary setups</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="topology-section">
+        <h4>Star Topology</h4>
+        <p>All devices are connected to a central hub or switch, forming a star-like pattern.</p>
+        
+        <div className="topology-diagram">
+          <p><strong>Diagram:</strong></p>
+          <pre>
+    Device2
+        |
+Device1 - HUB - Device3
+        |
+    Device4
+          </pre>
+        </div>
+        
+        <div className="advantages-disadvantages">
+          <div className="advantages">
+            <h5>✓ Advantages:</h5>
+            <ul>
+              <li>Easy to install and manage</li>
+              <li>Failure of one device doesn't affect others</li>
+              <li>Easy to detect and isolate faults</li>
+              <li>Good performance</li>
+              <li>Easy to add/remove devices</li>
+            </ul>
+          </div>
+          
+          <div className="disadvantages">
+            <h5>✗ Disadvantages:</h5>
+            <ul>
+              <li>Central hub is single point of failure</li>
+              <li>Requires more cable than bus topology</li>
+              <li>Hub/switch can be expensive</li>
+              <li>Limited by hub/switch capacity</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="use-cases">
+          <h5>Common Use Cases:</h5>
+          <ul>
+            <li>Modern Ethernet networks</li>
+            <li>Home networks</li>
+            <li>Office LANs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="topology-section">
+        <h4>Ring Topology</h4>
+        <p>Devices are connected in a circular chain, where each device connects to exactly two other devices.</p>
+        
+        <div className="topology-diagram">
+          <p><strong>Diagram:</strong> Device1 → Device2 → Device3 → Device4 → Device1</p>
+        </div>
+        
+        <div className="advantages-disadvantages">
+          <div className="advantages">
+            <h5>✓ Advantages:</h5>
+            <ul>
+              <li>Equal access for all devices</li>
+              <li>No collisions (token-based access)</li>
+              <li>Predictable performance</li>
+              <li>Can handle high traffic loads</li>
+            </ul>
+          </div>
+          
+          <div className="disadvantages">
+            <h5>✗ Disadvantages:</h5>
+            <ul>
+              <li>Single device failure can break entire network</li>
+              <li>Difficult to troubleshoot</li>
+              <li>Adding/removing devices disrupts network</li>
+              <li>More expensive than bus topology</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="use-cases">
+          <h5>Common Use Cases:</h5>
+          <ul>
+            <li>Token Ring networks (legacy)</li>
+            <li>FDDI networks</li>
+            <li>Some industrial networks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="topology-section">
+        <h4>Mesh Topology</h4>
+        <p>Devices are interconnected with multiple connections, providing redundant paths for data transmission.</p>
+        
+        <div className="mesh-types">
+          <h5>Types of Mesh Topology:</h5>
+          <ul>
+            <li><strong>Full Mesh:</strong> Every device connected to every other device</li>
+            <li><strong>Partial Mesh:</strong> Some devices have multiple connections, but not all devices are connected to all others</li>
+          </ul>
+        </div>
+        
+        <div className="advantages-disadvantages">
+          <div className="advantages">
+            <h5>✓ Advantages:</h5>
+            <ul>
+              <li>Highly reliable (multiple paths)</li>
+              <li>Excellent fault tolerance</li>
+              <li>High performance</li>
+              <li>Secure (dedicated connections)</li>
+              <li>No single point of failure</li>
+            </ul>
+          </div>
+          
+          <div className="disadvantages">
+            <h5>✗ Disadvantages:</h5>
+            <ul>
+              <li>Very expensive (many connections required)</li>
+              <li>Complex to install and maintain</li>
+              <li>Requires many network interfaces</li>
+              <li>Difficult to troubleshoot</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="use-cases">
+          <h5>Common Use Cases:</h5>
+          <ul>
+            <li>Internet backbone</li>
+            <li>Critical systems</li>
+            <li>Wireless mesh networks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     
     <h2>Network Protocols</h2>
     
     <h3>OSI Model and Protocol Stack</h3>
-    <pre><code>BEGIN OSI_Model_Protocols
-    DISPLAY "=== OSI MODEL AND NETWORK PROTOCOLS ==="
-    DISPLAY "The OSI (Open Systems Interconnection) model defines 7 layers of network communication"
-    
-    SET osi_layers = [
-        {
-            layer: 7,
-            name: "Application Layer",
-            description: "User interface and network services",
-            protocols: ["HTTP/HTTPS", "FTP", "SMTP", "DNS", "DHCP"],
-            examples: ["Web browsers", "Email clients", "File transfer programs"]
-        },
-        {
-            layer: 6,
-            name: "Presentation Layer",
-            description: "Data formatting, encryption, compression",
-            protocols: ["SSL/TLS", "JPEG", "MPEG", "ASCII"],
-            examples: ["Data encryption", "Image compression", "Character encoding"]
-        },
-        {
-            layer: 5,
-            name: "Session Layer",
-            description: "Establishes, manages, terminates connections",
-            protocols: ["NetBIOS", "RPC", "SQL sessions"],
-            examples: ["Login sessions", "Database connections", "Video calls"]
-        },
-        {
-            layer: 4,
-            name: "Transport Layer",
-            description: "Reliable data delivery, error correction",
-            protocols: ["TCP", "UDP", "SCTP"],
-            examples: ["Port numbers", "Flow control", "Error detection"]
-        },
-        {
-            layer: 3,
-            name: "Network Layer",
-            description: "Routing and logical addressing",
-            protocols: ["IP", "ICMP", "OSPF", "BGP"],
-            examples: ["IP addresses", "Routers", "Path determination"]
-        },
-        {
-            layer: 2,
-            name: "Data Link Layer",
-            description: "Frame formatting, error detection, MAC addressing",
-            protocols: ["Ethernet", "Wi-Fi", "PPP", "ARP"],
-            examples: ["MAC addresses", "Switches", "Frame check sequences"]
-        },
-        {
-            layer: 1,
-            name: "Physical Layer",
-            description: "Physical transmission of raw bits",
-            protocols: ["Ethernet cables", "Fiber optic", "Radio waves"],
-            examples: ["Cables", "Hubs", "Repeaters", "Network cards"]
-        }
-    ]
-    
-    DISPLAY "\nOSI Model Layers (Top to Bottom):"
-    FOR each layer IN osi_layers
-        DISPLAY "\nLayer " + layer["layer"] + ": " + layer["name"]
-        DISPLAY "  Description: " + layer["description"]
-        DISPLAY "  Protocols: " + join(layer["protocols"], ", ")
-        DISPLAY "  Examples: " + join(layer["examples"], ", ")
-    ENDFOR
-    
-    // TCP/IP Model (Simplified)
-    DISPLAY "\n=== TCP/IP MODEL (INTERNET MODEL) ==="
-    DISPLAY "Simplified 4-layer model used in practice"
-    
-    SET tcpip_layers = [
-        {
-            layer: 4,
-            name: "Application Layer",
-            description: "Combines OSI layers 5-7",
-            protocols: ["HTTP", "FTP", "SMTP", "DNS", "DHCP"],
-            osi_equivalent: "Application, Presentation, Session"
-        },
-        {
-            layer: 3,
-            name: "Transport Layer",
-            description: "End-to-end communication",
-            protocols: ["TCP", "UDP"],
-            osi_equivalent: "Transport"
-        },
-        {
-            layer: 2,
-            name: "Internet Layer",
-            description: "Routing and logical addressing",
-            protocols: ["IP", "ICMP", "ARP"],
-            osi_equivalent: "Network"
-        },
-        {
-            layer: 1,
-            name: "Network Access Layer",
-            description: "Physical network access",
-            protocols: ["Ethernet", "Wi-Fi", "PPP"],
-            osi_equivalent: "Data Link, Physical"
-        }
-    ]
-    
-    DISPLAY "\nTCP/IP Model Layers:"
-    FOR each layer IN tcpip_layers
-        DISPLAY "\nLayer " + layer["layer"] + ": " + layer["name"]
-        DISPLAY "  Description: " + layer["description"]
-        DISPLAY "  Protocols: " + join(layer["protocols"], ", ")
-        DISPLAY "  OSI Equivalent: " + layer["osi_equivalent"]
-    ENDFOR
-END</code></pre>
+    <div className="protocol-models">
+      <div className="osi-model">
+        <h4>OSI (Open Systems Interconnection) Model</h4>
+        <p>The OSI model defines 7 layers of network communication, providing a standardized framework for understanding how data moves through a network.</p>
+        
+        <div className="osi-layers">
+          <div className="layer-item">
+            <h5>Layer 7: Application Layer</h5>
+            <p><strong>Description:</strong> User interface and network services</p>
+            <p><strong>Protocols:</strong> HTTP/HTTPS, FTP, SMTP, DNS, DHCP</p>
+            <p><strong>Examples:</strong> Web browsers, Email clients, File transfer programs</p>
+          </div>
+          
+          <div className="layer-item">
+            <h5>Layer 6: Presentation Layer</h5>
+            <p><strong>Description:</strong> Data formatting, encryption, compression</p>
+            <p><strong>Protocols:</strong> SSL/TLS, JPEG, MPEG, ASCII</p>
+            <p><strong>Examples:</strong> Data encryption, Image compression, Character encoding</p>
+          </div>
+          
+          <div className="layer-item">
+            <h5>Layer 5: Session Layer</h5>
+            <p><strong>Description:</strong> Establishes, manages, terminates connections</p>
+            <p><strong>Protocols:</strong> NetBIOS, RPC, SQL sessions</p>
+            <p><strong>Examples:</strong> Login sessions, Database connections, Video calls</p>
+          </div>
+          
+          <div className="layer-item">
+            <h5>Layer 4: Transport Layer</h5>
+            <p><strong>Description:</strong> Reliable data delivery, error correction</p>
+            <p><strong>Protocols:</strong> TCP, UDP, SCTP</p>
+            <p><strong>Examples:</strong> Port numbers, Flow control, Error detection</p>
+          </div>
+          
+          <div className="layer-item">
+            <h5>Layer 3: Network Layer</h5>
+            <p><strong>Description:</strong> Routing and logical addressing</p>
+            <p><strong>Protocols:</strong> IP, ICMP, OSPF, BGP</p>
+            <p><strong>Examples:</strong> IP addresses, Routers, Path determination</p>
+          </div>
+          
+          <div className="layer-item">
+            <h5>Layer 2: Data Link Layer</h5>
+            <p><strong>Description:</strong> Frame formatting, error detection, MAC addressing</p>
+            <p><strong>Protocols:</strong> Ethernet, Wi-Fi, PPP, ARP</p>
+            <p><strong>Examples:</strong> MAC addresses, Switches, Frame check sequences</p>
+          </div>
+          
+          <div className="layer-item">
+            <h5>Layer 1: Physical Layer</h5>
+            <p><strong>Description:</strong> Physical transmission of raw bits</p>
+            <p><strong>Protocols:</strong> Ethernet cables, Fiber optic, Radio waves</p>
+            <p><strong>Examples:</strong> Cables, Hubs, Repeaters, Network cards</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="tcpip-model">
+        <h4>TCP/IP Model (Internet Model)</h4>
+        <p>A simplified 4-layer model that is widely used in practice for internet communications.</p>
+        
+        <div className="tcpip-layers">
+          <div className="layer-item">
+            <h5>Layer 4: Application Layer</h5>
+            <p><strong>Description:</strong> Combines OSI layers 5-7</p>
+            <p><strong>Protocols:</strong> HTTP, FTP, SMTP, DNS, DHCP</p>
+            <p><strong>OSI Equivalent:</strong> Application, Presentation, Session</p>
+          </div>
+          
+          <div className="layer-item">
+            <h5>Layer 3: Transport Layer</h5>
+            <p><strong>Description:</strong> End-to-end communication</p>
+            <p><strong>Protocols:</strong> TCP, UDP</p>
+            <p><strong>OSI Equivalent:</strong> Transport</p>
+          </div>
+          
+          <div className="layer-item">
+            <h5>Layer 2: Internet Layer</h5>
+            <p><strong>Description:</strong> Routing and logical addressing</p>
+            <p><strong>Protocols:</strong> IP, ICMP, ARP</p>
+            <p><strong>OSI Equivalent:</strong> Network</p>
+          </div>
+          
+          <div className="layer-item">
+            <h5>Layer 1: Network Access Layer</h5>
+            <p><strong>Description:</strong> Physical network access</p>
+            <p><strong>Protocols:</strong> Ethernet, Wi-Fi, PPP</p>
+            <p><strong>OSI Equivalent:</strong> Data Link, Physical</p>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <h3>Common Network Protocols</h3>
-    <pre><code>BEGIN Common_Network_Protocols
-    DISPLAY "=== COMMON NETWORK PROTOCOLS ==="
-    
-    // Internet Protocols
-    SET internet_protocols = [
-        {
-            name: "HTTP (HyperText Transfer Protocol)",
-            port: 80,
-            purpose: "Web page transfer",
-            example: "Loading websites in a browser",
-            secure_version: "HTTPS (port 443)"
-        },
-        {
-            name: "FTP (File Transfer Protocol)",
-            port: 21,
-            purpose: "File transfer between computers",
-            example: "Uploading files to a web server",
-            secure_version: "SFTP or FTPS"
-        },
-        {
-            name: "SMTP (Simple Mail Transfer Protocol)",
-            port: 25,
-            purpose: "Sending email messages",
-            example: "Email client sending outgoing mail",
-            secure_version: "SMTPS (port 465/587)"
-        },
-        {
-            name: "POP3 (Post Office Protocol v3)",
-            port: 110,
-            purpose: "Retrieving email from server",
-            example: "Downloading email to local client",
-            secure_version: "POP3S (port 995)"
-        },
-        {
-            name: "IMAP (Internet Message Access Protocol)",
-            port: 143,
-            purpose: "Accessing email on server",
-            example: "Webmail and synchronized email",
-            secure_version: "IMAPS (port 993)"
-        },
-        {
-            name: "DNS (Domain Name System)",
-            port: 53,
-            purpose: "Translate domain names to IP addresses",
-            example: "Converting www.google.com to 142.250.191.14",
-            secure_version: "DNS over HTTPS (DoH)"
-        }
-    ]
-    
-    DISPLAY "Internet Application Protocols:"
-    FOR each protocol IN internet_protocols
-        DISPLAY "\n" + protocol["name"] + ":"
-        DISPLAY "  Port: " + protocol["port"]
-        DISPLAY "  Purpose: " + protocol["purpose"]
-        DISPLAY "  Example: " + protocol["example"]
-        DISPLAY "  Secure Version: " + protocol["secure_version"]
-    ENDFOR
-    
-    // Transport Protocols
-    DISPLAY "\n=== TRANSPORT PROTOCOLS ==="
-    
-    SET transport_protocols = [
-        {
-            name: "TCP (Transmission Control Protocol)",
-            characteristics: ["Connection-oriented", "Reliable", "Ordered delivery", "Error correction", "Flow control"],
-            use_cases: ["Web browsing (HTTP)", "Email (SMTP)", "File transfer (FTP)", "Remote access (SSH)"],
-            overhead: "Higher (due to reliability features)"
-        },
-        {
-            name: "UDP (User Datagram Protocol)",
-            characteristics: ["Connectionless", "Unreliable", "No ordering guarantee", "No error correction", "Low overhead"],
-            use_cases: ["Video streaming", "Online gaming", "DNS queries", "DHCP", "Voice over IP"],
-            overhead: "Lower (minimal features)"
-        }
-    ]
-    
-    FOR each protocol IN transport_protocols
-        DISPLAY "\n" + protocol["name"] + ":"
-        DISPLAY "  Characteristics:"
-        FOR each char IN protocol["characteristics"]
-            DISPLAY "    • " + char
-        ENDFOR
-        DISPLAY "  Use Cases:"
-        FOR each use IN protocol["use_cases"]
-            DISPLAY "    • " + use
-        ENDFOR
-        DISPLAY "  Overhead: " + protocol["overhead"]
-    ENDFOR
-    
-    // Network Layer Protocols
-    DISPLAY "\n=== NETWORK LAYER PROTOCOLS ==="
-    
-    SET network_protocols = [
-        {
-            name: "IPv4 (Internet Protocol version 4)",
-            address_format: "32-bit (4 octets)",
-            example: "192.168.1.1",
-            address_space: "~4.3 billion addresses",
-            features: ["Widely supported", "Simple", "Well-established"]
-        },
-        {
-            name: "IPv6 (Internet Protocol version 6)",
-            address_format: "128-bit (8 groups of 4 hex digits)",
-            example: "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
-            address_space: "~340 undecillion addresses",
-            features: ["Larger address space", "Built-in security", "Better mobile support"]
-        },
-        {
-            name: "ICMP (Internet Control Message Protocol)",
-            address_format: "N/A (uses IP)",
-            example: "ping, traceroute commands",
-            address_space: "N/A",
-            features: ["Error reporting", "Network diagnostics", "Path discovery"]
-        }
-    ]
-    
-    FOR each protocol IN network_protocols
-        DISPLAY "\n" + protocol["name"] + ":"
-        DISPLAY "  Address Format: " + protocol["address_format"]
-        DISPLAY "  Example: " + protocol["example"]
-        DISPLAY "  Address Space: " + protocol["address_space"]
-        DISPLAY "  Features:"
-        FOR each feature IN protocol["features"]
-            DISPLAY "    • " + feature
-        ENDFOR
-    ENDFOR
-END</code></pre>
+    <div className="network-protocols">
+      <div className="protocol-category">
+        <h4>Internet Application Protocols</h4>
+        <div className="protocol-grid">
+          <div className="protocol-item">
+            <h5>HTTP (HyperText Transfer Protocol)</h5>
+            <p><strong>Port:</strong> 80</p>
+            <p><strong>Purpose:</strong> Web page transfer</p>
+            <p><strong>Example:</strong> Loading websites in a browser</p>
+            <p><strong>Secure Version:</strong> HTTPS (port 443)</p>
+          </div>
+          
+          <div className="protocol-item">
+            <h5>FTP (File Transfer Protocol)</h5>
+            <p><strong>Port:</strong> 21</p>
+            <p><strong>Purpose:</strong> File transfer between computers</p>
+            <p><strong>Example:</strong> Uploading files to a web server</p>
+            <p><strong>Secure Version:</strong> SFTP or FTPS</p>
+          </div>
+          
+          <div className="protocol-item">
+            <h5>SMTP (Simple Mail Transfer Protocol)</h5>
+            <p><strong>Port:</strong> 25</p>
+            <p><strong>Purpose:</strong> Sending email messages</p>
+            <p><strong>Example:</strong> Email client sending outgoing mail</p>
+            <p><strong>Secure Version:</strong> SMTPS (port 465/587)</p>
+          </div>
+          
+          <div className="protocol-item">
+            <h5>POP3 (Post Office Protocol v3)</h5>
+            <p><strong>Port:</strong> 110</p>
+            <p><strong>Purpose:</strong> Retrieving email from server</p>
+            <p><strong>Example:</strong> Downloading email to local client</p>
+            <p><strong>Secure Version:</strong> POP3S (port 995)</p>
+          </div>
+          
+          <div className="protocol-item">
+            <h5>IMAP (Internet Message Access Protocol)</h5>
+            <p><strong>Port:</strong> 143</p>
+            <p><strong>Purpose:</strong> Accessing email on server</p>
+            <p><strong>Example:</strong> Webmail and synchronized email</p>
+            <p><strong>Secure Version:</strong> IMAPS (port 993)</p>
+          </div>
+          
+          <div className="protocol-item">
+            <h5>DNS (Domain Name System)</h5>
+            <p><strong>Port:</strong> 53</p>
+            <p><strong>Purpose:</strong> Translate domain names to IP addresses</p>
+            <p><strong>Example:</strong> Converting www.google.com to 142.250.191.14</p>
+            <p><strong>Secure Version:</strong> DNS over HTTPS (DoH)</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="protocol-category">
+        <h4>Transport Protocols</h4>
+        <div className="transport-comparison">
+          <div className="protocol-item">
+            <h5>TCP (Transmission Control Protocol)</h5>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Connection-oriented</li>
+                <li>Reliable</li>
+                <li>Ordered delivery</li>
+                <li>Error correction</li>
+                <li>Flow control</li>
+              </ul>
+            </div>
+            <div className="use-cases">
+              <h6>Use Cases:</h6>
+              <ul>
+                <li>Web browsing (HTTP)</li>
+                <li>Email (SMTP)</li>
+                <li>File transfer (FTP)</li>
+                <li>Remote access (SSH)</li>
+              </ul>
+            </div>
+            <p><strong>Overhead:</strong> Higher (due to reliability features)</p>
+          </div>
+          
+          <div className="protocol-item">
+            <h5>UDP (User Datagram Protocol)</h5>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Connectionless</li>
+                <li>Unreliable</li>
+                <li>No ordering guarantee</li>
+                <li>No error correction</li>
+                <li>Low overhead</li>
+              </ul>
+            </div>
+            <div className="use-cases">
+              <h6>Use Cases:</h6>
+              <ul>
+                <li>Video streaming</li>
+                <li>Online gaming</li>
+                <li>DNS queries</li>
+                <li>DHCP</li>
+                <li>Voice over IP</li>
+              </ul>
+            </div>
+            <p><strong>Overhead:</strong> Lower (minimal features)</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="protocol-category">
+        <h4>Network Layer Protocols</h4>
+        <div className="protocol-grid">
+          <div className="protocol-item">
+            <h5>IPv4 (Internet Protocol version 4)</h5>
+            <p><strong>Address Format:</strong> 32-bit (4 octets)</p>
+            <p><strong>Example:</strong> 192.168.1.1</p>
+            <p><strong>Address Space:</strong> ~4.3 billion addresses</p>
+            <div className="features">
+              <h6>Features:</h6>
+              <ul>
+                <li>Widely supported</li>
+                <li>Simple</li>
+                <li>Well-established</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="protocol-item">
+            <h5>IPv6 (Internet Protocol version 6)</h5>
+            <p><strong>Address Format:</strong> 128-bit (8 groups of 4 hex digits)</p>
+            <p><strong>Example:</strong> 2001:0db8:85a3:0000:0000:8a2e:0370:7334</p>
+            <p><strong>Address Space:</strong> ~340 undecillion addresses</p>
+            <div className="features">
+              <h6>Features:</h6>
+              <ul>
+                <li>Larger address space</li>
+                <li>Built-in security</li>
+                <li>Better mobile support</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="protocol-item">
+            <h5>ICMP (Internet Control Message Protocol)</h5>
+            <p><strong>Address Format:</strong> N/A (uses IP)</p>
+            <p><strong>Example:</strong> ping, traceroute commands</p>
+            <p><strong>Address Space:</strong> N/A</p>
+            <div className="features">
+              <h6>Features:</h6>
+              <ul>
+                <li>Error reporting</li>
+                <li>Network diagnostics</li>
+                <li>Path discovery</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <h2>Network Hardware and Infrastructure</h2>
     
     <h3>Network Devices and Their Functions</h3>
-    <pre><code>BEGIN Network_Hardware
-    DISPLAY "=== NETWORK HARDWARE COMPONENTS ==="
-    
-    // Layer 1 Devices (Physical Layer)
-    DISPLAY "\n--- PHYSICAL LAYER DEVICES ---"
-    
-    SET physical_devices = [
-        {
-            name: "Hub",
-            function: "Repeats electrical signals to all connected devices",
-            characteristics: ["Operates at Physical Layer", "Creates single collision domain", "Half-duplex communication", "Largely obsolete"],
-            use_case: "Legacy networks (replaced by switches)"
-        },
-        {
-            name: "Repeater",
-            function: "Amplifies and regenerates signals over long distances",
-            characteristics: ["Extends network range", "No intelligence", "Simply repeats signals", "Can introduce delays"],
-            use_case: "Extending cable runs beyond standard limits"
-        },
-        {
-            name: "Network Cables",
-            function: "Physical medium for data transmission",
-            characteristics: ["Various types (Cat5e, Cat6, Fiber)", "Different speeds and distances", "Shielded vs unshielded"],
-            use_case: "Connecting network devices"
-        }
-    ]
-    
-    FOR each device IN physical_devices
-        DISPLAY "\n" + device["name"] + ":"
-        DISPLAY "  Function: " + device["function"]
-        DISPLAY "  Characteristics:"
-        FOR each char IN device["characteristics"]
-            DISPLAY "    • " + char
-        ENDFOR
-        DISPLAY "  Use Case: " + device["use_case"]
-    ENDFOR
-    
-    // Layer 2 Devices (Data Link Layer)
-    DISPLAY "\n--- DATA LINK LAYER DEVICES ---"
-    
-    SET datalink_devices = [
-        {
-            name: "Switch",
-            function: "Forwards frames based on MAC addresses",
-            characteristics: [
-                "Learns MAC addresses",
-                "Creates separate collision domains",
-                "Full-duplex communication",
-                "Can implement VLANs",
-                "Store-and-forward operation"
-            ],
-            types: ["Unmanaged (plug-and-play)", "Managed (configurable features)", "Layer 3 (routing capable)"],
-            use_case: "Connecting devices in a LAN"
-        },
-        {
-            name: "Bridge",
-            function: "Connects two network segments, filters traffic",
-            characteristics: [
-                "Reduces collision domains",
-                "Learns MAC addresses",
-                "Forwards only necessary traffic",
-                "Can connect different media types"
-            ],
-            types: ["Transparent bridge", "Source-routing bridge"],
-            use_case: "Connecting network segments (largely replaced by switches)"
-        },
-        {
-            name: "Wireless Access Point (WAP)",
-            function: "Provides wireless connectivity to wired network",
-            characteristics: [
-                "Converts between wired and wireless",
-                "Manages wireless clients",
-                "Implements security protocols",
-                "Can support multiple SSIDs"
-            ],
-            types: ["Standalone AP", "Controller-based AP", "Mesh AP"],
-            use_case: "Providing Wi-Fi access in buildings"
-        }
-    ]
-    
-    FOR each device IN datalink_devices
-        DISPLAY "\n" + device["name"] + ":"
-        DISPLAY "  Function: " + device["function"]
-        DISPLAY "  Characteristics:"
-        FOR each char IN device["characteristics"]
-            DISPLAY "    • " + char
-        ENDFOR
-        IF has_key(device, "types") THEN
-            DISPLAY "  Types:"
-            FOR each type IN device["types"]
-                DISPLAY "    • " + type
-            ENDFOR
-        ENDIF
-        DISPLAY "  Use Case: " + device["use_case"]
-    ENDFOR
-    
-    // Layer 3 Devices (Network Layer)
-    DISPLAY "\n--- NETWORK LAYER DEVICES ---"
-    
-    SET network_devices = [
-        {
-            name: "Router",
-            function: "Routes packets between different networks using IP addresses",
-            characteristics: [
-                "Operates at Network Layer",
-                "Maintains routing tables",
-                "Connects different networks",
-                "Implements NAT and firewall features",
-                "Can run routing protocols"
-            ],
-            types: ["Home/SOHO router", "Enterprise router", "Core router", "Edge router"],
-            use_case: "Connecting LANs to WANs, internet connectivity"
-        },
-        {
-            name: "Layer 3 Switch",
-            function: "Combines switching and routing capabilities",
-            characteristics: [
-                "Fast switching at Layer 2",
-                "Routing between VLANs",
-                "Hardware-based routing",
-                "High port density"
-            ],
-            types: ["Distribution switch", "Core switch"],
-            use_case: "Inter-VLAN routing in enterprise networks"
-        },
-        {
-            name: "Firewall",
-            function: "Controls network traffic based on security rules",
-            characteristics: [
-                "Packet filtering",
-                "Stateful inspection",
-                "Application-layer filtering",
-                "VPN capabilities",
-                "Intrusion prevention"
-            ],
-            types: ["Hardware firewall", "Software firewall", "Next-generation firewall"],
-            use_case: "Network security and access control"
-        }
-    ]
-    
-    FOR each device IN network_devices
-        DISPLAY "\n" + device["name"] + ":"
-        DISPLAY "  Function: " + device["function"]
-        DISPLAY "  Characteristics:"
-        FOR each char IN device["characteristics"]
-            DISPLAY "    • " + char
-        ENDFOR
-        DISPLAY "  Types:"
-        FOR each type IN device["types"]
-            DISPLAY "    • " + type
-        ENDFOR
-        DISPLAY "  Use Case: " + device["use_case"]
-    ENDFOR
-END</code></pre>
+    <div className="network-hardware">
+      <div className="hardware-layer">
+        <h4>Physical Layer Devices (Layer 1)</h4>
+        <div className="device-grid">
+          <div className="device-item">
+            <h5>Hub</h5>
+            <p><strong>Function:</strong> Repeats electrical signals to all connected devices</p>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Operates at Physical Layer</li>
+                <li>Creates single collision domain</li>
+                <li>Half-duplex communication</li>
+                <li>Largely obsolete</li>
+              </ul>
+            </div>
+            <p><strong>Use Case:</strong> Legacy networks (replaced by switches)</p>
+          </div>
+          
+          <div className="device-item">
+            <h5>Repeater</h5>
+            <p><strong>Function:</strong> Amplifies and regenerates signals over long distances</p>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Extends network range</li>
+                <li>No intelligence</li>
+                <li>Simply repeats signals</li>
+                <li>Can introduce delays</li>
+              </ul>
+            </div>
+            <p><strong>Use Case:</strong> Extending cable runs beyond standard limits</p>
+          </div>
+          
+          <div className="device-item">
+            <h5>Network Cables</h5>
+            <p><strong>Function:</strong> Physical medium for data transmission</p>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Various types (Cat5e, Cat6, Fiber)</li>
+                <li>Different speeds and distances</li>
+                <li>Shielded vs unshielded</li>
+              </ul>
+            </div>
+            <p><strong>Use Case:</strong> Connecting network devices</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="hardware-layer">
+        <h4>Data Link Layer Devices (Layer 2)</h4>
+        <div className="device-grid">
+          <div className="device-item">
+            <h5>Switch</h5>
+            <p><strong>Function:</strong> Forwards frames based on MAC addresses</p>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Learns MAC addresses</li>
+                <li>Creates separate collision domains</li>
+                <li>Full-duplex communication</li>
+                <li>Can implement VLANs</li>
+                <li>Store-and-forward operation</li>
+              </ul>
+            </div>
+            <div className="types">
+              <h6>Types:</h6>
+              <ul>
+                <li>Unmanaged (plug-and-play)</li>
+                <li>Managed (configurable features)</li>
+                <li>Layer 3 (routing capable)</li>
+              </ul>
+            </div>
+            <p><strong>Use Case:</strong> Connecting devices in a LAN</p>
+          </div>
+          
+          <div className="device-item">
+            <h5>Bridge</h5>
+            <p><strong>Function:</strong> Connects two network segments, filters traffic</p>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Reduces collision domains</li>
+                <li>Learns MAC addresses</li>
+                <li>Forwards only necessary traffic</li>
+                <li>Can connect different media types</li>
+              </ul>
+            </div>
+            <div className="types">
+              <h6>Types:</h6>
+              <ul>
+                <li>Transparent bridge</li>
+                <li>Source-routing bridge</li>
+              </ul>
+            </div>
+            <p><strong>Use Case:</strong> Connecting network segments (largely replaced by switches)</p>
+          </div>
+          
+          <div className="device-item">
+            <h5>Wireless Access Point (WAP)</h5>
+            <p><strong>Function:</strong> Provides wireless connectivity to wired network</p>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Converts between wired and wireless</li>
+                <li>Manages wireless clients</li>
+                <li>Implements security protocols</li>
+                <li>Can support multiple SSIDs</li>
+              </ul>
+            </div>
+            <div className="types">
+              <h6>Types:</h6>
+              <ul>
+                <li>Standalone AP</li>
+                <li>Controller-based AP</li>
+                <li>Mesh AP</li>
+              </ul>
+            </div>
+            <p><strong>Use Case:</strong> Providing Wi-Fi access in buildings</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="hardware-layer">
+        <h4>Network Layer Devices (Layer 3)</h4>
+        <div className="device-grid">
+          <div className="device-item">
+            <h5>Router</h5>
+            <p><strong>Function:</strong> Routes packets between different networks using IP addresses</p>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Operates at Network Layer</li>
+                <li>Maintains routing tables</li>
+                <li>Connects different networks</li>
+                <li>Implements NAT and firewall features</li>
+                <li>Can run routing protocols</li>
+              </ul>
+            </div>
+            <div className="types">
+              <h6>Types:</h6>
+              <ul>
+                <li>Home/SOHO router</li>
+                <li>Enterprise router</li>
+                <li>Core router</li>
+                <li>Edge router</li>
+              </ul>
+            </div>
+            <p><strong>Use Case:</strong> Connecting LANs to WANs, internet connectivity</p>
+          </div>
+          
+          <div className="device-item">
+            <h5>Layer 3 Switch</h5>
+            <p><strong>Function:</strong> Combines switching and routing capabilities</p>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Fast switching at Layer 2</li>
+                <li>Routing between VLANs</li>
+                <li>Hardware-based routing</li>
+                <li>High port density</li>
+              </ul>
+            </div>
+            <div className="types">
+              <h6>Types:</h6>
+              <ul>
+                <li>Distribution switch</li>
+                <li>Core switch</li>
+              </ul>
+            </div>
+            <p><strong>Use Case:</strong> Inter-VLAN routing in enterprise networks</p>
+          </div>
+          
+          <div className="device-item">
+            <h5>Firewall</h5>
+            <p><strong>Function:</strong> Controls network traffic based on security rules</p>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Packet filtering</li>
+                <li>Stateful inspection</li>
+                <li>Application-layer filtering</li>
+                <li>VPN capabilities</li>
+                <li>Intrusion prevention</li>
+              </ul>
+            </div>
+            <div className="types">
+              <h6>Types:</h6>
+              <ul>
+                <li>Hardware firewall</li>
+                <li>Software firewall</li>
+                <li>Next-generation firewall</li>
+              </ul>
+            </div>
+            <p><strong>Use Case:</strong> Network security and access control</p>
+          </div>
+        </div>
+      </div>
+    </div>
   `,
   
   // Interactive elements and activities

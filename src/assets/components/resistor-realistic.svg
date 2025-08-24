@@ -1,0 +1,46 @@
+<svg width="100" height="40" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Resistor 1kΩ -->
+  <defs>
+    <linearGradient id="resistorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4d03f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1c40f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wireGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#95a5a6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7f8c8d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Resistor body -->
+  <rect x="25" y="15" width="50" height="10" rx="5" ry="5" fill="url(#resistorGradient)" stroke="#d4ac0d" stroke-width="0.5"/>
+  
+  <!-- Color bands for 1kΩ (Brown-Black-Red-Gold) -->
+  <!-- Brown band -->
+  <rect x="30" y="13" width="3" height="14" fill="#8b4513"/>
+  
+  <!-- Black band -->
+  <rect x="38" y="13" width="3" height="14" fill="#2c3e50"/>
+  
+  <!-- Red band -->
+  <rect x="46" y="13" width="3" height="14" fill="#e74c3c"/>
+  
+  <!-- Gold tolerance band -->
+  <rect x="65" y="13" width="3" height="14" fill="#f1c40f"/>
+  
+  <!-- Wire leads -->
+  <rect x="5" y="19" width="20" height="2" fill="url(#wireGradient)" stroke="#6c7b7f" stroke-width="0.3"/>
+  <rect x="75" y="19" width="20" height="2" fill="url(#wireGradient)" stroke="#6c7b7f" stroke-width="0.3"/>
+  
+  <!-- Lead connection points -->
+  <circle cx="25" cy="20" r="1" fill="#7f8c8d"/>
+  <circle cx="75" cy="20" r="1" fill="#7f8c8d"/>
+  
+  <!-- Body highlight -->
+  <rect x="27" y="16" width="46" height="2" rx="1" ry="1" fill="#ffffff" opacity="0.3"/>
+  
+  <!-- Value marking -->
+  <text x="50" y="32" font-family="Arial, sans-serif" font-size="4" fill="#2c3e50" text-anchor="middle">1kΩ ±5%</text>
+  
+  <!-- Specification -->
+  <text x="50" y="8" font-family="Arial, sans-serif" font-size="5" fill="#2c3e50" text-anchor="middle" font-weight="bold">1/4W RESISTOR</text>
+</svg>

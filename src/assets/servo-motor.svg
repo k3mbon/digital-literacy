@@ -1,0 +1,55 @@
+<svg width="60" height="80" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="servoBodyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#34495e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a252f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hornGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e0e0e0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cccccc;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main servo body -->
+  <rect x="5" y="25" width="50" height="35" fill="url(#servoBodyGradient)" rx="3" ry="3"/>
+  
+  <!-- Servo mounting tabs -->
+  <rect x="0" y="30" width="60" height="8" fill="url(#servoBodyGradient)" rx="2" ry="2"/>
+  <rect x="0" y="47" width="60" height="8" fill="url(#servoBodyGradient)" rx="2" ry="2"/>
+  
+  <!-- Mounting holes -->
+  <circle cx="7" cy="34" r="2" fill="#000000"/>
+  <circle cx="53" cy="34" r="2" fill="#000000"/>
+  <circle cx="7" cy="51" r="2" fill="#000000"/>
+  <circle cx="53" cy="51" r="2" fill="#000000"/>
+  
+  <!-- Servo shaft -->
+  <circle cx="30" cy="20" r="8" fill="#666666" stroke="#444444" stroke-width="1"/>
+  <circle cx="30" cy="20" r="5" fill="#888888"/>
+  
+  <!-- Servo horn -->
+  <rect x="27" y="5" width="6" height="20" fill="url(#hornGradient)" rx="1" ry="1"/>
+  <rect x="20" y="17" width="20" height="6" fill="url(#hornGradient)" rx="1" ry="1"/>
+  
+  <!-- Horn mounting holes -->
+  <circle cx="30" cy="8" r="1" fill="#666666"/>
+  <circle cx="30" cy="12" r="1" fill="#666666"/>
+  <circle cx="30" cy="16" r="1" fill="#666666"/>
+  <circle cx="24" cy="20" r="1" fill="#666666"/>
+  <circle cx="36" cy="20" r="1" fill="#666666"/>
+  
+  <!-- Wire connectors -->
+  <rect x="8" y="60" width="3" height="15" fill="#8B4513"/>
+  <rect x="15" y="60" width="3" height="15" fill="#FF0000"/>
+  <rect x="22" y="60" width="3" height="15" fill="#FFA500"/>
+  
+  <!-- Wire labels -->
+  <text x="9" y="78" font-family="Arial, sans-serif" font-size="4" fill="#8B4513">GND</text>
+  <text x="15" y="78" font-family="Arial, sans-serif" font-size="4" fill="#FF0000">VCC</text>
+  <text x="22" y="78" font-family="Arial, sans-serif" font-size="4" fill="#FFA500">SIG</text>
+  
+  <!-- Brand label -->
+  <text x="30" y="45" font-family="Arial, sans-serif" font-size="6" fill="white" text-anchor="middle">SG90</text>
+</svg>

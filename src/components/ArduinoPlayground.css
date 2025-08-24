@@ -1,0 +1,981 @@
+/* Enhanced Professional Styling */
+.arduino-playground {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.playground-header {
+  background: rgba(255, 255, 255, 0.98);
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(15px);
+  border-bottom: 2px solid rgba(52, 152, 219, 0.2);
+  z-index: 1000;
+}
+
+.playground-header h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.playground-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.control-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.control-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.control-btn:hover::before {
+  left: 100%;
+}
+
+.control-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.control-btn.run {
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  color: white;
+}
+
+.control-btn.reset {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: white;
+}
+
+.control-btn.clear {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+/* Enhanced Workspace Layout */
+.playground-workspace {
+  display: flex;
+  flex: 1;
+  gap: 0;
+  height: calc(100vh - 100px);
+  overflow: hidden;
+}
+
+/* Left Sidebar - Component Library */
+.left-sidebar {
+  width: 320px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-right: 2px solid rgba(52, 152, 219, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.component-library {
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.component-library h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(52, 152, 219, 0.2);
+}
+
+/* Left Sidebar - Component Library */
+.left-sidebar {
+  width: 320px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-right: 2px solid rgba(52, 152, 219, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.component-library {
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.component-library h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(52, 152, 219, 0.2);
+}
+
+.library-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.category-section {
+  background: rgba(52, 152, 219, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid rgba(52, 152, 219, 0.1);
+}
+
+.category-title {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.library-item {
+  background: white;
+  border: 2px solid rgba(52, 152, 219, 0.2);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  cursor: grab;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.library-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(155, 89, 182, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.library-item:hover::before {
+  opacity: 1;
+}
+
+.library-item:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+  border-color: #3498db;
+}
+
+.library-item:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+}
+
+.component-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 8px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.component-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Enhanced Code Editor Section */
+.code-editor-section {
+  background: rgba(44, 62, 80, 0.98);
+  border-top: 2px solid rgba(52, 152, 219, 0.3);
+  padding: 20px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-editor-section h3 {
+  margin: 0 0 15px 0;
+  color: #ecf0f1;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+.code-editor-container {
+  flex: 1;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.arduino-code-editor {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  padding: 20px;
+  border: none;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  background: #2c3e50;
+  color: #ecf0f1;
+  resize: none;
+  outline: none;
+  border-radius: 10px;
+}
+
+.arduino-code-editor::placeholder {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+/* Main Canvas Area - Fixed Layout */
+.main-canvas {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.95);
+  position: relative;
+  overflow: hidden;
+}
+
+.canvas-header {
+  background: rgba(52, 152, 219, 0.1);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(52, 152, 219, 0.2);
+}
+
+.canvas-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.canvas-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zoom-btn {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.zoom-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.zoom-level {
+  font-weight: 600;
+  color: #2c3e50;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Fixed Canvas Workspace */
+.canvas-workspace {
+  flex: 1;
+  position: relative;
+  overflow: auto;
+  background: 
+    radial-gradient(circle at 20px 20px, rgba(52, 152, 219, 0.1) 1px, transparent 1px),
+    linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background-size: 40px 40px;
+  min-height: 600px;
+  padding: 20px;
+}
+
+/* Fixed Arduino Board Container */
+.arduino-board-container {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 50;
+  cursor: move;
+  user-select: none;
+}
+
+.arduino-board {
+  width: 420px;
+  min-height: 280px;
+  background: linear-gradient(135deg, #1a4c2e 0%, #2d5a3d 100%);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 3px solid #34495e;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(5px);
+}
+
+.arduino-board:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.board-header h4 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.board-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.status-led {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e74c3c;
+  box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+  transition: all 0.3s ease;
+}
+
+.status-led.running {
+  background: #2ecc71;
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.7);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.board-status span {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Pin Sections */
+.pin-section {
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  backdrop-filter: blur(5px);
+}
+
+.pin-section label {
+  display: block;
+  color: #ecf0f1;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pins-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.arduino-pin {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+}
+
+.arduino-pin.digital {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.arduino-pin.analog {
+  background: linear-gradient(135deg, #e67e22, #d35400);
+}
+
+.arduino-pin.power {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.arduino-pin.gnd {
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+}
+
+.arduino-pin:hover {
+  transform: scale(1.2);
+  border-color: #fff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.arduino-pin.active {
+  animation: pinActive 1s infinite alternate;
+}
+
+@keyframes pinActive {
+  from { box-shadow: 0 0 10px rgba(46, 204, 113, 0.7); }
+  to { box-shadow: 0 0 20px rgba(46, 204, 113, 1); }
+}
+
+.pin-connector {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.pin-number {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Enhanced Breadboard */
+.breadboard-container {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  z-index: 40;
+}
+
+.breadboard {
+  background: linear-gradient(135deg, #f4f1de 0%, #e07a5f 100%);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border: 2px solid #d4a574;
+}
+
+.breadboard-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.breadboard-header h5 {
+  margin: 0;
+  color: #8b4513;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.breadboard-grid {
+  display: flex;
+  gap: 10px;
+}
+
+.power-rails {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rail {
+  width: 20px;
+  height: 200px;
+  border-radius: 3px;
+}
+
+.rail.positive {
+  background: linear-gradient(to bottom, #e74c3c, #c0392b);
+}
+
+.rail.negative {
+  background: linear-gradient(to bottom, #34495e, #2c3e50);
+}
+
+.tie-points {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.breadboard-row {
+  display: flex;
+  gap: 3px;
+}
+
+.breadboard-hole {
+  width: 12px;
+  height: 12px;
+  background: #8b4513;
+  border-radius: 50%;
+  border: 1px solid #654321;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.breadboard-hole:hover {
+  background: #a0522d;
+  transform: scale(1.2);
+}
+
+/* Enhanced Placed Components */
+.placed-components {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.placed-component {
+  position: absolute;
+  pointer-events: all;
+  cursor: move;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 31;
+}
+
+.placed-component:hover {
+  transform: scale(1.05);
+  z-index: 35;
+}
+
+.placed-component.selected {
+  z-index: 40;
+  filter: drop-shadow(0 0 15px rgba(52, 152, 219, 0.8));
+}
+
+.component-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.component-pins {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  display: flex;
+  gap: 5px;
+}
+
+.component-pin {
+  position: relative;
+  cursor: pointer;
+}
+
+.pin-dot {
+  width: 8px;
+  height: 8px;
+  background: #3498db;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: all 0.2s ease;
+}
+
+.pin-dot:hover {
+  background: #e74c3c;
+  transform: scale(1.5);
+}
+
+.delete-component {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.delete-component:hover {
+  background: #c0392b;
+  transform: scale(1.2);
+}
+
+/* Enhanced Wire Connections */
+.connections-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 25;
+}
+
+.connection-wire {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  animation: wireFlow 3s linear infinite;
+}
+
+@keyframes wireFlow {
+  0% { stroke-dasharray: 0 10; }
+  100% { stroke-dasharray: 10 0; }
+}
+
+/* Enhanced Properties Panel */
+.properties-panel {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(52, 152, 219, 0.2);
+  z-index: 100;
+}
+
+.properties-panel h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(52, 152, 219, 0.2);
+}
+
+.property-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 12px;
+  background: rgba(52, 152, 219, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(52, 152, 219, 0.1);
+}
+
+.property-item label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.property-item span {
+  color: #34495e;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.property-item select {
+  padding: 6px 10px;
+  border: 2px solid rgba(52, 152, 219, 0.2);
+  border-radius: 6px;
+  background: white;
+  color: #2c3e50;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: border-color 0.3s ease;
+}
+
+.property-item select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Mini-Games Panel Enhancement */
+.mini-games-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(52, 152, 219, 0.2);
+}
+
+.mini-games-panel h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(45deg, #3498db, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.game-card {
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(155, 89, 182, 0.1));
+  border: 2px solid rgba(52, 152, 219, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.game-card:hover::before {
+  left: 100%;
+}
+
+.game-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52, 152, 219, 0.3);
+  border-color: #3498db;
+}
+
+.game-card h4 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.game-card p {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 1400px) {
+  .left-sidebar {
+    width: 280px;
+  }
+  
+  .arduino-board {
+    width: 380px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .playground-workspace {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .left-sidebar {
+    width: 100%;
+    height: 200px;
+    border-right: none;
+    border-bottom: 2px solid rgba(52, 152, 219, 0.2);
+  }
+  
+  .component-library {
+    padding: 15px;
+  }
+  
+  .library-categories {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 15px;
+  }
+  
+  .category-section {
+    min-width: 200px;
+  }
+  
+  .code-editor-section {
+    min-height: 200px;
+  }
+  
+  .arduino-board {
+    width: 320px;
+    left: 20px;
+    top: 20px;
+  }
+  
+  .breadboard-container {
+    right: 20px;
+    top: 20px;
+  }
+  
+  .properties-panel {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 100%;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .playground-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    padding: 15px 20px;
+  }
+  
+  .playground-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .playground-controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .control-btn {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+  
+  .arduino-board {
+    width: 280px;
+    left: 10px;
+    top: 10px;
+  }
+  
+  .breadboard-container {
+    right: 10px;
+    top: 60px;
+  }
+  
+  .canvas-workspace {
+    padding: 10px;
+  }
+}
+
+/* Scrollbar Styling */
+.canvas-workspace::-webkit-scrollbar,
+.component-library::-webkit-scrollbar,
+.arduino-code-editor::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.canvas-workspace::-webkit-scrollbar-track,
+.component-library::-webkit-scrollbar-track,
+.arduino-code-editor::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.canvas-workspace::-webkit-scrollbar-thumb,
+.component-library::-webkit-scrollbar-thumb,
+.arduino-code-editor::-webkit-scrollbar-thumb {
+  background: rgba(52, 152, 219, 0.6);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.canvas-workspace::-webkit-scrollbar-thumb:hover,
+.component-library::-webkit-scrollbar-thumb:hover,
+.arduino-code-editor::-webkit-scrollbar-thumb:hover {
+  background: rgba(52, 152, 219, 0.8);
+}

@@ -1,18 +1,22 @@
-/* Playground Styles */
+/* VSCode-Inspired Professional Playground Styles */
 .playground {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-  color: #ffffff;
+  background: #1e1e1e;
+  color: #cccccc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Header */
+/* VSCode-style Header */
 .playground-header {
   position: relative;
   padding: 2rem 0 4rem;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+  background: #2d2d30;
+  border-bottom: 1px solid #3e3e42;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 .header-background {
@@ -55,21 +59,24 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #00ffff;
+  color: white;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   margin-bottom: 2rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid rgba(0, 255, 255, 0.3);
-  border-radius: 8px;
-  background: rgba(0, 255, 255, 0.05);
-  transition: all 0.3s ease;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 3px;
+  background: #0e639c;
+  transition: all 0.2s ease;
 }
 
 .back-button:hover {
-  background: rgba(0, 255, 255, 0.1);
-  border-color: rgba(0, 255, 255, 0.5);
+  background: #1177bb;
   transform: translateX(-2px);
+}
+
+.back-button:active {
+  background: #0d5a8a;
 }
 
 .playground-info {
@@ -92,12 +99,18 @@
 
 .playground-info h1 {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #00ffff, #0099ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.playground-info h1::before {
+  content: '🎮';
+  font-size: 2rem;
 }
 
 .playground-info p {
@@ -151,43 +164,132 @@
   align-items: start;
 }
 
-/* Editor Section */
+/* VSCode-style Editor Section */
 .editor-section {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(0, 255, 255, 0.1);
-  border-radius: 12px;
+  background: #252526;
+  border: 1px solid #3e3e42;
+  border-radius: 6px;
   overflow: hidden;
   backdrop-filter: blur(10px);
 }
 
 .editor-tabs {
   display: flex;
-  background: rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+  background: linear-gradient(180deg, #2d2d30 0%, #252526 100%);
+  border-bottom: 1px solid #3e3e42;
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.editor-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.editor-tabs::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #007acc, transparent);
+  opacity: 0.3;
 }
 
 .tab {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem 1.5rem;
+  padding: 12px 16px;
   background: none;
   border: none;
-  color: #888;
+  color: #969696;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom: 2px solid transparent;
+  font-size: 0.85rem;
+  font-weight: 500;
+  position: relative;
+  white-space: nowrap;
+  min-width: fit-content;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+.tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 122, 204, 0.1), rgba(0, 255, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 4px 4px 0 0;
 }
 
 .tab:hover {
-  color: #00ffff;
-  background: rgba(0, 255, 255, 0.05);
+  color: #ffffff;
+  background: rgba(42, 45, 46, 0.8);
+  border-top-color: rgba(0, 122, 204, 0.3);
+  border-left-color: rgba(0, 122, 204, 0.2);
+  border-right-color: rgba(0, 122, 204, 0.2);
+  transform: translateY(-1px);
+}
+
+.tab:hover::before {
+  opacity: 1;
 }
 
 .tab.active {
-  color: #00ffff;
-  background: rgba(0, 255, 255, 0.1);
-  border-bottom-color: #00ffff;
+  color: #ffffff;
+  background: linear-gradient(180deg, #1e1e1e 0%, #252526 100%);
+  border-bottom-color: #007acc;
+  border-top-color: #007acc;
+  border-left-color: rgba(0, 122, 204, 0.4);
+  border-right-color: rgba(0, 122, 204, 0.4);
+  box-shadow: 
+    0 -2px 8px rgba(0, 122, 204, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.tab.active::before {
+  opacity: 0.3;
+}
+
+.tab .tab-icon {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.tab:hover .tab-icon,
+.tab.active .tab-icon {
+  opacity: 1;
+}
+
+.tab .tab-close {
+  margin-left: 4px;
+  padding: 2px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: all 0.2s ease;
+  font-size: 0.7rem;
+  color: #969696;
+}
+
+.tab:hover .tab-close {
+  opacity: 1;
+}
+
+.tab .tab-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 .editor-content {
@@ -227,29 +329,32 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  color: #ffffff;
+  padding: 6px 12px;
+  background: #007acc;
+  border: none;
+  border-radius: 3px;
+  color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .toolbar-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #1177bb;
 }
 
 .toolbar-btn.primary {
-  background: linear-gradient(135deg, #00ff88, #00cc6a);
-  border-color: #00ff88;
-  color: #000;
+  background: #00a86b;
+  color: white;
 }
 
 .toolbar-btn.primary:hover {
-  background: linear-gradient(135deg, #00cc6a, #00aa55);
+  background: #00c878;
+}
+
+.toolbar-btn:active {
+  transform: translateY(1px);
 }
 
 .toolbar-btn:disabled {
@@ -336,11 +441,11 @@
   opacity: 0.5;
 }
 
-/* Challenges Section */
+/* VSCode-style Challenges Section */
 .challenges-section {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(0, 255, 255, 0.1);
-  border-radius: 12px;
+  background: #252526;
+  border: 1px solid #3e3e42;
+  border-radius: 6px;
   padding: 1.5rem;
   backdrop-filter: blur(10px);
 }
@@ -370,17 +475,19 @@
 }
 
 .challenge-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(0, 255, 255, 0.1);
-  border-radius: 8px;
+  background: #1e1e1e;
+  border: 1px solid #3e3e42;
+  border-radius: 6px;
   padding: 1.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .challenge-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(0, 255, 255, 0.2);
+  background: #2a2d2e;
+  border-color: #007acc;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 122, 204, 0.15);
 }
 
 .challenge-header {
@@ -447,6 +554,145 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+/* Enhanced Hint Styles */
+.detailed-hints {
+  background: rgba(0, 123, 255, 0.1);
+  border: 1px solid rgba(0, 123, 255, 0.2);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.hint-steps {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.2rem;
+  color: #e0e0e0;
+}
+
+.hint-steps li {
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.expected-structure {
+  background: rgba(138, 43, 226, 0.1);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.structure-text {
+  color: #e0e0e0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 0.3rem;
+  padding: 0.3rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.language-concepts {
+  background: rgba(40, 167, 69, 0.1);
+  border: 1px solid rgba(40, 167, 69, 0.2);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.concept-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.concept-tag {
+  background: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.formulas {
+  background: rgba(255, 87, 34, 0.1);
+  border: 1px solid rgba(255, 87, 34, 0.2);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.formula-list {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.2rem;
+  color: #e0e0e0;
+}
+
+.formula-item {
+  margin-bottom: 0.3rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.common-mistakes {
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.2);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.mistake-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.mistake-tag {
+  background: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+/* Hint label styling for all hint types */
+.detailed-hints .hint-label {
+  color: #007bff;
+}
+
+.expected-structure .hint-label {
+  color: #8a2be2;
+}
+
+.language-concepts .hint-label {
+  color: #28a745;
+}
+
+.formulas .hint-label {
+  color: #ff5722;
+}
+
+.common-mistakes .hint-label {
+  color: #dc3545;
 }
 
 .challenge-btn:hover {
@@ -625,6 +871,37 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+  
+  /* Arduino Playground Tablet Styles */
+  .arduino-playground {
+    padding: 1.5rem;
+  }
+  
+  .playground-header {
+    padding: 1.25rem;
+  }
+  
+  .playground-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .playground-controls {
+    gap: 0.75rem;
+  }
+  
+  .control-btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+  }
+  
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  .mini-games-panel {
+    padding: 1.25rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -650,4 +927,312 @@
   .challenge-number {
     align-self: flex-start;
   }
+  
+  /* Arduino Playground Mobile Styles */
+  .arduino-playground {
+    padding: 1rem;
+  }
+  
+  .playground-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .playground-header h2 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  
+  .playground-controls {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .control-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    min-width: 80px;
+  }
+  
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .mini-games-panel {
+    padding: 1rem;
+  }
+  
+  .mini-games-panel h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Loading Arduino Simulator Styles */
+.loading-arduino {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 255, 255, 0.1);
+  border-left: 4px solid #00ffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-arduino p {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Arduino Playground Styles */
+.arduino-playground {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  color: #ffffff;
+  padding: 2rem;
+}
+
+.playground-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.playground-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, #00ffff, #0099ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.playground-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.control-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.control-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control-btn.running {
+  background: linear-gradient(135deg, #00ff88, #00cc66);
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.control-btn.stop {
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+  color: white;
+}
+
+.control-btn.reset {
+  background: linear-gradient(135deg, #ffa502, #ff6348);
+  color: white;
+}
+
+.control-btn.clear {
+  background: linear-gradient(135deg, #747d8c, #57606f);
+  color: white;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Mini-Games Panel */
+.mini-games-panel {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.mini-games-panel h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.4rem;
+  color: #00ffff;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.game-card {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.1);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.game-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.difficulty {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.difficulty.easy {
+  background: linear-gradient(135deg, #00ff88, #00cc66);
+  color: white;
+}
+
+.difficulty.medium {
+  background: linear-gradient(135deg, #ffa502, #ff6348);
+  color: white;
+}
+
+.difficulty.hard {
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+  color: white;
+}
+
+.game-description {
+  color: #cccccc;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.game-objective {
+  color: #00ffff;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.game-start-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #00ffff, #0099ff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.game-start-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+}
+
+.game-start-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.current-game-info {
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.current-game-info h4 {
+  margin: 0 0 0.5rem 0;
+  color: #00ffff;
+}
+
+.game-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.game-stats span {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Arduino Section Styles */
+.arduino-section {
+  width: 100%;
+  min-height: 600px;
+  background: #f8fafc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Performance Optimizations */
+.playground {
+  contain: layout style paint;
+}
+
+.playground-content {
+  will-change: transform;
+}
+
+/* Reduce repaints for animations */
+.challenge-card:hover {
+  transform: translateY(-2px);
+  will-change: transform;
 }

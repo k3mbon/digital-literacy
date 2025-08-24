@@ -5,11 +5,11 @@
 import pseudocode from './lessons/computational-thinking/pseudocode.js';
 import selection from './lessons/computational-thinking/selection.js';
 import searching from './lessons/computational-thinking/searching.js';
-import sorting from './lessons/computational-thinking/sorting.js';
-import iteration from './lessons/computational-thinking/iteration.js';
-import validation from './lessons/computational-thinking/validation.js';
-import testing from './lessons/computational-thinking/testing.js';
-import algorithms from './lessons/computational-thinking/algorithms.js';
+import conditionalStatements from './lessons/computational-thinking/conditional-statements.js';
+import dataInTextBasedProgram from './lessons/computational-thinking/data-in-text-based-program.js';
+import libraryProgram from './lessons/computational-thinking/library-program.js';
+import softwareDevelopment from './lessons/computational-thinking/software-development.js';
+import physicalComputing from './lessons/computational-thinking/physical-computing.js';
 
 import modelling from './lessons/data-management/modelling.js';
 import databases from './lessons/data-management/databases.js';
@@ -29,11 +29,11 @@ const lessonModules = {
   '1.1': pseudocode,
   '1.2': selection,
   '1.3': searching,
-  '1.4': sorting,
-  '1.5': iteration,
-  '1.6': validation,
-  '1.7': testing,
-  '1.8': algorithms,
+  '1.4': conditionalStatements,
+  '1.5': dataInTextBasedProgram,
+  '1.6': libraryProgram,
+  '1.7': softwareDevelopment,
+  '1.8': physicalComputing,
   
   // Data Representation (Topic 2)
   '2.1': modelling,
@@ -331,7 +331,7 @@ export const getLessonMetadata = (lessonId) => {
  * Get all lesson metadata for quick overview
  * @returns {Object} Object with lesson IDs as keys and metadata as values
  */
-export const getAllLessonMetadata = () => {
+const getAllLessonMetadata = () => {
   const metadata = {};
   
   Object.keys(lessonModules).forEach(lessonId => {
@@ -355,5 +355,6 @@ export default legacyLessonContent;
 
 // Named exports for new modular approach
 export {
-  lessonModules
+  lessonModules,
+  getAllLessonMetadata
 };

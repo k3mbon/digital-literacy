@@ -1,0 +1,65 @@
+<svg width="80" height="60" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Realistic Buzzer -->
+  <defs>
+    <radialGradient id="buzzerGradient" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#34495e;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#2c3e50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a252f;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="pcbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ecc71;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="membraneGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#95a5a6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7f8c8d;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- PCB Base -->
+  <circle cx="40" cy="30" r="25" fill="url(#pcbGradient)" stroke="#229954" stroke-width="1"/>
+  
+  <!-- Buzzer housing -->
+  <circle cx="40" cy="30" r="20" fill="url(#buzzerGradient)" stroke="#1a252f" stroke-width="1"/>
+  
+  <!-- Sound membrane -->
+  <circle cx="40" cy="30" r="15" fill="url(#membraneGradient)" stroke="#6c7b7f" stroke-width="0.5"/>
+  
+  <!-- Membrane pattern (concentric circles) -->
+  <g fill="none" stroke="#5d6d71" stroke-width="0.3" opacity="0.7">
+    <circle cx="40" cy="30" r="12"/>
+    <circle cx="40" cy="30" r="9"/>
+    <circle cx="40" cy="30" r="6"/>
+    <circle cx="40" cy="30" r="3"/>
+  </g>
+  
+  <!-- Center dot -->
+  <circle cx="40" cy="30" r="1.5" fill="#34495e"/>
+  
+  <!-- Mounting holes -->
+  <circle cx="25" cy="15" r="1.5" fill="#2c3e50"/>
+  <circle cx="55" cy="15" r="1.5" fill="#2c3e50"/>
+  <circle cx="25" cy="45" r="1.5" fill="#2c3e50"/>
+  <circle cx="55" cy="45" r="1.5" fill="#2c3e50"/>
+  
+  <!-- Pins -->
+  <rect x="35" y="55" width="2" height="5" fill="#f39c12" stroke="#d68910" stroke-width="0.3"/>
+  <rect x="43" y="55" width="2" height="5" fill="#f39c12" stroke="#d68910" stroke-width="0.3"/>
+  
+  <!-- Pin labels -->
+  <text x="36" y="53" font-family="Arial, sans-serif" font-size="4" fill="#2c3e50" text-anchor="middle">+</text>
+  <text x="44" y="53" font-family="Arial, sans-serif" font-size="4" fill="#2c3e50" text-anchor="middle">-</text>
+  
+  <!-- Brand/Model -->
+  <text x="40" y="8" font-family="Arial, sans-serif" font-size="6" fill="#2c3e50" text-anchor="middle" font-weight="bold">BUZZER</text>
+  
+  <!-- Frequency indication -->
+  <text x="40" y="38" font-family="Arial, sans-serif" font-size="4" fill="#ecf0f1" text-anchor="middle">2KHz</text>
+  
+  <!-- Sound waves indication -->
+  <g fill="none" stroke="#e74c3c" stroke-width="1" opacity="0.6">
+    <path d="M 65 25 Q 70 30 65 35" stroke-dasharray="2,2"/>
+    <path d="M 68 22 Q 75 30 68 38" stroke-dasharray="2,2"/>
+    <path d="M 71 19 Q 80 30 71 41" stroke-dasharray="2,2"/>
+  </g>
+</svg>

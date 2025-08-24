@@ -67,7 +67,7 @@ export const topics = {
   2: {
     id: 2,
     title: "Managing Data",
-    icon: "/src/assets/icons/topic-2-data-management.svg",
+    icon: "/src/assets/icons/managing-data.svg",
     color: "#10B981",
     subtopics: {
       "2.1": {
@@ -97,7 +97,7 @@ export const topics = {
         title: "Types of network",
         description: "Explore different network topologies and architectures",
         difficulty: "beginner",
-        icon: "/src/assets/icons/subtopic-3-1-network-types.svg"
+        icon: "/src/assets/icons/networks-communication.svg"
       },
       "3.2": {
         id: "3.2",
@@ -126,7 +126,7 @@ export const topics = {
         title: "Operating Systems",
         description: "Understanding operating systems and their functions",
         difficulty: "intermediate",
-        icon: "/src/assets/icons/subtopic-4-2-operating-systems.svg"
+        icon: "/src/assets/icons/computer-system.svg"
       },
       "4.3": {
         id: "4.3",

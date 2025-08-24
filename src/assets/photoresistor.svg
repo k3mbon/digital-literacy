@@ -1,0 +1,43 @@
+<svg width="50" height="40" viewBox="0 0 50 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ldrGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffeb3b;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#ffc107;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff9800;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="wireGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#666666;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#333333;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111111;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- LDR body -->
+  <circle cx="25" cy="20" r="12" fill="url(#ldrGradient)" stroke="#e65100" stroke-width="1"/>
+  
+  <!-- Zigzag pattern on LDR surface -->
+  <path d="M 18 15 L 20 13 L 22 17 L 24 13 L 26 17 L 28 13 L 30 17 L 32 15" 
+        fill="none" stroke="#d84315" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M 18 20 L 20 18 L 22 22 L 24 18 L 26 22 L 28 18 L 30 22 L 32 20" 
+        fill="none" stroke="#d84315" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M 18 25 L 20 23 L 22 27 L 24 23 L 26 27 L 28 23 L 30 27 L 32 25" 
+        fill="none" stroke="#d84315" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Wire leads -->
+  <rect x="5" y="18" width="15" height="4" fill="url(#wireGradient)" rx="2" ry="2"/>
+  <rect x="30" y="18" width="15" height="4" fill="url(#wireGradient)" rx="2" ry="2"/>
+  
+  <!-- Connection points -->
+  <circle cx="13" cy="20" r="2" fill="#888888"/>
+  <circle cx="37" cy="20" r="2" fill="#888888"/>
+  
+  <!-- Light sensitivity indicator -->
+  <g opacity="0.7">
+    <path d="M 15 8 L 17 6 M 13 6 L 15 8 M 14 4 L 14 10" stroke="#ffeb3b" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 20 5 L 22 3 M 18 3 L 20 5 M 19 1 L 19 7" stroke="#ffeb3b" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 25 8 L 27 6 M 23 6 L 25 8 M 24 4 L 24 10" stroke="#ffeb3b" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Label -->
+  <text x="25" y="37" font-family="Arial, sans-serif" font-size="5" fill="black" text-anchor="middle">LDR</text>
+</svg>

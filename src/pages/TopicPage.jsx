@@ -1,3 +1,4 @@
+import React from 'react';
 import { ArrowLeft, BookOpen, Play, TestTube, Clock, Award, ChevronRight, FileText } from 'lucide-react';
 import { grades, topics, getDifficultyColor } from '../data/topics';
 import { getLessonContent, getLessonMetadata } from '../data/lessonLoader';

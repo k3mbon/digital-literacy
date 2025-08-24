@@ -1,0 +1,47 @@
+<svg width="80" height="40" viewBox="0 0 80 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Resistor Body -->
+  <defs>
+    <linearGradient id="resistorGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5E6D3"/>
+      <stop offset="50%" stop-color="#E6D7C4"/>
+      <stop offset="100%" stop-color="#D4C5B2"/>
+    </linearGradient>
+    <linearGradient id="leadGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E6E6E6"/>
+      <stop offset="50%" stop-color="#CCCCCC"/>
+      <stop offset="100%" stop-color="#999999"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Left Lead -->
+  <rect x="5" y="18" width="15" height="4" fill="url(#leadGradient)" stroke="#888888" stroke-width="0.5"/>
+  
+  <!-- Right Lead -->
+  <rect x="60" y="18" width="15" height="4" fill="url(#leadGradient)" stroke="#888888" stroke-width="0.5"/>
+  
+  <!-- Resistor Body -->
+  <rect x="20" y="12" width="40" height="16" rx="2" fill="url(#resistorGradient)" stroke="#C4B5A2" stroke-width="1"/>
+  
+  <!-- Color Bands (220Ω resistor: Red-Red-Brown-Gold) -->
+  <!-- First Band - Red -->
+  <rect x="25" y="12" width="3" height="16" fill="#FF0000"/>
+  
+  <!-- Second Band - Red -->
+  <rect x="32" y="12" width="3" height="16" fill="#FF0000"/>
+  
+  <!-- Third Band - Brown (multiplier) -->
+  <rect x="39" y="12" width="3" height="16" fill="#8B4513"/>
+  
+  <!-- Fourth Band - Gold (tolerance) -->
+  <rect x="50" y="12" width="3" height="16" fill="#FFD700"/>
+  
+  <!-- Connection Points -->
+  <circle cx="12.5" cy="20" r="2" fill="#FFD700" stroke="#FFA500" stroke-width="1" class="connection-point left"/>
+  <circle cx="67.5" cy="20" r="2" fill="#FFD700" stroke="#FFA500" stroke-width="1" class="connection-point right"/>
+  
+  <!-- Value Label -->
+  <text x="40" y="8" font-family="Arial" font-size="8" font-weight="bold" fill="#333" text-anchor="middle">220Ω</text>
+  
+  <!-- Component Label -->
+  <text x="40" y="35" font-family="Arial" font-size="8" fill="#666" text-anchor="middle">RESISTOR</text>
+</svg>

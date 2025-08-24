@@ -1,0 +1,66 @@
+<svg width="80" height="60" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Photoresistor (LDR) -->
+  <defs>
+    <radialGradient id="ldrGradient" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#f39c12;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#e67e22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d35400;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="wireGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4d03f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1c40f;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="windowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ecf0f1;stop-opacity:0.6" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Main body -->
+  <circle cx="40" cy="30" r="18" fill="url(#ldrGradient)" stroke="#ca6f1e" stroke-width="1"/>
+  
+  <!-- Light-sensitive window -->
+  <circle cx="40" cy="30" r="12" fill="url(#windowGradient)" stroke="#bdc3c7" stroke-width="0.5"/>
+  
+  <!-- Serpentine pattern (photoresistive material) -->
+  <g fill="none" stroke="#8b4513" stroke-width="1" opacity="0.7">
+    <path d="M 32 24 Q 40 20 48 24 Q 40 28 32 24"/>
+    <path d="M 32 28 Q 40 24 48 28 Q 40 32 32 28"/>
+    <path d="M 32 32 Q 40 28 48 32 Q 40 36 32 32"/>
+    <path d="M 32 36 Q 40 32 48 36 Q 40 40 32 36"/>
+  </g>
+  
+  <!-- Connection points -->
+  <circle cx="32" cy="24" r="1" fill="#7f8c8d"/>
+  <circle cx="48" cy="36" r="1" fill="#7f8c8d"/>
+  
+  <!-- Leads -->
+  <rect x="15" y="29" width="15" height="2" fill="url(#wireGradient)" stroke="#d4ac0d" stroke-width="0.3"/>
+  <rect x="50" y="29" width="15" height="2" fill="url(#wireGradient)" stroke="#d4ac0d" stroke-width="0.3"/>
+  
+  <!-- Lead bends -->
+  <path d="M 10 30 Q 15 30 15 30" fill="none" stroke="url(#wireGradient)" stroke-width="2"/>
+  <path d="M 65 30 Q 70 30 70 30" fill="none" stroke="url(#wireGradient)" stroke-width="2"/>
+  
+  <!-- Terminal ends -->
+  <rect x="5" y="29" width="8" height="2" fill="url(#wireGradient)" stroke="#d4ac0d" stroke-width="0.3"/>
+  <rect x="67" y="29" width="8" height="2" fill="url(#wireGradient)" stroke="#d4ac0d" stroke-width="0.3"/>
+  
+  <!-- Light rays indication -->
+  <g stroke="#f1c40f" stroke-width="1.5" opacity="0.6">
+    <line x1="25" y1="15" x2="30" y2="20"/>
+    <line x1="40" y1="10" x2="40" y2="15"/>
+    <line x1="55" y1="15" x2="50" y2="20"/>
+    <line x1="60" y1="30" x2="55" y2="30"/>
+    <line x1="55" y1="45" x2="50" y2="40"/>
+  </g>
+  
+  <!-- Model specification -->
+  <text x="40" y="52" font-family="Arial, sans-serif" font-size="6" fill="#2c3e50" text-anchor="middle">LDR 5mm</text>
+  
+  <!-- Resistance indication -->
+  <text x="40" y="45" font-family="Arial, sans-serif" font-size="4" fill="#7f8c8d" text-anchor="middle">1kΩ-1MΩ</text>
+  
+  <!-- Brand marking -->
+  <text x="40" y="25" font-family="Arial, sans-serif" font-size="3" fill="#922b21" text-anchor="middle" opacity="0.8">GL5528</text>
+</svg>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Home, ArrowLeft, Search, BookOpen } from 'lucide-react';
 import '../styles/NotFound.css';
 

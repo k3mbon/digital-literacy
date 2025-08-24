@@ -1,0 +1,60 @@
+<svg width="60" height="80" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Realistic LED 5mm -->
+  <defs>
+    <radialGradient id="ledGradient" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.9" />
+      <stop offset="40%" style="stop-color:#e74c3c;stop-opacity:0.8" />
+      <stop offset="80%" style="stop-color:#c0392b;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#922b21;stop-opacity:0.9" />
+    </radialGradient>
+    <linearGradient id="rimGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ecf0f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bdc3c7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wireGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4d03f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1c40f;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- LED body (dome) -->
+  <circle cx="30" cy="25" r="18" fill="url(#ledGradient)" stroke="url(#rimGradient)" stroke-width="1" filter="url(#glow)"/>
+  
+  <!-- LED rim/flange -->
+  <circle cx="30" cy="43" r="20" fill="url(#rimGradient)" stroke="#95a5a6" stroke-width="0.5" opacity="0.8"/>
+  <circle cx="30" cy="43" r="18" fill="none" stroke="#7f8c8d" stroke-width="0.3"/>
+  
+  <!-- Flat spot indicator (cathode side) -->
+  <path d="M 12 25 Q 12 35 20 40" fill="none" stroke="#95a5a6" stroke-width="1" opacity="0.6"/>
+  
+  <!-- Anode leg (longer, positive) -->
+  <rect x="26" y="60" width="2" height="18" fill="url(#wireGradient)" stroke="#d4ac0d" stroke-width="0.3"/>
+  
+  <!-- Cathode leg (shorter, negative) -->
+  <rect x="32" y="65" width="2" height="13" fill="url(#wireGradient)" stroke="#d4ac0d" stroke-width="0.3"/>
+  
+  <!-- Internal wire connections -->
+  <line x1="27" y1="60" x2="25" y2="50" stroke="#d4ac0d" stroke-width="1" opacity="0.7"/>
+  <line x1="33" y1="65" x2="35" y2="50" stroke="#d4ac0d" stroke-width="1" opacity="0.7"/>
+  
+  <!-- LED chip (visible through transparent dome) -->
+  <rect x="28" y="23" width="4" height="4" fill="#f39c12" opacity="0.8"/>
+  <rect x="29" y="24" width="2" height="2" fill="#e67e22" opacity="0.9"/>
+  
+  <!-- Highlight on dome -->
+  <ellipse cx="25" cy="20" rx="4" ry="6" fill="#ffffff" opacity="0.3"/>
+  
+  <!-- Polarity indicators -->
+  <text x="22" y="78" font-family="Arial, sans-serif" font-size="8" fill="#2c3e50" text-anchor="middle">+</text>
+  <text x="38" y="78" font-family="Arial, sans-serif" font-size="8" fill="#2c3e50" text-anchor="middle">-</text>
+  
+  <!-- Model specification -->
+  <text x="30" y="10" font-family="Arial, sans-serif" font-size="6" fill="#2c3e50" text-anchor="middle">5mm LED</text>
+</svg>

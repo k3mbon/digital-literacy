@@ -1,9 +1,40 @@
-// Removed React Router dependency
+import React, { useEffect, useRef } from 'react';
 import { grades } from '../data/topics';
 import { ChevronRight, BookOpen, Code, Zap } from 'lucide-react';
 import '../styles/LandingPage.css';
 
 const LandingPage = ({ onNavigate }) => {
+  const gradeSelectionRef = useRef(null);
+  const featuresRef = useRef(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe sections
+    if (gradeSelectionRef.current) {
+      observer.observe(gradeSelectionRef.current);
+    }
+    if (featuresRef.current) {
+      observer.observe(featuresRef.current);
+    }
+
+    // Cleanup
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <div className="landing-page">
       {/* Hero Section */}
@@ -52,7 +83,7 @@ const LandingPage = ({ onNavigate }) => {
       </div>
 
       {/* Grade Selection Section */}
-      <div className="grade-selection">
+      <div className="grade-selection" ref={gradeSelectionRef}>
         <div className="section-header">
           <h2>Choose Your Grade Level</h2>
           <p>Select your current grade to access tailored content and assessments</p>
@@ -60,22 +91,22 @@ const LandingPage = ({ onNavigate }) => {
         
         <div className="grade-cards">
           {Object.values(grades).map((grade) => (
-             <button 
-               key={grade.level}
-               onClick={() => onNavigate('grade', { gradeLevel: grade.level })}
-               className="grade-card"
-               style={{ '--grade-color': grade.color }}
-             >
-               <div className="grade-card-header">
-                 <div className="grade-number">{grade.level}</div>
-                 <ChevronRight className="grade-arrow" size={20} />
-               </div>
-               
-               <div className="grade-content">
-                 <h3>{grade.title}</h3>
-                 <p>{grade.description}</p>
-               </div>
+            <button 
+              key={grade.level}
+              onClick={() => onNavigate('grade', { gradeLevel: grade.level })}
+              className="grade-card"
+              style={{ '--grade-color': grade.color }}
+            >
+              <div className="grade-card-header">
+                <div className="grade-number">{grade.level}</div>
+                <ChevronRight className="grade-arrow" size={20} />
+              </div>
               
+              <div className="grade-content">
+                <h3>{grade.title}</h3>
+                <p>{grade.description}</p>
+              </div>
+             
               <div className="grade-features">
                 <div className="feature">
                   <BookOpen size={16} />
@@ -98,7 +129,7 @@ const LandingPage = ({ onNavigate }) => {
       </div>
 
       {/* Features Section */}
-      <div className="features-section">
+      <div className="features-section" ref={featuresRef}>
         <div className="section-header">
           <h2>Why Choose Our Platform?</h2>
           <p>Experience the future of digital education</p>

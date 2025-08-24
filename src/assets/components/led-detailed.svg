@@ -1,0 +1,46 @@
+<svg width="60" height="80" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- LED Body -->
+  <defs>
+    <radialGradient id="ledGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FF6B6B"/>
+      <stop offset="70%" stop-color="#FF4444"/>
+      <stop offset="100%" stop-color="#CC0000"/>
+    </radialGradient>
+    <linearGradient id="legGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E6E6E6"/>
+      <stop offset="50%" stop-color="#CCCCCC"/>
+      <stop offset="100%" stop-color="#999999"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- LED Dome/Lens -->
+  <circle cx="30" cy="25" r="18" fill="url(#ledGradient)" stroke="#AA0000" stroke-width="1"/>
+  
+  <!-- LED Highlight -->
+  <ellipse cx="25" cy="20" rx="6" ry="8" fill="#FFAAAA" opacity="0.6"/>
+  
+  <!-- LED Flat Edge (cathode indicator) -->
+  <path d="M 12 25 L 12 35 A 18 18 0 0 0 30 43 L 30 25 Z" fill="#DD3333" stroke="#AA0000" stroke-width="0.5"/>
+  
+  <!-- Anode Lead (longer, positive) -->
+  <rect x="35" y="43" width="3" height="30" fill="url(#legGradient)" stroke="#888888" stroke-width="0.5"/>
+  
+  <!-- Cathode Lead (shorter, negative) -->
+  <rect x="22" y="43" width="3" height="25" fill="url(#legGradient)" stroke="#888888" stroke-width="0.5"/>
+  
+  <!-- Pin Labels -->
+  <text x="37" y="78" font-family="Arial" font-size="8" fill="#333" text-anchor="middle">+</text>
+  <text x="24" y="73" font-family="Arial" font-size="8" fill="#333" text-anchor="middle">-</text>
+  
+  <!-- Connection Points -->
+  <circle cx="36.5" cy="73" r="2" fill="#FFD700" stroke="#FFA500" stroke-width="1" class="connection-point anode"/>
+  <circle cx="23.5" cy="68" r="2" fill="#FFD700" stroke="#FFA500" stroke-width="1" class="connection-point cathode"/>
+  
+  <!-- Glow effect (for when LED is on) -->
+  <circle cx="30" cy="25" r="22" fill="#FF6B6B" opacity="0" class="led-glow">
+    <animate attributeName="opacity" values="0;0.3;0" dur="1s" repeatCount="indefinite" class="led-animation"/>
+  </circle>
+  
+  <!-- Component Label -->
+  <text x="30" y="10" font-family="Arial" font-size="10" font-weight="bold" fill="#333" text-anchor="middle">LED</text>
+</svg>

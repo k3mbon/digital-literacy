@@ -1,0 +1,61 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Push Button Component -->
+  <defs>
+    <radialGradient id="buttonGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#F0F0F0"/>
+      <stop offset="70%" stop-color="#D0D0D0"/>
+      <stop offset="100%" stop-color="#A0A0A0"/>
+    </radialGradient>
+    <radialGradient id="capGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FF4444"/>
+      <stop offset="70%" stop-color="#CC0000"/>
+      <stop offset="100%" stop-color="#990000"/>
+    </radialGradient>
+    <linearGradient id="pinGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E6E6E6"/>
+      <stop offset="50%" stop-color="#CCCCCC"/>
+      <stop offset="100%" stop-color="#999999"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Button Base/Housing -->
+  <rect x="15" y="15" width="30" height="30" rx="3" fill="url(#buttonGradient)" stroke="#888888" stroke-width="1"/>
+  
+  <!-- Button Cap -->
+  <circle cx="30" cy="30" r="10" fill="url(#capGradient)" stroke="#AA0000" stroke-width="1"/>
+  
+  <!-- Button Highlight -->
+  <ellipse cx="27" cy="26" rx="3" ry="4" fill="#FFAAAA" opacity="0.6"/>
+  
+  <!-- Pin 1 (Top Left) -->
+  <rect x="10" y="8" width="4" height="8" fill="url(#pinGradient)" stroke="#888888" stroke-width="0.5"/>
+  
+  <!-- Pin 2 (Top Right) -->
+  <rect x="46" y="8" width="4" height="8" fill="url(#pinGradient)" stroke="#888888" stroke-width="0.5"/>
+  
+  <!-- Pin 3 (Bottom Left) -->
+  <rect x="10" y="44" width="4" height="8" fill="url(#pinGradient)" stroke="#888888" stroke-width="0.5"/>
+  
+  <!-- Pin 4 (Bottom Right) -->
+  <rect x="46" y="44" width="4" height="8" fill="url(#pinGradient)" stroke="#888888" stroke-width="0.5"/>
+  
+  <!-- Connection Points -->
+  <circle cx="12" cy="12" r="2" fill="#FFD700" stroke="#FFA500" stroke-width="1" class="connection-point pin1"/>
+  <circle cx="48" cy="12" r="2" fill="#FFD700" stroke="#FFA500" stroke-width="1" class="connection-point pin2"/>
+  <circle cx="12" cy="48" r="2" fill="#FFD700" stroke="#FFA500" stroke-width="1" class="connection-point pin3"/>
+  <circle cx="48" cy="48" r="2" fill="#FFD700" stroke="#FFA500" stroke-width="1" class="connection-point pin4"/>
+  
+  <!-- Pin Labels -->
+  <text x="8" y="8" font-family="Arial" font-size="6" fill="#333">1</text>
+  <text x="52" y="8" font-family="Arial" font-size="6" fill="#333">2</text>
+  <text x="8" y="56" font-family="Arial" font-size="6" fill="#333">3</text>
+  <text x="52" y="56" font-family="Arial" font-size="6" fill="#333">4</text>
+  
+  <!-- Component Label -->
+  <text x="30" y="5" font-family="Arial" font-size="8" font-weight="bold" fill="#333" text-anchor="middle">BUTTON</text>
+  
+  <!-- Press Animation (hidden by default) -->
+  <circle cx="30" cy="30" r="8" fill="url(#capGradient)" stroke="#AA0000" stroke-width="1" opacity="0" class="button-pressed">
+    <animate attributeName="opacity" values="0;1;0" dur="0.2s" begin="click" class="press-animation"/>
+  </circle>
+</svg>

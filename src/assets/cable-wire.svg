@@ -1,0 +1,29 @@
+<svg width="200" height="20" viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wireGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff6666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc3333;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="connectorGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#222222;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Wire body -->
+  <rect x="15" y="7" width="170" height="6" fill="url(#wireGradient)" rx="3" ry="3"/>
+  
+  <!-- Left connector -->
+  <rect x="5" y="5" width="15" height="10" fill="url(#connectorGradient)" rx="2" ry="2"/>
+  <circle cx="7.5" cy="10" r="2" fill="#888888"/>
+  
+  <!-- Right connector -->
+  <rect x="180" y="5" width="15" height="10" fill="url(#connectorGradient)" rx="2" ry="2"/>
+  <circle cx="192.5" cy="10" r="2" fill="#888888"/>
+  
+  <!-- Wire texture lines -->
+  <line x1="20" y1="8" x2="180" y2="8" stroke="#ff7777" stroke-width="0.5" opacity="0.7"/>
+  <line x1="20" y1="12" x2="180" y2="12" stroke="#dd4444" stroke-width="0.5" opacity="0.7"/>
+</svg>

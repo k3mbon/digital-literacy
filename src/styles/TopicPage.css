@@ -108,8 +108,8 @@
 }
 
 .topic-icon {
-  width: 100px;
-  height: 100px;
+  width: clamp(60px, 8vw, 120px);
+  height: clamp(60px, 8vw, 120px);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -118,6 +118,40 @@
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   position: relative;
   padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Responsive breakpoints for topic icons */
+@media (max-width: 480px) {
+  .topic-icon {
+    width: 60px;
+    height: 60px;
+    padding: 0.75rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .topic-icon {
+    width: 80px;
+    height: 80px;
+    padding: 0.875rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .topic-icon {
+    width: 100px;
+    height: 100px;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .topic-icon {
+    width: 120px;
+    height: 120px;
+    padding: 1.25rem;
+  }
 }
 
 .topic-icon-svg {
@@ -233,9 +267,63 @@
 }
 
 .subtopic-icon {
-  width: 48px;
-  height: 48px;
+  width: clamp(32px, 5vw, 56px);
+  height: clamp(32px, 5vw, 56px);
   object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+/* Responsive breakpoints for subtopic icons */
+@media (max-width: 480px) {
+  .subtopic-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .subtopic-number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .subtopic-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .subtopic-number {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .subtopic-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .subtopic-number {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .subtopic-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .subtopic-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }
 
 .subtopic-number {

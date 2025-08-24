@@ -1,0 +1,46 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="networkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Network nodes -->
+  <circle cx="6" cy="6" r="2.5" fill="url(#networkGrad)" opacity="0.2" stroke="url(#networkGrad)" stroke-width="1.5"/>
+  <circle cx="18" cy="6" r="2.5" fill="url(#networkGrad)" opacity="0.2" stroke="url(#networkGrad)" stroke-width="1.5"/>
+  <circle cx="6" cy="18" r="2.5" fill="url(#networkGrad)" opacity="0.2" stroke="url(#networkGrad)" stroke-width="1.5"/>
+  <circle cx="18" cy="18" r="2.5" fill="url(#networkGrad)" opacity="0.2" stroke="url(#networkGrad)" stroke-width="1.5"/>
+  <circle cx="12" cy="12" r="3" fill="url(#networkGrad)" opacity="0.3" stroke="url(#networkGrad)" stroke-width="2"/>
+  
+  <!-- Connection lines -->
+  <line x1="6" y1="6" x2="12" y2="12" stroke="#9fef00" stroke-width="2" opacity="0.8"/>
+  <line x1="18" y1="6" x2="12" y2="12" stroke="#9fef00" stroke-width="2" opacity="0.8"/>
+  <line x1="6" y1="18" x2="12" y2="12" stroke="#9fef00" stroke-width="2" opacity="0.8"/>
+  <line x1="18" y1="18" x2="12" y2="12" stroke="#9fef00" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Data packets -->
+  <circle cx="9" cy="9" r="1" fill="#ffffff">
+    <animateMotion dur="2s" repeatCount="indefinite">
+      <path d="M0,0 L6,6 L-6,-6 Z"/>
+    </animateMotion>
+  </circle>
+  <circle cx="15" cy="9" r="1" fill="#ffffff">
+    <animateMotion dur="2.5s" repeatCount="indefinite">
+      <path d="M0,0 L-6,6 L6,-6 Z"/>
+    </animateMotion>
+  </circle>
+  
+  <!-- Central hub pulse -->
+  <circle cx="12" cy="12" r="3.5" fill="none" stroke="#9fef00" stroke-width="1" opacity="0.6">
+    <animate attributeName="r" values="3.5;5;3.5" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0;0.6" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Node indicators -->
+  <circle cx="6" cy="6" r="1" fill="#22c55e"/>
+  <circle cx="18" cy="6" r="1" fill="#22c55e"/>
+  <circle cx="6" cy="18" r="1" fill="#22c55e"/>
+  <circle cx="18" cy="18" r="1" fill="#22c55e"/>
+  <circle cx="12" cy="12" r="1.5" fill="#9fef00"/>
+</svg>

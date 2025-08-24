@@ -1,0 +1,373 @@
+/* Arduino Code Editor Styles */
+.code-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Editor Header */
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #2d5a87 0%, #1e3a5f 100%);
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.editor-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.editor-icon {
+  font-size: 18px;
+}
+
+.language-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.editor-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Template Selector */
+.template-selector select {
+  background: #2d2d2d;
+  color: #ffffff;
+  border: 1px solid #4a4a4a;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.template-selector select:hover {
+  border-color: #007acc;
+  background: #3a3a3a;
+}
+
+.template-selector select:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.2);
+}
+
+/* Run Controls */
+.run-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.run-btn, .verify-btn, .upload-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.run-btn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+}
+
+.run-btn:hover {
+  background: linear-gradient(135deg, #218838 0%, #1ea085 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.run-btn.running {
+  background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+}
+
+.run-btn.running:hover {
+  background: linear-gradient(135deg, #c82333 0%, #dc2626 100%);
+}
+
+.run-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.verify-btn {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+}
+
+.verify-btn:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.upload-btn {
+  background: linear-gradient(135deg, #fd7e14 0%, #e55a00 100%);
+  color: white;
+}
+
+.upload-btn:hover {
+  background: linear-gradient(135deg, #e55a00 0%, #cc4900 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(253, 126, 20, 0.3);
+}
+
+/* Editor Body */
+.editor-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.editor-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* Line Numbers */
+.line-numbers {
+  background: #252526;
+  color: #858585;
+  padding: 16px 8px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: right;
+  user-select: none;
+  border-right: 1px solid #3a3a3a;
+  overflow: hidden;
+  min-width: 50px;
+}
+
+.line-number {
+  height: 19.5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+
+/* Code Input */
+.code-input {
+  flex: 1;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border: none;
+  outline: none;
+  padding: 16px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  resize: none;
+  white-space: pre;
+  overflow-wrap: normal;
+  overflow-x: auto;
+  tab-size: 2;
+}
+
+.code-input::placeholder {
+  color: #6a6a6a;
+  font-style: italic;
+}
+
+.code-input:focus {
+  background: #1e1e1e;
+}
+
+/* Syntax highlighting simulation with CSS */
+.code-input {
+  /* Arduino keywords will be highlighted by the browser's basic syntax highlighting */
+}
+
+/* Editor Footer */
+.editor-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: #252526;
+  border-top: 1px solid #3a3a3a;
+  font-size: 11px;
+  color: #cccccc;
+}
+
+.editor-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-running {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #28a745;
+  font-weight: 500;
+}
+
+.status-idle {
+  color: #6c757d;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #28a745;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.editor-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.info-item {
+  color: #858585;
+  font-size: 10px;
+}
+
+/* Icons */
+.play-icon, .stop-icon, .verify-icon, .upload-icon {
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .editor-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .editor-controls {
+    justify-content: space-between;
+  }
+  
+  .run-controls {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .run-btn, .verify-btn, .upload-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  
+  .editor-footer {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+  
+  .editor-status, .editor-info {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .line-numbers {
+    min-width: 40px;
+    padding: 16px 4px;
+  }
+  
+  .code-input {
+    padding: 12px;
+    font-size: 12px;
+  }
+  
+  .template-selector select {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+}
+
+/* Dark theme enhancements */
+.code-editor {
+  /* Custom scrollbar for webkit browsers */
+}
+
+.code-input::-webkit-scrollbar,
+.line-numbers::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.code-input::-webkit-scrollbar-track,
+.line-numbers::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+.code-input::-webkit-scrollbar-thumb,
+.line-numbers::-webkit-scrollbar-thumb {
+  background: #555555;
+  border-radius: 4px;
+}
+
+.code-input::-webkit-scrollbar-thumb:hover,
+.line-numbers::-webkit-scrollbar-thumb:hover {
+  background: #666666;
+}
+
+/* Selection styling */
+.code-input::selection {
+  background: rgba(0, 122, 204, 0.3);
+}
+
+.code-input::-moz-selection {
+  background: rgba(0, 122, 204, 0.3);
+}

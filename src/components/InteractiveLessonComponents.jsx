@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CheckCircle, XCircle, Lightbulb, Play, Pause, RotateCcw, ChevronRight, Star, Target, Zap, Code, Terminal } from 'lucide-react';
 import '../styles/InteractiveLessonComponents.css';
-import CodeEditor from './CodeEditor';
+import './ArduinoSimulator.css';
+import '../styles/MultiLanguageIDE.css';
+import MultiLanguageIDE from './MultiLanguageIDE';
 
 // Interactive Story Component with animations and comprehension validation
 export const InteractiveStory = ({ story, definition, analogy, onComplete }) => {
@@ -682,6 +684,143 @@ export const SearchVisualizer = ({ title, description, algorithms, onComplete })
   );
 };
 
+// Hands-On Practice Component with Multi-Language IDE
+export const HandsOnPractice = ({ 
+  title = "Hands-On Practice",
+  description = "Practice coding with this interactive editor",
+  language = 'javascript',
+  initialCode = '',
+  instructions = [],
+  hints = [],
+  onComplete 
+}) => {
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [currentCode, setCurrentCode] = useState(initialCode);
+  const [currentLanguage, setCurrentLanguage] = useState(language);
+  const [showHints, setShowHints] = useState(false);
+  const [completedSteps, setCompletedSteps] = useState([]);
+
+  const handleCodeChange = (newCode, newLanguage) => {
+    setCurrentCode(newCode);
+    setCurrentLanguage(newLanguage);
+    
+    // Check if code meets basic completion criteria
+    if (newCode.trim().length > 50) {
+      checkCompletion(newCode);
+    }
+  };
+
+  const checkCompletion = (code) => {
+    // Simple completion check based on code content
+    const hasFunction = code.includes('function') || code.includes('def ') || code.includes('public static');
+    const hasOutput = code.includes('console.log') || code.includes('print(') || code.includes('System.out.println');
+    const hasLogic = code.includes('if') || code.includes('for') || code.includes('while');
+    
+    if (hasFunction && hasOutput && hasLogic && !isCompleted) {
+      setIsCompleted(true);
+      if (onComplete) {
+        onComplete({
+          code: currentCode,
+          language: currentLanguage,
+          completed: true
+        });
+      }
+    }
+  };
+
+  const toggleHints = () => {
+    setShowHints(!showHints);
+  };
+
+  const markStepCompleted = (stepIndex) => {
+    if (!completedSteps.includes(stepIndex)) {
+      setCompletedSteps([...completedSteps, stepIndex]);
+    }
+  };
+
+  return (
+    <div className="hands-on-practice">
+      <div className="practice-header">
+        <div className="practice-title">
+          <Terminal size={24} className="practice-icon" />
+          <h3>{title}</h3>
+          {isCompleted && (
+            <div className="completion-badge">
+              <CheckCircle size={16} />
+              Completed
+            </div>
+          )}
+        </div>
+        
+        <div className="practice-controls">
+          {hints.length > 0 && (
+            <button 
+              className={`hints-btn ${showHints ? 'active' : ''}`}
+              onClick={toggleHints}
+            >
+              <Lightbulb size={16} />
+              {showHints ? 'Hide Hints' : 'Show Hints'}
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="practice-description">
+        <p>{description}</p>
+      </div>
+
+      {instructions.length > 0 && (
+        <div className="practice-instructions">
+          <h4>Instructions:</h4>
+          <ol>
+            {instructions.map((instruction, index) => (
+              <li 
+                key={index} 
+                className={completedSteps.includes(index) ? 'completed' : ''}
+                onClick={() => markStepCompleted(index)}
+              >
+                {completedSteps.includes(index) && <CheckCircle size={16} className="step-check" />}
+                {instruction}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
+      {showHints && hints.length > 0 && (
+        <div className="practice-hints">
+          <h4>💡 Hints:</h4>
+          <ul>
+            {hints.map((hint, index) => (
+              <li key={index}>{hint}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div className="practice-ide">
+        <MultiLanguageIDE
+          initialCode={initialCode}
+          initialLanguage={language}
+          onCodeChange={handleCodeChange}
+        />
+      </div>
+
+      {isCompleted && (
+        <div className="practice-completion">
+          <div className="completion-message">
+            <CheckCircle size={24} className="completion-icon" />
+            <div>
+              <h4>Great job! 🎉</h4>
+              <p>You've successfully completed this hands-on practice exercise.</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 // Library Explorer Component
 export const LibraryExplorer = ({ title, description, libraries, onComplete }) => {
   const [selectedLibrary, setSelectedLibrary] = useState(null);
@@ -1085,20 +1224,9 @@ export const PCBuildingSimulator = ({ title, description, components, onComplete
 };
 
 // Arduino Simulator Component
-export const ArduinoSimulator = ({ title, description, components, onComplete }) => {
-  const [selectedComponents, setSelectedComponents] = useState([]);
-  const [_connections, _setConnections] = useState([]);
-  const [code, setCode] = useState('void setup() {\n  // Initialize components\n}\n\nvoid loop() {\n  // Main program loop\n}');
-  const [isRunning, setIsRunning] = useState(false);
-  const [simulationOutput, setSimulationOutput] = useState([]);
-  const [currentProject, setCurrentProject] = useState(null);
-
-  const projectTemplates = [
-    {
-      name: 'LED Blink',
-      description: 'Basic LED blinking project',
-      requiredComponents: ['LED', 'Resistor'],
-      code: `void setup() {
+export const ArduinoSimulator = ({ title, description, components, projects, onComplete }) => {
+  const [code, setCode] = useState(`// Arduino LED Blink Example
+void setup() {
   pinMode(13, OUTPUT);
 }
 
@@ -1107,176 +1235,357 @@ void loop() {
   delay(1000);
   digitalWrite(13, LOW);
   delay(1000);
-}`
-    },
-    {
-      name: 'Temperature Monitor',
-      description: 'Read temperature and display values',
-      requiredComponents: ['Temperature Sensor (DHT22)', 'LCD Display'],
-      code: `#include <DHT.h>
+}`);
+  
+  const [isRunning, setIsRunning] = useState(false);
+  const [serialOutput, setSerialOutput] = useState([]);
+  const [pinStates, setPinStates] = useState({});
+  const [simulatorComponents, setSimulatorComponents] = useState([
+    { id: 'led1', type: 'led', color: 'red', pin: 13, x: 450, y: 150, connected: true },
+    { id: 'resistor1', type: 'resistor', value: 220, x: 450, y: 200, connected: true }
+  ]);
+  
+  const intervalRef = useRef(null);
+  const executionStateRef = useRef({ 
+    currentLine: 0, 
+    inSetup: false, 
+    inLoop: false, 
+    loopStartLine: 0,
+    delayUntil: 0,
+    variables: {},
+    functions: {}
+  });
 
-void setup() {
-  Serial.begin(9600);
-  dht.begin();
-}
-
-void loop() {
-  float temp = dht.readTemperature();
-  Serial.println(temp);
-  delay(2000);
-}`
-    }
-  ];
-
-  const handleComponentSelect = (component) => {
-    setSelectedComponents(prev => 
-      prev.find(c => c.name === component.name)
-        ? prev.filter(c => c.name !== component.name)
-        : [...prev, component]
-    );
+  // Arduino code parser and executor
+  const parseArduinoCode = (code) => {
+    const lines = code.split('\n').map(line => line.trim()).filter(line => line && !line.startsWith('//'));
+    const parsedCode = {
+      setup: [],
+      loop: [],
+      functions: {},
+      variables: {}
+    };
+    
+    let currentSection = null;
+    let braceCount = 0;
+    
+    lines.forEach((line, index) => {
+      if (line.includes('void setup()')) {
+        currentSection = 'setup';
+        braceCount = 0;
+      } else if (line.includes('void loop()')) {
+        currentSection = 'loop';
+        braceCount = 0;
+      } else if (line.includes('{')) {
+        braceCount++;
+      } else if (line.includes('}')) {
+        braceCount--;
+        if (braceCount === 0) {
+          currentSection = null;
+        }
+      } else if (currentSection && braceCount > 0) {
+        parsedCode[currentSection].push({ line, index });
+      }
+    });
+    
+    return parsedCode;
   };
 
-  const loadProject = (project) => {
-    setCurrentProject(project);
-    setCode(project.code);
-    // Auto-select required components
-    const requiredComps = components.flatMap(cat => cat.items)
-      .filter(comp => project.requiredComponents.includes(comp.name));
-    setSelectedComponents(requiredComps);
+  const executeArduinoCommand = (command) => {
+    const now = Date.now();
+    
+    // Handle delay
+    if (command.includes('delay(')) {
+      const delayMatch = command.match(/delay\\((\\d+)\\)/);
+      if (delayMatch) {
+        const delayTime = parseInt(delayMatch[1]);
+        executionStateRef.current.delayUntil = now + delayTime;
+        return;
+      }
+    }
+    
+    // Handle pinMode
+    if (command.includes('pinMode(')) {
+      const pinModeMatch = command.match(/pinMode\\((\\d+),\\s*(INPUT|OUTPUT)\\)/);
+      if (pinModeMatch) {
+        const pin = parseInt(pinModeMatch[1]);
+        const mode = pinModeMatch[2];
+        setPinStates(prev => ({ ...prev, [`pin_${pin}_mode`]: mode }));
+      }
+    }
+    
+    // Handle digitalWrite
+    if (command.includes('digitalWrite(')) {
+      const digitalWriteMatch = command.match(/digitalWrite\\((\\d+),\\s*(HIGH|LOW)\\)/);
+      if (digitalWriteMatch) {
+        const pin = parseInt(digitalWriteMatch[1]);
+        const value = digitalWriteMatch[2] === 'HIGH';
+        setPinStates(prev => ({ ...prev, [`pin_${pin}`]: value }));
+        
+        // Update connected components
+        setSimulatorComponents(prev => prev.map(comp => {
+          if (comp.pin === pin && comp.type === 'led') {
+            return { ...comp, state: value };
+          }
+          return comp;
+        }));
+      }
+    }
+    
+    // Handle Serial.print
+    if (command.includes('Serial.print')) {
+      const serialMatch = command.match(/Serial\\.print(?:ln)?\\([\"'](.*?)[\"']\\)/);
+      if (serialMatch) {
+        const message = serialMatch[1];
+        setSerialOutput(prev => [...prev, { timestamp: now, message }]);
+      }
+    }
   };
 
   const runSimulation = () => {
-    setIsRunning(true);
-    setSimulationOutput(['Starting Arduino simulation...']);
+    if (!isRunning) return;
     
-    // Simulate Arduino execution
-    const simulationSteps = [
-      'Initializing pins...',
-      'Running setup() function...',
-      'Entering main loop()...',
-      'Reading sensor data...',
-      'Updating outputs...'
-    ];
+    const now = Date.now();
+    const state = executionStateRef.current;
     
-    simulationSteps.forEach((step, index) => {
-      setTimeout(() => {
-        setSimulationOutput(prev => [...prev, step]);
-        if (index === simulationSteps.length - 1) {
-          setSimulationOutput(prev => [...prev, 'Simulation completed successfully!']);
-          setIsRunning(false);
-          if (onComplete) {
-            setTimeout(() => onComplete(), 1500);
-          }
-        }
-      }, (index + 1) * 800);
-    });
+    // Check if we're in a delay
+    if (state.delayUntil > now) {
+      return;
+    }
+    
+    const parsedCode = parseArduinoCode(code);
+    
+    // Execute setup once
+    if (!state.inSetup && !state.inLoop && parsedCode.setup.length > 0) {
+      state.inSetup = true;
+      state.currentLine = 0;
+    }
+    
+    // Execute setup commands
+    if (state.inSetup && state.currentLine < parsedCode.setup.length) {
+      const command = parsedCode.setup[state.currentLine];
+      executeArduinoCommand(command.line);
+      state.currentLine++;
+      
+      if (state.currentLine >= parsedCode.setup.length) {
+        state.inSetup = false;
+        state.inLoop = true;
+        state.currentLine = 0;
+      }
+    }
+    
+    // Execute loop commands
+    if (state.inLoop && parsedCode.loop.length > 0) {
+      if (state.currentLine >= parsedCode.loop.length) {
+        state.currentLine = 0; // Loop back to start
+      }
+      
+      const command = parsedCode.loop[state.currentLine];
+      executeArduinoCommand(command.line);
+      state.currentLine++;
+    }
   };
 
-  const stopSimulation = () => {
+  useEffect(() => {
+    if (isRunning) {
+      intervalRef.current = setInterval(runSimulation, 50); // 20 FPS
+    } else {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      // Reset execution state
+      executionStateRef.current = {
+        currentLine: 0,
+        inSetup: false,
+        inLoop: false,
+        delayUntil: 0,
+        variables: {},
+        functions: {}
+      };
+    }
+    
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isRunning, code]);
+
+  const handleStart = () => {
+    setIsRunning(true);
+    setSerialOutput([]);
+    if (onComplete) {
+      setTimeout(() => onComplete(), 5000);
+    }
+  };
+
+  const handleStop = () => {
     setIsRunning(false);
-    setSimulationOutput(prev => [...prev, 'Simulation stopped.']);
+    // Reset all pin states
+    setPinStates({});
+    setSimulatorComponents(prev => prev.map(comp => ({ ...comp, state: false })));
+  };
+
+  const handleReset = () => {
+    handleStop();
+    setSerialOutput([]);
+  };
+
+  const addComponent = (type) => {
+    const newComponent = {
+      id: `${type}_${Date.now()}`,
+      type,
+      pin: type === 'led' ? 13 : null,
+      x: 400 + Math.random() * 100,
+      y: 150 + Math.random() * 100,
+      connected: false,
+      state: false
+    };
+    
+    if (type === 'led') {
+      newComponent.color = 'red';
+    } else if (type === 'resistor') {
+      newComponent.value = 220;
+    }
+    
+    setSimulatorComponents(prev => [...prev, newComponent]);
   };
 
   return (
-    <div className="arduino-simulator">
+    <div className="arduino-simulator-enhanced">
       <div className="simulator-header">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-
-      <div className="project-templates">
-        <h4>Project Templates:</h4>
-        <div className="template-buttons">
-          {projectTemplates.map((project, index) => (
-            <button 
-              key={index}
-              className={`btn ${currentProject?.name === project.name ? 'btn-primary' : 'btn-secondary'}`}
-              onClick={() => loadProject(project)}
-            >
-              {project.name}
-            </button>
-          ))}
+        <h3>{title || 'Arduino Simulator - LED Control'}</h3>
+        <div className="simulator-controls">
+          <button 
+            className={`control-btn ${isRunning ? 'running' : ''}`}
+            onClick={handleStart}
+            disabled={isRunning}
+          >
+            ▶ Run
+          </button>
+          <button 
+            className="control-btn stop"
+            onClick={handleStop}
+            disabled={!isRunning}
+          >
+            ⏹ Stop
+          </button>
+          <button 
+            className="control-btn reset"
+            onClick={handleReset}
+          >
+            🔄 Reset
+          </button>
         </div>
       </div>
-
-      <div className="arduino-workspace">
-        <div className="component-panel">
-          <h4>Available Components:</h4>
-          {components.map((category, catIndex) => (
-            <div key={catIndex} className="component-category">
-              <h5>{category.category}</h5>
-              <div className="component-list">
-                {category.items.map((component, compIndex) => {
-                  const isSelected = selectedComponents.find(c => c.name === component.name);
-                  return (
-                    <div 
-                      key={compIndex}
-                      className={`component-item ${isSelected ? 'selected' : ''}`}
-                      onClick={() => handleComponentSelect(component)}
-                    >
-                      <div className="component-name">{component.name}</div>
-                      <div className="component-description">{component.description}</div>
-                      <div className="component-pins">Pins: {component.pins.join(', ')}</div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="code-panel">
-          <h4>Arduino Code:</h4>
-          <textarea 
-            className="code-editor"
+      
+      <div className="simulator-content">
+        <div className="code-editor">
+          <h4>Arduino Code Editor</h4>
+          <textarea
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            rows={15}
+            className="code-textarea"
+            disabled={isRunning}
+            placeholder="Enter your Arduino code here..."
           />
           
-          <div className="simulation-controls">
-            <button 
-              className="btn btn-success"
-              onClick={runSimulation}
-              disabled={isRunning || selectedComponents.length === 0}
-            >
-              {isRunning ? 'Running...' : 'Run Simulation'}
+          <div className="component-toolbar">
+            <button onClick={() => addComponent('led')} disabled={isRunning}>
+              + Add LED
             </button>
-            
-            {isRunning && (
-              <button className="btn btn-danger" onClick={stopSimulation}>
-                Stop
-              </button>
-            )}
+            <button onClick={() => addComponent('resistor')} disabled={isRunning}>
+              + Add Resistor
+            </button>
           </div>
         </div>
-      </div>
-
-      <div className="selected-components">
-        <h4>Selected Components ({selectedComponents.length}):</h4>
-        <div className="selected-list">
-          {selectedComponents.map((component, index) => (
-            <div key={index} className="selected-component">
-              <span className="component-name">{component.name}</span>
-              <span className="component-pins">({component.pins.join(', ')})</span>
+        
+        <div className="simulation-area">
+          <div className="arduino-board">
+            <img 
+              src="/src/assets/arduino-board.svg" 
+              alt="Arduino Uno Board" 
+              className="board-image"
+            />
+            
+            {/* Built-in LED (Pin 13) */}
+            <div 
+              className={`builtin-led ${pinStates.pin_13 ? 'on' : 'off'}`}
+              style={{ position: 'absolute', top: '140px', left: '320px' }}
+            >
+              <div className={`led-indicator ${pinStates.pin_13 ? 'active' : ''}`}></div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {simulationOutput.length > 0 && (
-        <div className="simulation-output">
-          <h4>Simulation Output:</h4>
-          <div className="output-console">
-            {simulationOutput.map((line, index) => (
-              <div key={index} className="output-line">
-                <span className="timestamp">[{new Date().toLocaleTimeString()}]</span>
-                <span className="message">{line}</span>
+            
+            {/* Power LED */}
+            <div 
+              className="power-led on"
+              style={{ position: 'absolute', top: '120px', left: '320px' }}
+            >
+              <div className="led-indicator active"></div>
+            </div>
+          </div>
+          
+          <div className="breadboard-area">
+            <img 
+              src="/src/assets/breadboard.svg" 
+              alt="Breadboard" 
+              className="breadboard-image"
+            />
+            
+            {/* Render components */}
+            {simulatorComponents.map(component => (
+              <div
+                key={component.id}
+                className={`component ${component.type}`}
+                style={{
+                  position: 'absolute',
+                  left: `${component.x}px`,
+                  top: `${component.y}px`
+                }}
+              >
+                {component.type === 'led' && (
+                  <div className={`led-component ${component.state ? 'on' : 'off'}`}>
+                    <img 
+                      src={`/src/assets/led-${component.color}.svg`}
+                      alt={`${component.color} LED`}
+                      className="component-image"
+                    />
+                    {component.state && (
+                      <div className={`led-glow ${component.color}`}></div>
+                    )}
+                    <span className="pin-label">Pin {component.pin}</span>
+                  </div>
+                )}
+                
+                {component.type === 'resistor' && (
+                  <div className="resistor-component">
+                    <img 
+                      src="/src/assets/resistor.svg"
+                      alt="Resistor"
+                      className="component-image"
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
-      )}
+      </div>
+      
+      <div className="serial-monitor">
+        <h4>Serial Monitor</h4>
+        <div className="serial-output">
+          {serialOutput.map((entry, index) => (
+            <div key={index} className="serial-line">
+              <span className="timestamp">[{new Date(entry.timestamp).toLocaleTimeString()}]</span>
+              <span className="message">{entry.message}</span>
+            </div>
+          ))}
+          {serialOutput.length === 0 && (
+            <div className="serial-placeholder">Serial output will appear here...</div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
@@ -1592,6 +1901,8 @@ export const InteractiveCodeExample = ({ code, steps, title, onComplete }) => {
   );
 };
 
+// ArduinoPlayground is now imported from its own file
+
 // Main component router for interactive lesson components
 const InteractiveLessonComponents = ({ component, ...props }) => {
   switch (component) {
@@ -1652,15 +1963,19 @@ export const InteractiveCodeChallenge = ({
         )}
       </div>
 
-      <CodeEditor
+      <MultiLanguageIDE
         initialCode={challenge.starterCode || ''}
-        language={language}
-        expectedOutput={challenge.expectedOutput}
-        testCases={challenge.testCases || []}
-        hints={challenge.hints || []}
-        onComplete={handleComplete}
-        title={`${challenge.title} - Code Editor`}
-        description={challenge.editorDescription || 'Write your code below and click Run to test it.'}
+        initialLanguage={language}
+        onCodeChange={(newCode, newLanguage) => {
+          // Handle code changes and check completion
+          if (newCode.trim().length > 50) {
+            handleComplete({
+              code: newCode,
+              language: newLanguage,
+              completed: true
+            });
+          }
+        }}
       />
     </div>
   );

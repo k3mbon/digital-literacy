@@ -1217,6 +1217,813 @@
   line-height: 1.4;
 }
 
+/* Enhanced Arduino Simulator */
+.arduino-simulator {
+  background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+  margin: 20px 0;
+  box-shadow: 0 8px 32px rgba(0, 210, 255, 0.3);
+}
+
+.arduino-simulator h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.arduino-simulator p {
+  margin: 0 0 20px 0;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.project-templates {
+  margin-bottom: 24px;
+}
+
+.project-templates h4 {
+  margin: 0 0 16px 0;
+  color: #ffd700;
+  font-size: 1.2em;
+}
+
+.template-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.template-buttons .btn {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  min-width: 120px;
+}
+
+.template-buttons .btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.template-buttons .btn.btn-primary {
+  background: white;
+  color: #3a7bd5;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.project-name {
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.difficulty {
+  font-size: 0.7em;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.difficulty.beginner {
+  background: #4CAF50;
+}
+
+.difficulty.intermediate {
+  background: #FF9800;
+}
+
+.difficulty.advanced {
+  background: #F44336;
+}
+
+.current-project-info {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.current-project-info h5 {
+  margin: 0 0 8px 0;
+  color: #ffd700;
+}
+
+.wiring-instructions {
+  margin-top: 12px;
+}
+
+.wiring-instructions ul {
+  margin: 8px 0 0 20px;
+  padding: 0;
+}
+
+.wiring-instructions li {
+  margin: 4px 0;
+  font-size: 0.9em;
+}
+
+.simulator-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.simulator-tabs .tab {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.simulator-tabs .tab:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.simulator-tabs .tab.active {
+  background: white;
+  color: #3a7bd5;
+}
+
+.arduino-workspace {
+  min-height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.component-panel h4 {
+  margin: 0 0 16px 0;
+  color: #ffd700;
+}
+
+.component-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.component-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.component-type {
+  background: #ffd700;
+  color: #3a7bd5;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.component-name {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.component-description {
+  margin: 0 0 12px 0;
+  opacity: 0.9;
+  font-size: 0.9em;
+}
+
+.component-pins {
+  font-size: 0.8em;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.component-properties ul {
+  margin: 8px 0 0 20px;
+  padding: 0;
+}
+
+.component-properties li {
+  margin: 4px 0;
+  font-size: 0.8em;
+  opacity: 0.9;
+}
+
+.code-panel h4 {
+  margin: 0 0 16px 0;
+  color: #ffd700;
+}
+
+.ide-toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.ide-toolbar .btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ide-toolbar .btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.arduino-code-editor {
+  width: 100%;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  margin-bottom: 16px;
+}
+
+.arduino-code-editor:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3);
+}
+
+.simulation-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.simulation-controls .btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.simulation-controls .btn-success {
+  background: #4CAF50;
+  color: white;
+}
+
+.simulation-controls .btn-success:hover:not(:disabled) {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+.simulation-controls .btn-success:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+.simulation-controls .btn-danger {
+  background: #f44336;
+  color: white;
+}
+
+.simulation-controls .btn-danger:hover {
+  background: #da190b;
+  transform: translateY(-2px);
+}
+
+.simulation-panel h4 {
+  margin: 0 0 16px 0;
+  color: #ffd700;
+}
+
+.arduino-board {
+  background: #2d5016;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #4a7c59;
+  position: relative;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.board-header h5 {
+  margin: 0;
+  color: white;
+  font-size: 1.1em;
+}
+
+.power-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #666;
+  transition: all 0.3s ease;
+}
+
+.power-led.on {
+  background: #4CAF50;
+  box-shadow: 0 0 8px #4CAF50;
+}
+
+.digital-pins, .analog-pins {
+  margin-bottom: 16px;
+}
+
+.digital-pins h6, .analog-pins h6 {
+  margin: 0 0 8px 0;
+  color: #ffd700;
+  font-size: 0.9em;
+}
+
+.pin-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  background: #1a1a1a;
+  border-radius: 6px;
+  border: 1px solid #444;
+  min-width: 40px;
+}
+
+.pin-number {
+  font-size: 0.7em;
+  color: #ccc;
+  margin-bottom: 4px;
+}
+
+.pin-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #666;
+  transition: all 0.3s ease;
+}
+
+.pin-indicator.active {
+  background: #ff4444;
+  box-shadow: 0 0 6px #ff4444;
+}
+
+.digital-pin.high .pin-indicator {
+  background: #4CAF50;
+  box-shadow: 0 0 6px #4CAF50;
+}
+
+.pin-value {
+  font-size: 0.7em;
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.serial-monitor {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.serial-monitor h6 {
+  margin: 0 0 12px 0;
+  color: #ffd700;
+}
+
+.serial-output {
+  background: #1e1e1e;
+  border-radius: 6px;
+  padding: 12px;
+  max-height: 150px;
+  overflow-y: auto;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.8em;
+}
+
+.serial-line {
+  color: #d4d4d4;
+  margin: 2px 0;
+}
+
+.simulation-output {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.simulation-output h4 {
+  margin: 0 0 16px 0;
+  color: #ffd700;
+}
+
+.output-console {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 16px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  margin-bottom: 12px;
+}
+
+.output-line {
+  display: flex;
+  gap: 12px;
+  margin: 4px 0;
+  color: #d4d4d4;
+}
+
+.timestamp {
+  color: #888;
+  font-size: 0.8em;
+  min-width: 80px;
+}
+
+.message {
+  color: #4CAF50;
+}
+
+.console-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.console-controls .btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.console-controls .btn-secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.console-controls .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Hands-On Practice Component Styles */
+.hands-on-practice {
+  background: #ffffff;
+  border: 1px solid #e1e5e9;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.hands-on-practice:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.practice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f8f9fa;
+}
+
+.practice-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.practice-icon {
+  color: #667eea;
+}
+
+.practice-title h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.completion-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  animation: completionPulse 2s ease-in-out;
+}
+
+@keyframes completionPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.practice-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.hints-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  background: transparent;
+  color: #667eea;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hints-btn:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.hints-btn.active {
+  background: #667eea;
+  color: white;
+}
+
+.practice-description {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.practice-description p {
+  margin: 0;
+  color: #495057;
+  line-height: 1.6;
+}
+
+.practice-instructions {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+}
+
+.practice-instructions h4 {
+  margin: 0 0 12px 0;
+  color: #856404;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.practice-instructions ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.practice-instructions li {
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #856404;
+  line-height: 1.5;
+}
+
+.practice-instructions li:hover {
+  background: rgba(255, 193, 7, 0.1);
+}
+
+.practice-instructions li.completed {
+  background: rgba(40, 167, 69, 0.1);
+  color: #155724;
+  text-decoration: line-through;
+}
+
+.step-check {
+  color: #28a745;
+  flex-shrink: 0;
+}
+
+.practice-hints {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #d1ecf1;
+  border: 1px solid #bee5eb;
+  border-radius: 8px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.practice-hints h4 {
+  margin: 0 0 12px 0;
+  color: #0c5460;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.practice-hints ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.practice-hints li {
+  margin-bottom: 8px;
+  color: #0c5460;
+  line-height: 1.5;
+}
+
+.practice-ide {
+  margin: 20px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.practice-completion {
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #d4edda, #c3e6cb);
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  animation: completionSlideIn 0.5s ease-out;
+}
+
+@keyframes completionSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.completion-message {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.completion-icon {
+  color: #28a745;
+  flex-shrink: 0;
+}
+
+.completion-message h4 {
+  margin: 0 0 8px 0;
+  color: #155724;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.completion-message p {
+  margin: 0;
+  color: #155724;
+  line-height: 1.5;
+}
+
+/* Responsive Design for Hands-On Practice */
+@media (max-width: 768px) {
+  .hands-on-practice {
+    padding: 16px;
+    margin: 16px 0;
+  }
+  
+  .practice-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .practice-controls {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .practice-title h3 {
+    font-size: 1.3rem;
+  }
+  
+  .completion-message {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+
+/* Dark theme support for Hands-On Practice */
+@media (prefers-color-scheme: dark) {
+  .hands-on-practice {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  .practice-title h3 {
+    color: #e2e8f0;
+  }
+  
+  .practice-description {
+    background: #4a5568;
+    border-left-color: #667eea;
+  }
+  
+  .practice-description p {
+    color: #cbd5e0;
+  }
+  
+  .practice-instructions {
+    background: #744210;
+    border-color: #d69e2e;
+  }
+  
+  .practice-instructions h4,
+  .practice-instructions li {
+    color: #faf089;
+  }
+  
+  .practice-hints {
+    background: #2a4365;
+    border-color: #3182ce;
+  }
+  
+  .practice-hints h4,
+  .practice-hints li {
+    color: #90cdf4;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .interactive-story,

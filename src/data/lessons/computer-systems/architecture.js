@@ -30,761 +30,1022 @@ export default {
     <h2>Fundamental Components of Computer Systems</h2>
     
     <h3>The Von Neumann Architecture</h3>
-    <pre><code>BEGIN Von_Neumann_Architecture
-    DISPLAY "=== VON NEUMANN ARCHITECTURE MODEL ==="
-    DISPLAY "Proposed by John von Neumann in 1945, this model forms the basis of modern computers"
-    
-    // Core Components
-    SET von_neumann_components = [
-        {
-            component: "Central Processing Unit (CPU)",
-            description: "Executes instructions and performs calculations",
-            subcomponents: [
-                "Arithmetic Logic Unit (ALU): Performs mathematical and logical operations",
-                "Control Unit (CU): Manages instruction execution and system control",
-                "Registers: High-speed temporary storage within the CPU",
-                "Cache: Fast memory close to the CPU for frequently used data"
-            ],
-            functions: ["Fetch instructions", "Decode instructions", "Execute operations", "Store results"]
-        },
-        {
-            component: "Memory (Primary Storage)",
-            description: "Stores programs and data currently being used",
-            subcomponents: [
-                "RAM (Random Access Memory): Volatile main memory",
-                "ROM (Read-Only Memory): Non-volatile firmware storage",
-                "Cache Memory: High-speed buffer between CPU and RAM",
-                "Virtual Memory: Extension of physical memory using storage"
-            ],
-            functions: ["Store program instructions", "Hold data being processed", "Provide fast access to CPU", "Support multitasking"]
-        },
-        {
-            component: "Input/Output (I/O) System",
-            description: "Handles communication with external devices",
-            subcomponents: [
-                "I/O Controllers: Manage specific device types",
-                "Device Drivers: Software interface to hardware",
-                "Buses: Communication pathways for data transfer",
-                "Interrupt System: Handles asynchronous events"
-            ],
-            functions: ["Accept user input", "Display output", "Transfer data", "Manage peripherals"]
-        },
-        {
-            component: "Secondary Storage",
-            description: "Provides long-term, non-volatile data storage",
-            subcomponents: [
-                "Hard Disk Drives (HDD): Magnetic storage devices",
-                "Solid State Drives (SSD): Flash memory storage",
-                "Optical Drives: CD/DVD/Blu-ray storage",
-                "Network Storage: Remote storage systems"
-            ],
-            functions: ["Store programs permanently", "Hold user data", "Provide backup storage", "Enable data sharing"]
-        },
-        {
-            component: "System Bus",
-            description: "Communication pathway connecting all components",
-            subcomponents: [
-                "Data Bus: Carries actual data between components",
-                "Address Bus: Specifies memory locations",
-                "Control Bus: Carries control signals",
-                "Power Bus: Distributes electrical power"
-            ],
-            functions: ["Enable component communication", "Coordinate data transfer", "Synchronize operations", "Distribute power"]
-        }
-    ]
-    
-    DISPLAY "Von Neumann Architecture Components:"
-    FOR each component IN von_neumann_components
-        DISPLAY "\n" + component["component"] + ":"
-        DISPLAY "  Description: " + component["description"]
-        DISPLAY "  Subcomponents:"
-        FOR each subcomp IN component["subcomponents"]
-            DISPLAY "    • " + subcomp
-        ENDFOR
-        DISPLAY "  Primary Functions:"
-        FOR each function IN component["functions"]
-            DISPLAY "    ✓ " + function
-        ENDFOR
-    ENDFOR
-    
-    // Stored Program Concept
-    DISPLAY "\n=== STORED PROGRAM CONCEPT ==="
-    DISPLAY "Key principle: Both programs and data are stored in the same memory"
-    
-    SET stored_program_benefits = [
-        "Flexibility: Programs can be easily changed without hardware modifications",
-        "Self-Modification: Programs can modify themselves during execution",
-        "Universal Machine: Same hardware can run different programs",
-        "Efficiency: No need to rewire hardware for different tasks",
-        "Programmability: Complex behaviors through software rather than hardware"
-    ]
-    
-    DISPLAY "Benefits of Stored Program Concept:"
-    FOR each benefit IN stored_program_benefits
-        DISPLAY "  ✓ " + benefit
-    ENDFOR
-    
-    // Von Neumann Bottleneck
-    DISPLAY "\n=== VON NEUMANN BOTTLENECK ==="
-    DISPLAY "Limitation: Single bus between CPU and memory creates performance bottleneck"
-    
-    SET bottleneck_solutions = [
-        {
-            solution: "Cache Memory",
-            description: "High-speed memory close to CPU reduces memory access time",
-            effectiveness: "High - reduces average memory access time significantly"
-        },
-        {
-            solution: "Pipelining",
-            description: "Overlapping instruction execution phases",
-            effectiveness: "High - increases instruction throughput"
-        },
-        {
-            solution: "Superscalar Architecture",
-            description: "Multiple execution units allow parallel instruction execution",
-            effectiveness: "Very High - enables instruction-level parallelism"
-        },
-        {
-            solution: "Harvard Architecture",
-            description: "Separate buses for instructions and data",
-            effectiveness: "Moderate - used in specialized processors"
-        }
-    ]
-    
-    DISPLAY "Solutions to Von Neumann Bottleneck:"
-    FOR each solution IN bottleneck_solutions
-        DISPLAY "\n" + solution["solution"] + ":"
-        DISPLAY "  Description: " + solution["description"]
-        DISPLAY "  Effectiveness: " + solution["effectiveness"]
-    ENDFOR
-END</code></pre>
+    <div className="von-neumann-architecture">
+      <div className="architecture-intro">
+        <h4>Von Neumann Architecture Model</h4>
+        <p>Proposed by John von Neumann in 1945, this model forms the basis of modern computers and defines how computer systems are organized and operate.</p>
+      </div>
+      
+      <div className="architecture-components">
+        <h4>Core Components</h4>
+        <div className="component-grid">
+          <div className="component-item">
+            <h5>Central Processing Unit (CPU)</h5>
+            <p><strong>Description:</strong> Executes instructions and performs calculations</p>
+            <div className="subcomponents">
+              <h6>Subcomponents:</h6>
+              <ul>
+                <li><strong>Arithmetic Logic Unit (ALU):</strong> Performs mathematical and logical operations</li>
+                <li><strong>Control Unit (CU):</strong> Manages instruction execution and system control</li>
+                <li><strong>Registers:</strong> High-speed temporary storage within the CPU</li>
+                <li><strong>Cache:</strong> Fast memory close to the CPU for frequently used data</li>
+              </ul>
+            </div>
+            <div className="functions">
+              <h6>Primary Functions:</h6>
+              <ul>
+                <li>Fetch instructions</li>
+                <li>Decode instructions</li>
+                <li>Execute operations</li>
+                <li>Store results</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="component-item">
+            <h5>Memory (Primary Storage)</h5>
+            <p><strong>Description:</strong> Stores programs and data currently being used</p>
+            <div className="subcomponents">
+              <h6>Subcomponents:</h6>
+              <ul>
+                <li><strong>RAM (Random Access Memory):</strong> Volatile main memory</li>
+                <li><strong>ROM (Read-Only Memory):</strong> Non-volatile firmware storage</li>
+                <li><strong>Cache Memory:</strong> High-speed buffer between CPU and RAM</li>
+                <li><strong>Virtual Memory:</strong> Extension of physical memory using storage</li>
+              </ul>
+            </div>
+            <div className="functions">
+              <h6>Primary Functions:</h6>
+              <ul>
+                <li>Store program instructions</li>
+                <li>Hold data being processed</li>
+                <li>Provide fast access to CPU</li>
+                <li>Support multitasking</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="component-item">
+            <h5>Input/Output (I/O) System</h5>
+            <p><strong>Description:</strong> Handles communication with external devices</p>
+            <div className="subcomponents">
+              <h6>Subcomponents:</h6>
+              <ul>
+                <li><strong>I/O Controllers:</strong> Manage specific device types</li>
+                <li><strong>Device Drivers:</strong> Software interface to hardware</li>
+                <li><strong>Buses:</strong> Communication pathways for data transfer</li>
+                <li><strong>Interrupt System:</strong> Handles asynchronous events</li>
+              </ul>
+            </div>
+            <div className="functions">
+              <h6>Primary Functions:</h6>
+              <ul>
+                <li>Accept user input</li>
+                <li>Display output</li>
+                <li>Transfer data</li>
+                <li>Manage peripherals</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="component-item">
+            <h5>Secondary Storage</h5>
+            <p><strong>Description:</strong> Provides long-term, non-volatile data storage</p>
+            <div className="subcomponents">
+              <h6>Subcomponents:</h6>
+              <ul>
+                <li><strong>Hard Disk Drives (HDD):</strong> Magnetic storage devices</li>
+                <li><strong>Solid State Drives (SSD):</strong> Flash memory storage</li>
+                <li><strong>Optical Drives:</strong> CD/DVD/Blu-ray storage</li>
+                <li><strong>Network Storage:</strong> Remote storage systems</li>
+              </ul>
+            </div>
+            <div className="functions">
+              <h6>Primary Functions:</h6>
+              <ul>
+                <li>Store programs permanently</li>
+                <li>Hold user data</li>
+                <li>Provide backup storage</li>
+                <li>Enable data sharing</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="component-item">
+            <h5>System Bus</h5>
+            <p><strong>Description:</strong> Communication pathway connecting all components</p>
+            <div className="subcomponents">
+              <h6>Subcomponents:</h6>
+              <ul>
+                <li><strong>Data Bus:</strong> Carries actual data between components</li>
+                <li><strong>Address Bus:</strong> Specifies memory locations</li>
+                <li><strong>Control Bus:</strong> Carries control signals</li>
+                <li><strong>Power Bus:</strong> Distributes electrical power</li>
+              </ul>
+            </div>
+            <div className="functions">
+              <h6>Primary Functions:</h6>
+              <ul>
+                <li>Enable component communication</li>
+                <li>Coordinate data transfer</li>
+                <li>Synchronize operations</li>
+                <li>Distribute power</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="stored-program-concept">
+        <h4>Stored Program Concept</h4>
+        <p><strong>Key Principle:</strong> Both programs and data are stored in the same memory</p>
+        <div className="benefits">
+          <h5>Benefits of Stored Program Concept:</h5>
+          <ul>
+            <li><strong>Flexibility:</strong> Programs can be easily changed without hardware modifications</li>
+            <li><strong>Self-Modification:</strong> Programs can modify themselves during execution</li>
+            <li><strong>Universal Machine:</strong> Same hardware can run different programs</li>
+            <li><strong>Efficiency:</strong> No need to rewire hardware for different tasks</li>
+            <li><strong>Programmability:</strong> Complex behaviors through software rather than hardware</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div className="von-neumann-bottleneck">
+        <h4>Von Neumann Bottleneck</h4>
+        <p><strong>Limitation:</strong> Single bus between CPU and memory creates performance bottleneck</p>
+        <div className="solutions">
+          <h5>Solutions to Von Neumann Bottleneck:</h5>
+          <div className="solution-grid">
+            <div className="solution-item">
+              <h6>Cache Memory</h6>
+              <p><strong>Description:</strong> High-speed memory close to CPU reduces memory access time</p>
+              <p><strong>Effectiveness:</strong> High - reduces average memory access time significantly</p>
+            </div>
+            <div className="solution-item">
+              <h6>Pipelining</h6>
+              <p><strong>Description:</strong> Overlapping instruction execution phases</p>
+              <p><strong>Effectiveness:</strong> High - increases instruction throughput</p>
+            </div>
+            <div className="solution-item">
+              <h6>Superscalar Architecture</h6>
+              <p><strong>Description:</strong> Multiple execution units allow parallel instruction execution</p>
+              <p><strong>Effectiveness:</strong> Very High - enables instruction-level parallelism</p>
+            </div>
+            <div className="solution-item">
+              <h6>Harvard Architecture</h6>
+              <p><strong>Description:</strong> Separate buses for instructions and data</p>
+              <p><strong>Effectiveness:</strong> Moderate - used in specialized processors</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <h2>Central Processing Unit (CPU) Design</h2>
     
     <h3>CPU Architecture and Components</h3>
-    <pre><code>BEGIN CPU_Architecture
-    DISPLAY "=== CPU INTERNAL ARCHITECTURE ==="
+    <div className="cpu-architecture">
+      <div className="cpu-intro">
+        <h4>CPU Internal Architecture</h4>
+        <p>The Central Processing Unit consists of several key components that work together to execute instructions and manage system operations.</p>
+      </div>
+      
+      <div className="cpu-components">
+        <h4>CPU Core Components</h4>
+        <div className="component-grid">
+          <div className="component-item">
+            <h5>Arithmetic Logic Unit (ALU)</h5>
+            <p><strong>Description:</strong> Performs mathematical and logical operations</p>
+            <div className="operations">
+              <h6>Key Operations:</h6>
+              <ul>
+                <li><strong>Arithmetic:</strong> Addition, subtraction, multiplication, division</li>
+                <li><strong>Logical:</strong> AND, OR, NOT, XOR operations</li>
+                <li><strong>Comparison:</strong> Equal, greater than, less than</li>
+                <li><strong>Shift:</strong> Bit shifting operations</li>
+                <li><strong>Bitwise:</strong> Individual bit manipulation</li>
+              </ul>
+            </div>
+            <div className="design-considerations">
+              <h6>Design Considerations:</h6>
+              <ul>
+                <li>Speed vs. complexity</li>
+                <li>Power consumption</li>
+                <li>Silicon area</li>
+                <li>Precision requirements</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="component-item">
+            <h5>Control Unit (CU)</h5>
+            <p><strong>Description:</strong> Manages instruction execution and coordinates system operations</p>
+            <div className="operations">
+              <h6>Key Operations:</h6>
+              <ul>
+                <li><strong>Instruction Fetch:</strong> Retrieves instructions from memory</li>
+                <li><strong>Instruction Decode:</strong> Interprets instruction format and operation</li>
+                <li><strong>Execution Control:</strong> Coordinates ALU and memory operations</li>
+                <li><strong>Interrupt Handling:</strong> Manages system interrupts and exceptions</li>
+                <li><strong>Pipeline Management:</strong> Controls instruction pipeline stages</li>
+              </ul>
+            </div>
+            <div className="design-considerations">
+              <h6>Design Considerations:</h6>
+              <ul>
+                <li>Instruction set complexity</li>
+                <li>Pipeline depth</li>
+                <li>Branch prediction</li>
+                <li>Exception handling</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="component-item">
+            <h5>Register File</h5>
+            <p><strong>Description:</strong> High-speed storage locations within the CPU</p>
+            <div className="operations">
+              <h6>Key Operations:</h6>
+              <ul>
+                <li><strong>General Purpose:</strong> Store operands and intermediate results</li>
+                <li><strong>Special Purpose:</strong> Program counter, stack pointer, status flags</li>
+                <li><strong>Floating Point:</strong> Dedicated registers for floating-point operations</li>
+                <li><strong>Vector:</strong> SIMD (Single Instruction, Multiple Data) operations</li>
+                <li><strong>Control:</strong> System control and configuration registers</li>
+              </ul>
+            </div>
+            <div className="design-considerations">
+              <h6>Design Considerations:</h6>
+              <ul>
+                <li>Number of registers</li>
+                <li>Register width</li>
+                <li>Access patterns</li>
+                <li>Power consumption</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="component-item">
+            <h5>Cache System</h5>
+            <p><strong>Description:</strong> High-speed memory hierarchy to reduce memory access latency</p>
+            <div className="operations">
+              <h6>Key Operations:</h6>
+              <ul>
+                <li><strong>L1 Cache:</strong> Fastest, smallest cache closest to CPU cores</li>
+                <li><strong>L2 Cache:</strong> Larger, slightly slower cache shared or per-core</li>
+                <li><strong>L3 Cache:</strong> Largest, shared cache for multiple cores</li>
+                <li><strong>Cache Coherency:</strong> Maintains data consistency across caches</li>
+                <li><strong>Prefetching:</strong> Predicts and loads data before it's needed</li>
+              </ul>
+            </div>
+            <div className="design-considerations">
+              <h6>Design Considerations:</h6>
+              <ul>
+                <li>Cache size vs. speed</li>
+                <li>Associativity</li>
+                <li>Replacement policies</li>
+                <li>Coherency protocols</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
-    // CPU Core Components
-    SET cpu_components = [
-        {
-            component: "Arithmetic Logic Unit (ALU)",
-            description: "Performs mathematical and logical operations",
-            operations: [
-                "Arithmetic: Addition, subtraction, multiplication, division",
-                "Logical: AND, OR, NOT, XOR operations",
-                "Comparison: Equal, greater than, less than",
-                "Shift: Bit shifting operations",
-                "Bitwise: Individual bit manipulation"
-            ],
-            design_considerations: ["Speed vs. complexity", "Power consumption", "Silicon area", "Precision requirements"]
-        },
-        {
-            component: "Control Unit (CU)",
-            description: "Manages instruction execution and coordinates system operations",
-            operations: [
-                "Instruction Fetch: Retrieves instructions from memory",
-                "Instruction Decode: Interprets instruction format and operation",
-                "Execution Control: Coordinates ALU and memory operations",
-                "Interrupt Handling: Manages system interrupts and exceptions",
-                "Pipeline Management: Controls instruction pipeline stages"
-            ],
-            design_considerations: ["Instruction set complexity", "Pipeline depth", "Branch prediction", "Exception handling"]
-        },
-        {
-            component: "Register File",
-            description: "High-speed storage locations within the CPU",
-            operations: [
-                "General Purpose: Store operands and intermediate results",
-                "Special Purpose: Program counter, stack pointer, status flags",
-                "Floating Point: Dedicated registers for floating-point operations",
-                "Vector: SIMD (Single Instruction, Multiple Data) operations",
-                "Control: System control and configuration registers"
-            ],
-            design_considerations: ["Number of registers", "Register width", "Access patterns", "Power consumption"]
-        },
-        {
-            component: "Cache System",
-            description: "High-speed memory hierarchy to reduce memory access latency",
-            operations: [
-                "L1 Cache: Fastest, smallest cache closest to CPU cores",
-                "L2 Cache: Larger, slightly slower cache shared or per-core",
-                "L3 Cache: Largest, shared cache for multiple cores",
-                "Cache Coherency: Maintains data consistency across caches",
-                "Prefetching: Predicts and loads data before it's needed"
-            ],
-            design_considerations: ["Cache size vs. speed", "Associativity", "Replacement policies", "Coherency protocols"]
-        }
-    ]
-    
-    DISPLAY "CPU Core Components:"
-    FOR each component IN cpu_components
-        DISPLAY "\n" + component["component"] + ":"
-        DISPLAY "  Description: " + component["description"]
-        DISPLAY "  Key Operations:"
-        FOR each operation IN component["operations"]
-            DISPLAY "    • " + operation
-        ENDFOR
-        DISPLAY "  Design Considerations:"
-        FOR each consideration IN component["design_considerations"]
-            DISPLAY "    ⚡ " + consideration
-        ENDFOR
-    ENDFOR
-    
-    // Instruction Execution Cycle
-    DISPLAY "\n=== INSTRUCTION EXECUTION CYCLE ==="
-    DISPLAY "The basic cycle that CPUs follow to execute instructions"
-    
-    FUNCTION demonstrate_instruction_cycle()
-        SET instruction_cycle = [
-            {
-                stage: "Fetch",
-                description: "Retrieve instruction from memory",
-                steps: [
-                    "Send address from Program Counter (PC) to memory",
-                    "Read instruction from memory location",
-                    "Load instruction into Instruction Register (IR)",
-                    "Increment Program Counter to next instruction"
-                ],
-                time_typical: "1-2 clock cycles"
-            },
-            {
-                stage: "Decode",
-                description: "Interpret the instruction format and determine operation",
-                steps: [
-                    "Analyze instruction opcode (operation code)",
-                    "Identify operand locations (registers, memory, immediate)",
-                    "Determine required execution units",
-                    "Generate control signals for execution"
-                ],
-                time_typical: "1 clock cycle"
-            },
-            {
-                stage: "Execute",
-                description: "Perform the actual operation",
-                steps: [
-                    "Read operands from specified locations",
-                    "Perform operation using ALU or other units",
-                    "Handle any exceptions or interrupts",
-                    "Generate result and status flags"
-                ],
-                time_typical: "1-10+ clock cycles (varies by operation)"
-            },
-            {
-                stage: "Writeback",
-                description: "Store the result in the destination",
-                steps: [
-                    "Write result to destination register or memory",
-                    "Update processor status flags",
-                    "Handle any pipeline forwarding",
-                    "Prepare for next instruction"
-                ],
-                time_typical: "1 clock cycle"
-            }
-        ]
+    <h3>Instruction Execution Cycle</h3>
+    <div className="instruction-execution-cycle">
+      <div className="cycle-intro">
+        <h4>Instruction Execution Cycle</h4>
+        <p>The CPU executes instructions through a systematic four-stage cycle that repeats for every instruction.</p>
+      </div>
+      
+      <div className="execution-stages">
+        <h4>Instruction Execution Stages</h4>
+        <div className="stages-grid">
+          <div className="stage-item">
+            <h5>1. Fetch Stage</h5>
+            <p><strong>Description:</strong> Retrieve instruction from memory</p>
+            <p><strong>Typical Time:</strong> 1-2 clock cycles</p>
+            <div className="stage-steps">
+              <h6>Detailed Steps:</h6>
+              <ol>
+                <li>Send address from Program Counter (PC) to memory</li>
+                <li>Read instruction from memory location</li>
+                <li>Load instruction into Instruction Register (IR)</li>
+                <li>Increment Program Counter to next instruction</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div className="stage-item">
+            <h5>2. Decode Stage</h5>
+            <p><strong>Description:</strong> Interpret the instruction format and determine operation</p>
+            <p><strong>Typical Time:</strong> 1 clock cycle</p>
+            <div className="stage-steps">
+              <h6>Detailed Steps:</h6>
+              <ol>
+                <li>Analyze instruction opcode (operation code)</li>
+                <li>Identify operand locations (registers, memory, immediate)</li>
+                <li>Determine required execution units</li>
+                <li>Generate control signals for execution</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div className="stage-item">
+            <h5>3. Execute Stage</h5>
+            <p><strong>Description:</strong> Perform the actual operation</p>
+            <p><strong>Typical Time:</strong> 1-10+ clock cycles (varies by operation)</p>
+            <div className="stage-steps">
+              <h6>Detailed Steps:</h6>
+              <ol>
+                <li>Read operands from specified locations</li>
+                <li>Perform operation using ALU or other units</li>
+                <li>Handle any exceptions or interrupts</li>
+                <li>Generate result and status flags</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div className="stage-item">
+            <h5>4. Writeback Stage</h5>
+            <p><strong>Description:</strong> Store the result in the destination</p>
+            <p><strong>Typical Time:</strong> 1 clock cycle</p>
+            <div className="stage-steps">
+              <h6>Detailed Steps:</h6>
+              <ol>
+                <li>Write result to destination register or memory</li>
+                <li>Update processor status flags</li>
+                <li>Handle any pipeline forwarding</li>
+                <li>Prepare for next instruction</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="execution-example">
+        <h4>Example: ADD R1, R2, R3</h4>
+        <p><strong>Instruction:</strong> Add contents of R2 and R3, store result in R1</p>
         
-        DISPLAY "Instruction Execution Stages:"
-        FOR each stage IN instruction_cycle
-            DISPLAY "\n" + stage["stage"] + " Stage:"
-            DISPLAY "  Description: " + stage["description"]
-            DISPLAY "  Typical Time: " + stage["time_typical"]
-            DISPLAY "  Detailed Steps:"
-            FOR each step IN stage["steps"]
-                DISPLAY "    1. " + step
-            ENDFOR
-        ENDFOR
-        
-        // Example Instruction Execution
-        DISPLAY "\n=== EXAMPLE: ADD R1, R2, R3 ==="
-        DISPLAY "Instruction: Add contents of R2 and R3, store result in R1"
-        
-        DISPLAY "\nFetch Stage:"
-        DISPLAY "  • PC contains address 0x1000"
-        DISPLAY "  • CPU reads instruction from memory[0x1000]"
-        DISPLAY "  • Instruction 'ADD R1, R2, R3' loaded into IR"
-        DISPLAY "  • PC incremented to 0x1004"
-        
-        DISPLAY "\nDecode Stage:"
-        DISPLAY "  • Opcode identified as ADD operation"
-        DISPLAY "  • Source registers: R2, R3"
-        DISPLAY "  • Destination register: R1"
-        DISPLAY "  • ALU configured for addition"
-        
-        DISPLAY "\nExecute Stage:"
-        DISPLAY "  • Read value from R2: 0x00000010 (16 decimal)"
-        DISPLAY "  • Read value from R3: 0x00000020 (32 decimal)"
-        DISPLAY "  • ALU performs: 16 + 32 = 48"
-        DISPLAY "  • Result: 0x00000030 (48 decimal)"
-        
-        DISPLAY "\nWriteback Stage:"
-        DISPLAY "  • Store result 0x00000030 in register R1"
-        DISPLAY "  • Update status flags (if needed)"
-        DISPLAY "  • Instruction complete"
-    END FUNCTION
-    
-    CALL demonstrate_instruction_cycle()
-END</code></pre>
+        <div className="example-stages">
+          <div className="example-stage">
+            <h5>Fetch Stage:</h5>
+            <ul>
+              <li>PC contains address 0x1000</li>
+              <li>CPU reads instruction from memory[0x1000]</li>
+              <li>Instruction 'ADD R1, R2, R3' loaded into IR</li>
+              <li>PC incremented to 0x1004</li>
+            </ul>
+          </div>
+          
+          <div className="example-stage">
+            <h5>Decode Stage:</h5>
+            <ul>
+              <li>Opcode identified as ADD operation</li>
+              <li>Source registers: R2, R3</li>
+              <li>Destination register: R1</li>
+              <li>ALU configured for addition</li>
+            </ul>
+          </div>
+          
+          <div className="example-stage">
+            <h5>Execute Stage:</h5>
+            <ul>
+              <li>Read value from R2: 0x00000010 (16 decimal)</li>
+              <li>Read value from R3: 0x00000020 (32 decimal)</li>
+              <li>ALU performs: 16 + 32 = 48</li>
+              <li>Result: 0x00000030 (48 decimal)</li>
+            </ul>
+          </div>
+          
+          <div className="example-stage">
+            <h5>Writeback Stage:</h5>
+            <ul>
+              <li>Store result 0x00000030 in register R1</li>
+              <li>Update status flags (if needed)</li>
+              <li>Instruction complete</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <h3>Instruction Set Architecture (ISA)</h3>
-    <pre><code>BEGIN Instruction_Set_Architecture
-    DISPLAY "=== INSTRUCTION SET ARCHITECTURE (ISA) ==="
-    DISPLAY "The interface between software and hardware - defines what instructions the CPU can execute"
-    
-    // ISA Categories
-    SET isa_types = [
-        {
-            type: "CISC (Complex Instruction Set Computer)",
-            description: "Large number of complex instructions that can perform multiple operations",
-            characteristics: [
-                "Variable-length instructions",
-                "Complex addressing modes",
-                "Many specialized instructions",
-                "Microcode-based implementation",
-                "Fewer instructions needed for programs"
-            ],
-            examples: ["x86/x64 (Intel, AMD)", "VAX", "Motorola 68000"],
-            advantages: ["Compact code", "Rich instruction set", "Backward compatibility"],
-            disadvantages: ["Complex hardware", "Variable execution times", "Difficult to pipeline"]
-        },
-        {
-            type: "RISC (Reduced Instruction Set Computer)",
-            description: "Small number of simple, uniform instructions",
-            characteristics: [
-                "Fixed-length instructions",
-                "Simple addressing modes",
-                "Load/store architecture",
-                "Large register file",
-                "Hardwired control unit"
-            ],
-            examples: ["ARM", "MIPS", "PowerPC", "RISC-V"],
-            advantages: ["Simple hardware", "Predictable timing", "Easy to pipeline", "Lower power consumption"],
-            disadvantages: ["More instructions needed", "Larger code size", "Compiler complexity"]
-        },
-        {
-            type: "VLIW (Very Long Instruction Word)",
-            description: "Instructions explicitly specify multiple operations to execute in parallel",
-            characteristics: [
-                "Very wide instructions (128+ bits)",
-                "Explicit parallelism",
-                "Compiler-scheduled operations",
-                "Multiple functional units",
-                "No dynamic scheduling"
-            ],
-            examples: ["Intel Itanium", "TI C6000 DSP", "Some GPUs"],
-            advantages: ["High performance potential", "Simple hardware", "Predictable execution"],
-            disadvantages: ["Compiler complexity", "Code compatibility", "Wasted instruction slots"]
-        }
-    ]
-    
-    DISPLAY "ISA Types Comparison:"
-    FOR each isa IN isa_types
-        DISPLAY "\n" + isa["type"] + ":"
-        DISPLAY "  Description: " + isa["description"]
-        DISPLAY "  Key Characteristics:"
-        FOR each char IN isa["characteristics"]
-            DISPLAY "    • " + char
-        ENDFOR
-        DISPLAY "  Examples: " + join(isa["examples"], ", ")
-        DISPLAY "  Advantages:"
-        FOR each adv IN isa["advantages"]
-            DISPLAY "    ✓ " + adv
-        ENDFOR
-        DISPLAY "  Disadvantages:"
-        FOR each dis IN isa["disadvantages"]
-            DISPLAY "    ✗ " + dis
-        ENDFOR
-    ENDFOR
-    
-    // Instruction Formats
-    DISPLAY "\n=== INSTRUCTION FORMATS ==="
-    
-    SET instruction_formats = [
-        {
-            format: "R-Type (Register)",
-            description: "Operations between registers",
-            fields: ["Opcode (6 bits)", "Rs (5 bits)", "Rt (5 bits)", "Rd (5 bits)", "Shamt (5 bits)", "Function (6 bits)"],
-            example: "ADD R1, R2, R3  // R1 = R2 + R3",
-            use_cases: ["Arithmetic operations", "Logical operations", "Shift operations"]
-        },
-        {
-            format: "I-Type (Immediate)",
-            description: "Operations with immediate values",
-            fields: ["Opcode (6 bits)", "Rs (5 bits)", "Rt (5 bits)", "Immediate (16 bits)"],
-            example: "ADDI R1, R2, 100  // R1 = R2 + 100",
-            use_cases: ["Load/store operations", "Branch instructions", "Immediate arithmetic"]
-        },
-        {
-            format: "J-Type (Jump)",
-            description: "Jump and call instructions",
-            fields: ["Opcode (6 bits)", "Address (26 bits)"],
-            example: "J 0x400000  // Jump to address 0x400000",
-            use_cases: ["Unconditional jumps", "Function calls", "Long-distance branches"]
-        }
-    ]
-    
-    DISPLAY "Common Instruction Formats (MIPS Example):"
-    FOR each format IN instruction_formats
-        DISPLAY "\n" + format["format"] + ":"
-        DISPLAY "  Description: " + format["description"]
-        DISPLAY "  Fields: " + join(format["fields"], ", ")
-        DISPLAY "  Example: " + format["example"]
-        DISPLAY "  Use Cases:"
-        FOR each use_case IN format["use_cases"]
-            DISPLAY "    • " + use_case
-        ENDFOR
-    ENDFOR
-END</code></pre>
+    <div className="instruction-set-architecture">
+      <div className="isa-intro">
+        <h4>Instruction Set Architecture (ISA)</h4>
+        <p>The interface between software and hardware - defines what instructions the CPU can execute</p>
+      </div>
+      
+      <div className="isa-types">
+        <h4>ISA Types Comparison</h4>
+        <div className="isa-types-grid">
+          <div className="isa-type-item">
+            <h5>CISC (Complex Instruction Set Computer)</h5>
+            <p><strong>Description:</strong> Large number of complex instructions that can perform multiple operations</p>
+            <div className="characteristics">
+              <h6>Key Characteristics:</h6>
+              <ul>
+                <li>Variable-length instructions</li>
+                <li>Complex addressing modes</li>
+                <li>Many specialized instructions</li>
+                <li>Microcode-based implementation</li>
+                <li>Fewer instructions needed for programs</li>
+              </ul>
+            </div>
+            <p><strong>Examples:</strong> x86/x64 (Intel, AMD), VAX, Motorola 68000</p>
+            <div className="advantages">
+              <h6>Advantages:</h6>
+              <ul>
+                <li>Compact code</li>
+                <li>Rich instruction set</li>
+                <li>Backward compatibility</li>
+              </ul>
+            </div>
+            <div className="disadvantages">
+              <h6>Disadvantages:</h6>
+              <ul>
+                <li>Complex hardware</li>
+                <li>Variable execution times</li>
+                <li>Difficult to pipeline</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="isa-type-item">
+            <h5>RISC (Reduced Instruction Set Computer)</h5>
+            <p><strong>Description:</strong> Small number of simple, uniform instructions</p>
+            <div className="characteristics">
+              <h6>Key Characteristics:</h6>
+              <ul>
+                <li>Fixed-length instructions</li>
+                <li>Simple addressing modes</li>
+                <li>Load/store architecture</li>
+                <li>Large register file</li>
+                <li>Hardwired control unit</li>
+              </ul>
+            </div>
+            <p><strong>Examples:</strong> ARM, MIPS, PowerPC, RISC-V</p>
+            <div className="advantages">
+              <h6>Advantages:</h6>
+              <ul>
+                <li>Simple hardware</li>
+                <li>Predictable timing</li>
+                <li>Easy to pipeline</li>
+                <li>Lower power consumption</li>
+              </ul>
+            </div>
+            <div className="disadvantages">
+              <h6>Disadvantages:</h6>
+              <ul>
+                <li>More instructions needed</li>
+                <li>Larger code size</li>
+                <li>Compiler complexity</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="isa-type-item">
+            <h5>VLIW (Very Long Instruction Word)</h5>
+            <p><strong>Description:</strong> Instructions explicitly specify multiple operations to execute in parallel</p>
+            <div className="characteristics">
+              <h6>Key Characteristics:</h6>
+              <ul>
+                <li>Very wide instructions (128+ bits)</li>
+                <li>Explicit parallelism</li>
+                <li>Compiler-scheduled operations</li>
+                <li>Multiple functional units</li>
+                <li>No dynamic scheduling</li>
+              </ul>
+            </div>
+            <p><strong>Examples:</strong> Intel Itanium, TI C6000 DSP, Some GPUs</p>
+            <div className="advantages">
+              <h6>Advantages:</h6>
+              <ul>
+                <li>High performance potential</li>
+                <li>Simple hardware</li>
+                <li>Predictable execution</li>
+              </ul>
+            </div>
+            <div className="disadvantages">
+              <h6>Disadvantages:</h6>
+              <ul>
+                <li>Compiler complexity</li>
+                <li>Code compatibility</li>
+                <li>Wasted instruction slots</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="instruction-formats">
+        <h4>Instruction Formats</h4>
+        <p>Common instruction formats using MIPS as an example:</p>
+        <div className="formats-grid">
+          <div className="format-item">
+            <h5>R-Type (Register)</h5>
+            <p><strong>Description:</strong> Operations between registers</p>
+            <p><strong>Fields:</strong> Opcode (6 bits), Rs (5 bits), Rt (5 bits), Rd (5 bits), Shamt (5 bits), Function (6 bits)</p>
+            <p><strong>Example:</strong> <code>ADD R1, R2, R3  // R1 = R2 + R3</code></p>
+            <div className="use-cases">
+              <h6>Use Cases:</h6>
+              <ul>
+                <li>Arithmetic operations</li>
+                <li>Logical operations</li>
+                <li>Shift operations</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="format-item">
+            <h5>I-Type (Immediate)</h5>
+            <p><strong>Description:</strong> Operations with immediate values</p>
+            <p><strong>Fields:</strong> Opcode (6 bits), Rs (5 bits), Rt (5 bits), Immediate (16 bits)</p>
+            <p><strong>Example:</strong> <code>ADDI R1, R2, 100  // R1 = R2 + 100</code></p>
+            <div className="use-cases">
+              <h6>Use Cases:</h6>
+              <ul>
+                <li>Load/store operations</li>
+                <li>Branch instructions</li>
+                <li>Immediate arithmetic</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="format-item">
+            <h5>J-Type (Jump)</h5>
+            <p><strong>Description:</strong> Jump and call instructions</p>
+            <p><strong>Fields:</strong> Opcode (6 bits), Address (26 bits)</p>
+            <p><strong>Example:</strong> <code>J 0x400000  // Jump to address 0x400000</code></p>
+            <div className="use-cases">
+              <h6>Use Cases:</h6>
+              <ul>
+                <li>Unconditional jumps</li>
+                <li>Function calls</li>
+                <li>Long-distance branches</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <h2>Memory Hierarchy and Storage Systems</h2>
     
     <h3>Memory Hierarchy Design</h3>
-    <pre><code>BEGIN Memory_Hierarchy
-    DISPLAY "=== MEMORY HIERARCHY PRINCIPLES ==="
-    DISPLAY "Organized in levels from fastest/smallest to slowest/largest"
+    <div className="memory-hierarchy">
+      <div className="hierarchy-intro">
+        <h4>Memory Hierarchy Principles</h4>
+        <p>Computer memory is organized in levels from fastest/smallest to slowest/largest, balancing speed, capacity, and cost.</p>
+      </div>
+      
+      <div className="memory-levels">
+        <h4>Memory Hierarchy Levels</h4>
+        <div className="levels-grid">
+          <div className="level-item">
+            <h5>CPU Registers</h5>
+            <div className="level-specs">
+              <p><strong>Capacity:</strong> 32-128 registers × 32/64 bits</p>
+              <p><strong>Access Time:</strong> 0.1-0.5 ns</p>
+              <p><strong>Cost per Bit:</strong> Very High</p>
+              <p><strong>Technology:</strong> SRAM (Static RAM)</p>
+            </div>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Fastest access time</li>
+                <li>Directly accessible by CPU</li>
+                <li>Limited capacity</li>
+                <li>No cache misses</li>
+                <li>Compiler-managed</li>
+              </ul>
+            </div>
+            <div className="typical-uses">
+              <h6>Typical Uses:</h6>
+              <ul>
+                <li>Operands for current instruction</li>
+                <li>Intermediate results</li>
+                <li>Address calculations</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="level-item">
+            <h5>L1 Cache</h5>
+            <div className="level-specs">
+              <p><strong>Capacity:</strong> 16-64 KB per core</p>
+              <p><strong>Access Time:</strong> 1-2 ns</p>
+              <p><strong>Cost per Bit:</strong> High</p>
+              <p><strong>Technology:</strong> SRAM</p>
+            </div>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Split instruction/data caches</li>
+                <li>Highest cache priority</li>
+                <li>Direct CPU connection</li>
+                <li>Hardware-managed</li>
+                <li>Write-through or write-back</li>
+              </ul>
+            </div>
+            <div className="typical-uses">
+              <h6>Typical Uses:</h6>
+              <ul>
+                <li>Recently used instructions</li>
+                <li>Frequently accessed data</li>
+                <li>Hot code paths</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="level-item">
+            <h5>L2 Cache</h5>
+            <div className="level-specs">
+              <p><strong>Capacity:</strong> 256 KB - 2 MB per core</p>
+              <p><strong>Access Time:</strong> 3-10 ns</p>
+              <p><strong>Cost per Bit:</strong> Medium-High</p>
+              <p><strong>Technology:</strong> SRAM</p>
+            </div>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Unified instruction/data cache</li>
+                <li>Larger than L1</li>
+                <li>May be shared between cores</li>
+                <li>Inclusive or exclusive of L1</li>
+                <li>More associative than L1</li>
+              </ul>
+            </div>
+            <div className="typical-uses">
+              <h6>Typical Uses:</h6>
+              <ul>
+                <li>L1 cache overflow</li>
+                <li>Shared data between cores</li>
+                <li>Medium-term storage</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="level-item">
+            <h5>L3 Cache</h5>
+            <div className="level-specs">
+              <p><strong>Capacity:</strong> 4-32 MB shared</p>
+              <p><strong>Access Time:</strong> 10-30 ns</p>
+              <p><strong>Cost per Bit:</strong> Medium</p>
+              <p><strong>Technology:</strong> SRAM</p>
+            </div>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Shared among all cores</li>
+                <li>Last level cache (LLC)</li>
+                <li>Highly associative</li>
+                <li>Smart replacement policies</li>
+                <li>Cache coherency point</li>
+              </ul>
+            </div>
+            <div className="typical-uses">
+              <h6>Typical Uses:</h6>
+              <ul>
+                <li>Inter-core data sharing</li>
+                <li>Large working sets</li>
+                <li>Reduced memory traffic</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="level-item">
+            <h5>Main Memory (RAM)</h5>
+            <div className="level-specs">
+              <p><strong>Capacity:</strong> 4-128+ GB</p>
+              <p><strong>Access Time:</strong> 50-100 ns</p>
+              <p><strong>Cost per Bit:</strong> Low-Medium</p>
+              <p><strong>Technology:</strong> DRAM (Dynamic RAM)</p>
+            </div>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Volatile storage</li>
+                <li>Large capacity</li>
+                <li>Sequential access optimization</li>
+                <li>Refresh required</li>
+                <li>Multiple channels/ranks</li>
+              </ul>
+            </div>
+            <div className="typical-uses">
+              <h6>Typical Uses:</h6>
+              <ul>
+                <li>Program code and data</li>
+                <li>Operating system</li>
+                <li>Application working sets</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="level-item">
+            <h5>Secondary Storage</h5>
+            <div className="level-specs">
+              <p><strong>Capacity:</strong> 256 GB - 10+ TB</p>
+              <p><strong>Access Time:</strong> 0.1-10 ms</p>
+              <p><strong>Cost per Bit:</strong> Low</p>
+              <p><strong>Technology:</strong> SSD/HDD</p>
+            </div>
+            <div className="characteristics">
+              <h6>Characteristics:</h6>
+              <ul>
+                <li>Non-volatile storage</li>
+                <li>Very large capacity</li>
+                <li>Block-based access</li>
+                <li>Wear leveling (SSD)</li>
+                <li>Mechanical delays (HDD)</li>
+              </ul>
+            </div>
+            <div className="typical-uses">
+              <h6>Typical Uses:</h6>
+              <ul>
+                <li>File systems</li>
+                <li>Virtual memory</li>
+                <li>Long-term storage</li>
+                <li>Backup and archival</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
-    // Memory Hierarchy Levels
-    SET memory_levels = [
-        {
-            level: "CPU Registers",
-            capacity: "32-128 registers × 32/64 bits",
-            access_time: "0.1-0.5 ns",
-            cost_per_bit: "Very High",
-            technology: "SRAM (Static RAM)",
-            characteristics: [
-                "Fastest access time",
-                "Directly accessible by CPU",
-                "Limited capacity",
-                "No cache misses",
-                "Compiler-managed"
-            ],
-            typical_uses: ["Operands for current instruction", "Intermediate results", "Address calculations"]
-        },
-        {
-            level: "L1 Cache",
-            capacity: "16-64 KB per core",
-            access_time: "1-2 ns",
-            cost_per_bit: "High",
-            technology: "SRAM",
-            characteristics: [
-                "Split instruction/data caches",
-                "Highest cache priority",
-                "Direct CPU connection",
-                "Hardware-managed",
-                "Write-through or write-back"
-            ],
-            typical_uses: ["Recently used instructions", "Frequently accessed data", "Hot code paths"]
-        },
-        {
-            level: "L2 Cache",
-            capacity: "256 KB - 2 MB per core",
-            access_time: "3-10 ns",
-            cost_per_bit: "Medium-High",
-            technology: "SRAM",
-            characteristics: [
-                "Unified instruction/data cache",
-                "Larger than L1",
-                "May be shared between cores",
-                "Inclusive or exclusive of L1",
-                "More associative than L1"
-            ],
-            typical_uses: ["L1 cache overflow", "Shared data between cores", "Medium-term storage"]
-        },
-        {
-            level: "L3 Cache",
-            capacity: "4-32 MB shared",
-            access_time: "10-30 ns",
-            cost_per_bit: "Medium",
-            technology: "SRAM",
-            characteristics: [
-                "Shared among all cores",
-                "Last level cache (LLC)",
-                "Highly associative",
-                "Smart replacement policies",
-                "Cache coherency point"
-            ],
-            typical_uses: ["Inter-core data sharing", "Large working sets", "Reduced memory traffic"]
-        },
-        {
-            level: "Main Memory (RAM)",
-            capacity: "4-128+ GB",
-            access_time: "50-100 ns",
-            cost_per_bit: "Low-Medium",
-            technology: "DRAM (Dynamic RAM)",
-            characteristics: [
-                "Volatile storage",
-                "Large capacity",
-                "Sequential access optimization",
-                "Refresh required",
-                "Multiple channels/ranks"
-            ],
-            typical_uses: ["Program code and data", "Operating system", "Application working sets"]
-        },
-        {
-            level: "Secondary Storage",
-            capacity: "256 GB - 10+ TB",
-            access_time: "0.1-10 ms",
-            cost_per_bit: "Low",
-            technology: "SSD/HDD",
-            characteristics: [
-                "Non-volatile storage",
-                "Very large capacity",
-                "Block-based access",
-                "Wear leveling (SSD)",
-                "Mechanical delays (HDD)"
-            ],
-            typical_uses: ["File systems", "Virtual memory", "Long-term storage", "Backup and archival"]
-        }
-    ]
-    
-    DISPLAY "Memory Hierarchy Levels:"
-    FOR each level IN memory_levels
-        DISPLAY "\n" + level["level"] + ":"
-        DISPLAY "  Capacity: " + level["capacity"]
-        DISPLAY "  Access Time: " + level["access_time"]
-        DISPLAY "  Cost per Bit: " + level["cost_per_bit"]
-        DISPLAY "  Technology: " + level["technology"]
-        DISPLAY "  Characteristics:"
-        FOR each char IN level["characteristics"]
-            DISPLAY "    • " + char
-        ENDFOR
-        DISPLAY "  Typical Uses:"
-        FOR each use IN level["typical_uses"]
-            DISPLAY "    ✓ " + use
-        ENDFOR
-    ENDFOR
-    
-    // Cache Design Principles
-    DISPLAY "\n=== CACHE DESIGN PRINCIPLES ==="
-    
-    FUNCTION demonstrate_cache_concepts()
-        DISPLAY "Cache Performance Factors:"
+    <h3>Cache Design Principles</h3>
+    <div className="cache-design">
+      <div className="cache-fundamentals">
+        <h4>Cache Performance Factors</h4>
+        <p>Cache performance depends on several key factors that exploit different types of locality and design trade-offs.</p>
+      </div>
+      
+      <div className="cache-factors">
+        <div className="factor-item">
+          <h5>Temporal Locality</h5>
+          <p><strong>Description:</strong> Recently accessed data is likely to be accessed again soon</p>
+          <p><strong>Example:</strong> Loop variables, frequently called functions</p>
+          <p><strong>Cache Strategy:</strong> Keep recently used data in cache</p>
+        </div>
         
-        SET cache_factors = [
-            {
-                factor: "Temporal Locality",
-                description: "Recently accessed data is likely to be accessed again soon",
-                example: "Loop variables, frequently called functions",
-                cache_strategy: "Keep recently used data in cache"
-            },
-            {
-                factor: "Spatial Locality",
-                description: "Data near recently accessed data is likely to be accessed",
-                example: "Array elements, sequential code execution",
-                cache_strategy: "Fetch entire cache lines (blocks)"
-            },
-            {
-                factor: "Cache Size",
-                description: "Larger caches can hold more data but are slower",
-                example: "L1: 32KB fast, L3: 16MB slower",
-                cache_strategy: "Balance size vs. speed in hierarchy"
-            },
-            {
-                factor: "Associativity",
-                description: "How many cache locations can hold a memory block",
-                example: "Direct-mapped, 2-way, 4-way, fully associative",
-                cache_strategy: "Higher associativity reduces conflicts"
-            },
-            {
-                factor: "Block Size",
-                description: "Amount of data transferred on cache miss",
-                example: "32, 64, 128 bytes per cache line",
-                cache_strategy: "Larger blocks exploit spatial locality"
-            }
-        ]
+        <div className="factor-item">
+          <h5>Spatial Locality</h5>
+          <p><strong>Description:</strong> Data near recently accessed data is likely to be accessed</p>
+          <p><strong>Example:</strong> Array elements, sequential code execution</p>
+          <p><strong>Cache Strategy:</strong> Fetch entire cache lines (blocks)</p>
+        </div>
         
-        FOR each factor IN cache_factors
-            DISPLAY "\n" + factor["factor"] + ":"
-            DISPLAY "  Description: " + factor["description"]
-            DISPLAY "  Example: " + factor["example"]
-            DISPLAY "  Cache Strategy: " + factor["cache_strategy"]
-        ENDFOR
+        <div className="factor-item">
+          <h5>Cache Size</h5>
+          <p><strong>Description:</strong> Larger caches can hold more data but are slower</p>
+          <p><strong>Example:</strong> L1: 32KB fast, L3: 16MB slower</p>
+          <p><strong>Cache Strategy:</strong> Balance size vs. speed in hierarchy</p>
+        </div>
         
-        // Cache Performance Metrics
-        DISPLAY "\n=== CACHE PERFORMANCE METRICS ==="
+        <div className="factor-item">
+          <h5>Associativity</h5>
+          <p><strong>Description:</strong> How many cache locations can hold a memory block</p>
+          <p><strong>Example:</strong> Direct-mapped, 2-way, 4-way, fully associative</p>
+          <p><strong>Cache Strategy:</strong> Higher associativity reduces conflicts</p>
+        </div>
         
-        SET performance_example = {
-            cache_hits: 950,
-            cache_misses: 50,
-            total_accesses: 1000,
-            hit_time: 2,  // nanoseconds
-            miss_penalty: 100  // nanoseconds
-        }
-        
-        SET hit_rate = performance_example["cache_hits"] / performance_example["total_accesses"]
-        SET miss_rate = performance_example["cache_misses"] / performance_example["total_accesses"]
-        SET average_access_time = (hit_rate * performance_example["hit_time"]) + (miss_rate * performance_example["miss_penalty"])
-        
-        DISPLAY "Performance Calculation Example:"
-        DISPLAY "  Cache Hits: " + performance_example["cache_hits"]
-        DISPLAY "  Cache Misses: " + performance_example["cache_misses"]
-        DISPLAY "  Total Accesses: " + performance_example["total_accesses"]
-        DISPLAY "  Hit Rate: " + (hit_rate * 100) + "%"
-        DISPLAY "  Miss Rate: " + (miss_rate * 100) + "%"
-        DISPLAY "  Hit Time: " + performance_example["hit_time"] + " ns"
-        DISPLAY "  Miss Penalty: " + performance_example["miss_penalty"] + " ns"
-        DISPLAY "  Average Access Time: " + average_access_time + " ns"
-        
-        DISPLAY "\nKey Insight: Even a small miss rate significantly impacts performance!"
-        DISPLAY "With 95% hit rate: 2ns + 5% × 100ns = 7ns average"
-        DISPLAY "With 99% hit rate: 2ns + 1% × 100ns = 3ns average"
-    END FUNCTION
-    
-    CALL demonstrate_cache_concepts()
-END</code></pre>
+        <div className="factor-item">
+          <h5>Block Size</h5>
+          <p><strong>Description:</strong> Amount of data transferred on cache miss</p>
+          <p><strong>Example:</strong> 32, 64, 128 bytes per cache line</p>
+          <p><strong>Cache Strategy:</strong> Larger blocks exploit spatial locality</p>
+        </div>
+      </div>
+      
+      <div className="cache-performance-metrics">
+        <h4>Cache Performance Metrics</h4>
+        <div className="performance-example">
+          <h5>Performance Calculation Example</h5>
+          <div className="metrics-data">
+            <p><strong>Cache Hits:</strong> 950</p>
+            <p><strong>Cache Misses:</strong> 50</p>
+            <p><strong>Total Accesses:</strong> 1000</p>
+            <p><strong>Hit Rate:</strong> 95%</p>
+            <p><strong>Miss Rate:</strong> 5%</p>
+            <p><strong>Hit Time:</strong> 2 ns</p>
+            <p><strong>Miss Penalty:</strong> 100 ns</p>
+            <p><strong>Average Access Time:</strong> 7 ns</p>
+          </div>
+          
+          <div className="performance-insights">
+            <h6>Key Performance Insights</h6>
+            <p><strong>Impact of Miss Rate:</strong> Even a small miss rate significantly impacts performance!</p>
+            <ul>
+              <li>With 95% hit rate: 2ns + 5% × 100ns = 7ns average</li>
+              <li>With 99% hit rate: 2ns + 1% × 100ns = 3ns average</li>
+            </ul>
+            <p>Improving hit rate from 95% to 99% reduces average access time by 57%!</p>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <h2>Performance Analysis and Optimization</h2>
     
     <h3>System Performance Metrics</h3>
-    <pre><code>BEGIN Performance_Analysis
-    DISPLAY "=== COMPUTER SYSTEM PERFORMANCE METRICS ==="
-    
-    // Key Performance Indicators
-    SET performance_metrics = [
-        {
-            metric: "Throughput",
-            description: "Number of tasks completed per unit time",
-            units: ["Instructions per second (IPS)", "Transactions per second (TPS)", "Operations per second"],
-            measurement_methods: ["Benchmark suites", "Workload analysis", "Performance counters"],
-            optimization_strategies: ["Parallel processing", "Pipeline optimization", "Resource utilization"]
-        },
-        {
-            metric: "Latency",
-            description: "Time required to complete a single task",
-            units: ["Seconds", "Clock cycles", "Nanoseconds"],
-            measurement_methods: ["Timing analysis", "Critical path analysis", "Profiling tools"],
-            optimization_strategies: ["Reduce dependencies", "Faster components", "Caching strategies"]
-        },
-        {
-            metric: "CPU Utilization",
-            description: "Percentage of time CPU is actively executing instructions",
-            units: ["Percentage (%)", "Utilization ratio"],
-            measurement_methods: ["System monitors", "Performance counters", "Sampling techniques"],
-            optimization_strategies: ["Load balancing", "Efficient algorithms", "Reduce idle time"]
-        },
-        {
-            metric: "Memory Bandwidth",
-            description: "Rate of data transfer between memory and processor",
-            units: ["Bytes per second (B/s)", "Gigabytes per second (GB/s)"],
-            measurement_methods: ["Memory benchmarks", "Hardware counters", "Bandwidth tests"],
-            optimization_strategies: ["Multiple memory channels", "Cache optimization", "Data locality"]
-        },
-        {
-            metric: "Power Consumption",
-            description: "Electrical power used by the system",
-            units: ["Watts (W)", "Joules per operation (J/op)"],
-            measurement_methods: ["Power meters", "Built-in sensors", "Energy profiling"],
-            optimization_strategies: ["Dynamic voltage scaling", "Clock gating", "Efficient algorithms"]
-        }
-    ]
-    
-    DISPLAY "System Performance Metrics:"
-    FOR each metric IN performance_metrics
-        DISPLAY "\n" + metric["metric"] + ":"
-        DISPLAY "  Description: " + metric["description"]
-        DISPLAY "  Units: " + join(metric["units"], ", ")
-        DISPLAY "  Measurement Methods:"
-        FOR each method IN metric["measurement_methods"]
-            DISPLAY "    • " + method
-        ENDFOR
-        DISPLAY "  Optimization Strategies:"
-        FOR each strategy IN metric["optimization_strategies"]
-            DISPLAY "    ✓ " + strategy
-        ENDFOR
-    ENDFOR
-    
-    // Performance Analysis Example
-    DISPLAY "\n=== PERFORMANCE ANALYSIS EXAMPLE ==="
-    
-    FUNCTION analyze_system_performance()
-        DISPLAY "Comparing Two System Configurations:"
+    <div className="performance-analysis">
+      <div className="performance-intro">
+        <h4>Computer System Performance Metrics</h4>
+        <p>Understanding and measuring system performance requires analyzing multiple key indicators that affect overall system efficiency.</p>
+      </div>
+      
+      <div className="performance-metrics">
+        <div className="metric-item">
+          <h5>Throughput</h5>
+          <p><strong>Description:</strong> Number of tasks completed per unit time</p>
+          <p><strong>Units:</strong> Instructions per second (IPS), Transactions per second (TPS), Operations per second</p>
+          <div className="measurement-methods">
+            <h6>Measurement Methods:</h6>
+            <ul>
+              <li>Benchmark suites</li>
+              <li>Workload analysis</li>
+              <li>Performance counters</li>
+            </ul>
+          </div>
+          <div className="optimization-strategies">
+            <h6>Optimization Strategies:</h6>
+            <ul>
+              <li>Parallel processing</li>
+              <li>Pipeline optimization</li>
+              <li>Resource utilization</li>
+            </ul>
+          </div>
+        </div>
         
-        SET system_a = {
-            name: "System A - High Clock Speed",
-            cpu_frequency: 4.0,  // GHz
-            cores: 4,
-            cache_l3: 8,  // MB
-            memory_speed: 2400,  // MHz
-            memory_channels: 2,
-            power_consumption: 95  // Watts
-        }
+        <div className="metric-item">
+          <h5>Latency</h5>
+          <p><strong>Description:</strong> Time required to complete a single task</p>
+          <p><strong>Units:</strong> Seconds, Clock cycles, Nanoseconds</p>
+          <div className="measurement-methods">
+            <h6>Measurement Methods:</h6>
+            <ul>
+              <li>Timing analysis</li>
+              <li>Critical path analysis</li>
+              <li>Profiling tools</li>
+            </ul>
+          </div>
+          <div className="optimization-strategies">
+            <h6>Optimization Strategies:</h6>
+            <ul>
+              <li>Reduce dependencies</li>
+              <li>Faster components</li>
+              <li>Caching strategies</li>
+            </ul>
+          </div>
+        </div>
         
-        SET system_b = {
-            name: "System B - More Cores",
-            cpu_frequency: 2.5,  // GHz
-            cores: 8,
-            cache_l3: 16,  // MB
-            memory_speed: 3200,  // MHz
-            memory_channels: 4,
-            power_consumption: 85  // Watts
-        }
+        <div className="metric-item">
+          <h5>CPU Utilization</h5>
+          <p><strong>Description:</strong> Percentage of time CPU is actively executing instructions</p>
+          <p><strong>Units:</strong> Percentage (%), Utilization ratio</p>
+          <div className="measurement-methods">
+            <h6>Measurement Methods:</h6>
+            <ul>
+              <li>System monitors</li>
+              <li>Performance counters</li>
+              <li>Sampling techniques</li>
+            </ul>
+          </div>
+          <div className="optimization-strategies">
+            <h6>Optimization Strategies:</h6>
+            <ul>
+              <li>Load balancing</li>
+              <li>Efficient algorithms</li>
+              <li>Reduce idle time</li>
+            </ul>
+          </div>
+        </div>
         
-        DISPLAY "\n" + system_a["name"] + ":"
-        DISPLAY "  CPU Frequency: " + system_a["cpu_frequency"] + " GHz"
-        DISPLAY "  Cores: " + system_a["cores"]
-        DISPLAY "  L3 Cache: " + system_a["cache_l3"] + " MB"
-        DISPLAY "  Memory: " + system_a["memory_speed"] + " MHz, " + system_a["memory_channels"] + " channels"
-        DISPLAY "  Power: " + system_a["power_consumption"] + " W"
+        <div className="metric-item">
+          <h5>Memory Bandwidth</h5>
+          <p><strong>Description:</strong> Rate of data transfer between memory and processor</p>
+          <p><strong>Units:</strong> Bytes per second (B/s), Gigabytes per second (GB/s)</p>
+          <div className="measurement-methods">
+            <h6>Measurement Methods:</h6>
+            <ul>
+              <li>Memory benchmarks</li>
+              <li>Hardware counters</li>
+              <li>Bandwidth tests</li>
+            </ul>
+          </div>
+          <div className="optimization-strategies">
+            <h6>Optimization Strategies:</h6>
+            <ul>
+              <li>Multiple memory channels</li>
+              <li>Cache optimization</li>
+              <li>Data locality</li>
+            </ul>
+          </div>
+        </div>
         
-        DISPLAY "\n" + system_b["name"] + ":"
-        DISPLAY "  CPU Frequency: " + system_b["cpu_frequency"] + " GHz"
-        DISPLAY "  Cores: " + system_b["cores"]
-        DISPLAY "  L3 Cache: " + system_b["cache_l3"] + " MB"
-        DISPLAY "  Memory: " + system_b["memory_speed"] + " MHz, " + system_b["memory_channels"] + " channels"
-        DISPLAY "  Power: " + system_b["power_consumption"] + " W"
+        <div className="metric-item">
+          <h5>Power Consumption</h5>
+          <p><strong>Description:</strong> Electrical power used by the system</p>
+          <p><strong>Units:</strong> Watts (W), Joules per operation (J/op)</p>
+          <div className="measurement-methods">
+            <h6>Measurement Methods:</h6>
+            <ul>
+              <li>Power meters</li>
+              <li>Built-in sensors</li>
+              <li>Energy profiling</li>
+            </ul>
+          </div>
+          <div className="optimization-strategies">
+            <h6>Optimization Strategies:</h6>
+            <ul>
+              <li>Dynamic voltage scaling</li>
+              <li>Clock gating</li>
+              <li>Efficient algorithms</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div className="performance-comparison">
+        <h4>Performance Analysis Example</h4>
+        <p><strong>Comparing Two System Configurations:</strong></p>
         
-        // Performance Analysis
-        DISPLAY "\n=== PERFORMANCE COMPARISON ==="
+        <div className="system-configs">
+          <div className="system-config">
+            <h5>System A - High Clock Speed</h5>
+            <ul>
+              <li><strong>CPU Frequency:</strong> 4.0 GHz</li>
+              <li><strong>Cores:</strong> 4</li>
+              <li><strong>L3 Cache:</strong> 8 MB</li>
+              <li><strong>Memory:</strong> 2400 MHz, 2 channels</li>
+              <li><strong>Power:</strong> 95 W</li>
+            </ul>
+          </div>
+          
+          <div className="system-config">
+            <h5>System B - More Cores</h5>
+            <ul>
+              <li><strong>CPU Frequency:</strong> 2.5 GHz</li>
+              <li><strong>Cores:</strong> 8</li>
+              <li><strong>L3 Cache:</strong> 16 MB</li>
+              <li><strong>Memory:</strong> 3200 MHz, 4 channels</li>
+              <li><strong>Power:</strong> 85 W</li>
+            </ul>
+          </div>
+        </div>
         
-        SET workload_scenarios = [
-            {
-                workload: "Single-threaded CPU-intensive",
-                system_a_performance: "Excellent (high frequency advantage)",
-                system_b_performance: "Good (limited by single-thread performance)",
-                winner: "System A",
-                reason: "Single-threaded workloads benefit from higher clock speeds"
-            },
-            {
-                workload: "Multi-threaded parallel processing",
-                system_a_performance: "Good (4 cores fully utilized)",
-                system_b_performance: "Excellent (8 cores provide more parallelism)",
-                winner: "System B",
-                reason: "More cores enable better parallel task execution"
-            },
-            {
-                workload: "Memory-intensive applications",
-                system_a_performance: "Moderate (limited memory bandwidth)",
-                system_b_performance: "Excellent (4 memory channels, faster RAM)",
-                winner: "System B",
-                reason: "Higher memory bandwidth and larger cache"
-            },
-            {
-                workload: "Power-constrained environments",
-                system_a_performance: "Good performance but higher power",
-                system_b_performance: "Better performance per watt",
-                winner: "System B",
-                reason: "Lower power consumption with competitive performance"
-            }
-        ]
+        <div className="workload-scenarios">
+          <h5>Performance Comparison by Workload</h5>
+          <div className="scenario">
+            <h6>Single-threaded CPU-intensive</h6>
+            <p><strong>System A:</strong> Excellent (high frequency advantage)</p>
+            <p><strong>System B:</strong> Good (limited by single-thread performance)</p>
+            <p><strong>Winner:</strong> System A</p>
+            <p><strong>Reason:</strong> Single-threaded workloads benefit from higher clock speeds</p>
+          </div>
+          
+          <div className="scenario">
+            <h6>Multi-threaded parallel processing</h6>
+            <p><strong>System A:</strong> Good (4 cores fully utilized)</p>
+            <p><strong>System B:</strong> Excellent (8 cores provide more parallelism)</p>
+            <p><strong>Winner:</strong> System B</p>
+            <p><strong>Reason:</strong> More cores enable better parallel task execution</p>
+          </div>
+          
+          <div className="scenario">
+            <h6>Memory-intensive applications</h6>
+            <p><strong>System A:</strong> Moderate (limited memory bandwidth)</p>
+            <p><strong>System B:</strong> Excellent (4 memory channels, faster RAM)</p>
+            <p><strong>Winner:</strong> System B</p>
+            <p><strong>Reason:</strong> Higher memory bandwidth and larger cache</p>
+          </div>
+          
+          <div className="scenario">
+            <h6>Power-constrained environments</h6>
+            <p><strong>System A:</strong> Good performance but higher power</p>
+            <p><strong>System B:</strong> Better performance per watt</p>
+            <p><strong>Winner:</strong> System B</p>
+            <p><strong>Reason:</strong> Lower power consumption with competitive performance</p>
+          </div>
+        </div>
         
-        FOR each scenario IN workload_scenarios
-            DISPLAY "\n" + scenario["workload"] + ":"
-            DISPLAY "  System A: " + scenario["system_a_performance"]
-            DISPLAY "  System B: " + scenario["system_b_performance"]
-            DISPLAY "  Winner: " + scenario["winner"]
-            DISPLAY "  Reason: " + scenario["reason"]
-        ENDFOR
-        
-        DISPLAY "\n=== KEY INSIGHTS ==="
-        DISPLAY "• No single 'best' system - performance depends on workload"
-        DISPLAY "• High frequency benefits single-threaded performance"
-        DISPLAY "• More cores enable better parallel processing"
-        DISPLAY "• Memory bandwidth can be a bottleneck"
-        DISPLAY "• Power efficiency is increasingly important"
-        DISPLAY "• Cache size affects performance for large working sets"
-    END FUNCTION
-    
-    CALL analyze_system_performance()
-END</code></pre>
+        <div className="key-insights">
+          <h5>Key Performance Insights</h5>
+          <ul>
+            <li>No single 'best' system - performance depends on workload</li>
+            <li>High frequency benefits single-threaded performance</li>
+            <li>More cores enable better parallel processing</li>
+            <li>Memory bandwidth can be a bottleneck</li>
+            <li>Power efficiency is increasingly important</li>
+            <li>Cache size affects performance for large working sets</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   `,
   
   // Interactive elements and activities

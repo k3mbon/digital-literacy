@@ -1,3 +1,4 @@
+import React from 'react';
 import { ArrowLeft, ChevronRight, BookOpen, Play, TestTube } from 'lucide-react';
 import { grades, topics } from '../data/topics';
 import '../styles/GradePage.css';

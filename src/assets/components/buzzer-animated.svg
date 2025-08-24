@@ -1,0 +1,49 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .buzzer-body { fill: #2c3e50; stroke: #34495e; stroke-width: 2; }
+      .buzzer-top { fill: #34495e; stroke: #2c3e50; stroke-width: 1; }
+      .buzzer-hole { fill: #1a252f; }
+      .buzzer-wire-pos { stroke: #ff6600; stroke-width: 3; fill: none; }
+      .buzzer-wire-neg { stroke: #333333; stroke-width: 3; fill: none; }
+      .sound-wave { stroke: #3498db; stroke-width: 2; fill: none; opacity: 0.7; }
+      .wave-animation { animation: sound-waves 1.5s ease-out infinite; }
+      @keyframes sound-waves {
+        0% { r: 0; opacity: 0.8; }
+        50% { r: 15; opacity: 0.4; }
+        100% { r: 25; opacity: 0; }
+      }
+    </style>
+  </defs>
+  
+  <!-- Sound waves (animated) -->
+  <circle cx="30" cy="25" r="0" class="sound-wave wave-animation" style="animation-delay: 0s;"/>
+  <circle cx="30" cy="25" r="0" class="sound-wave wave-animation" style="animation-delay: 0.3s;"/>
+  <circle cx="30" cy="25" r="0" class="sound-wave wave-animation" style="animation-delay: 0.6s;"/>
+  
+  <!-- Buzzer body -->
+  <circle cx="30" cy="25" r="18" class="buzzer-body"/>
+  
+  <!-- Buzzer top -->
+  <circle cx="30" cy="25" r="15" class="buzzer-top"/>
+  
+  <!-- Sound holes -->
+  <circle cx="25" cy="20" r="1.5" class="buzzer-hole"/>
+  <circle cx="35" cy="20" r="1.5" class="buzzer-hole"/>
+  <circle cx="30" cy="25" r="1.5" class="buzzer-hole"/>
+  <circle cx="25" cy="30" r="1.5" class="buzzer-hole"/>
+  <circle cx="35" cy="30" r="1.5" class="buzzer-hole"/>
+  
+  <!-- Positive wire -->
+  <line x1="35" y1="40" x2="40" y2="50" class="buzzer-wire-pos"/>
+  
+  <!-- Negative wire -->
+  <line x1="25" y1="40" x2="20" y2="50" class="buzzer-wire-neg"/>
+  
+  <!-- Wire labels -->
+  <text x="42" y="52" font-family="Arial" font-size="6" fill="#666">+</text>
+  <text x="16" y="52" font-family="Arial" font-size="6" fill="#666">-</text>
+  
+  <!-- Label -->
+  <text x="30" y="35" text-anchor="middle" font-family="Arial" font-size="6" fill="white">BUZZER</text>
+</svg>

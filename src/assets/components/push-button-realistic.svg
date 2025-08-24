@@ -1,0 +1,71 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Push Button Switch -->
+  <defs>
+    <radialGradient id="buttonGradient" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#c0392b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#922b21;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34495e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wireGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4d03f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1c40f;stop-opacity:1" />
+    </linearGradient>
+    <filter id="buttonShadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Button base/housing -->
+  <rect x="20" y="30" width="40" height="30" rx="3" ry="3" fill="url(#bodyGradient)" stroke="#1a252f" stroke-width="1"/>
+  
+  <!-- Button cap -->
+  <circle cx="40" cy="25" r="12" fill="url(#buttonGradient)" stroke="#922b21" stroke-width="1" filter="url(#buttonShadow)"/>
+  
+  <!-- Button highlight -->
+  <ellipse cx="36" cy="21" rx="3" ry="4" fill="#ffffff" opacity="0.4"/>
+  
+  <!-- Button center depression -->
+  <circle cx="40" cy="25" r="8" fill="none" stroke="#922b21" stroke-width="0.5" opacity="0.7"/>
+  
+  <!-- Actuator stem -->
+  <rect x="38" y="37" width="4" height="8" fill="#7f8c8d" stroke="#6c7b7f" stroke-width="0.5"/>
+  
+  <!-- Pins (4-pin tactile switch) -->
+  <rect x="15" y="35" width="8" height="2" fill="url(#wireGradient)" stroke="#d4ac0d" stroke-width="0.3"/>
+  <rect x="15" y="53" width="8" height="2" fill="url(#wireGradient)" stroke="#d4ac0d" stroke-width="0.3"/>
+  <rect x="57" y="35" width="8" height="2" fill="url(#wireGradient)" stroke="#d4ac0d" stroke-width="0.3"/>
+  <rect x="57" y="53" width="8" height="2" fill="url(#wireGradient)" stroke="#d4ac0d" stroke-width="0.3"/>
+  
+  <!-- Internal contacts (visible through housing) -->
+  <rect x="25" y="40" width="8" height="1" fill="#95a5a6" opacity="0.6"/>
+  <rect x="47" y="40" width="8" height="1" fill="#95a5a6" opacity="0.6"/>
+  <rect x="25" y="49" width="8" height="1" fill="#95a5a6" opacity="0.6"/>
+  <rect x="47" y="49" width="8" height="1" fill="#95a5a6" opacity="0.6"/>
+  
+  <!-- Spring indication -->
+  <g stroke="#7f8c8d" stroke-width="0.5" fill="none" opacity="0.5">
+    <path d="M 38 45 Q 36 47 38 49 Q 42 51 38 53"/>
+    <path d="M 42 45 Q 44 47 42 49 Q 38 51 42 53"/>
+  </g>
+  
+  <!-- Pin connection indicators -->
+  <g stroke="#d4ac0d" stroke-width="0.5" opacity="0.7">
+    <line x1="23" y1="36" x2="25" y2="40"/>
+    <line x1="23" y1="54" x2="25" y2="50"/>
+    <line x1="57" y1="36" x2="55" y2="40"/>
+    <line x1="57" y1="54" x2="55" y2="50"/>
+  </g>
+  
+  <!-- Model specification -->
+  <text x="40" y="8" font-family="Arial, sans-serif" font-size="6" fill="#2c3e50" text-anchor="middle" font-weight="bold">PUSH BUTTON</text>
+  
+  <!-- Switch type -->
+  <text x="40" y="70" font-family="Arial, sans-serif" font-size="4" fill="#2c3e50" text-anchor="middle">6x6mm</text>
+  
+  <!-- Press indication -->
+  <text x="40" y="25" font-family="Arial, sans-serif" font-size="4" fill="white" text-anchor="middle" font-weight="bold">PRESS</text>
+</svg>

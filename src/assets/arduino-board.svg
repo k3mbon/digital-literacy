@@ -1,0 +1,78 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arduino Uno Board Background -->
+  <rect x="20" y="20" width="360" height="260" rx="10" ry="10" fill="#2E5C3E" stroke="#4A7C59" stroke-width="2"/>
+  
+  <!-- USB Connector -->
+  <rect x="10" y="80" width="20" height="40" rx="3" ry="3" fill="#C0C0C0" stroke="#808080" stroke-width="1"/>
+  
+  <!-- Power Jack -->
+  <circle cx="50" cy="50" r="8" fill="#000" stroke="#333" stroke-width="1"/>
+  <circle cx="50" cy="50" r="5" fill="#333"/>
+  
+  <!-- Arduino Logo Area -->
+  <text x="200" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Arduino UNO</text>
+  <text x="200" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#FFD700">R3</text>
+  
+  <!-- Digital Pins (0-13) -->
+  <g id="digital-pins">
+    <text x="60" y="110" font-family="Arial, sans-serif" font-size="10" fill="white">DIGITAL (PWM: ~)</text>
+    <!-- Pin headers -->
+    <rect x="50" y="120" width="200" height="15" fill="#1a1a1a" stroke="#444" stroke-width="1"/>
+    <!-- Individual pins -->
+    <g id="pin-0"><rect x="55" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="61" y="131" text-anchor="middle" font-size="8" fill="#ccc">0</text></g>
+    <g id="pin-1"><rect x="69" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="75" y="131" text-anchor="middle" font-size="8" fill="#ccc">1</text></g>
+    <g id="pin-2"><rect x="83" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="89" y="131" text-anchor="middle" font-size="8" fill="#ccc">2</text></g>
+    <g id="pin-3"><rect x="97" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="103" y="131" text-anchor="middle" font-size="8" fill="#ccc">~3</text></g>
+    <g id="pin-4"><rect x="111" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="117" y="131" text-anchor="middle" font-size="8" fill="#ccc">4</text></g>
+    <g id="pin-5"><rect x="125" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="131" y="131" text-anchor="middle" font-size="8" fill="#ccc">~5</text></g>
+    <g id="pin-6"><rect x="139" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="145" y="131" text-anchor="middle" font-size="8" fill="#ccc">~6</text></g>
+    <g id="pin-7"><rect x="153" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="159" y="131" text-anchor="middle" font-size="8" fill="#ccc">7</text></g>
+    <g id="pin-8"><rect x="175" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="181" y="131" text-anchor="middle" font-size="8" fill="#ccc">8</text></g>
+    <g id="pin-9"><rect x="189" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="195" y="131" text-anchor="middle" font-size="8" fill="#ccc">~9</text></g>
+    <g id="pin-10"><rect x="203" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="209" y="131" text-anchor="middle" font-size="8" fill="#ccc">~10</text></g>
+    <g id="pin-11"><rect x="217" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="223" y="131" text-anchor="middle" font-size="8" fill="#ccc">~11</text></g>
+    <g id="pin-12"><rect x="231" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="237" y="131" text-anchor="middle" font-size="8" fill="#ccc">12</text></g>
+    <g id="pin-13"><rect x="245" y="122" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="251" y="131" text-anchor="middle" font-size="8" fill="#ccc">13</text></g>
+  </g>
+  
+  <!-- Analog Pins (A0-A5) -->
+  <g id="analog-pins">
+    <text x="60" y="200" font-family="Arial, sans-serif" font-size="10" fill="white">ANALOG IN</text>
+    <!-- Pin headers -->
+    <rect x="50" y="210" width="100" height="15" fill="#1a1a1a" stroke="#444" stroke-width="1"/>
+    <!-- Individual pins -->
+    <g id="pin-A0"><rect x="55" y="212" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="61" y="221" text-anchor="middle" font-size="8" fill="#ccc">A0</text></g>
+    <g id="pin-A1"><rect x="69" y="212" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="75" y="221" text-anchor="middle" font-size="8" fill="#ccc">A1</text></g>
+    <g id="pin-A2"><rect x="83" y="212" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="89" y="221" text-anchor="middle" font-size="8" fill="#ccc">A2</text></g>
+    <g id="pin-A3"><rect x="97" y="212" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="103" y="221" text-anchor="middle" font-size="8" fill="#ccc">A3</text></g>
+    <g id="pin-A4"><rect x="111" y="212" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="117" y="221" text-anchor="middle" font-size="8" fill="#ccc">A4</text></g>
+    <g id="pin-A5"><rect x="125" y="212" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="131" y="221" text-anchor="middle" font-size="8" fill="#ccc">A5</text></g>
+  </g>
+  
+  <!-- Power Pins -->
+  <g id="power-pins">
+    <text x="280" y="200" font-family="Arial, sans-serif" font-size="10" fill="white">POWER</text>
+    <rect x="270" y="210" width="80" height="15" fill="#1a1a1a" stroke="#444" stroke-width="1"/>
+    <g id="pin-3V3"><rect x="275" y="212" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="281" y="221" text-anchor="middle" font-size="7" fill="#ccc">3V3</text></g>
+    <g id="pin-5V"><rect x="289" y="212" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="295" y="221" text-anchor="middle" font-size="8" fill="#ccc">5V</text></g>
+    <g id="pin-GND1"><rect x="303" y="212" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="309" y="221" text-anchor="middle" font-size="7" fill="#ccc">GND</text></g>
+    <g id="pin-GND2"><rect x="317" y="212" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="323" y="221" text-anchor="middle" font-size="7" fill="#ccc">GND</text></g>
+    <g id="pin-VIN"><rect x="331" y="212" width="12" height="11" fill="#333" stroke="#666" stroke-width="0.5"/><text x="337" y="221" text-anchor="middle" font-size="7" fill="#ccc">VIN</text></g>
+  </g>
+  
+  <!-- Microcontroller Chip -->
+  <rect x="180" y="140" width="60" height="40" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <text x="210" y="162" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">ATMEGA328P</text>
+  
+  <!-- Power LED -->
+  <circle id="power-led" cx="320" cy="120" r="4" fill="#666" stroke="#333" stroke-width="1"/>
+  <text x="330" y="125" font-family="Arial, sans-serif" font-size="8" fill="white">PWR</text>
+  
+  <!-- Built-in LED (Pin 13) -->
+  <circle id="builtin-led" cx="320" cy="140" r="4" fill="#666" stroke="#333" stroke-width="1"/>
+  <text x="330" y="145" font-family="Arial, sans-serif" font-size="8" fill="white">L</text>
+  
+  <!-- Reset Button -->
+  <circle cx="100" cy="50" r="6" fill="#444" stroke="#666" stroke-width="1"/>
+  <text x="100" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">RESET</text>
+</svg>

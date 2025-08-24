@@ -175,14 +175,52 @@
 
 .topic-icon {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: clamp(48px, 6vw, 72px);
+  height: clamp(48px, 6vw, 72px);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  padding: 0.75rem;
+  padding: clamp(0.5rem, 1vw, 1rem);
+  transition: all 0.3s ease;
+}
+
+/* Responsive breakpoints for grade page topic icons */
+@media (max-width: 480px) {
+  .topic-icon {
+    width: 48px;
+    height: 48px;
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .topic-icon {
+    width: 56px;
+    height: 56px;
+    padding: 0.625rem;
+    border-radius: 11px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .topic-icon {
+    width: 60px;
+    height: 60px;
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .topic-icon {
+    width: 72px;
+    height: 72px;
+    padding: 1rem;
+    border-radius: 14px;
+  }
 }
 
 .topic-icon-svg {

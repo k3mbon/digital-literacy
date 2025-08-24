@@ -24,8 +24,8 @@ export const loadLesson = async (subtopicId) => {
       '1.2': () => import('./computational-thinking/selection.js'),
       '1.3': () => import('./computational-thinking/searching.js'),
       '1.4': () => import('./computational-thinking/conditional-statements.js'),
-      '1.5': () => import('./computational-thinking/data-programming.js'),
-      '1.6': () => import('./computational-thinking/library-programs.js'),
+      '1.5': () => import('./computational-thinking/data-in-text-based-program.js'),
+      '1.6': () => import('./computational-thinking/library-program.js'),
       '1.7': () => import('./computational-thinking/software-development.js'),
       '1.8': () => import('./computational-thinking/physical-computing.js'),
       
