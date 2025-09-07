@@ -7,6 +7,8 @@ import Lesson from './pages/Lesson';
 import Assessment from './pages/Assessment';
 import CourseNotes from './pages/CourseNotes';
 import Playground from './pages/Playground';
+import InteractiveLessonDemo from './pages/InteractiveLessonDemo';
+import QuizSystemOverview from './components/QuizSystemOverview';
 import NotFound from './pages/NotFound';
 import './App.css';
 
@@ -50,6 +52,8 @@ function AppContent() {
       'assessment': `/grade/${params.gradeLevel || ''}/topic/${params.topicId || ''}/assessment/${params.subtopicId || ''}`,
       'notes': `/grade/${params.gradeLevel || ''}/topic/${params.topicId || ''}/notes/${params.subtopicId || ''}`,
       'playground': '/playground',
+      'interactive-demo': '/interactive-demo',
+      'quiz-system': '/quiz-system',
       'notfound': '/404'
     };
     
@@ -67,6 +71,8 @@ function AppContent() {
         <Route path="/grade/:gradeLevel/topic/:topicId/assessment/:subtopicId" element={<AssessmentWrapper onNavigate={navigateTo} />} />
         <Route path="/grade/:gradeLevel/topic/:topicId/notes/:subtopicId" element={<CourseNotesWrapper onNavigate={navigateTo} />} />
         <Route path="/playground" element={<Playground onNavigate={navigateTo} />} />
+        <Route path="/interactive-demo" element={<InteractiveLessonDemo />} />
+        <Route path="/quiz-system" element={<QuizSystemOverview onNavigate={navigateTo} />} />
         <Route path="/404" element={<NotFound onNavigate={navigateTo} />} />
         <Route path="*" element={<NotFound onNavigate={navigateTo} />} />
       </Routes>

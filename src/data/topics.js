@@ -29,38 +29,59 @@ export const topics = {
       },
       "1.4": {
         id: "1.4",
-        title: "Conditional statements in text-based programming",
-        description: "Implement conditional logic in real programming languages",
+        title: "Sorting",
+        description: "Master fundamental sorting algorithms and their applications",
         difficulty: "intermediate",
-        icon: "/src/assets/icons/subtopic-1-4-conditional.svg"
+        icon: "/src/assets/icons/subtopic-1-4-sorting.svg"
       },
       "1.5": {
         id: "1.5",
-        title: "Data in text-based program",
-        description: "Working with data types and structures in programming",
-        difficulty: "intermediate",
-        icon: "/src/assets/icons/subtopic-1-5-data.svg"
+        title: "Iteration",
+        description: "Learn loops and repetitive structures in programming",
+        difficulty: "beginner",
+        icon: "/src/assets/icons/subtopic-1-5-iteration.svg"
       },
       "1.6": {
         id: "1.6",
-        title: "Library program",
-        description: "Understanding and using programming libraries",
-        difficulty: "advanced",
-        icon: "/src/assets/icons/subtopic-1-6-library.svg"
+        title: "Conditional statements in text-based programming",
+        description: "Implement conditional logic in real programming languages",
+        difficulty: "intermediate",
+        icon: "/src/assets/icons/subtopic-1-6-conditional.svg"
       },
       "1.7": {
         id: "1.7",
-        title: "Software Development",
-        description: "Learn the software development lifecycle and methodologies",
-        difficulty: "advanced",
-        icon: "/src/assets/icons/subtopic-1-7-software-dev.svg"
+        title: "Data in text-based program",
+        description: "Working with data types and structures in programming",
+        difficulty: "intermediate",
+        icon: "/src/assets/icons/subtopic-1-7-data.svg"
       },
       "1.8": {
         id: "1.8",
+        title: "Algorithms",
+        description: "Master algorithm design, analysis, and optimization",
+        difficulty: "advanced",
+        icon: "/src/assets/icons/subtopic-1-8-algorithms.svg"
+      },
+      "1.9": {
+        id: "1.9",
+        title: "Library program",
+        description: "Understanding and using programming libraries",
+        difficulty: "advanced",
+        icon: "/src/assets/icons/subtopic-1-9-library.svg"
+      },
+      "1.10": {
+        id: "1.10",
+        title: "Software Development",
+        description: "Learn the software development lifecycle and methodologies",
+        difficulty: "advanced",
+        icon: "/src/assets/icons/subtopic-1-10-software-dev.svg"
+      },
+      "1.11": {
+        id: "1.11",
         title: "Physical Computing",
         description: "Connecting software with hardware and sensors",
         difficulty: "advanced",
-        icon: "/src/assets/icons/subtopic-1-8-physical-computing.svg"
+        icon: "/src/assets/icons/subtopic-1-11-physical-computing.svg"
       }
     }
   },
@@ -159,21 +180,39 @@ export const grades = {
     title: "Grade 7",
     description: "Introduction to Digital Literacy",
     color: "#EF4444",
-    availableTopics: [1, 2, 3, 4]
+    availableTopics: [1, 2, 3, 4],
+    focusSubtopics: {
+      1: ["1.1", "1.2", "1.5"], // Basic pseudocode, selection, iteration
+      2: ["2.1"], // Basic modelling
+      3: ["3.1"], // Basic network types
+      4: ["4.3"] // Input/Output devices
+    }
   },
   8: {
     level: 8,
     title: "Grade 8",
     description: "Intermediate Digital Skills",
     color: "#3B82F6",
-    availableTopics: [1, 2, 3, 4]
+    availableTopics: [1, 2, 3, 4],
+    focusSubtopics: {
+      1: ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7"], // Core programming concepts
+      2: ["2.1", "2.2"], // Data management and databases
+      3: ["3.1", "3.2"], // Networks and security
+      4: ["4.1", "4.2", "4.3", "4.4"] // Computer systems
+    }
   },
   9: {
     level: 9,
     title: "Grade 9",
     description: "Advanced Digital Concepts",
     color: "#10B981",
-    availableTopics: [1, 2, 3, 4]
+    availableTopics: [1, 2, 3, 4],
+    focusSubtopics: {
+      1: ["1.3", "1.4", "1.6", "1.7", "1.8", "1.9", "1.10", "1.11"], // Advanced algorithms and development
+      2: ["2.2"], // Advanced databases
+      3: ["3.2"], // Advanced security
+      4: ["4.1", "4.2", "4.4", "4.5"] // Advanced systems and performance
+    }
   }
 };
 
@@ -184,4 +223,47 @@ export const getDifficultyColor = (difficulty) => {
     case 'advanced': return '#EF4444';
     default: return '#6B7280';
   }
+};
+
+/**
+ * Get subtopics appropriate for a specific grade level
+ * @param {number} topicId - The topic ID
+ * @param {number} grade - The grade level (7, 8, or 9)
+ * @returns {Object} Filtered subtopics object for the grade level
+ */
+export const getGradeAppropriateSubtopics = (topicId, grade) => {
+  const topic = topics[topicId];
+  const gradeInfo = grades[grade];
+  
+  if (!topic || !gradeInfo || !gradeInfo.focusSubtopics[topicId]) {
+    return topic?.subtopics || {};
+  }
+  
+  const allowedSubtopics = gradeInfo.focusSubtopics[topicId];
+  const filteredSubtopics = {};
+  
+  allowedSubtopics.forEach(subtopicId => {
+    if (topic.subtopics[subtopicId]) {
+      filteredSubtopics[subtopicId] = topic.subtopics[subtopicId];
+    }
+  });
+  
+  return filteredSubtopics;
+};
+
+/**
+ * Check if a subtopic is appropriate for a grade level
+ * @param {number} topicId - The topic ID
+ * @param {string} subtopicId - The subtopic ID
+ * @param {number} grade - The grade level
+ * @returns {boolean} True if appropriate for the grade level
+ */
+export const isSubtopicAppropriateForGrade = (topicId, subtopicId, grade) => {
+  const gradeInfo = grades[grade];
+  
+  if (!gradeInfo || !gradeInfo.focusSubtopics[topicId]) {
+    return true; // Show all if no restrictions defined
+  }
+  
+  return gradeInfo.focusSubtopics[topicId].includes(subtopicId);
 };

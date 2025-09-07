@@ -5,8 +5,11 @@
 import pseudocode from './lessons/computational-thinking/pseudocode.js';
 import selection from './lessons/computational-thinking/selection.js';
 import searching from './lessons/computational-thinking/searching.js';
+import sorting from './lessons/computational-thinking/sorting.js';
+import iteration from './lessons/computational-thinking/iteration.js';
 import conditionalStatements from './lessons/computational-thinking/conditional-statements.js';
 import dataInTextBasedProgram from './lessons/computational-thinking/data-in-text-based-program.js';
+import algorithms from './lessons/computational-thinking/algorithms.js';
 import libraryProgram from './lessons/computational-thinking/library-program.js';
 import softwareDevelopment from './lessons/computational-thinking/software-development.js';
 import physicalComputing from './lessons/computational-thinking/physical-computing.js';
@@ -29,11 +32,14 @@ const lessonModules = {
   '1.1': pseudocode,
   '1.2': selection,
   '1.3': searching,
-  '1.4': conditionalStatements,
-  '1.5': dataInTextBasedProgram,
-  '1.6': libraryProgram,
-  '1.7': softwareDevelopment,
-  '1.8': physicalComputing,
+  '1.4': sorting,
+  '1.5': iteration,
+  '1.6': conditionalStatements,
+  '1.7': dataInTextBasedProgram,
+  '1.8': algorithms,
+  '1.9': libraryProgram,
+  '1.10': softwareDevelopment,
+  '1.11': physicalComputing,
   
   // Data Representation (Topic 2)
   '2.1': modelling,
@@ -266,6 +272,26 @@ const getAdvancedContent = (lessonId, sectionTitle) => {
     '1.3': [{
       type: 'text',
       content: 'Advanced searching algorithms like A* pathfinding, binary search trees, and hash-based lookups are fundamental to modern database systems and search engines.'
+    }],
+    '1.4': [{
+      type: 'text',
+      content: 'Advanced sorting algorithms like merge sort, quick sort, and heap sort demonstrate divide-and-conquer strategies and are crucial for large-scale data processing.'
+    }],
+    '1.5': [{
+      type: 'text',
+      content: 'Complex iteration patterns include nested loops, iterator protocols, and generator functions that enable efficient processing of large datasets.'
+    }],
+    '1.6': [{
+      type: 'text',
+      content: 'Advanced conditional statements include ternary operators, switch expressions, and pattern matching used in modern programming languages.'
+    }],
+    '1.7': [{
+      type: 'text',
+      content: 'Advanced data structures include hash tables, trees, graphs, and their applications in database systems and network algorithms.'
+    }],
+    '1.8': [{
+      type: 'text',
+      content: 'Algorithm analysis covers Big O notation, space-time complexity trade-offs, and optimization techniques used in competitive programming and system design.'
     }]
   };
   

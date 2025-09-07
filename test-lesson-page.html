@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Lesson Page</title>
+</head>
+<body>
+    <h1>Testing Lesson Page Access</h1>
+    <script>
+        // Test the lesson page URL
+        const testUrl = 'http://localhost:5174/grade/8/topic/1/lesson/1.1';
+        console.log('Testing URL:', testUrl);
+        
+        fetch(testUrl)
+            .then(response => {
+                console.log('Response status:', response.status);
+                console.log('Response ok:', response.ok);
+                return response.text();
+            })
+            .then(html => {
+                console.log('HTML length:', html.length);
+                if (html.includes('<!DOCTYPE html>')) {
+                    console.log('✅ Valid HTML response received');
+                } else {
+                    console.log('❌ Invalid response');
+                }
+                
+                // Check for common error patterns
+                if (html.includes('Cannot resolve')) {
+                    console.log('❌ Module resolution error found');
+                }
+                if (html.includes('ReferenceError')) {
+                    console.log('❌ Reference error found');
+                }
+                if (html.includes('404')) {
+                    console.log('❌ 404 error found');
+                }
+            })
+            .catch(error => {
+                console.error('❌ Fetch error:', error);
+            });
+    </script>
+</body>
+</html>

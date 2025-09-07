@@ -1,0 +1,79 @@
+<svg width="500" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .flowchart-text { font-family: Arial, sans-serif; font-size: 12px; fill: #333; text-anchor: middle; }
+      .flowchart-shape { fill: #e8f4fd; stroke: #2196f3; stroke-width: 2; }
+      .decision-shape { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; }
+      .process-shape { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; }
+      .start-end-shape { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; }
+      .connector { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Start oval -->
+  <ellipse cx="250" cy="30" rx="40" ry="20" class="start-end-shape" />
+  <text x="250" y="35" class="flowchart-text">Start</text>
+  
+  <!-- Connector from Start to Input -->
+  <line x1="250" y1="50" x2="250" y2="80" class="connector" />
+  
+  <!-- Input rectangle -->
+  <rect x="200" y="80" width="100" height="40" rx="5" class="flowchart-shape" />
+  <text x="250" y="105" class="flowchart-text">Get Input</text>
+  
+  <!-- Connector from Input to Decision 1 -->
+  <line x1="250" y1="120" x2="250" y2="140" class="connector" />
+  
+  <!-- Decision diamond 1 (hotspot area) -->
+  <polygon points="250,140 330,180 250,220 170,180" class="decision-shape" />
+  <text x="250" y="175" class="flowchart-text">Input > 0?</text>
+  <text x="250" y="190" class="flowchart-text">(Decision Point)</text>
+  
+  <!-- Yes branch -->
+  <line x1="330" y1="180" x2="380" y2="180" class="connector" />
+  <text x="355" y="175" class="flowchart-text">Yes</text>
+  
+  <!-- Process rectangle (right side) -->
+  <rect x="380" y="160" width="80" height="40" rx="5" class="process-shape" />
+  <text x="420" y="185" class="flowchart-text">Process Data</text>
+  
+  <!-- No branch -->
+  <line x1="170" y1="180" x2="120" y2="180" class="connector" />
+  <text x="145" y="175" class="flowchart-text">No</text>
+  
+  <!-- Error handling rectangle (left side) -->
+  <rect x="80" y="160" width="80" height="40" rx="5" class="flowchart-shape" />
+  <text x="120" y="185" class="flowchart-text">Show Error</text>
+  
+  <!-- Connector from Process to Decision 2 -->
+  <line x1="420" y1="200" x2="420" y2="240" class="connector" />
+  <line x1="420" y1="240" x2="350" y2="240" class="connector" />
+  
+  <!-- Connector from Error to Decision 2 -->
+  <line x1="120" y1="200" x2="120" y2="240" class="connector" />
+  <line x1="120" y1="240" x2="170" y2="240" class="connector" />
+  
+  <!-- Decision diamond 2 (hotspot area) -->
+  <polygon points="250,240 330,280 250,320 170,280" class="decision-shape" />
+  <text x="250" y="275" class="flowchart-text">Continue?</text>
+  <text x="250" y="290" class="flowchart-text">(Decision Point)</text>
+  
+  <!-- Yes branch back to input -->
+  <line x1="170" y1="280" x2="100" y2="280" class="connector" />
+  <line x1="100" y1="280" x2="100" y2="100" class="connector" />
+  <line x1="100" y1="100" x2="200" y2="100" class="connector" />
+  <text x="135" y="275" class="flowchart-text">Yes</text>
+  
+  <!-- No branch to end -->
+  <line x1="330" y1="280" x2="380" y2="280" class="connector" />
+  <line x1="380" y1="280" x2="380" y2="350" class="connector" />
+  <line x1="380" y1="350" x2="290" y2="350" class="connector" />
+  <text x="355" y="275" class="flowchart-text">No</text>
+  
+  <!-- End oval -->
+  <ellipse cx="250" cy="350" rx="40" ry="20" class="start-end-shape" />
+  <text x="250" y="355" class="flowchart-text">End</text>
+</svg>

@@ -1919,8 +1919,6 @@ const InteractiveLessonComponents = ({ component, ...props }) => {
   }
 };
 
-export default InteractiveLessonComponents;
-
 // Enhanced Interactive Code Challenge Component
 export const InteractiveCodeChallenge = ({ 
   challenge, 
@@ -1988,17 +1986,46 @@ export const InteractiveQuiz = ({ questions, onComplete }) => {
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
 
+  // Reset currentQuestion when questions prop changes
+  useEffect(() => {
+    if (questions && questions.length > 0) {
+      setCurrentQuestion(0);
+      setSelectedAnswers({});
+      setShowResults(false);
+      setScore(0);
+    }
+  }, [questions]);
+
+  // Debug log to check questions
+  useEffect(() => {
+    console.log('InteractiveQuiz - Questions received:', questions);
+    console.log('InteractiveQuiz - Questions length:', questions?.length);
+    console.log('InteractiveQuiz - Current question index:', currentQuestion);
+    if (questions && questions[currentQuestion]) {
+      console.log('InteractiveQuiz - Current question:', questions[currentQuestion]);
+    }
+    // Log all question texts to see if they're different
+    if (questions && Array.isArray(questions)) {
+      questions.forEach((q, i) => {
+        console.log(`Question ${i + 1}:`, q.question);
+      });
+    }
+  }, [questions, currentQuestion]);
+
+  // Check answer and update selectedAnswers
   const handleAnswerSelect = (questionIndex, answerIndex) => {
-    setSelectedAnswers({
-      ...selectedAnswers,
+    setSelectedAnswers(prev => ({
+      ...prev,
       [questionIndex]: answerIndex
-    });
+    }));
   };
 
+  // Submit quiz and calculate score
   const submitQuiz = () => {
     let correctCount = 0;
     questions.forEach((question, index) => {
-      if (selectedAnswers[index] === question.correctAnswer) {
+      const correctAnswer = question.correctAnswer !== undefined ? question.correctAnswer : question.correct;
+      if (selectedAnswers[index] === correctAnswer) {
         correctCount++;
       }
     });
@@ -2009,12 +2036,18 @@ export const InteractiveQuiz = ({ questions, onComplete }) => {
     }
   };
 
+  // Reset quiz state
   const resetQuiz = () => {
     setCurrentQuestion(0);
     setSelectedAnswers({});
     setShowResults(false);
     setScore(0);
   };
+
+  // When pressing Next, refresh the problem UI
+  useEffect(() => {
+    // Optionally, scroll to top or reset focus if needed
+  }, [currentQuestion]);
 
   if (showResults) {
     return (
@@ -2029,10 +2062,10 @@ export const InteractiveQuiz = ({ questions, onComplete }) => {
             {Math.round((score / questions.length) * 100)}% Correct
           </p>
         </div>
-        
         <div className="results-breakdown">
           {questions.map((question, index) => {
-            const isCorrect = selectedAnswers[index] === question.correctAnswer;
+            const correctAnswer = question.correctAnswer !== undefined ? question.correctAnswer : question.correct;
+            const isCorrect = selectedAnswers[index] === correctAnswer;
             return (
               <div key={index} className={`result-item ${isCorrect ? 'correct' : 'incorrect'}`}>
                 <div className="result-icon">
@@ -2041,11 +2074,11 @@ export const InteractiveQuiz = ({ questions, onComplete }) => {
                 <div className="result-content">
                   <p className="question-text">{question.question}</p>
                   <p className="answer-text">
-                    Your answer: {question.options[selectedAnswers[index]]}
+                    Your answer: {question.options && question.options[selectedAnswers[index]] || 'No answer selected'}
                   </p>
                   {!isCorrect && (
                     <p className="correct-answer">
-                      Correct answer: {question.options[question.correctAnswer]}
+                      Correct answer: {question.options && question.options[correctAnswer] || 'N/A'}
                     </p>
                   )}
                 </div>
@@ -2053,7 +2086,6 @@ export const InteractiveQuiz = ({ questions, onComplete }) => {
             );
           })}
         </div>
-        
         <button onClick={resetQuiz} className="quiz-btn retry">
           <RotateCcw size={16} />
           Try Again
@@ -2062,15 +2094,20 @@ export const InteractiveQuiz = ({ questions, onComplete }) => {
     );
   }
 
-  const question = questions[currentQuestion];
-  const allAnswered = questions.every((_, index) => Object.hasOwn(selectedAnswers, index));
+  const question = questions && questions[currentQuestion];
+  const allAnswered = questions && questions.every((_, index) => Object.hasOwn(selectedAnswers, index));
+
+  // Safety check - if no questions or invalid currentQuestion, don't render
+  if (!questions || questions.length === 0 || !question) {
+    return <div className="interactive-quiz">No questions available</div>;
+  }
 
   return (
     <div className="interactive-quiz">
       <div className="quiz-progress">
         <div className="progress-bar">
-          <div 
-            className="progress-fill" 
+          <div
+            className="progress-fill"
             style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
           />
         </div>
@@ -2078,14 +2115,12 @@ export const InteractiveQuiz = ({ questions, onComplete }) => {
           Question {currentQuestion + 1} of {questions.length}
         </span>
       </div>
-      
-      <div className="question-container">
+      <div className="question-container" key={currentQuestion}>
         <h3 className="question-text">{question.question}</h3>
-        
         <div className="options-container">
-          {question.options.map((option, index) => (
+          {question.options && question.options.map((option, index) => (
             <button
-              key={index}
+              key={`${currentQuestion}-${index}`}
               onClick={() => handleAnswerSelect(currentQuestion, index)}
               className={`option-btn ${
                 selectedAnswers[currentQuestion] === index ? 'selected' : ''
@@ -2097,18 +2132,16 @@ export const InteractiveQuiz = ({ questions, onComplete }) => {
           ))}
         </div>
       </div>
-      
       <div className="quiz-navigation">
-        <button 
+        <button
           onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
           disabled={currentQuestion === 0}
           className="quiz-btn secondary"
         >
           ← Previous
         </button>
-        
         {currentQuestion === questions.length - 1 ? (
-          <button 
+          <button
             onClick={submitQuiz}
             disabled={!allAnswered}
             className="quiz-btn primary submit"
@@ -2116,8 +2149,11 @@ export const InteractiveQuiz = ({ questions, onComplete }) => {
             Submit Quiz
           </button>
         ) : (
-          <button 
-            onClick={() => setCurrentQuestion(Math.min(questions.length - 1, currentQuestion + 1))}
+          <button
+            onClick={() => {
+              console.log('Next button clicked, current:', currentQuestion, 'going to:', currentQuestion + 1);
+              setCurrentQuestion(Math.min(questions.length - 1, currentQuestion + 1));
+            }}
             className="quiz-btn primary"
           >
             Next →

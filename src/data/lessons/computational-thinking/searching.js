@@ -17,268 +17,162 @@ export default {
   
   // Main lesson content
   content: `
-    <h2>What is Finding Things? 🕵️‍♀️</h2>
-    <p><strong>Finding things</strong> is like being a detective! When you look for your favorite toy, a book, or a friend's name in your phone, you're doing what computers call "searching." It's one of the most important things computers do every day!</p>
+    <div class="lesson-intro">
+      <h2>What is Searching? 🕵️‍♀️</h2>
+      <p><strong>Searching</strong> is like being a detective! Every time you find a friend's name in your contacts or search for a video online, you're using search algorithms.</p>
+      
+      <div class="key-points">
+        <h3>Why Searching Matters:</h3>
+        <div class="point-grid">
+          <div class="point-card">⚡ <strong>Speed:</strong> Find anything in millions of items instantly</div>
+          <div class="point-card">🎮 <strong>Games:</strong> Powers your favorite apps and games</div>
+          <div class="point-card">💡 <strong>Smart:</strong> Saves computer energy and time</div>
+          <div class="point-card">🌐 <strong>Everywhere:</strong> Used in every digital device</div>
+        </div>
+      </div>
+    </div>
     
-    <p>Finding things is super important because:</p>
-    <ul>
-      <li>It helps us get answers really fast, even when there are millions of things to look through!</li>
-      <li>Good ways of finding things make games and apps work better and more fun</li>
-      <li>Smart finding saves the computer's energy so it doesn't get tired</li>
-      <li>It helps us organize our stuff better</li>
-      <li>Almost every app and game uses finding to work properly</li>
-    </ul>
-    
-    <h2>Two Cool Ways to Find Things! 🔍</h2>
-    
-    <h3>1. The Step-by-Step Way (Linear Search) 👣</h3>
-    <p>This is like looking for your sock by checking every drawer one by one! We start at the beginning and check each thing until we find what we're looking for.</p>
-    
-    <h4>How the Step-by-Step Way Works:</h4>
-    <ol>
-      <li>Start at the very first thing in your list</li>
-      <li>Ask "Is this what I'm looking for?"</li>
-      <li>If yes - Hooray! You found it! 🎉</li>
-      <li>If no - Move to the next thing</li>
-      <li>Keep going until you find it or run out of things to check</li>
-    </ol>
-    
-    <h4>Step-by-Step Search Instructions:</h4>
-    <pre><code>BEGIN Find_Something_Step_By_Step(my_list, what_im_looking_for)
-    FOR position = 0 TO length(my_list) - 1
-        IF my_list[position] = what_im_looking_for THEN
-            RETURN position  // Found it here!
-        ENDIF
-    ENDFOR
-    RETURN -1  // Couldn't find it anywhere
-END</code></pre>
-    
-    <h4>Example: Finding Your Friend's Name</h4>
-    <pre><code>BEGIN Find_My_Friend
-    SET friend_list = ["Alice", "Bob", "Charlie", "Diana", "Eve"]
-    SET looking_for = "Charlie"
-    SET where_found = -1
-    
-    FOR position = 0 TO 4
-        IF friend_list[position] = looking_for THEN
-            SET where_found = position
-            BREAK  // Stop looking, we found them!
-        ENDIF
-    ENDFOR
-    
-    IF where_found ≠ -1 THEN
-        DISPLAY looking_for + " is at position " + where_found + "! 🎉"
-    ELSE
-        DISPLAY looking_for + " is not in our friend list 😔"
-    ENDIF
-END</code></pre>
-    
-    <h3>2. The Super-Fast Way (Binary Search) ⚡</h3>
-    <p>This is like playing a guessing game! But first, everything needs to be in order (like books on a shelf from A to Z). Then we can find things super quickly by always guessing the middle!</p>
-    
-    <h4>What You Need for the Super-Fast Way:</h4>
-    <ul>
-      <li><strong>Everything in Order:</strong> Your list must be sorted (like 1, 2, 3, 4, 5...)</li>
-      <li><strong>Quick Access:</strong> You can jump to any spot in your list instantly</li>
-    </ul>
-    
-    <h4>How the Super-Fast Way Works:</h4>
-    <ol>
-      <li>Look at the thing right in the middle of your sorted list</li>
-      <li>Ask "Is this what I'm looking for?"</li>
-      <li>If yes - Amazing! You found it! 🌟</li>
-      <li>If what you want is smaller, look in the left half</li>
-      <li>If what you want is bigger, look in the right half</li>
-      <li>Keep cutting your search area in half until you find it!</li>
-    </ol>
-    
-    <h4>Super-Fast Search Instructions:</h4>
-    <pre><code>BEGIN Find_Something_Super_Fast(sorted_list, what_im_looking_for)
-    SET left_side = 0
-    SET right_side = length(sorted_list) - 1
-    
-    WHILE left_side <= right_side
-        SET middle = (left_side + right_side) / 2
+    <div class="search-methods">
+      <h2>Two Search Strategies! 🔍</h2>
+      
+      <div class="method-card">
+        <h3>1. Linear Search (Step-by-Step) 👣</h3>
+        <p>Like checking every drawer to find your socks!</p>
         
-        IF sorted_list[middle] = what_im_looking_for THEN
-            RETURN middle  // Found it in the middle!
-        ELSE IF sorted_list[middle] < what_im_looking_for THEN
-            SET left_side = middle + 1  // Look on the right side
-        ELSE
-            SET right_side = middle - 1  // Look on the left side
-        ENDIF
-    ENDWHILE
+        <div class="algorithm-steps">
+          <div class="step">1️⃣ Start at the beginning</div>
+          <div class="step">2️⃣ Check: "Is this it?"</div>
+          <div class="step">3️⃣ If yes → Found it! 🎉</div>
+          <div class="step">4️⃣ If no → Move to next</div>
+          <div class="step">5️⃣ Repeat until found</div>
+        </div>
+      </div>
     
-    RETURN -1  // Couldn't find it
-END</code></pre>
-    
-    <h4>Example: Finding a Number in Order</h4>
-    <pre><code>BEGIN Super_Fast_Number_Hunt
-    SET ordered_numbers = [2, 5, 8, 12, 16, 23, 38, 45, 67, 78]
-    SET target = 23
-    SET left_side = 0
-    SET right_side = 9
-    SET found = FALSE
-    
-    WHILE left_side <= right_side AND NOT found
-        SET middle = (left_side + right_side) / 2
-        DISPLAY "Looking at position " + middle + ": " + ordered_numbers[middle]
-        
-        IF ordered_numbers[middle] = target THEN
-            DISPLAY "Found " + target + " at position " + middle + "! 🎯"
-            SET found = TRUE
-        ELSE IF ordered_numbers[middle] < target THEN
-            DISPLAY target + " is bigger, searching right side! ➡️"
-            SET left_side = middle + 1
-        ELSE
-            DISPLAY target + " is smaller, searching left side! ⬅️"
-            SET right_side = middle - 1
-        ENDIF
-    ENDWHILE
-    
-    IF NOT found THEN
-        DISPLAY target + " is not in our list 😔"
+        <div class="code-example">
+          <h4>Linear Search Code:</h4>
+          <pre><code>FOR each item in list:
+    IF item == target:
+        RETURN "Found it!" 🎉
     ENDIF
-END</code></pre>
+ENDFOR
+RETURN "Not found" 😔</code></pre>
+        </div>
+      </div>
     
-    <h2>Which Way is Faster? 🏃‍♀️💨</h2>
+      <div class="method-card">
+        <h3>2. Binary Search (Super-Fast!) ⚡</h3>
+        <p>Like playing a number guessing game - always guess the middle!</p>
+        
+        <div class="requirements">
+          <strong>Requirements:</strong> List must be sorted! 📊
+        </div>
+        
+        <div class="algorithm-steps">
+          <div class="step">1️⃣ Check the middle item</div>
+          <div class="step">2️⃣ Too big? → Search left half</div>
+          <div class="step">3️⃣ Too small? → Search right half</div>
+          <div class="step">4️⃣ Repeat until found! 🌟</div>
+        </div>
     
-    <h3>Let's Compare Our Two Ways! 📊</h3>
-    <p>Just like racing cars, we can see which way of finding things is faster! Let's find out which method wins the race.</p>
+        <div class="code-example">
+          <h4>Binary Search Code:</h4>
+          <pre><code>WHILE left <= right:
+    middle = (left + right) / 2
+    IF list[middle] == target:
+        RETURN "Found!" 🎯
+    ELSE IF list[middle] < target:
+        left = middle + 1  // Search right ➡️
+    ELSE:
+        right = middle - 1  // Search left ⬅️
+    ENDIF
+ENDWHILE</code></pre>
+        </div>
+      </div>
+    </div>
     
-    <h4>Step-by-Step Way Speed:</h4>
-    <ul>
-      <li><strong>Super Lucky:</strong> 1 try - What you want is the very first thing! 🍀</li>
-      <li><strong>Pretty Good:</strong> Half the list - What you want is somewhere in the middle</li>
-      <li><strong>Oh No!:</strong> All the way - What you want is the very last thing or not there at all 😅</li>
-    </ul>
+    <div class="performance-comparison">
+      <h2>Speed Comparison! 🏃‍♀️💨</h2>
+      
+      <div class="comparison-visual">
+        <div class="speed-chart">
+          <h3>The Amazing Difference! 📊</h3>
+          <div class="chart-row">
+            <span class="size">1,000 items:</span>
+            <div class="bar linear">Linear: 1,000 steps 😵</div>
+            <div class="bar binary">Binary: 10 steps 🚀</div>
+          </div>
+          <div class="chart-row">
+            <span class="size">1,000,000 items:</span>
+            <div class="bar linear">Linear: 1,000,000 steps 🤯</div>
+            <div class="bar binary">Binary: 20 steps ✨</div>
+          </div>
+        </div>
+        
+        <div class="usage-guide">
+          <h3>When to Use Each? 🤔</h3>
+          <div class="usage-card">
+            <strong>Linear Search:</strong> Small lists or unsorted data
+          </div>
+          <div class="usage-card">
+            <strong>Binary Search:</strong> Large sorted lists (like phone books!)
+          </div>
+        </div>
+      </div>
+    </div>
     
-    <h4>Super-Fast Way Speed:</h4>
-    <ul>
-      <li><strong>Super Lucky:</strong> 1 try - What you want is right in the middle! 🎯</li>
-      <li><strong>Pretty Good:</strong> Just a few tries - We keep cutting the list in half</li>
-      <li><strong>Even When Unlucky:</strong> Still just a few tries - Amazing! ⚡</li>
-    </ul>
+    <div class="advanced-search">
+      <h2>Advanced Search Techniques! 🌟</h2>
+      
+      <div class="technique-grid">
+        <div class="technique-card">
+          <h3>🕵️‍♀️ Multi-Criteria Search</h3>
+          <p>Find items matching multiple conditions!</p>
+          <div class="example">Find friends who like pizza AND are in 5th grade</div>
+        </div>
+        
+        <div class="technique-card">
+          <h3>🎯 Fuzzy Search</h3>
+          <p>Find "close enough" matches!</p>
+          <div class="example">Search "Pokeman" → finds "Pokemon"</div>
+        </div>
+        
+        <div class="technique-card">
+          <h3>🎮 Grid Search</h3>
+          <p>Search in 2D spaces like game boards!</p>
+          <div class="example">Find pieces on a chess board</div>
+        </div>
+      </div>
+    </div>
     
-    <h4>Speed Race Results! 🏁</h4>
-    <table border="1" style="border-collapse: collapse; width: 100%;">
-      <tr>
-        <th>How Many Things</th>
-        <th>Step-by-Step Way (Worst Case)</th>
-        <th>Super-Fast Way (Worst Case)</th>
-        <th>Winner</th>
-      </tr>
-      <tr>
-        <td>10 things</td>
-        <td>10 tries 😓</td>
-        <td>4 tries 😊</td>
-        <td>Super-Fast! 🥇</td>
-      </tr>
-      <tr>
-        <td>100 things</td>
-        <td>100 tries 😰</td>
-        <td>7 tries 😄</td>
-        <td>Super-Fast! 🥇</td>
-      </tr>
-      <tr>
-        <td>1,000 things</td>
-        <td>1,000 tries 😵</td>
-        <td>10 tries 🤩</td>
-        <td>Super-Fast! 🥇</td>
-      </tr>
-      <tr>
-        <td>1,000,000 things</td>
-        <td>1,000,000 tries 🤯</td>
-        <td>20 tries 🚀</td>
-        <td>Super-Fast! 🥇</td>
-      </tr>
-    </table>
-    
-    <h4>When Should You Use Each Way? 🤔</h4>
-    <ul>
-      <li><strong>Step-by-Step Way:</strong> When you have just a few things, or when things aren't in order</li>
-      <li><strong>Super-Fast Way:</strong> When you have lots of things AND they're already in order (like alphabetical!)</li>
-    </ul>
-    
-    <h3>Amazing Example! 🌟</h3>
-    <p>Imagine you have 1,000,000 Pokemon cards to search through:</p>
-    <ul>
-      <li><strong>Step-by-Step Way:</strong> You might have to look at ALL 1,000,000 cards! That would take forever! 😴</li>
-      <li><strong>Super-Fast Way:</strong> You'll find any card in just 20 looks! That's like magic! ✨</li>
-    </ul>
-    
-    <h2>Even Cooler Ways to Find Things! 🌟</h2>
-    
-    <h3>1. Finding Things with Multiple Clues 🕵️‍♀️</h3>
-    <p>Sometimes you want to find something that matches MORE than one thing! Like finding all your friends who are in 5th grade AND like pizza!</p>
-    <pre><code>BEGIN Find_Friends_With_Multiple_Clues
-    // Find friends who are in 5th grade AND like pizza
-    FOR each friend IN my_friend_list
-        IF friend.grade = "5th grade" AND friend.likes_pizza = TRUE THEN
-            ADD friend TO awesome_friends
-        ENDIF
-    ENDFOR
-    RETURN awesome_friends
-END</code></pre>
-    
-    <h3>2. Finding Things That Are "Close Enough" 🎯</h3>
-    <p>Sometimes you can't remember exactly how to spell something, but you remember it's "close enough"! This is like when you search for "Pokeman" and it finds "Pokemon"!</p>
-    <pre><code>BEGIN Find_Close_Enough_Match(my_list, what_im_looking_for, how_close)
-    SET close_matches = []
-    FOR each item IN my_list
-        SET how_similar = check_how_similar(item, what_im_looking_for)
-        IF how_similar >= how_close THEN
-            ADD item TO close_matches
-        ENDIF
-    ENDFOR
-    RETURN close_matches
-END</code></pre>
-    
-    <h3>3. Finding Things in a Grid (Like Tic-Tac-Toe!) 🎮</h3>
-    <p>Sometimes your things are arranged in rows and columns, like a tic-tac-toe board or a checkerboard!</p>
-    <pre><code>BEGIN Find_In_Grid(game_board, what_im_looking_for)
-    FOR row = 0 TO number_of_rows - 1
-        FOR col = 0 TO number_of_columns - 1
-            IF game_board[row][col] = what_im_looking_for THEN
-                RETURN [row, col]  // Found it at this spot!
-            ENDIF
-        ENDFOR
-    ENDFOR
-    RETURN [-1, -1]  // Couldn't find it anywhere
-END</code></pre>
-    
-    <h2>Cool Places Where Finding Things is Used! 🌍</h2>
-    
-    <h3>Internet Search (Like Google!) 🔍</h3>
-    <p>When you search for "funny cat videos" on Google, it has to look through BILLIONS of websites super fast! It's like having the world's biggest library and finding exactly the book you want in seconds!</p>
-    
-    <h4>How Internet Search Works:</h4>
-    <ol>
-      <li><strong>Web Crawlers:</strong> Special robots visit every website (like digital explorers!)</li>
-      <li><strong>Making Lists:</strong> They make huge lists of what's on each website</li>
-      <li><strong>Ranking:</strong> They figure out which websites are most helpful for you</li>
-      <li><strong>Finding Results:</strong> When you search, they instantly find the best matches!</li>
-    </ol>
-    
-    <h3>Video Games and Apps 🎮</h3>
-    <p>Your favorite games and apps use finding algorithms all the time! When you search for friends, look for items in your inventory, or when game characters find their way around!</p>
-    
-    <h4>Cool Game Examples:</h4>
-    <ul>
-      <li><strong>Finding Friends:</strong> When you search for your friend's username</li>
-      <li><strong>Inventory Search:</strong> Finding that special sword in your huge collection</li>
-      <li><strong>Smart Characters:</strong> When game characters find the best path to walk</li>
-    </ul>
-    
-    <h3>Smart Robots and AI 🤖</h3>
-    <p>Robots and smart computers use finding algorithms to make decisions and solve problems, just like how you might figure out the best way to clean your room!</p>
-    
-    <h4>Robot Examples:</h4>
-    <ul>
-      <li><strong>Game Playing:</strong> Chess computers finding the best moves</li>
-      <li><strong>Robot Navigation:</strong> Robots finding their way around without bumping into things</li>
-      <li><strong>Smart Learning:</strong> AI figuring out patterns in lots of information</li>
-    </ul>
+    <div class="real-world-applications">
+      <h2>Search in the Real World! 🌍</h2>
+      
+      <div class="application-showcase">
+        <div class="app-card">
+          <h3>🔍 Google Search</h3>
+          <p>Searches billions of websites in milliseconds!</p>
+          <div class="fun-fact">Processes 8.5 billion searches daily</div>
+        </div>
+        
+        <div class="app-card">
+          <h3>🎮 Video Games</h3>
+          <p>Find friends, items, and navigate game worlds!</p>
+          <div class="fun-fact">Every inventory search uses algorithms</div>
+        </div>
+        
+        <div class="app-card">
+          <h3>🤖 AI & Robots</h3>
+          <p>Smart decisions and problem-solving!</p>
+          <div class="fun-fact">Chess AI evaluates millions of moves</div>
+        </div>
+        
+        <div class="app-card">
+          <h3>📱 Your Phone</h3>
+          <p>Contact search, app finding, photo search!</p>
+          <div class="fun-fact">Face recognition uses search algorithms</div>
+        </div>
+      </div>
+    </div>
     
     <h3>1. Library Management System</h3>
     <pre><code>BEGIN Library_Search

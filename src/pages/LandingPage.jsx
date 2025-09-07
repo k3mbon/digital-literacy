@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { grades } from '../data/topics';
-import { ChevronRight, BookOpen, Code, Zap } from 'lucide-react';
+import { ChevronRight, BookOpen, Code, Zap, Trophy, Target } from 'lucide-react';
 import '../styles/LandingPage.css';
 
 const LandingPage = ({ onNavigate }) => {
@@ -158,6 +158,59 @@ const LandingPage = ({ onNavigate }) => {
             </div>
             <h3>Smart Assessments</h3>
             <p>Test your knowledge with adaptive quizzes and receive personalized feedback to track your progress.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Quiz System Highlight */}
+      <div className="quiz-system-highlight">
+        <div className="quiz-system-content">
+          <div className="quiz-system-info">
+            <div className="system-badge">
+              <Trophy size={16} />
+              <span>New Feature</span>
+            </div>
+            <h2>Comprehensive Quiz System</h2>
+            <p>Explore our advanced assessment system with 10 quiz types, grade-specific adaptations, and over 10,000 questions covering all digital literacy topics.</p>
+            
+            <div className="quiz-stats">
+              <div className="stat">
+                <span className="stat-number">10</span>
+                <span className="stat-label">Quiz Types</span>
+              </div>
+              <div className="stat">
+                <span className="stat-number">17</span>
+                <span className="stat-label">Subtopics</span>
+              </div>
+              <div className="stat">
+                <span className="stat-number">3</span>
+                <span className="stat-label">Grade Levels</span>
+              </div>
+              <div className="stat">
+                <span className="stat-number">10K+</span>
+                <span className="stat-label">Questions</span>
+              </div>
+            </div>
+            
+            <button 
+              onClick={() => onNavigate('quiz-system')}
+              className="quiz-system-btn"
+            >
+              <Target size={20} />
+              <span>Explore Quiz System</span>
+              <ChevronRight size={16} />
+            </button>
+          </div>
+          
+          <div className="quiz-system-visual">
+            <div className="quiz-types-preview">
+              <div className="quiz-type">Multiple Choice</div>
+              <div className="quiz-type">True/False</div>
+              <div className="quiz-type">Fill in Blank</div>
+              <div className="quiz-type">Code Completion</div>
+              <div className="quiz-type">Scenarios</div>
+              <div className="quiz-type">Drag & Drop</div>
+            </div>
           </div>
         </div>
       </div>
