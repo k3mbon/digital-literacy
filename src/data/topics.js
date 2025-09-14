@@ -267,3 +267,12 @@ export const isSubtopicAppropriateForGrade = (topicId, subtopicId, grade) => {
   
   return gradeInfo.focusSubtopics[topicId].includes(subtopicId);
 };
+
+// Consolidated default export (helps some bundlers / HMR edge cases)
+export default {
+  topics,
+  grades,
+  getDifficultyColor,
+  getGradeAppropriateSubtopics,
+  isSubtopicAppropriateForGrade
+};

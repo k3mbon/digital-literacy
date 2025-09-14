@@ -451,22 +451,35 @@ export class EnhancedQuestionGenerator {
         return userAnswer === question.correct ? question.points || 1 : 0;
       
       case 'fill-blank':
-        const correctAnswer = question.answer?.toLowerCase().trim();
-        const userResponse = userAnswer?.toLowerCase().trim();
-        
-        if (userResponse === correctAnswer) {
-          return question.points || 1;
+        try {
+          const normalize = (val) => {
+            if (val === undefined || val === null) return '';
+            if (Array.isArray(val)) {
+              // If multiple blanks, mark correct only if all match
+              return val.map(v => (typeof v === 'string' ? v : String(v))).join(' ').toLowerCase().trim();
+            }
+            return (typeof val === 'string' ? val : String(val)).toLowerCase().trim();
+          };
+          const correctAnswer = normalize(question.answer);
+          const userResponse = normalize(userAnswer);
+
+          if (!userResponse) return 0; // empty answer
+
+            // Exact match
+          if (userResponse === correctAnswer) {
+            return question.points || 1;
+          }
+
+          // Check alternatives
+          if (question.alternatives && Array.isArray(question.alternatives)) {
+            const isAlternativeCorrect = question.alternatives.some(alt => normalize(alt) === userResponse);
+            return isAlternativeCorrect ? (question.points || 1) : 0;
+          }
+          return 0;
+        } catch (e) {
+          console.warn('Fill-blank scoring error, returning 0', e);
+          return 0;
         }
-        
-        // Check alternatives
-        if (question.alternatives) {
-          const isAlternativeCorrect = question.alternatives.some(alt => 
-            alt.toLowerCase().trim() === userResponse
-          );
-          return isAlternativeCorrect ? (question.points || 1) : 0;
-        }
-        
-        return 0;
       
       case 'multi-select':
         if (!Array.isArray(userAnswer) || !Array.isArray(question.correct)) {

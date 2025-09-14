@@ -1904,7 +1904,7 @@ export const InteractiveCodeExample = ({ code, steps, title, onComplete }) => {
 // ArduinoPlayground is now imported from its own file
 
 // Main component router for interactive lesson components
-const InteractiveLessonComponents = ({ component, ...props }) => {
+const InteractiveLessonComponentRouter = ({ component, ...props }) => {
   switch (component) {
     case 'story':
       return <InteractiveStory {...props} />;
@@ -2692,3 +2692,28 @@ export const RoboticsSimulator = ({ title, description, capabilities, onComplete
     </div>
   );
 };
+
+// NOTE: Single consolidated export to avoid duplication issues
+const InteractiveLessonComponentRegistry = {
+  InteractiveStory,
+  SDLCSimulator,
+  SelectionSimulator,
+  SearchVisualizer,
+  HandsOnPractice,
+  LibraryExplorer,
+  PCBuildingSimulator,
+  ArduinoSimulator,
+  InteractiveList,
+  InteractiveCodeExample,
+  InteractiveCodeChallenge,
+  InteractiveQuiz,
+  DecisionTreeSimulator,
+  OptimizationComparison,
+  IoTSimulator,
+  RoboticsSimulator,
+  Router: InteractiveLessonComponentRouter
+};
+
+export { InteractiveLessonComponentRouter };
+
+export default InteractiveLessonComponentRegistry;

@@ -149,10 +149,26 @@ const ModernLessonPage = ({ onNavigate, gradeLevel, topicId, subtopicId }) => {
         .replace(/<h3>([^<]+)<\/h3>/g, '<div class="htb-mixed-subsection-header"><IconBulb class="subsection-icon" /><h3>$1</h3></div>');
     }
     
-    // Add HTB-style interactive elements
+    // Add HTB-style interactive elements (delegates to enhancement pipeline)
     transformedContent = enhanceWithHTBElements(transformedContent);
     
     return transformedContent;
+  };
+
+  // Missing helper previously referenced – provide lightweight wrapper
+  const enhanceWithHTBElements = (content) => {
+    // For now reuse interactive enhancer; can be extended with additional HTB-specific transforms
+    return enhanceWithInteractiveElements(content);
+  };
+
+  // Provide readable pipeline function used in JSX (previously undefined -> runtime error)
+  const transformContentToReadable = (content) => {
+    try {
+      return enhanceWithInteractiveElements(transformContentToHTBStyle(content));
+    } catch (e) {
+      console.warn('Content transform failed, returning raw content', e);
+      return content || '';
+    }
   };
 
   // Create visual diagrams from simple text
@@ -313,6 +329,46 @@ const ModernLessonPage = ({ onNavigate, gradeLevel, topicId, subtopicId }) => {
         sections: sections
       };
     }
+
+    // Fallback: build sections from readings / interactive elements if present
+    const fallbackSections = [];
+    if (Array.isArray(data.readings)) {
+      data.readings.forEach((reading, idx) => {
+        if (reading && (reading.content || reading.title)) {
+          fallbackSections.push({
+            id: `reading-${idx}`,
+            title: reading.title || `Reading ${idx + 1}`,
+            content: reading.content || '<p>No content available.</p>',
+            estimatedTime: 5,
+            difficulty: 'beginner'
+          });
+        }
+      });
+    }
+    if (Array.isArray(data.interactiveElements)) {
+      data.interactiveElements.forEach((el, idx) => {
+        const activityHtml = `
+          <h3>${el.title || 'Activity'}</h3>
+          <p>${el.description || ''}</p>
+          <p><em>Interactive element (type: ${el.type}) not fully rendered in this view.</em></p>
+        `;
+        fallbackSections.push({
+          id: `activity-${idx}`,
+          title: el.title || `Activity ${idx + 1}`,
+            content: activityHtml,
+            estimatedTime: 5,
+            difficulty: 'beginner'
+        });
+      });
+    }
+    if (fallbackSections.length) {
+      console.warn('Lesson missing primary content/sections; using fallback constructed sections.');
+      return {
+        title: data.title || subtopic?.title || 'Lesson',
+        description: data.description || subtopic?.description,
+        sections: fallbackSections
+      };
+    }
     
     return { title: data.title || 'Lesson', sections: [] };
   };
@@ -397,6 +453,21 @@ const ModernLessonPage = ({ onNavigate, gradeLevel, topicId, subtopicId }) => {
       <div className="lesson-page htb-container" style={{ padding: '40px', textAlign: 'center' }}>
         <h1>Lesson Content Unavailable</h1>
         <p>Sorry, this lesson content could not be loaded properly.</p>
+        <button 
+          className="htb-btn htb-btn-primary"
+          onClick={() => onNavigate('topic', { gradeLevel, topicId })}
+        >
+          Back to Topic
+        </button>
+      </div>
+    );
+  }
+
+  if (lesson.sections.length === 0) {
+    return (
+      <div className="lesson-page htb-container" style={{ padding: '40px', textAlign: 'center' }}>
+        <h1>{lesson.title}</h1>
+        <p>This lesson currently has no content defined. Please check back later.</p>
         <button 
           className="htb-btn htb-btn-primary"
           onClick={() => onNavigate('topic', { gradeLevel, topicId })}

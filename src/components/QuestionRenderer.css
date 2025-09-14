@@ -119,7 +119,7 @@
 }
 
 .multiple-choice .option.selected .option-text {
-  color: #808080;
+  color: #ffffff; /* Keep text white when selected */
 }
 
 /* True/False Styles */
@@ -428,6 +428,68 @@
   grid-template-columns: 1fr 2fr;
   gap: 2rem;
   margin-top: 1rem;
+}
+
+/* Enhanced interactive drag/drop */
+.drag-drop-container.interactive {
+  position: relative;
+}
+.interactive-pool {
+  position: relative;
+  min-height: 180px;
+}
+.interactive-draggable {
+  position: relative;
+  background: rgba(255,193,7,0.12);
+  border: 1px solid rgba(255,193,7,0.35);
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: 0.55rem;
+  cursor: grab;
+  user-select: none;
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+.interactive-draggable:hover {
+  box-shadow: 0 4px 12px rgba(255,193,7,0.25);
+}
+.interactive-draggable.dragging {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.95;
+  cursor: grabbing;
+  box-shadow: 0 6px 18px rgba(255,193,7,0.35), 0 0 0 3px rgba(255,193,7,0.4);
+  transform: scale(1.04);
+}
+.interactive-zone {
+  transition: background 0.25s ease, border-color 0.25s ease;
+  min-height: 110px;
+  position: relative;
+}
+.interactive-zone::after {
+  content: 'Drop here';
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.interactive-zone:hover {
+  background: rgba(255,193,7,0.07);
+  border-color: rgba(255,193,7,0.4);
+}
+.drag-hint {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .items-pool {

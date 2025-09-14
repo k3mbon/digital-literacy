@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { useRef } from 'react';
 import { Check, X, Code, Image, Target } from 'lucide-react';
 import './QuestionRenderer.css';
 
@@ -11,6 +12,18 @@ const QuestionRenderer = ({ question, selectedAnswer, onAnswerChange, questionNu
   const [multiSelectAnswers, setMultiSelectAnswers] = useState([]);
   const [dropZoneItems, setDropZoneItems] = useState({});
   const [orderingItems, setOrderingItems] = useState([]);
+  // Custom drag-drop (for question.type === 'drag-drop')
+  const [draggingItem, setDraggingItem] = useState(null); // index of item being dragged
+  const [dragPos, setDragPos] = useState({ x: 0, y: 0 });
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const dropZoneRefs = useRef([]);
+  const dragContainerRef = useRef(null);
+
+  // Moved above effects to avoid temporal dead zone when referenced in dependency arrays
+  const handleAnswerUpdate = useCallback((answer) => {
+    setLocalAnswer(answer);
+    onAnswerChange(answer);
+  }, [onAnswerChange]);
 
   // Single drag end handler for all drag-drop operations
   const handleDragEnd = (result) => {
@@ -77,10 +90,55 @@ const QuestionRenderer = ({ question, selectedAnswer, onAnswerChange, questionNu
     }
   }, [question, selectedAnswer]);
 
-  const handleAnswerUpdate = (answer) => {
-    setLocalAnswer(answer);
-    onAnswerChange(answer);
-  };
+  // Ensure fill-blank (and other types) don't retain previous question's local input state
+  useEffect(() => {
+    // Reset local answer when question id changes
+    setLocalAnswer(selectedAnswer || null);
+  }, [question.id]);
+
+  // Global mouse handlers for custom drag-drop
+  useEffect(() => {
+    const handleMove = (e) => {
+      if (draggingItem === null) return;
+      setDragPos({ x: e.clientX - dragOffset.x, y: e.clientY - dragOffset.y });
+    };
+    const handleUp = (e) => {
+      if (draggingItem === null) return;
+      // Determine drop zone under cursor center
+      const cursorX = e.clientX;
+      const cursorY = e.clientY;
+      let matchedZone = null;
+      dropZoneRefs.current.forEach((el, idx) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        if (cursorX >= rect.left && cursorX <= rect.right && cursorY >= rect.top && cursorY <= rect.bottom) {
+          matchedZone = idx;
+        }
+      });
+      if (matchedZone !== null) {
+        const itemId = `item-${draggingItem}`;
+        setDropZoneItems(prev => {
+          const updated = { ...prev };
+          // Remove existing mapping of this item if previously placed
+          Object.keys(updated).forEach(zoneKey => {
+            if (updated[zoneKey] === itemId) delete updated[zoneKey];
+          });
+          updated[`zone-${matchedZone}`] = itemId;
+          handleAnswerUpdate(updated);
+          return updated;
+        });
+      }
+      setDraggingItem(null);
+    };
+    window.addEventListener('mousemove', handleMove);
+    window.addEventListener('mouseup', handleUp);
+    return () => {
+      window.removeEventListener('mousemove', handleMove);
+      window.removeEventListener('mouseup', handleUp);
+    };
+  }, [draggingItem, dragOffset, handleAnswerUpdate]);
+
+  // (previous handleAnswerUpdate definition moved higher)
 
   const renderMultipleChoice = () => (
     <div className="answer-section multiple-choice">
@@ -292,56 +350,51 @@ const QuestionRenderer = ({ question, selectedAnswer, onAnswerChange, questionNu
   );
 
   const renderDragDrop = () => {
+    // Available items exclude those already placed
+    const placedIds = new Set(Object.values(dropZoneItems));
+    const availableItems = question.draggableItems.map((item, idx) => ({ item, idx })).filter(({ idx }) => !placedIds.has(`item-${idx}`));
     return (
-      <div className="answer-section drag-drop">
+      <div className="answer-section drag-drop" ref={dragContainerRef}>
         <p className="instruction">Drag items to the correct drop zones:</p>
-        <div className="drag-drop-container">
-          <Droppable droppableId="items-pool">
-            {(provided) => (
-              <div {...provided.droppableProps} ref={provided.innerRef} className="items-pool">
-                <h4>Available Items:</h4>
-                {question.draggableItems.filter(item => 
-                  !Object.values(dropZoneItems).includes(`item-${question.draggableItems.indexOf(item)}`)
-                ).map((item, index) => {
-                  const itemId = `item-${question.draggableItems.indexOf(item)}`;
-                  return (
-                    <Draggable key={itemId} draggableId={itemId} index={index}>
-                      {(provided) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          className="draggable-item"
-                        >
-                          {item}
-                        </div>
-                      )}
-                    </Draggable>
-                  );
-                })}
-                {provided.placeholder}
+        <div className="drag-drop-container interactive">
+          <div className="items-pool interactive-pool">
+            <h4>Available Items:</h4>
+            {availableItems.map(({ item, idx }) => (
+              <div
+                key={idx}
+                className={`interactive-draggable ${draggingItem === idx ? 'dragging' : ''}`}
+                onMouseDown={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  setDraggingItem(idx);
+                  setDragOffset({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+                  setDragPos({ x: rect.left, y: rect.top });
+                }}
+                style={draggingItem === idx ? { left: dragPos.x, top: dragPos.y } : {}}
+              >
+                {item}
               </div>
-            )}
-          </Droppable>
-          
+            ))}
+          </div>
           <div className="drop-zones">
             {question.dropZones.map((zone, index) => (
-              <Droppable key={`zone-${index}`} droppableId={`zone-${index}`}>
-                {(provided) => (
-                  <div {...provided.droppableProps} ref={provided.innerRef} className="drop-zone">
-                    <h4>{zone}</h4>
-                    {dropZoneItems[`zone-${index}`] && (
-                      <div className="dropped-item">
-                        {question.draggableItems[parseInt(dropZoneItems[`zone-${index}`].split('-')[1])]}
-                      </div>
-                    )}
-                    {provided.placeholder}
+              <div
+                key={index}
+                className="drop-zone interactive-zone"
+                ref={el => (dropZoneRefs.current[index] = el)}
+              >
+                <h4>{zone}</h4>
+                {dropZoneItems[`zone-${index}`] && (
+                  <div className="dropped-item">
+                    {question.draggableItems[parseInt(dropZoneItems[`zone-${index}`].split('-')[1])]}
                   </div>
                 )}
-              </Droppable>
+              </div>
             ))}
           </div>
         </div>
+        {draggingItem !== null && (
+          <div className="drag-hint">Release over a zone to place the item</div>
+        )}
       </div>
     );
   };

@@ -392,17 +392,20 @@ const Assessment = ({ onNavigate, gradeLevel, topicId, subtopicId }) => {
   const calculateScore = () => {
     let totalScore = 0;
     let maxScore = questions.length;
+    let correctCount = 0;
     
     questions.forEach(question => {
       const userAnswer = selectedAnswers[question.id];
       const questionScore = questionGenerator.calculateQuestionScore(question, userAnswer);
       totalScore += questionScore;
+  if (questionScore > 0) correctCount += 1;
     });
     
     return {
       score: Math.round(totalScore),
       total: maxScore,
-      percentage: Math.round((totalScore / maxScore) * 100)
+      percentage: Math.round((totalScore / maxScore) * 100),
+      correct: correctCount
     };
   };
 
@@ -3779,13 +3782,51 @@ const Assessment = ({ onNavigate, gradeLevel, topicId, subtopicId }) => {
             <div className="questions-review">
               {questions.map((question, index) => {
                 const userAnswer = selectedAnswers[question.id];
-                const isCorrect = question.type === 'multiple-choice' || question.type === 'true-false' 
-                  ? userAnswer === question.correct
-                  : question.type === 'fill-blank'
-                  ? userAnswer?.toLowerCase().trim() === question.answer.toLowerCase() ||
-                    question.alternatives?.some(alt => alt.toLowerCase() === userAnswer?.toLowerCase().trim())
-                  : JSON.stringify(userAnswer) === JSON.stringify(question.correct);
-                
+
+                // Normalize helper
+                const norm = (v) => typeof v === 'string' ? v.trim().toLowerCase() : '';
+
+                // Extract choice for true/false if object with justification
+                const effectiveUserAnswer = (question.type === 'true-false' && userAnswer && typeof userAnswer === 'object' && 'choice' in userAnswer)
+                  ? userAnswer.choice
+                  : userAnswer;
+
+                let isCorrect = false;
+                if (question.type === 'multiple-choice' || question.type === 'true-false') {
+                  isCorrect = effectiveUserAnswer === question.correct;
+                } else if (question.type === 'fill-blank') {
+                  if (Array.isArray(effectiveUserAnswer)) {
+                    const expectedArray = Array.isArray(question.answer) ? question.answer : [question.answer];
+                    // Determine alternative structure: flat or per-blank arrays
+                    const alternatives = Array.isArray(question.alternatives) ? question.alternatives : [];
+                    const perBlankAlts = Array.isArray(alternatives[0]) ? alternatives : null;
+                    isCorrect = effectiveUserAnswer.every((ua, i) => {
+                      const uaNorm = norm(ua);
+                      const expectedNorm = norm(expectedArray[i] !== undefined ? expectedArray[i] : expectedArray[0]);
+                      if (!uaNorm) return false;
+                      if (uaNorm === expectedNorm) return true;
+                      if (perBlankAlts) {
+                        return (perBlankAlts[i] || []).map(norm).includes(uaNorm);
+                      }
+                      return alternatives.map(norm).includes(uaNorm);
+                    });
+                  } else {
+                    const uaNorm = norm(effectiveUserAnswer);
+                    const ansNorm = norm(Array.isArray(question.answer) ? question.answer[0] : question.answer);
+                    const altList = Array.isArray(question.alternatives)
+                      ? (Array.isArray(question.alternatives[0]) ? question.alternatives.flat() : question.alternatives).map(norm)
+                      : [];
+                    isCorrect = !!uaNorm && (uaNorm === ansNorm || altList.includes(uaNorm));
+                  }
+                } else {
+                  // Fallback deep equality for other structured answers
+                  try {
+                    isCorrect = JSON.stringify(effectiveUserAnswer) === JSON.stringify(question.correct);
+                  } catch {
+                    isCorrect = false;
+                  }
+                }
+
                 return (
                   <div key={question.id} className={`question-result ${isCorrect ? 'correct' : 'incorrect'}`}>
                     <div className="question-header">
@@ -3798,15 +3839,16 @@ const Assessment = ({ onNavigate, gradeLevel, topicId, subtopicId }) => {
                       <p className="question-text">{question.question}</p>
                       <div className="answer-info">
                         <p><strong>Your answer:</strong> {userAnswer !== undefined ? 
-                          (question.type === 'multiple-choice' ? question.options[userAnswer] :
-                           question.type === 'true-false' ? (userAnswer ? 'True' : 'False') :
-                           userAnswer) : 'Not answered'}
+                          (question.type === 'multiple-choice' ? question.options[effectiveUserAnswer] :
+                           question.type === 'true-false' ? (effectiveUserAnswer === undefined ? 'Not answered' : (effectiveUserAnswer ? 'True' : 'False')) :
+                           (Array.isArray(effectiveUserAnswer) ? effectiveUserAnswer.join(', ') : (typeof effectiveUserAnswer === 'string' ? effectiveUserAnswer : JSON.stringify(effectiveUserAnswer)))
+                          ) : 'Not answered'}
                         </p>
                         {!isCorrect && (
                           <p><strong>Correct answer:</strong> {
                             question.type === 'multiple-choice' ? question.options[question.correct] :
                             question.type === 'true-false' ? (question.correct ? 'True' : 'False') :
-                            question.type === 'fill-blank' ? question.answer :
+                            question.type === 'fill-blank' ? (Array.isArray(question.answer) ? question.answer.join(', ') : question.answer) :
                             'See explanation'
                           }</p>
                         )}
